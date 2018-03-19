@@ -16,6 +16,8 @@ Route::group([
 
 ], function () {
 
+    Route::view('/', 'admin.dashboard');
+    
     Route::resource('post', 'PostController');
     Route::resource('user', 'UserController');
 
