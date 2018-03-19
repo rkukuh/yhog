@@ -44,7 +44,7 @@
     <body class="hold-transition skin-red sidebar-mini">
     @endrole
 
-    @role('customer')
+    @role('editor')
     <body class="hold-transition skin-green sidebar-mini">
     @endrole
 
