@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\User;
-use App\ModelsAdminPost;
+use App\Models\Admin\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostPolicy
@@ -11,19 +11,19 @@ class PostPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the modelsAdminPost.
+     * Determine whether the user can view the post.
      *
      * @param  \App\User  $user
-     * @param  \App\ModelsAdminPost  $modelsAdminPost
+     * @param  \App\Models\Admin\Post  $post
      * @return mixed
      */
-    public function view(User $user, ModelsAdminPost $modelsAdminPost)
+    public function view(User $user, Post $post)
     {
         //
     }
 
     /**
-     * Determine whether the user can create modelsAdminPosts.
+     * Determine whether the user can create posts.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -34,25 +34,25 @@ class PostPolicy
     }
 
     /**
-     * Determine whether the user can update the modelsAdminPost.
+     * Determine whether the user can update the post.
      *
      * @param  \App\User  $user
-     * @param  \App\ModelsAdminPost  $modelsAdminPost
+     * @param  \App\Models\Admin\Post  $post
      * @return mixed
      */
-    public function update(User $user, ModelsAdminPost $modelsAdminPost)
+    public function update(User $user, Post $post)
     {
         //
     }
 
     /**
-     * Determine whether the user can delete the modelsAdminPost.
+     * Determine whether the user can delete the post.
      *
      * @param  \App\User  $user
-     * @param  \App\ModelsAdminPost  $modelsAdminPost
+     * @param  \App\Models\Admin\Post  $post
      * @return mixed
      */
-    public function delete(User $user, ModelsAdminPost $modelsAdminPost)
+    public function delete(User $user, Post $post)
     {
         //
     }
