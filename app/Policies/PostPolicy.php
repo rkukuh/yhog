@@ -6,7 +6,7 @@ use App\User;
 use App\ModelsAdminPost;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class Post
+class PostPolicy
 {
     use HandlesAuthorization;
 
