@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ExampleDataSeeder extends Seeder
+class User extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,6 @@ class ExampleDataSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(User::class);
-        $this->call(Post::class);
+        //
     }
 }
