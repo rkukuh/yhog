@@ -16,7 +16,7 @@ Route::group([
 
 ], function () {
 
-    Route::view('/', 'admin.dashboard');
+    Route::view('/', 'admin.dashboard.index')->name('dashboard.index');
     
     Route::resource('post', 'PostController');
     Route::resource('user', 'UserController');
