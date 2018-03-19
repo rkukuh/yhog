@@ -17,5 +17,6 @@ Route::group([
 ], function () {
 
     Route::resource('post', 'PostController');
+    Route::resource('user', 'UserController');
 
 });
