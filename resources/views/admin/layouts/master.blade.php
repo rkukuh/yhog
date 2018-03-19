@@ -50,9 +50,9 @@
 
         <div class="wrapper">
 
-            @include('backend.layout._header')
+            @include('admin.layouts._header')
 
-            @include('backend.layout._sidebar')
+            @include('admin.layouts._sidebar')
 
             <div class="content-wrapper">
                 <section class="content-header">
@@ -61,14 +61,14 @@
                     </h1>
                 </section>
 
-                @include('backend.layout._alert')
+                @include('admin.layouts._alert')
 
                 @if ( ! isset($custom_content) )
 
                     @if ( ! isset($content_alt) )
-                        @include('backend.layout._content')
+                        @include('admin.layouts._content')
                     @else
-                        @include('backend.layout._content-and-form')
+                        @include('admin.layouts._content-and-form')
                     @endif
 
                 @else
@@ -76,7 +76,7 @@
                 @endif
             </div>
 
-            @include('backend.layout._footer')
+            @include('admin.layouts._footer')
 
         </div>
 
