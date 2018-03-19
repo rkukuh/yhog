@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserStore;
+use App\Http\Requests\Admin\UserUpdate;
 
 class UserController extends Controller
 {
@@ -31,10 +32,10 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \UserStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \UserUpdate  $request
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdate $request, User $user)
     {
         //
     }
