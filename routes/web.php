@@ -18,6 +18,8 @@ Route::group([
 
     Route::view('/', 'admin.dashboard.index')->name('dashboard.index');
     
+    Route::resource('category', 'CategoryController');
+
     Route::resource('post', 'PostController');
     Route::resource('user', 'UserController');
 
