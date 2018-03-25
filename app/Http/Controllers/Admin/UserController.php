@@ -9,6 +9,13 @@ use App\Http\Requests\Admin\UserUpdate;
 
 class UserController extends Controller
 {
+    protected $users;
+
+    public function __construct()
+    {
+        $this->users = User::paginate(env('PAGINATE', 5));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,17 +23,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(env('PAGINATE', 5));
-
-        // Use alternative content template
-        $content_alt = true;
-
-        return view('admin.user.index',
-                    compact(
-                        'users',
-                        'content_alt'
-                    )
-        );
+        return view('admin.user.index', [
+            'users' => $this->users,
+            'content_alt' => true
+        ]);
     }
 
     /**
