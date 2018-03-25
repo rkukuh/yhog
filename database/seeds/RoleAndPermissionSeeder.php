@@ -13,6 +13,8 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
+        /** ADMIN **/
+
         $admin = Role::create(['name' => 'admin']);
 
         $admin->givePermissionTo(
@@ -26,5 +28,9 @@ class RoleAndPermissionSeeder extends Seeder
         $admin->givePermissionTo(
             Permission::create(['name' => 'remove-user'])
         );
+
+        /** GUEST **/
+
+        Role::create(['name' => 'guest']);
     }
 }
