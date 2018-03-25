@@ -13,7 +13,7 @@ class UserStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +24,9 @@ class UserStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|email|unique:users|min:3',
+            'password' => 'required|min:6',
         ];
     }
 }
