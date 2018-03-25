@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserUpdate extends FormRequest
@@ -13,7 +14,7 @@ class UserUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +25,13 @@ class UserUpdate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users')->ignore($this->user->id)
+            ],
+            'password' => 'required|min:6',
         ];
     }
 }
