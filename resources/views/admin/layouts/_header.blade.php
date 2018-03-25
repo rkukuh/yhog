@@ -1,7 +1,11 @@
 <header class="main-header">
     <a href="#" class="logo">
-        <span class="logo-mini"><b>E</b></span>
-        <span class="logo-lg">Quanto<b>CMS</b></span>
+        <span class="logo-mini">
+            <b>Y</b>
+        </span>
+        <span class="logo-lg">
+            Y.H.O.G <b>CMS</b>
+        </span>
     </a>
 
     <nav class="navbar navbar-static-top">
