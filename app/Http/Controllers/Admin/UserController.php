@@ -47,7 +47,9 @@ class UserController extends Controller
      */
     public function store(UserStore $request)
     {
-        //
+        User::create($request->all());
+
+        return back()->with('success-message', 'New user has been added.');
     }
 
     /**
