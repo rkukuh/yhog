@@ -16,7 +16,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::paginate(env('PAGINATE', 5));
+
+        // Use alternative content template
+        $content_alt = true;
+
+        return view('admin.user.index',
+                    compact(
+                        'users',
+                        'content_alt'
+                    )
+        );
     }
 
     /**
