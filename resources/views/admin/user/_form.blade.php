@@ -20,13 +20,13 @@
 
     <form action="{{ route('user.update', $user_edit) }}" method="post">
 
-        {{ method_field('PATCH') }}
+        @method('PATCH')
 
-        <input type="hidden" name="page" id="name" value="{{ $_GET['page'] }}">
+        <input type="hidden" name="page" id="page" value="{{ $_GET['page'] }}">
 
 @endif
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="box-body">
             <div class="form-group {{ $errors->has('name') ? 'has-error has-feedback' : '' }}">
