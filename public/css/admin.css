@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.select2 .level-2 {
+  margin-left: 10px;
+}
+
+.table-leveled .level-2 .leveled:before {
+  content: "\2014   ";
+}
+
+.table-leveled .level-3 .leveled:before {
+  content: "\2014\2014   ";
+}
+
