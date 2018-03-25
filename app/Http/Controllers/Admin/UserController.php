@@ -24,8 +24,8 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.user.index', [
-            'users' => $this->users,
-            'content_alt' => true
+            'content_alt' => true,
+            'users' => $this->users
         ]);
     }
 
@@ -71,19 +71,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $users     = User::paginate(env('PAGINATE', 5));
-        $user_edit = $user;
-
-        // Use alternative content template
-        $content_alt = true;
-
-        return view('admin.user.index',
-                    compact(
-                        'user_edit',
-                        'users',
-                        'content_alt'
-                    )
-        );
+        return view('admin.user.index', [
+            'user_edit' => $user,
+            'content_alt' => true,
+            'users' => $this->users
+        ]);
     }
 
     /**
