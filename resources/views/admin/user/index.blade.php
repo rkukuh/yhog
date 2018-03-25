@@ -54,3 +54,6 @@
     @endif
 @endsection
 
+@section('content-alt-form')
+    @include('admin.user._form')
+@endsection
