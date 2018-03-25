@@ -71,7 +71,19 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $users     = User::paginate(env('PAGINATE', 5));
+        $user_edit = $user;
+
+        // Use alternative content template
+        $content_alt = true;
+
+        return view('admin.user.index',
+                    compact(
+                        'user_edit',
+                        'users',
+                        'content_alt'
+                    )
+        );
     }
 
     /**
