@@ -14,7 +14,7 @@
 
             @role('admin')
             <li class="treeview">
-                <a href="#post"><i class="fa fa-file-text-o"></i> <span>Post</span>
+                <a href="#blog"><i class="fa fa-file-text-o"></i> <span>Blog</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
