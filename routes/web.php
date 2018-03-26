@@ -21,7 +21,7 @@ Route::group([
     Route::view('/', 'admin.dashboard.index')->name('dashboard.index');
     
     Route::resource('post', 'PostController');
-    Route::resource('category', 'CategoryPostController');
+    Route::resource('category', 'CategoryPostController'); // TODO: can it has 'category.post' prefix name?
 
     Route::resource('user', 'UserController');
 
