@@ -25,6 +25,11 @@
                             <i class="fa fa-circle-o"></i> Post
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('category.index') }}">
+                            <i class="fa fa-circle-o"></i> Category
+                        </a>
+                    </li>
                 </ul>
             </li>
             @endrole
