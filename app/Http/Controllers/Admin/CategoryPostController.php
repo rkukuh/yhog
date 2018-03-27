@@ -54,7 +54,7 @@ class CategoryPostController extends Controller
     {
         Category::create($request->all());
 
-        return back()->with('success-message', 'New post\'s category has been added.');
+        return back()->with('success-message', 'New post category has been added.');
     }
 
     /**
@@ -92,7 +92,13 @@ class CategoryPostController extends Controller
      */
     public function update(CategoryPostUpdate $request, Category $category)
     {
-        //
+        $category->update($request->all());
+
+        return redirect()
+                ->route('category-post.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Post category has been updated.');
     }
 
     /**
