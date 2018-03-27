@@ -29,7 +29,7 @@ class CategoryPostUpdate extends FormRequest
                 'required',
                 Rule::unique('categories')->ignore($this->category->id),
                 'min:3',
-                'max:20'
+                'max:30'
             ],
             'parent_id' => 'nullable|exists:categories,id',
         ];
