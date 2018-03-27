@@ -34,6 +34,17 @@ class Category extends Model
         static::addGlobalScope(new OrderByColumn('name'));
     }
 
+    /**
+     * Scope a query to only include category of blog.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfBlog($query)
+    {
+        return $query->where('_of', 'blog');
+    }
+
 
     /*************************************** RELATIONSHIP ****************************************/
 
