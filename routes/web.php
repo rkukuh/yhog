@@ -29,6 +29,12 @@ Route::group([
         'parameters' => ['category-post' => 'category']
     ]);
 
+    /** EVENT **/
+
+    Route::resource('category-event', 'CategoryEventController', [
+        'parameters' => ['category-event' => 'category']
+    ]);
+
     /** SETTING **/
 
     Route::resource('user', 'UserController');
