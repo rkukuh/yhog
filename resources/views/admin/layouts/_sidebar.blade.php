@@ -57,6 +57,28 @@
             @endrole
 
             @role('admin')
+            <li class="treeview">
+                <a href="#partner"><i class="fa fa-users"></i> <span>Partner</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-circle-o"></i> Partner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('category-partner.index') }}">
+                            <i class="fa fa-circle-o"></i> Category
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            @endrole
+
+            @role('admin')
             <li>
                 <a href="{{ route('user.index') }}">
                     <i class="fa fa-user"></i> <span>User</span>
