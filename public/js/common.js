@@ -60,9 +60,9 @@ $(function() {
         $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/dashboard"]').parent().addClass('active');
     }
     
-    if (full_url.indexOf('admin/category') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#post"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category"]').parent().addClass('active');
+    if (full_url.indexOf('admin/category-post') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#blog"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-post"]').parent().addClass('active');
     }
 
     if (full_url.indexOf('admin/post') > -1) {
