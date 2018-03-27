@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryPartnerStore;
+use App\Http\Requests\Admin\CategoryPartnerUpdate;
 
 class CategoryPartnerController extends Controller
 {
@@ -31,10 +32,10 @@ class CategoryPartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryPartnerStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryPartnerStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class CategoryPartnerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryPartnerUpdate  $request
      * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryPartnerUpdate $request, Category $category)
     {
         //
     }
