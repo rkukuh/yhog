@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryEventUpdate extends FormRequest
@@ -13,7 +14,7 @@ class CategoryEventUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +25,26 @@ class CategoryEventUpdate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                Rule::unique('categories')->ignore($this->category->id),
+                'min:3',
+                'max:30'
+            ],
+            'parent_id' => 'nullable|exists:categories,id',
         ];
+    }
+
+    /**
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $this->merge(['slug' => str_slug($this->name)]);
+        });
     }
 }
