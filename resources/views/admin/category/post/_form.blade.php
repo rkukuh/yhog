@@ -42,7 +42,7 @@
                 @endif
             </div>
 
-            <div class="form-group {{ $errors->has('parent_id') ? 'has-error has-feedback' : '' }}">
+            <div class="form-group {{ $errors->has('parent_id') ? 'has-error' : '' }}">
                 <label for="parent_id">
                     Parent @include('common.form.label-required-field')
                 </label>
@@ -71,7 +71,7 @@
                 </select>
 
                 @if ($errors->has('parent_id'))
-                    @include('components.form.input-error-message', [
+                    @include('common.form.input-error-message-no-feedback', [
                         'message' => $errors->first('parent_id')
                     ])
                 @endif
