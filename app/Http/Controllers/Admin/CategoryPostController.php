@@ -30,7 +30,7 @@ class CategoryPostController extends Controller
 
         return view('admin.category.post.index', [
             'content_alt' => true,
-            'categories'  => $this->categories,
+            'categories'  => $this->categories
         ]);
     }
 
@@ -77,7 +77,7 @@ class CategoryPostController extends Controller
         return view('admin.category.post.index', [
             'content_alt'   => true,
             'category_edit' => $category,
-            'categories'    => $this->categories,
+            'categories'    => $this->categories
         ]);
     }
 
