@@ -2,11 +2,11 @@
 
     @if (URL::current() == route('category-post.index'))
 
-        <h3 class="box-title">Create New Post's Category</h3>
+        <h3 class="box-title">Create New Post Category</h3>
 
     @elseif (URL::current() == route('category-post.edit', $category_edit))
 
-        <h3 class="box-title">Edit Post's Category</h3>
+        <h3 class="box-title">Edit Post Category</h3>
 
     @endif
 

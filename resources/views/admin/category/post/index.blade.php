@@ -4,10 +4,10 @@
 ])
 
 @section('content-title')
-    CATEGORY <small>of Post</small>
+    POST CATEGORY <small>of Blog</small>
 @endsection
 
-@section('content-alt-header', 'Post\'s Category List')
+@section('content-alt-header', 'Post Category List')
 
 @section('content-alt-body')
     @if ($categories->isEmpty())
