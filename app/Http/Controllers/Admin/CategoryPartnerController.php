@@ -9,6 +9,16 @@ use App\Http\Requests\Admin\CategoryPartnerUpdate;
 
 class CategoryPartnerController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofPartner()
+                                    ->with('parent', 'childs')
+                                    ->doesntHave('parent')
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,10 @@ class CategoryPartnerController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.category.partner.index', [
+            'content_alt' => true,
+            'categories'  => $this->categories
+        ]);
     }
 
     /**
