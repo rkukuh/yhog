@@ -90,7 +90,13 @@ class CategoryPartnerController extends Controller
      */
     public function update(CategoryPartnerUpdate $request, Category $category)
     {
-        //
+        $category->update($request->all());
+
+        return redirect()
+                ->route('category-partner.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Partner category has been updated.');
     }
 
     /**
