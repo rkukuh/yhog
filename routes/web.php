@@ -11,7 +11,7 @@ Route::redirect('/home', '/admin', 301);
 
 Route::group([
 
-    'name'          => 'admin',
+    'name'          => 'admin.',
     'prefix'        => 'admin',
     'namespace'     => 'Admin',
     'middleware'    => 'auth'
