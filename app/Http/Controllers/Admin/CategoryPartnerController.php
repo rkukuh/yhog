@@ -107,6 +107,8 @@ class CategoryPartnerController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('success-message', 'Partner category has been removed.');
     }
 }
