@@ -50,7 +50,9 @@ class CategoryPartnerController extends Controller
      */
     public function store(CategoryPartnerStore $request)
     {
-        //
+        Category::create($request->all());
+
+        return back()->with('success-message', 'New partner category has been added.');
     }
 
     /**
