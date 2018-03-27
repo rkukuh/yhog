@@ -45,6 +45,39 @@ class Category extends Model
         return $query->where('_of', 'blog');
     }
 
+    /**
+     * Scope a query to only include category of event.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfEvent($query)
+    {
+        return $query->where('_of', 'event');
+    }
+
+    /**
+     * Scope a query to only include category of partner.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfPartner($query)
+    {
+        return $query->where('_of', 'partner');
+    }
+
+    /**
+     * Scope a query to only include category of donation.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfDonation($query)
+    {
+        return $query->where('_of', 'donation');
+    }
+
 
     /*************************************** RELATIONSHIP ****************************************/
 
