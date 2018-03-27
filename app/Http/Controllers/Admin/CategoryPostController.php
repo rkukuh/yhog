@@ -74,7 +74,11 @@ class CategoryPostController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.post.index', [
+            'content_alt'   => true,
+            'category_edit' => $category,
+            'categories'    => $this->categories,
+        ]);
     }
 
     /**
