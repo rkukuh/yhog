@@ -90,7 +90,13 @@ class CategoryEventController extends Controller
      */
     public function update(CategoryEventUpdate $request, Category $category)
     {
-        //
+        $category->update($request->all());
+
+        return redirect()
+                ->route('category-event.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Event category has been updated.');
     }
 
     /**
