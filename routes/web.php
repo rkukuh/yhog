@@ -18,12 +18,18 @@ Route::group([
 
 ], function () {
 
+    /** DASHBOARD **/
+
     Route::view('/', 'admin.dashboard.index')->name('dashboard.index');
     
+    /** BLOG **/
+
     Route::resource('post', 'PostController');
     Route::resource('category-post', 'CategoryPostController', [
         'parameters' => ['category-post' => 'category']
     ]);
+
+    /** SETTING **/
 
     Route::resource('user', 'UserController');
 
