@@ -33,4 +33,34 @@ class Category extends Model
 
         static::addGlobalScope(new OrderByColumn('name'));
     }
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many (self-join): A category may have none or many sub-categories.
+     *
+     * This function will retrieve the sub-categories of a category, if any.
+     * See: Category's parent() method for the inverse
+     *
+     * @return mixed
+     */
+    public function childs()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    /**
+     * One-to-Many (self-join): A category may have none or many sub-categories.
+     *
+     * This function will retrieve the parent of a sub-categories.
+     * See: Category's childs() method for the inverse
+     *
+     * @return mixed
+     */
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id')
+                    ->withTrashed();
+    }
 }
