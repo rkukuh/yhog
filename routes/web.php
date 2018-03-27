@@ -35,6 +35,12 @@ Route::group([
         'parameters' => ['category-event' => 'category']
     ]);
 
+    /** PARTNER **/
+
+    Route::resource('category-partner', 'CategoryPartnerController', [
+        'parameters' => ['category-partner' => 'category']
+    ]);
+
     /** SETTING **/
 
     Route::resource('user', 'UserController');
