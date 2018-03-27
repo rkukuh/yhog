@@ -18,8 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->unsignedInteger('parent_id')->nullable();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->unsignedInteger('categorizable_id');
-            $table->string('categorizable_type');
+            $table->string('_of'); // post, partner, donation, event
             $table->timestamps();
             $table->softDeletes();
         });
