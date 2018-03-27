@@ -9,6 +9,16 @@ use App\Http\Requests\Admin\CategoryEventUpdate;
 
 class CategoryEventController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofEvent()
+                                    ->with('parent', 'childs')
+                                    ->doesntHave('parent')
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,10 @@ class CategoryEventController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.category.event.index', [
+            'content_alt' => true,
+            'categories'  => $this->categories
+        ]);
     }
 
     /**
