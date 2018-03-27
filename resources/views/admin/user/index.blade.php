@@ -1,5 +1,5 @@
 @extends('admin.layouts.master', [
-    'left_content_size' => 5,
+    'left_content_size'  => 5,
     'right_content_size' => 3,
 ])
 
