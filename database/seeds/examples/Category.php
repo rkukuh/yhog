@@ -14,10 +14,10 @@ class Category extends Seeder
     {
         /** BLOG **/
         
-        $parent_blog_category = factory(CategoryModel::class)->states('blog')->create();
+        $parent_post_category = factory(CategoryModel::class)->states('post')->create();
 
-        factory(CategoryModel::class, rand(5, 10))->states('blog')->create([
-            'parent_id' => $parent_blog_category
+        factory(CategoryModel::class, rand(5, 10))->states('post')->create([
+            'parent_id' => $parent_post_category
         ]);
 
         /** EVENT **/
