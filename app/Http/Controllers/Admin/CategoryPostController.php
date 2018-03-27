@@ -52,7 +52,9 @@ class CategoryPostController extends Controller
      */
     public function store(CategoryStore $request)
     {
-        //
+        Category::create($request->all());
+
+        return back()->with('success-message', 'New post\'s category has been added.');
     }
 
     /**
