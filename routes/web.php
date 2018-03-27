@@ -41,6 +41,10 @@ Route::group([
         'parameters' => ['category-partner' => 'category']
     ]);
 
+    /** DONATION **/
+
+    // TODO: Donation category
+
     /** SETTING **/
 
     Route::resource('user', 'UserController');
