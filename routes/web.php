@@ -21,7 +21,9 @@ Route::group([
     Route::view('/', 'admin.dashboard.index')->name('dashboard.index');
     
     Route::resource('post', 'PostController');
-    Route::resource('category-post', 'CategoryPostController');
+    Route::resource('category-post', 'CategoryPostController', [
+        'parameters' => ['category-post' => 'category']
+    ]);
 
     Route::resource('user', 'UserController');
 
