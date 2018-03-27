@@ -35,6 +35,28 @@
             @endrole
 
             @role('admin')
+            <li class="treeview">
+                <a href="#event"><i class="fa fa-calendar"></i> <span>Event</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-circle-o"></i> Event
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('category-event.index') }}">
+                            <i class="fa fa-circle-o"></i> Category
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            @endrole
+
+            @role('admin')
             <li>
                 <a href="{{ route('user.index') }}">
                     <i class="fa fa-user"></i> <span>User</span>
