@@ -107,6 +107,8 @@ class CategoryEventController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('success-message', 'Event category has been removed.');
     }
 }
