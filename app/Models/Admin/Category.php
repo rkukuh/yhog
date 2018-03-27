@@ -32,6 +32,10 @@ class Category extends Model
         parent::boot();
 
         static::addGlobalScope(new OrderByColumn('name'));
+
+        static::deleting(function ($category) {
+            $category->childs->each->delete();
+        });
     }
 
     /**
