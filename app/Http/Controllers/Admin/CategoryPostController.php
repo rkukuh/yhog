@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Admin\Post;
+use App\Models\Admin\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryStore;
 use App\Http\Requests\Admin\CategoryUpdate;
-use App\Models\Admin\Category;
 
 class CategoryPostController extends Controller
 {
@@ -59,10 +58,10 @@ class CategoryPostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin\Post  $post
+     * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Category $category)
     {
         //
     }
@@ -70,10 +69,10 @@ class CategoryPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin\Post  $post
+     * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Category $category)
     {
         //
     }
@@ -82,10 +81,10 @@ class CategoryPostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \CategoryUpdate  $request
-     * @param  \App\Models\Admin\Post  $post
+     * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryUpdate $request, Post $post)
+    public function update(CategoryUpdate $request, Category $category)
     {
         //
     }
@@ -93,10 +92,10 @@ class CategoryPostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin\Post  $post
+     * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Category $category)
     {
         //
     }
