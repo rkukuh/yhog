@@ -50,7 +50,9 @@ class CategoryEventController extends Controller
      */
     public function store(CategoryEventStore $request)
     {
-        //
+        Category::create($request->all());
+
+        return back()->with('success-message', 'New event category has been added.');
     }
 
     /**
