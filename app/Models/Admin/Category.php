@@ -9,5 +9,12 @@ class Category extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = [
+        'parent_id',
+        'name',
+        'slug',
+        '_of'
+    ];
+
     protected $dates = ['deleted_at'];
 }
