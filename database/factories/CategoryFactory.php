@@ -5,7 +5,7 @@ use App\Models\Admin\Category;
 
 $factory->define(Category::class, function (Faker $faker) {
 
-    $name = 'Category Test #' . $faker->unixTime();
+    $name = 'Category #' . $faker->unixTime();
 
     return [
         'parent_id' => null,
