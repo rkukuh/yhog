@@ -26,7 +26,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category.index') }}">
+                        <a href="{{ route('category-post.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
