@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryStore;
-use App\Http\Requests\Admin\CategoryUpdate;
+use App\Http\Requests\Admin\CategoryPostStore;
+use App\Http\Requests\Admin\CategoryPostUpdate;
 
 class CategoryPostController extends Controller
 {
@@ -47,10 +47,10 @@ class CategoryPostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \CategoryStore  $request
+     * @param  \CategoryPostStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryStore $request)
+    public function store(CategoryPostStore $request)
     {
         Category::create($request->all());
 
@@ -86,11 +86,11 @@ class CategoryPostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \CategoryUpdate  $request
+     * @param  \CategoryPostUpdate  $request
      * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryUpdate $request, Category $category)
+    public function update(CategoryPostUpdate $request, Category $category)
     {
         //
     }
