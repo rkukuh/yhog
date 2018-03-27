@@ -72,7 +72,11 @@ class CategoryEventController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.event.index', [
+            'content_alt'   => true,
+            'category_edit' => $category,
+            'categories'    => $this->categories
+        ]);
     }
 
     /**
