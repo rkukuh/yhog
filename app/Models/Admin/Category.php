@@ -35,14 +35,14 @@ class Category extends Model
     }
 
     /**
-     * Scope a query to only include category of blog.
+     * Scope a query to only include category of post.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOfBlog($query)
+    public function scopeOfPost($query)
     {
-        return $query->where('_of', 'blog');
+        return $query->where('_of', 'post');
     }
 
     /**
