@@ -109,6 +109,8 @@ class CategoryPostController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('success-message', 'Post category has been removed.');
     }
 }
