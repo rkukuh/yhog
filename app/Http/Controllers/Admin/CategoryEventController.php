@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryEventStore;
+use App\Http\Requests\Admin\CategoryEventUpdate;
 
 class CategoryEventController extends Controller
 {
@@ -31,10 +32,10 @@ class CategoryEventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryEventStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryEventStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class CategoryEventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryEventUpdate  $request
      * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryEventUpdate $request, Category $category)
     {
         //
     }
