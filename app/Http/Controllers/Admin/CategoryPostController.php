@@ -26,8 +26,6 @@ class CategoryPostController extends Controller
      */
     public function index()
     {
-        $categories = $this->categories;
-
         return view('admin.category.post.index', [
             'content_alt' => true,
             'categories'  => $this->categories
