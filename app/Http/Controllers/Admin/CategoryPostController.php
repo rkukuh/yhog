@@ -6,9 +6,20 @@ use App\Models\Admin\Post;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryStore;
 use App\Http\Requests\Admin\CategoryUpdate;
+use App\Models\Admin\Category;
 
 class CategoryPostController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofPost()
+                                    ->with('parent', 'childs')
+                                    ->doesntHave('parent')
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,12 @@ class CategoryPostController extends Controller
      */
     public function index()
     {
-        //
+        $categories = $this->categories;
+
+        return view('admin.category.post.index', [
+            'content_alt' => true,
+            'categories'  => $this->categories,
+        ]);
     }
 
     /**
