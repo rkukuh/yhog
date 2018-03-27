@@ -11,7 +11,13 @@ $factory->define(Category::class, function (Faker $faker) {
         'parent_id' => null,
         'name' => $name,
         'slug' => str_slug($name),
-        '_of' => $faker->randomElement(['post', 'partner', 'event', 'donation'])
+        '_of' => $faker->randomElement(['blog', 'partner', 'event', 'donation'])
     ];
     
 });
+
+
+$factory->state(Category::class, 'blog', ['_of' => 'blog']);
+$factory->state(Category::class, 'event', ['_of' => 'event']);
+$factory->state(Category::class, 'partner', ['_of' => 'partner']);
+$factory->state(Category::class, 'donation', ['_of' => 'donation']);
