@@ -65,6 +65,11 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-post"]').parent().addClass('active');
     }
 
+    if (full_url.indexOf('admin/category-event') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#event"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-event"]').parent().addClass('active');
+    }
+
     if (full_url.indexOf('admin/post') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#post"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/post"]').parent().addClass('active');
