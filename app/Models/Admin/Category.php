@@ -111,4 +111,15 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'parent_id')
                     ->withTrashed();
     }
+
+    /**
+     * M-M Polymorphic: A post can have one or many categories.
+     * 
+     * This function will get all of the posts that are assigned to this category.
+     * See: Post's categories() method for the inverse
+     */
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'categorizable');
+    }
 }
