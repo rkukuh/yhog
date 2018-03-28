@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryDonationStore;
+use App\Http\Requests\Admin\CategoryDonationUpdate;
 
 class CategoryDonationController extends Controller
 {
@@ -31,10 +32,10 @@ class CategoryDonationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryDonationStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryDonationStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class CategoryDonationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryDonationUpdate  $request
      * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryDonationUpdate $request, Category $category)
     {
         //
     }
