@@ -9,6 +9,16 @@ use App\Http\Requests\Admin\CategoryDonationUpdate;
 
 class CategoryDonationController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofDonation()
+                                    ->with('parent', 'childs')
+                                    ->doesntHave('parent')
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,10 @@ class CategoryDonationController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.category.donation.index', [
+            'content_alt' => true,
+            'categories'  => $this->categories
+        ]);
     }
 
     /**
