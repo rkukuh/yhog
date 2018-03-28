@@ -28,6 +28,14 @@ class Category extends Seeder
             'parent_id' => $parent_event_category
         ]);
 
+        /** GALLERY **/
+        
+        $parent_gallery_category = factory(CategoryModel::class)->states('gallery')->create();
+
+        factory(CategoryModel::class, rand(5, 10))->states('gallery')->create([
+            'parent_id' => $parent_gallery_category
+        ]);
+
         /** PARTNER **/
         
         $parent_partner_category = factory(CategoryModel::class)->states('partner')->create();
