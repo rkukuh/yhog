@@ -107,6 +107,8 @@ class CategoryGalleryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('success-message', 'Gallery category has been removed.');
     }
 }
