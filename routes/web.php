@@ -43,7 +43,9 @@ Route::group([
 
     /** DONATION **/
 
-    // TODO: Donation category
+    Route::resource('category-donation', 'CategoryDonationController', [
+        'parameters' => ['category-donation' => 'category']
+    ]);
 
     /** SETTING **/
 
