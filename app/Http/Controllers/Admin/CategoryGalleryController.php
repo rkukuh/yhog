@@ -9,6 +9,16 @@ use App\Http\Requests\Admin\CategoryGalleryUpdate;
 
 class CategoryGalleryController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofGallery()
+                                    ->with('parent', 'childs')
+                                    ->doesntHave('parent')
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,10 @@ class CategoryGalleryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.category.gallery.index', [
+            'content_alt' => true,
+            'categories'  => $this->categories
+        ]);
     }
 
     /**
