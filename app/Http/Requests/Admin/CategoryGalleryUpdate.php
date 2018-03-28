@@ -13,7 +13,7 @@ class CategoryGalleryUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +24,25 @@ class CategoryGalleryUpdate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                'min:3',
+                'max:30'
+            ],
+            'parent_id' => 'nullable|exists:categories,id',
         ];
+    }
+
+    /**
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $this->merge(['slug' => str_slug($this->name)]);
+        });
     }
 }
