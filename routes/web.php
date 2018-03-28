@@ -35,6 +35,12 @@ Route::group([
         'parameters' => ['category-event' => 'category']
     ]);
 
+    /** GALLERY **/
+
+    Route::resource('category-gallery', 'CategoryGalleryController', [
+        'parameters' => ['category-gallery' => 'category']
+    ]);
+
     /** PARTNER **/
 
     Route::resource('category-partner', 'CategoryPartnerController', [
