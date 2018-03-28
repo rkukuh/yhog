@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryPostUpdate extends FormRequest
@@ -27,7 +26,6 @@ class CategoryPostUpdate extends FormRequest
         return [
             'name' => [
                 'required',
-                Rule::unique('categories')->ignore($this->category->id),
                 'min:3',
                 'max:30'
             ],

@@ -24,7 +24,7 @@ class CategoryPartnerStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories|min:3|max:30',
+            'name' => 'required|min:3|max:30',
             'parent_id' => 'nullable|exists:categories,id',
         ];
     }

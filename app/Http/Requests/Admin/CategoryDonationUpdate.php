@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryDonationUpdate extends FormRequest
@@ -27,7 +26,6 @@ class CategoryDonationUpdate extends FormRequest
         return [
             'name' => [
                 'required',
-                Rule::unique('categories')->ignore($this->category->id),
                 'min:3',
                 'max:30'
             ],
