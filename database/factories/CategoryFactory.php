@@ -19,5 +19,6 @@ $factory->define(Category::class, function (Faker $faker) {
 
 $factory->state(Category::class, 'post', ['_of' => 'post']);
 $factory->state(Category::class, 'event', ['_of' => 'event']);
+$factory->state(Category::class, 'gallery', ['_of' => 'gallery']);
 $factory->state(Category::class, 'partner', ['_of' => 'partner']);
 $factory->state(Category::class, 'donation', ['_of' => 'donation']);
