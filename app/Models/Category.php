@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use \App\Scopes\OrderByColumn;
 use Illuminate\Database\Eloquent\Model;
