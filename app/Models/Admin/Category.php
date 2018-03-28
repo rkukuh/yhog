@@ -61,6 +61,17 @@ class Category extends Model
     }
 
     /**
+     * Scope a query to only include category of gallery.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfGallery($query)
+    {
+        return $query->where('_of', 'gallery');
+    }
+
+    /**
      * Scope a query to only include category of partner.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
