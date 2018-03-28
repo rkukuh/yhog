@@ -107,6 +107,8 @@ class CategoryDonationController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('success-message', 'Donation category has been removed.');
     }
 }
