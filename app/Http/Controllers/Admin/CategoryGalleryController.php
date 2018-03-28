@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryGalleryStore;
+use App\Http\Requests\Admin\CategoryGalleryUpdate;
 
 class CategoryGalleryController extends Controller
 {
@@ -31,10 +32,10 @@ class CategoryGalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryGalleryStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryGalleryStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class CategoryGalleryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \CategoryGalleryUpdate  $request
      * @param  \App\Models\Admin\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryGalleryUpdate $request, Category $category)
     {
         //
     }
