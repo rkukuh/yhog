@@ -72,7 +72,11 @@ class CategoryGalleryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.gallery.index', [
+            'content_alt'   => true,
+            'category_edit' => $category,
+            'categories'    => $this->categories
+        ]);
     }
 
     /**
