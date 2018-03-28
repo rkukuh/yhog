@@ -16,7 +16,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->paginate(env('PAGINATE', 10));
+
+        /* This will prevent "Pagination gives empty set on non existing page number",
+         * especially after deleting a data on the last page
+         *
+         */
+        if (Post::count()) {
+
+            if ($posts->isEmpty()) {
+
+                return redirect()->route('post.index');
+            }
+        }
+
+        return view('admin.post.index', compact('posts'));
     }
 
     /**
