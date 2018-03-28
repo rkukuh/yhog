@@ -50,7 +50,9 @@ class CategoryDonationController extends Controller
      */
     public function store(CategoryDonationStore $request)
     {
-        //
+        Category::create($request->all());
+
+        return back()->with('success-message', 'New donation category has been added.');
     }
 
     /**
