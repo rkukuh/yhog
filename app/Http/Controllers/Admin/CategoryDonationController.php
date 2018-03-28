@@ -90,7 +90,13 @@ class CategoryDonationController extends Controller
      */
     public function update(CategoryDonationUpdate $request, Category $category)
     {
-        //
+        $category->update($request->all());
+
+        return redirect()
+                ->route('category-donation.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Donation category has been updated.');
     }
 
     /**
