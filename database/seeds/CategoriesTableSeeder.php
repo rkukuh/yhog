@@ -27,6 +27,12 @@ class CategoriesTableSeeder extends Seeder
         Category::create([
             'name' => 'Uncategorized',
             'slug' => 'uncategorized',
+            '_of'  => 'gallery'
+        ]);
+
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
             '_of'  => 'partner'
         ]);
 
