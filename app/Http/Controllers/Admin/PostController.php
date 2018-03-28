@@ -20,7 +20,6 @@ class PostController extends Controller
 
         /* This will prevent "Pagination gives empty set on non existing page number",
          * especially after deleting a data on the last page
-         *
          */
         if (Post::count()) {
 
