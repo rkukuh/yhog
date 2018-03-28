@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin\Category;
 use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
@@ -11,6 +12,28 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
+            '_of'  => 'post'
+        ]);
+
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
+            '_of'  => 'event'
+        ]);
+
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
+            '_of'  => 'partner'
+        ]);
+
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
+            '_of'  => 'donation'
+        ]);
     }
 }
