@@ -4,7 +4,7 @@
 
         <h3 class="box-title">Create New Donation Category</h3>
 
-    @elseif (URL::current() == route('category-donation.edit', $donation_edit))
+    @elseif (URL::current() == route('category-donation.edit', $category_edit))
 
         <h3 class="box-title">Edit Donation Category</h3>
 
@@ -16,9 +16,9 @@
 
     <form action="{{ route('category-donation.store') }}" method="post">
 
-@elseif (URL::current() == route('category-donation.edit', $donation_edit))
+@elseif (URL::current() == route('category-donation.edit', $category_edit))
 
-    <form action="{{ route('category-donation.update', $donation_edit) }}" method="post">
+    <form action="{{ route('category-donation.update', $category_edit) }}" method="post">
 
         @method('PATCH')
 
@@ -35,7 +35,7 @@
                 </label>
 
                 <input type="text" class="form-control" id="name" name="name"
-                       value="{{ old('name') ?: (isset($donation_edit->name) ? $donation_edit->name : '') }}">
+                       value="{{ old('name') ?: (isset($category_edit->name) ? $category_edit->name : '') }}">
 
                 @if ($errors->has('name'))
                     @include('common.form.input-error-message', ['message' => $errors->first('name')])
@@ -53,16 +53,16 @@
                     @foreach ($categories as $categoryLv1)
                         <option class="level-1" value="{{ $categoryLv1->id }}"
                                 {{ (old('parent_id') == $categoryLv1->id) ? 'selected' : '' }}
-                                {{ isset($donation_edit) ?
-                                        (($donation_edit->parent_id == $categoryLv1->id) ? 'selected' : '') : '' }}>
+                                {{ isset($category_edit) ?
+                                        (($category_edit->parent_id == $categoryLv1->id) ? 'selected' : '') : '' }}>
 
                             {{ $categoryLv1->name }}
                         </option>
                         @foreach ($categoryLv1->childs as $subcategory)
                             <option class="level-2" value="{{ $subcategory->id }}"
                                 {{ (old('parent_id') == $subcategory->id) ? 'selected' : '' }}
-                                {{ isset($donation_edit) ?
-                                        (($donation_edit->parent_id == $subcategory->id) ? 'selected' : '') : '' }}>
+                                {{ isset($category_edit) ?
+                                        (($category_edit->parent_id == $subcategory->id) ? 'selected' : '') : '' }}>
 
                                 — {{ $subcategory->name }}
                             </option>
@@ -80,11 +80,11 @@
             <div class="form-group">
                 @component('common.form.button-save-new-or-save-changes')
                     @slot('route_create', route('category-donation.index'))
-                    @slot('route_edit', route('category-donation.edit', ($donation_edit ?? 0)))
+                    @slot('route_edit', route('category-donation.edit', ($category_edit ?? 0)))
                 @endcomponent
 
                 @component('common.form.button-cancel')
-                    @slot('route_edit', route('category-donation.edit', ($donation_edit ?? 0)))
+                    @slot('route_edit', route('category-donation.edit', ($category_edit ?? 0)))
                     @slot('route_redirect', route('category-donation.index', ['page' => $_GET['page'] ?? 1]))
                 @endcomponent
             </div>
