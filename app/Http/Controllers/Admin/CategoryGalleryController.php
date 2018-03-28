@@ -50,7 +50,9 @@ class CategoryGalleryController extends Controller
      */
     public function store(CategoryGalleryStore $request)
     {
-        //
+        Category::create($request->all());
+
+        return back()->with('success-message', 'New gallery category has been added.');
     }
 
     /**
