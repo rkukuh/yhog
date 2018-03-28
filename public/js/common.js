@@ -70,6 +70,11 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-event"]').parent().addClass('active');
     }
 
+    if (full_url.indexOf('admin/category-gallery') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#gallery"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-gallery"]').parent().addClass('active');
+    }
+
     if (full_url.indexOf('admin/category-partner') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#partner"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-partner"]').parent().addClass('active');
