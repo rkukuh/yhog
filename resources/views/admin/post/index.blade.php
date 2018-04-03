@@ -52,7 +52,7 @@
                             </h5>
 
                             <small class="text-muted">
-                                Category: {{ $post->categories->first()->name }}
+                                Categories: {{ $post->category_list }}
                             </small>
                         </td>
                         <td>
