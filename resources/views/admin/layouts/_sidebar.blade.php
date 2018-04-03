@@ -123,10 +123,19 @@
             @endrole
 
             @role('admin')
-            <li>
-                <a href="{{ route('admin.user.index') }}">
-                    <i class="fa fa-user"></i> <span>User</span>
+            <li class="treeview">
+                <a href="#setting"><i class="fa fa-cog"></i> <span>Setting</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ route('admin.user.index') }}">
+                            <i class="fa fa-user"></i> <span>User</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             @endrole
         </ul>
