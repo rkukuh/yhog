@@ -1,7 +1,6 @@
 <?php
 
 Auth::routes();
-Route::view('/', 'welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::redirect('/home', '/admin', 301);
@@ -58,3 +57,9 @@ Route::group([
     Route::resource('user', 'UserController');
 
 });
+
+
+
+////////////////////////////// FRONT-END //////////////////////////////
+
+Route::get('/', 'MainController@home');
