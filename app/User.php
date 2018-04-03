@@ -41,4 +41,20 @@ class User extends Authenticatable
 
         static::addGlobalScope(new OrderByColumn('name'));
     }
+
+    
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: A user may create zero or many post
+     *
+     * This function will retrieve the posts created by a user, if any.
+     * See: Post' user() method for the inverse
+     *
+     * @return mixed
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

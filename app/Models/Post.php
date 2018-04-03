@@ -29,6 +29,19 @@ class Post extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
+     * One-to-Many: A user may create zero or many post
+     *
+     * This function will retrieve the creator (user) of a post.
+     * See: User' posts() method for the inverse
+     *
+     * @return mixed
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * M-M Polymorphic: A post can have one or many categories.
      * 
      * This function will get all of the categories that are assigned to this post.
