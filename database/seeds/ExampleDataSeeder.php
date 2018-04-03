@@ -16,5 +16,6 @@ class ExampleDataSeeder extends Seeder
         $this->call(Category::class);
         
         $this->call(Post::class);
+        $this->call(Tag::class);
     }
 }

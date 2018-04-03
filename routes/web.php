@@ -25,6 +25,7 @@ Route::group([
     /** BLOG **/
 
     Route::resource('post', 'PostController');
+
     Route::resource('category-post', 'CategoryPostController', [
         'parameters' => ['category-post' => 'category']
     ]);
@@ -54,6 +55,8 @@ Route::group([
     ]);
 
     /** SETTING **/
+
+    Route::resource('tag', 'TagController');
 
     Route::resource('user', 'UserController');
 

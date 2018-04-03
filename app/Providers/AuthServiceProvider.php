@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\User;
+use App\Models\Tag;
 use App\Models\Admin\Post;
+use App\Policies\TagPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\UserPolicy;
 use App\Models\Admin\Category;
@@ -19,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+        Tag::class => TagPolicy::class,
         User::class => UserPolicy::class,
         Post::class => PostPolicy::class,
         Category::class => CategoryPolicy::class
