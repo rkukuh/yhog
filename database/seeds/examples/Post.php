@@ -1,6 +1,11 @@
 <?php
 
+use App\User;
+use Carbon\Carbon;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
+use App\Models\Post as PostModel;
+use Illuminate\Support\Collection;
 
 class Post extends Seeder
 {
@@ -11,6 +16,25 @@ class Post extends Seeder
      */
     public function run()
     {
-        //
+        Collection::times(25, function ($number) {
+
+            /** Generate posts data from its factory */
+
+            $custom_date = Carbon::now()->subDays(rand(3, 5));
+
+            $post = factory(PostModel::class)->create([
+                'user_id' => User::role(['admin'])->pluck('id')->random(),
+                'created_at' => $custom_date,
+                'updated_at' => $custom_date
+            ]);
+
+            /** Attach only one category to generated post data */
+
+            $post->categories()
+                     ->attach(
+                        Category::pluck('id')->random()
+                    );
+
+        });
     }
 }
