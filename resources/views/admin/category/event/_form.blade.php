@@ -1,10 +1,10 @@
 <div class="box-header with-border">
 
-    @if (URL::current() == route('category-event.index'))
+    @if (URL::current() == route('admin.category-event.index'))
 
         <h3 class="box-title">Create New Event Category</h3>
 
-    @elseif (URL::current() == route('category-event.edit', $category_edit))
+    @elseif (URL::current() == route('admin.category-event.edit', $category_edit))
 
         <h3 class="box-title">Edit Event Category</h3>
 
@@ -12,13 +12,13 @@
 
 </div>
 
-@if (URL::current() == route('category-event.index'))
+@if (URL::current() == route('admin.category-event.index'))
 
-    <form action="{{ route('category-event.store') }}" method="post">
+    <form action="{{ route('admin.category-event.store') }}" method="post">
 
-@elseif (URL::current() == route('category-event.edit', $category_edit))
+@elseif (URL::current() == route('admin.category-event.edit', $category_edit))
 
-    <form action="{{ route('category-event.update', $category_edit) }}" method="post">
+    <form action="{{ route('admin.category-event.update', $category_edit) }}" method="post">
 
         @method('PATCH')
 
@@ -79,13 +79,13 @@
 
             <div class="form-group">
                 @component('common.form.button-save-new-or-save-changes')
-                    @slot('route_create', route('category-event.index'))
-                    @slot('route_edit', route('category-event.edit', ($category_edit ?? 0)))
+                    @slot('route_create', route('admin.category-event.index'))
+                    @slot('route_edit', route('admin.category-event.edit', ($category_edit ?? 0)))
                 @endcomponent
 
                 @component('common.form.button-cancel')
-                    @slot('route_edit', route('category-event.edit', ($category_edit ?? 0)))
-                    @slot('route_redirect', route('category-event.index', ['page' => $_GET['page'] ?? 1]))
+                    @slot('route_edit', route('admin.category-event.edit', ($category_edit ?? 0)))
+                    @slot('route_redirect', route('admin.category-event.index', ['page' => $_GET['page'] ?? 1]))
                 @endcomponent
             </div>
         </div>

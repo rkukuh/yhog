@@ -1,10 +1,10 @@
 <div class="box-header with-border">
 
-    @if (URL::current() == route('user.index'))
+    @if (URL::current() == route('admin.user.index'))
 
         <h3 class="box-title">Create New User</h3>
 
-    @elseif (URL::current() == route('user.edit', $user_edit))
+    @elseif (URL::current() == route('admin.user.edit', $user_edit))
 
         <h3 class="box-title">Edit User</h3>
 
@@ -12,13 +12,13 @@
 
 </div>
 
-@if (URL::current() == route('user.index'))
+@if (URL::current() == route('admin.user.index'))
 
-    <form action="{{ route('user.store') }}" method="post">
+    <form action="{{ route('admin.user.store') }}" method="post">
 
-@elseif (URL::current() == route('user.edit', $user_edit))
+@elseif (URL::current() == route('admin.user.edit', $user_edit))
 
-    <form action="{{ route('user.update', $user_edit) }}" method="post">
+    <form action="{{ route('admin.user.update', $user_edit) }}" method="post">
 
         @method('PATCH')
 
@@ -70,13 +70,13 @@
 
             <div class="form-group">
                 @component('common.form.button-save-new-or-save-changes')
-                    @slot('route_create', route('user.index'))
-                    @slot('route_edit', route('user.edit', ($user_edit ?? 0)))
+                    @slot('route_create', route('admin.user.index'))
+                    @slot('route_edit', route('admin.user.edit', ($user_edit ?? 0)))
                 @endcomponent
 
                 @component('common.form.button-cancel')
-                    @slot('route_edit', route('user.edit', ($user_edit ?? 0)))
-                    @slot('route_redirect', route('user.index', ['page' => $_GET['page'] ?? 1]))
+                    @slot('route_edit', route('admin.user.edit', ($user_edit ?? 0)))
+                    @slot('route_redirect', route('admin.user.index', ['page' => $_GET['page'] ?? 1]))
                 @endcomponent
             </div>
         </div>

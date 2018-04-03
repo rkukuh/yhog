@@ -27,7 +27,7 @@
                         <td class="text-right">
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
-                                @slot('route', route('category-gallery.edit', [
+                                @slot('route', route('admin.category-gallery.edit', [
                                                         $categoryLv1,
                                                         'page' => $_GET['page'] ?? 1
                                                      ]
@@ -37,7 +37,7 @@
 
                             @component('common.datalist.button-remove')
                                 @slot('text', '')
-                                @slot('route', route('category-gallery.destroy', $categoryLv1))
+                                @slot('route', route('admin.category-gallery.destroy', $categoryLv1))
                             @endcomponent
                         </td>
                     </tr>
@@ -47,7 +47,7 @@
                             <td class="text-right">
                                 @component('common.datalist.button-edit')
                                     @slot('text', '')
-                                    @slot('route', route('category-gallery.edit', [
+                                    @slot('route', route('admin.category-gallery.edit', [
                                                             $categoryLv2,
                                                             'page' => $_GET['page'] ?? 1
                                                          ]
@@ -57,7 +57,7 @@
 
                                 @component('common.datalist.button-remove')
                                     @slot('text', '')
-                                    @slot('route', route('category-gallery.destroy', $categoryLv2))
+                                    @slot('route', route('admin.category-gallery.destroy', $categoryLv2))
                                 @endcomponent
                             </td>
                         </tr>
@@ -67,7 +67,7 @@
                                 <td class="text-right">
                                     @component('common.datalist.button-edit')
                                         @slot('text', '')
-                                        @slot('route', route('category-gallery.edit', [
+                                        @slot('route', route('admin.category-gallery.edit', [
                                                                 $categoryLv3,
                                                                 'page' => $_GET['page'] ?? 1
                                                              ]
@@ -77,7 +77,7 @@
 
                                     @component('common.datalist.button-remove')
                                         @slot('text', '')
-                                        @slot('route', route('category-gallery.destroy', $categoryLv3))
+                                        @slot('route', route('admin.category-gallery.destroy', $categoryLv3))
                                     @endcomponent
                                 </td>
                             </tr>

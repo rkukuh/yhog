@@ -1,10 +1,10 @@
 <div class="box-header with-border">
 
-    @if (URL::current() == route('category-partner.index'))
+    @if (URL::current() == route('admin.category-partner.index'))
 
         <h3 class="box-title">Create New Partner Category</h3>
 
-    @elseif (URL::current() == route('category-partner.edit', $category_edit))
+    @elseif (URL::current() == route('admin.category-partner.edit', $category_edit))
 
         <h3 class="box-title">Edit Partner Category</h3>
 
@@ -12,13 +12,13 @@
 
 </div>
 
-@if (URL::current() == route('category-partner.index'))
+@if (URL::current() == route('admin.category-partner.index'))
 
-    <form action="{{ route('category-partner.store') }}" method="post">
+    <form action="{{ route('admin.category-partner.store') }}" method="post">
 
-@elseif (URL::current() == route('category-partner.edit', $category_edit))
+@elseif (URL::current() == route('admin.category-partner.edit', $category_edit))
 
-    <form action="{{ route('category-partner.update', $category_edit) }}" method="post">
+    <form action="{{ route('admin.category-partner.update', $category_edit) }}" method="post">
 
         @method('PATCH')
 
@@ -79,13 +79,13 @@
 
             <div class="form-group">
                 @component('common.form.button-save-new-or-save-changes')
-                    @slot('route_create', route('category-partner.index'))
-                    @slot('route_edit', route('category-partner.edit', ($category_edit ?? 0)))
+                    @slot('route_create', route('admin.category-partner.index'))
+                    @slot('route_edit', route('admin.category-partner.edit', ($category_edit ?? 0)))
                 @endcomponent
 
                 @component('common.form.button-cancel')
-                    @slot('route_edit', route('category-partner.edit', ($category_edit ?? 0)))
-                    @slot('route_redirect', route('category-partner.index', ['page' => $_GET['page'] ?? 1]))
+                    @slot('route_edit', route('admin.category-partner.edit', ($category_edit ?? 0)))
+                    @slot('route_redirect', route('admin.category-partner.index', ['page' => $_GET['page'] ?? 1]))
                 @endcomponent
             </div>
         </div>

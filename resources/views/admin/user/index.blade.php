@@ -22,7 +22,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>
-                            <a href="{{ route('user.show', $user) }}">{{ $user->name }}</a>
+                            <a href="{{ route('admin.user.show', $user) }}">{{ $user->name }}</a>
                         </td>
                         <td>
                             {{ $user->email }}
@@ -30,7 +30,7 @@
                         <td class="text-right">
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
-                                @slot('route', route('user.edit', [
+                                @slot('route', route('admin.user.edit', [
                                                         $user,
                                                         'page' => $_GET['page'] ?? 1
                                                      ]
@@ -40,7 +40,7 @@
 
                             @component('common.datalist.button-remove')
                                 @slot('text', '')
-                                @slot('route', route('user.destroy', $user))
+                                @slot('route', route('admin.user.destroy', $user))
                             @endcomponent
                         </td>
                     </tr>

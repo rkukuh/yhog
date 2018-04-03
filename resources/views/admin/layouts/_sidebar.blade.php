@@ -6,7 +6,7 @@
 
             @role('admin')
             <li>
-                <a href="{{ route('dashboard.index') }}">
+                <a href="{{ route('admin.dashboard.index') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
@@ -21,12 +21,12 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ route('post.index') }}">
+                        <a href="{{ route('admin.post.index') }}">
                             <i class="fa fa-circle-o"></i> Post
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category-post.index') }}">
+                        <a href="{{ route('admin.category-post.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category-gallery.index') }}">
+                        <a href="{{ route('admin.category-gallery.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category-event.index') }}">
+                        <a href="{{ route('admin.category-event.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
@@ -92,7 +92,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category-partner.index') }}">
+                        <a href="{{ route('admin.category-partner.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
@@ -114,7 +114,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category-donation.index') }}">
+                        <a href="{{ route('admin.category-donation.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
@@ -124,7 +124,7 @@
 
             @role('admin')
             <li>
-                <a href="{{ route('user.index') }}">
+                <a href="{{ route('admin.user.index') }}">
                     <i class="fa fa-user"></i> <span>User</span>
                 </a>
             </li>
