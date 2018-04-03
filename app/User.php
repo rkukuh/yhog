@@ -46,10 +46,10 @@ class User extends Authenticatable
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: A user may create zero or many post
+     * One-to-Many: An author may create zero or many post
      *
-     * This function will retrieve the posts created by a user, if any.
-     * See: Post' user() method for the inverse
+     * This function will retrieve the posts created by an author, if any.
+     * See: Post' author() method for the inverse
      *
      * @return mixed
      */

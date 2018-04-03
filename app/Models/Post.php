@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,16 +30,16 @@ class Post extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: A user may create zero or many post
+     * One-to-Many: An author may create zero or many post
      *
-     * This function will retrieve the creator (user) of a post.
+     * This function will retrieve the author of a post.
      * See: User' posts() method for the inverse
      *
      * @return mixed
      */
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
