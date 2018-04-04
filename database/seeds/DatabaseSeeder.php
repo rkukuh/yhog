@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         /** USER, ROLE, PERMISSION */
         
-        $this->call(UsersTableSeeder::class);
         $this->call(RoleAndPermissionSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
         /** POLYMORPHICS **/
 
