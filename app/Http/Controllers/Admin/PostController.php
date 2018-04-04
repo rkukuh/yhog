@@ -161,7 +161,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $post->delete();
+
+        return back()->with('success-message', 'Post has been removed.');
     }
 
     /**
