@@ -129,7 +129,28 @@ class PostController extends Controller
      */
     public function update(PostUpdate $request, Post $post)
     {
-        //
+        if ($post->update($request->all())) {
+
+            // Sync its tags and/or categories
+            $post->tags()->sync($request->tag_id);
+            $post->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $post);
+            }
+        }
+
+        // If preview action performed, redirect to preview page
+        if ($post->previewed_at) {
+            return view('admin.post.preview', ['post' => $post]);
+        }
+
+        return redirect()
+                ->route('admin.post.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Post has been updated.');
     }
 
     /**
