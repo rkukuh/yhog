@@ -15,7 +15,6 @@ class Post extends Model
         'title',
         'excerpt',
         'body',
-        'meta_description',
         'published_at',
         'previewed_at'
     ];
