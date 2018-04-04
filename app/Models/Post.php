@@ -38,14 +38,14 @@ class Post extends Model
         parent::boot();
 
         static::created(function ($post) {
-            
-            // Clean up all post previews, if any
+
+            // Soft delete all post previews, if any
             $post->whereNotNull('previewed_at')->delete();
 
         });
     }
 
-
+    
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
