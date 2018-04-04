@@ -2,6 +2,7 @@
 
 use App\User;
 use Carbon\Carbon;
+use App\Models\Tag;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use App\Models\Post as PostModel;
@@ -34,6 +35,16 @@ class Post extends Seeder
                      ->attach(
                         Category::pluck('id')->random()
                     );
+
+            /** Attach tags to generated post data */
+
+            for ($i = 1; $i <= rand(2, 4); $i++) {
+
+                $post->tags()
+                     ->attach(
+                        Tag::pluck('id')->random()
+                     );
+            }
 
         });
     }
