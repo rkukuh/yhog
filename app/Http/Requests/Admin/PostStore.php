@@ -63,12 +63,15 @@ class PostStore extends FormRequest
             $this->merge(['user_id' => auth()->user()->id]);
 
             if ($this['submit'] == 'draft') {
+
                 $this->merge(['published_at' => null]);
             } 
             else if ($this['submit'] == 'publish') {
+
                 $this->merge(['published_at' => Carbon::now()]);
             }
             else if ($this['submit'] == 'preview') {
+                
                 $this->merge(['previewed_at' => Carbon::now()]);
             }
             
