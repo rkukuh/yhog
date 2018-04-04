@@ -39,6 +39,17 @@ class Category extends Model
     }
 
     /**
+     * Scope a query to only include parent categories
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeParentCategory($query)
+    {
+        return $query->doesntHave('parent');
+    }
+
+    /**
      * Scope a query to only include category of post.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
