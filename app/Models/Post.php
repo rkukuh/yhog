@@ -42,7 +42,11 @@ class Post extends Model
             // Soft delete all post previews, if any
             $post->whereNotNull('previewed_at')->delete();
 
+            // TODO: Force delete preview posts, if any
+
         });
+
+        // TODO: Use 'deleted' hooks to delete any related image(s)
     }
 
     
