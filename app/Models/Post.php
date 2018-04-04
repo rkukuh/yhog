@@ -93,4 +93,13 @@ class Post extends Model
             echo '<a href="#">' . $category->name . '</a>, ';
         }
     }
+
+    public function getTagListAttribute()
+    {
+        if ($this->tags->isEmpty()) return '-';
+        
+        foreach ($this->tags as $tag) {
+            echo '<a href="#">' . $tag->name . '</a>, ';
+        }
+    }
 }

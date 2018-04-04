@@ -53,6 +53,10 @@
 
                             <small class="text-muted">
                                 Categories: {{ $post->category_list }}
+                            </small> <br>
+
+                            <small class="text-muted">
+                                Tags: {{ $post->tag_list }}
                             </small>
                         </td>
                         <td>
