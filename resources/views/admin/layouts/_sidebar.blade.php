@@ -30,7 +30,7 @@
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
-                    <li>
+                    <li class="hide">
                         <a href="{{ route('admin.tag-post.index') }}">
                             <i class="fa fa-circle-o"></i> Tag
                         </a>
@@ -135,7 +135,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li>
+                    <li class="hide">
                         <a href="{{ route('admin.tag.index') }}">
                             <i class="fa fa-circle-o"></i> <span>Tags</span>
                         </a>
