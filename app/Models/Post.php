@@ -41,7 +41,7 @@ class Post extends Model
             
             // Clean up all post previews, if any
             $post->whereNotNull('previewed_at')->delete();
-            
+
         });
     }
 
@@ -133,5 +133,10 @@ class Post extends Model
         foreach ($this->tags as $tag) {
             echo '<a href="#">' . $tag->name . '</a>, ';
         }
+    }
+
+    public function getFeaturedImageAttribute()
+    {
+        return $this->images()->latest()->first();
     }
 }
