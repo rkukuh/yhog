@@ -13,10 +13,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PostController extends Controller
 {
+    protected $tags;
     protected $categories;
 
     public function __construct()
     {
+        $this->tags = Tag::get();
+
         $this->categories = Category::ofPost()
                                     ->parentCategory()
                                     ->get();
@@ -55,7 +58,7 @@ class PostController extends Controller
     public function create()
     {
         return view('admin.post.create', [
-            'tags' => Tag::get(),
+            'tags' => $this->tags,
             'parent_categories' => $this->categories
         ]);
     }
@@ -112,7 +115,7 @@ class PostController extends Controller
     {
         return view('admin.post.edit', [
             'post' => $post,
-            'tags' => Tag::get(),
+            'tags' => $this->tags,
             'parent_categories' => $this->categories
         ]);
     }
