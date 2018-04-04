@@ -35,7 +35,7 @@
                     <tr>
                         <td class="text-center">
                             @if ($post->featured_image)
-                                <img src="{{ asset('storage/' . $post->featured_image->path) }}" width="200px;">
+                                <img src="{{ asset('storage/' . $post->featured_image->path) }}" width="75px;">
                             @else
                                 <div class="text-center">
                                     <i class="fa fa-picture-o fa-5x text-muted"></i>
