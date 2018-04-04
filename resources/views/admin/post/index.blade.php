@@ -10,7 +10,7 @@
     <div style="margin-bottom: 60px;">
         @component('common.buttons.create-new')
             @slot('text', 'New Post')
-            @slot('route', route('post.create'))
+            @slot('route', route('admin.post.create'))
         @endcomponent
     </div>
 
@@ -46,7 +46,7 @@
                             <h5 style="font-size: 16px;">
                                 <span class="text-muted">Title: </span>
 
-                                <a href="{{ route('post.show', $post) }}">
+                                <a href="{{ route('admin.post.show', $post) }}">
                                     {{ $post->title }}
                                 </a>
                             </h5>
@@ -70,7 +70,7 @@
                             {!! $post->published_at_formatted !!}
                         </td>
                         <td class="text-right">
-                            <form method="post" action="{{ route('post.update', $post) }}" style="display: inline;">
+                            <form method="post" action="{{ route('admin.post.update', $post) }}" style="display: inline;">
                                 @method('PATCH')
                                 @csrf
     
@@ -93,12 +93,12 @@
 
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
-                                @slot('route', route('post.edit', $post))
+                                @slot('route', route('admin.post.edit', $post))
                             @endcomponent
 
                             @component('common.datalist.button-remove')
                                 @slot('text', '')
-                                @slot('route', route('post.destroy', $post))
+                                @slot('route', route('admin.post.destroy', $post))
                             @endcomponent
                         </td>
                     </tr>
