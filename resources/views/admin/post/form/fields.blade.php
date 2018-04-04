@@ -137,7 +137,7 @@
     @endif
 
     <span class="help-block">
-        Acceptable types are PNG or JPG. Max size 1 MB in 1200 x 450 dimension.
+        Acceptable types are PNG or JPG.
     </span>
 
     @if ($errors->has('images.*'))
