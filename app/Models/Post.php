@@ -26,6 +26,26 @@ class Post extends Model
     ];
 
 
+    /******************************************* SCOPE *******************************************/
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($post) {
+            
+            // Clean up all post previews, if any
+            $post->whereNotNull('previewed_at')->delete();
+            
+        });
+    }
+
+
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
