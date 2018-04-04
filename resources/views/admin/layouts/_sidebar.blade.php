@@ -135,7 +135,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="hide">
+                    <li>
                         <a href="{{ route('admin.tag.index') }}">
                             <i class="fa fa-circle-o"></i> <span>Tags</span>
                         </a>
