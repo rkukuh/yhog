@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostStore;
 use App\Http\Requests\Admin\PostUpdate;
 
 class PostController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::ofPost()
+                                    ->parentCategory()
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +52,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post.create', [
+            'tags' => Tag::get(),
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
