@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Image extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = [
+        'path',
+        'size',
+        'mime',
+        'imageable_id',
+        'imageable_type'
+    ];
     
     protected $dates = ['deleted_at'];
 }
