@@ -16,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('author')->latest()->paginate(env('PAGINATE', 5));
+        $posts = Post::with('author', 'categories', 'tags')
+                        ->latest()
+                        ->paginate(env('PAGINATE', 5));
 
         /* This will prevent "Pagination gives empty set on non existing page number",
          * especially after deleting a data on the last page
