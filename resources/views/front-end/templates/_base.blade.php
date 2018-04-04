@@ -26,13 +26,21 @@
     </head>
     
     @stack('body-class')
-        @include('front-end.templates._base-elements.header')
-         
-        @yield('content')
+	    <div class="off-canvas-wrapper">
+		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+		    	 @include('front-end.templates._base-elements.main-navigation')
+		    </div>
+		    
+		    <div class="off-canvas-content" data-off-canvas-content>
+			    @include('front-end.templates._base-elements.header')
+			    
+				@yield('content')
+				
+				@include('front-end.templates._base-elements.footer')
 
-        @include('front-end.templates._base-elements.footer')
-
-        @include('front-end.templates._base-elements.scripts')
+				@include('front-end.templates._base-elements.scripts')
+    		</div>
+	    </div>
                 
         @stack('page-scripts')
     </body>

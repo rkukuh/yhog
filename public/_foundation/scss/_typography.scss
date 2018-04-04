@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'American Typewriter';
+    src: url('../webfonts/AmericanTypewriter.woff2') format('woff2'),
+        url('../webfonts/AmericanTypewriter.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'American Typewriter';
+    src: url('../webfonts/AmericanTypewriter-Semibold.woff2') format('woff2'),
+        url('../webfonts/AmericanTypewriter-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'American Typewriter';
+    src: url('../webfonts/AmericanTypewriter-Bold.woff2') format('woff2'),
+        url('../webfonts/AmericanTypewriter-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+$open_sans: 'Open Sans', sans-serif;
+$american_typewriter: 'American Typewriter', serif;
+
+h1, h2, h3 {
+	font-family: $american_typewriter;
+}
+
+h1, h2 {
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+h3 {
+	margin-top: 1rem;
+	margin-bottom: 0;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+p, li {
+	font-family: $open_sans;
+	
+	a {
+		font: inherit;
+	}
+}
+
+a {
+	font-family: $open_sans;
+}
+
+strong {
+	font-weight: 700;
+}
