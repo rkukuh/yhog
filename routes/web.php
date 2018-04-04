@@ -58,8 +58,6 @@ Route::name('admin.')->group(function () {
     
         /** SETTING **/
     
-        Route::resource('tag', 'TagController');
-    
         Route::resource('user', 'UserController');
     
     });

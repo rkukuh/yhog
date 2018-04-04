@@ -131,11 +131,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i> <span>Tags</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{ route('admin.user.index') }}">
                             <i class="fa fa-circle-o"></i> <span>Users</span>
                         </a>
