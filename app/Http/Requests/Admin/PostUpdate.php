@@ -29,7 +29,7 @@ class PostUpdate extends FormRequest
             'body' => 'required|min:5',
             'excerpt' => 'required|min:5',
             'category_id' => 'exists:categories,id',
-            'images' => 'required',
+            // 'images' => 'required',
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000'
         ];
     }
@@ -45,7 +45,7 @@ class PostUpdate extends FormRequest
             'body.required' => 'The content field is required.',
             'category_id.required' => 'The category field is required.',
             'tag_id.required' => 'The tag field is required.',
-            'images.required' => 'The featured image field is required.',
+            // 'images.required' => 'The featured image field is required.',
         ];
     }
 
