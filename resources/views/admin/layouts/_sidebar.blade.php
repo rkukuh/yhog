@@ -30,6 +30,11 @@
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.tag-post.index') }}">
+                            <i class="fa fa-circle-o"></i> Tag
+                        </a>
+                    </li>
                 </ul>
             </li>
             @endrole

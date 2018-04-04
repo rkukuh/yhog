@@ -31,6 +31,10 @@ Route::name('admin.')->group(function () {
         Route::resource('category-post', 'CategoryPostController', [
             'parameters' => ['category-post' => 'category']
         ]);
+
+        Route::resource('tag-post', 'TagPostController', [
+            'parameters' => ['tag-post' => 'tag']
+        ]);
     
         /** EVENT **/
     
