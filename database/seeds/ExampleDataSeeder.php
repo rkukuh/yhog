@@ -11,10 +11,17 @@ class ExampleDataSeeder extends Seeder
      */
     public function run()
     {
+        /** USER, ROLE, PERMISSION */
+
         $this->call(User::class);
 
-        $this->call(Category::class);
+        /** POLYMORPHICS **/
+
         $this->call(Tag::class);
+        $this->call(Image::class);
+        $this->call(Category::class);
+        
+        /** BLOG **/
         
         $this->call(Post::class);
     }
