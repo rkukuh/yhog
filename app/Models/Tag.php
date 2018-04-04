@@ -28,4 +28,18 @@ class Tag extends Model
 
         static::addGlobalScope(new OrderByColumn('name'));
     }
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * M-M Polymorphic: A post can have one or many tags.
+     * 
+     * This function will get all of the posts that are assigned to this tag.
+     * See: Post's tags() method for the inverse
+     */
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
 }

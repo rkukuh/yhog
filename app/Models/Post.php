@@ -30,7 +30,7 @@ class Post extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: An author may create zero or many post
+     * One-to-Many: An author may create zero or many post.
      *
      * This function will retrieve the author of a post.
      * See: User' posts() method for the inverse
@@ -51,6 +51,17 @@ class Post extends Model
     public function categories()
     {
         return $this->morphToMany(Category::class, 'categorizable');
+    }
+
+    /**
+     * M-M Polymorphic: A post can have one or many tags.
+     * 
+     * This function will get all of the tags that are assigned to this post.
+     * See: Tag's posts() method for the inverse
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
 
