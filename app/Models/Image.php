@@ -18,4 +18,20 @@ class Image extends Model
     ];
     
     protected $dates = ['deleted_at'];
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * Polymorphic: An image could be owned by any other entities.
+     *
+     * This function will get all of the owning imageable models.
+     * See: [ENTITY]'s images() method for the inverse
+     *
+     * @return mixed
+     */
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
 }
