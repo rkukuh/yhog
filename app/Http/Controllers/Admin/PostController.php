@@ -110,7 +110,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.post.edit', [
+            'post' => $post,
+            'tags' => Tag::get(),
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
