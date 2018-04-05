@@ -4,13 +4,13 @@ namespace App\Providers;
 
 use App\User;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\Image;
-use App\Models\Admin\Post;
+use App\Models\Category;
 use App\Policies\TagPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\ImagePolicy;
-use App\Models\Admin\Category;
 use App\Policies\CategoryPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
