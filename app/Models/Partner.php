@@ -98,4 +98,48 @@ class Partner extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getPublishedAtFormattedAttribute()
+    {
+        return ($this->published_at) ? 
+                    '<strong class="text-green">YES</strong> <br>' .
+                    '<span class="text-muted">' . 
+                        $this->published_at->format('d-M-Y') . 
+                    '<span>' : 
+                    '<strong class="text-red">NO</strong>';
+    }
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        return $this->created_at->diffForHumans() . '<br>' .
+                '<small class="text-muted">' .
+                    $this->created_at->format('d-M-Y') .
+                '</small>';
+    }
+
+    public function getCategoryListAttribute()
+    {
+        if ($this->categories->isEmpty()) return '-';
+
+        foreach ($this->categories as $category) {
+            echo '<a href="#">' . $category->name . '</a>, ';
+        }
+    }
+
+    public function getTagListAttribute()
+    {
+        if ($this->tags->isEmpty()) return '-';
+        
+        foreach ($this->tags as $tag) {
+            echo '<a href="#">' . $tag->name . '</a>, ';
+        }
+    }
+
+    public function getFeaturedImageAttribute()
+    {
+        return $this->images()->latest()->first();
+    }
 }
