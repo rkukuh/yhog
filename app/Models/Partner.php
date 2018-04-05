@@ -9,5 +9,18 @@ class Partner extends Model
 {
     use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+    protected $fillable = [
+        'user_id',
+        'title',
+        'excerpt',
+        'body',
+        'published_at',
+        'previewed_at'
+    ];
+
+    protected $dates = [
+        'deleted_at',
+        'published_at',
+        'previewed_at'
+    ];
 }
