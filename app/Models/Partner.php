@@ -47,4 +47,20 @@ class Partner extends Model
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
     }
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: An author may create zero or many partner.
+     *
+     * This function will retrieve the author of a partner.
+     * See: User' partners() method for the inverse
+     *
+     * @return mixed
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

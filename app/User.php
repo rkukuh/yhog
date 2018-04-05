@@ -57,4 +57,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * One-to-Many: An author may create zero or many partner
+     *
+     * This function will retrieve the partners created by an author, if any.
+     * See: Partner' author() method for the inverse
+     *
+     * @return mixed
+     */
+    public function partners()
+    {
+        return $this->hasMany(Partner::class);
+    }
 }
