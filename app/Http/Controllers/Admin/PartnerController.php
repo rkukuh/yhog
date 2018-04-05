@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Partner;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PartnerStore;
+use App\Http\Requests\Admin\PartnerUpdate;
 
 class PartnerController extends Controller
 {
@@ -31,10 +32,10 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \PartnerStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PartnerStore $request)
     {
         //
     }
@@ -64,11 +65,11 @@ class PartnerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \PartnerUpdate  $request
      * @param  \App\Models\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partner $partner)
+    public function update(PartnerUpdate $request, Partner $partner)
     {
         //
     }
