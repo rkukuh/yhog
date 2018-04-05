@@ -36,12 +36,12 @@ class Partner extends Model
     {
         parent::boot();
 
-        static::created(function ($post) {
+        static::created(function ($partner) {
 
-            // Soft delete all post previews, if any
-            $post->whereNotNull('previewed_at')->delete();
+            // Soft delete all partner previews, if any
+            $partner->whereNotNull('previewed_at')->delete();
 
-            // TODO: Force delete preview posts, if any
+            // TODO: Force delete preview partners, if any
 
         });
 
