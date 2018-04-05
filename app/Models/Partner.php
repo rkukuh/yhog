@@ -74,4 +74,15 @@ class Partner extends Model
     {
         return $this->morphToMany(Category::class, 'categorizable');
     }
+
+    /**
+     * M-M Polymorphic: A partner can have one or many tags.
+     * 
+     * This function will get all of the tags that are assigned to this partner.
+     * See: Tag's partners() method for the inverse
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }
