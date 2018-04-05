@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Partner;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PartnerStore;
 use App\Http\Requests\Admin\PartnerUpdate;
+use Illuminate\Foundation\Http\FormRequest;
 
 class PartnerController extends Controller
 {
@@ -115,5 +117,32 @@ class PartnerController extends Controller
     public function destroy(Partner $partner)
     {
         //
+    }
+
+    /**
+     * Associate a file(s) for a partner.
+     *
+     * @param  \Illuminate\Foundation\Http\FormRequest $request
+     * @param  \App\Models\Partner $partner
+     * @return void
+     */
+    protected function uploadFile(FormRequest $request, Partner $partner)
+    {
+        $path = 'partner-' . $partner->id;
+
+        foreach ($request['images'] as $file) {
+
+            $fileExtension  = $file['image']->getClientOriginalExtension();
+            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
+
+            $file['image']->storeAs('public/' . $path, $fileName);
+
+            // Persist file(s) to database, and associate them with this partner
+            $partner->images()->create([
+                'path' => $path . '/' . $fileName,
+                'size' => $file['image']->getSize(),
+                'mime' => $file['image']->getMimeType()
+            ]);
+        }
     }
 }
