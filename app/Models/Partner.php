@@ -23,4 +23,28 @@ class Partner extends Model
         'published_at',
         'previewed_at'
     ];
+
+
+    /******************************************* SCOPE *******************************************/
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($post) {
+
+            // Soft delete all post previews, if any
+            $post->whereNotNull('previewed_at')->delete();
+
+            // TODO: Force delete preview posts, if any
+
+        });
+
+        // TODO: Use 'deleted' hooks to delete any related image(s)
+    }
 }
