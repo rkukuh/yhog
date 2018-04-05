@@ -125,7 +125,28 @@ class PartnerController extends Controller
      */
     public function update(PartnerUpdate $request, Partner $partner)
     {
-        //
+        if ($partner->update($request->all())) {
+
+            // Sync its tags and/or categories
+            $partner->tags()->sync($request->tag_id);
+            $partner->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $partner);
+            }
+        }
+
+        // If preview action performed, redirect to preview page
+        if ($partner->previewed_at) {
+            return view('admin.partner.preview', ['partner' => $partner]);
+        }
+
+        return redirect()
+                ->route('admin.partner.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Partner has been updated.');
     }
 
     /**
