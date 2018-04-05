@@ -85,4 +85,17 @@ class Partner extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    /**
+     * Polymorphic: A partner may have one or more images.
+     *
+     * This function will retrieve the image(s) of a partner.
+     * See: Image's imageable() method
+     *
+     * @return mixed
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
