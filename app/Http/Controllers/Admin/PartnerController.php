@@ -18,7 +18,7 @@ class PartnerController extends Controller
     {
         $this->tags = Tag::get();
 
-        $this->categories = Category::ofPost()
+        $this->categories = Category::ofpartner()
                                     ->parentCategory()
                                     ->get();
     }
@@ -30,7 +30,22 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+        $partners = Partner::with('author', 'categories', 'tags')
+                            ->latest()
+                            ->paginate(env('PAGINATE', 5));
+
+        /* This will prevent "Pagination gives empty set on non existing page number",
+         * especially after deleting a data on the last page
+         */
+        if (Partner::count()) {
+
+            if ($partners->isEmpty()) {
+
+                return redirect()->route('partner.index');
+            }
+        }
+
+        return view('admin.partner.index', compact('partners'));
     }
 
     /**
