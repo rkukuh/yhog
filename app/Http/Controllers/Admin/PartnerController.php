@@ -157,7 +157,11 @@ class PartnerController extends Controller
      */
     public function destroy(Partner $partner)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $partner->delete();
+
+        return back()->with('success-message', 'Partner has been removed.');
     }
 
     /**
