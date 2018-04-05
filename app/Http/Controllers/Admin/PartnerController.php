@@ -71,7 +71,27 @@ class PartnerController extends Controller
      */
     public function store(PartnerStore $request)
     {
-        //
+        if ($partner = Partner::create($request->all())) {
+
+            // Persist its category, they're always exists (required)
+            $partner->categories()->attach($request->category_id);
+
+            // Persist its tag, they're always exists (required)
+            $partner->tags()->attach($request->tag_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $partner);
+            }
+        }
+
+        // If preview action performed, redirect to preview page
+        if ($partner->previewed_at) {
+            return view('admin.partner.preview', ['partner' => $partner]);
+        }
+
+        return redirect()->route('admin.partner.index')
+                         ->with('success-message', 'New partner has been added.');
     }
 
     /**
