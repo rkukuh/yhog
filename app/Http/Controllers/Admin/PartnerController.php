@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Partner;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PartnerStore;
 use App\Http\Requests\Admin\PartnerUpdate;
 
 class PartnerController extends Controller
 {
+    protected $tags;
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->tags = Tag::get();
+
+        $this->categories = Category::ofPost()
+                                    ->parentCategory()
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
