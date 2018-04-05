@@ -144,4 +144,15 @@ class Category extends Model
     {
         return $this->morphedByMany(Post::class, 'categorizable');
     }
+
+    /**
+     * M-M Polymorphic: A partner can have one or many categories.
+     * 
+     * This function will get all of the partners that are assigned to this category.
+     * See: Partner's categories() method for the inverse
+     */
+    public function partners()
+    {
+        return $this->morphedByMany(Partner::class, 'categorizable');
+    }
 }
