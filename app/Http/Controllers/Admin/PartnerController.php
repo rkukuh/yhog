@@ -55,7 +55,10 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.partner.create', [
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
