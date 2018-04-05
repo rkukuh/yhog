@@ -24,5 +24,6 @@ class ExampleDataSeeder extends Seeder
         /** BLOG **/
         
         $this->call(Post::class);
+        $this->call(Partner::class);
     }
 }

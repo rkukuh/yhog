@@ -49,6 +49,8 @@ Route::name('admin.')->group(function () {
         ]);
     
         /** PARTNER **/
+
+        Route::resource('partner', 'PartnerController');
     
         Route::resource('category-partner', 'CategoryPartnerController', [
             'parameters' => ['category-partner' => 'category']

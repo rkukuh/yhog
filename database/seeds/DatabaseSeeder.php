@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         /** BLOG **/
 
         $this->call(PostsTableSeeder::class);
+        $this->call(PartnersTableSeeder::class);
     }
 }

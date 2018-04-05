@@ -92,7 +92,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin.partner.index') }}">
                             <i class="fa fa-circle-o"></i> Partner
                         </a>
                     </li>
