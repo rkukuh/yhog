@@ -13,10 +13,9 @@ Route::name('admin.')->group(function () {
     
     Route::group([
 
-        'name'          => 'admin.',
+        'middleware'    => 'auth',
         'prefix'        => 'admin',
-        'namespace'     => 'Admin',
-        'middleware'    => 'auth'
+        'namespace'     => 'Admin'
     
     ], function () {
     
