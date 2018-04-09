@@ -28,7 +28,7 @@
                     <th class="text-center">Price</th>
                     <th class="text-center">Audience Limit</th>
                     <th class="text-center">Created At</th>
-                    <th style="width: 180px;"></th>
+                    <th style="width: 150px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -71,35 +71,13 @@
                             {!! $event->created_at_formatted !!}
                         </td>
                         <td class="text-right">
-                            <form method="post" action="{{ route('admin.event.update', $event) }}" style="display: inline;">
-                                @method('PATCH')
-                                @csrf
-    
-                                @if ($event->published_at)
-                                    @component('common.buttons.submit')
-                                        @slot('size', 'sm')
-                                        @slot('color', 'warning')
-                                        @slot('value', 'draft')
-                                        @slot('text', 'Set as Draft')
-                                    @endcomponent
-                                @else
-                                    @component('common.buttons.submit')
-                                        @slot('size', 'sm')
-                                        @slot('color', 'info')
-                                        @slot('value', 'publish')
-                                        @slot('text', 'Publish Now')
-                                    @endcomponent
-                                @endif
-                            </form>
-
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
                                 @slot('route', route('admin.event.edit', $event))
                             @endcomponent
 
-                            @component('common.datalist.button-remove')
-                                @slot('text', '')
-                                @slot('route', route('admin.event.destroy', $event))
+                            @component('common.datalist.button-show')
+                                @slot('route', route('admin.event.show', $event))
                             @endcomponent
                         </td>
                     </tr>
