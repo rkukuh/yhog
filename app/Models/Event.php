@@ -71,4 +71,17 @@ class Event extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    /**
+     * Polymorphic: An event may have one or more images.
+     *
+     * This function will retrieve the image(s) of an event.
+     * See: Image's imageable() method
+     *
+     * @return mixed
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
