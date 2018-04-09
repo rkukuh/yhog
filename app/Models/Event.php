@@ -49,4 +49,15 @@ class Event extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    /**
+     * M-M Polymorphic: An event can have one or many categories.
+     * 
+     * This function will get all of the categories that are assigned to this event.
+     * See: Category's events() method for the inverse
+     */
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'categorizable');
+    }
 }

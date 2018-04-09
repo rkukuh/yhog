@@ -146,6 +146,17 @@ class Category extends Model
     }
 
     /**
+     * M-M Polymorphic: An event can have one or many categories.
+     * 
+     * This function will get all of the events that are assigned to this category.
+     * See: Event's categories() method for the inverse
+     */
+    public function events()
+    {
+        return $this->morphedByMany(Event::class, 'categorizable');
+    }
+
+    /**
      * M-M Polymorphic: A partner can have one or many categories.
      * 
      * This function will get all of the partners that are assigned to this category.
