@@ -45,11 +45,11 @@
                             </h5>
 
                             <small class="text-muted">
-                                Categories: {{ $partner->category_list }}
+                                <i class="fa fa-folder"></i> {{ $partner->category_list }}
                             </small> <br>
 
                             <small class="text-muted">
-                                Tags: {{ $partner->tag_list }}
+                                <i class="fa fa-tag"></i> {{ $partner->tag_list }}
                             </small>
                         </td>
                         <td>
