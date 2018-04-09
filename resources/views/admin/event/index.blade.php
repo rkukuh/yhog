@@ -24,9 +24,9 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Event Name</th>
+                    <th class="text-center">Location</th>
                     <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
-                    <th class="text-center">Published</th>
                     <th style="width: 180px;"></th>
                 </tr>
             </thead>
@@ -58,6 +58,9 @@
                             </small>
                         </td>
                         <td>
+                            {!! nl2br($event->location_formatted) !!}
+                        </td>
+                        <td>
                             {{ $event->creator->name }} <br>
 
                             <span class="fa fa-envelope-o"></span>
@@ -67,9 +70,6 @@
                         </td>
                         <td class="text-center">
                             {!! $event->created_at_formatted !!}
-                        </td>
-                        <td class="text-center">
-                            {!! $event->published_at_formatted !!}
                         </td>
                         <td class="text-right">
                             <form method="post" action="{{ route('admin.event.update', $event) }}" style="display: inline;">

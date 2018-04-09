@@ -114,6 +114,16 @@ class Event extends Model
         }
     }
 
+    public function getLocationFormattedAttribute()
+    {
+        if ($this->location) {
+            return $this->location;
+        }
+
+        return '<i class="fa fa-map-marker text-red"></i> ' .
+                '<i class="fa fa-question-circle-o text-blue"></i>';
+    }
+
     public function getFeaturedImageAttribute()
     {
         return $this->images()->latest()->first();
