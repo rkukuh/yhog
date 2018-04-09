@@ -23,7 +23,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th class="text-center">Name</th>
+                    <th class="text-center">Event Name</th>
                     <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Published</th>
@@ -44,19 +44,17 @@
                         </td>
                         <td>
                             <h5 style="font-size: 16px;">
-                                <span class="text-muted">Name: </span>
-
                                 <a href="{{ route('admin.event.show', $event) }}">
                                     {{ $event->name }}
                                 </a>
                             </h5>
 
                             <small class="text-muted">
-                                Categories: {{ $event->category_list }}
+                                <i class="fa fa-folder"></i> {{ $event->category_list }}
                             </small> <br>
 
                             <small class="text-muted">
-                                Tags: {{ $event->tag_list }}
+                                <i class="fa fa-tag"></i> {{ $event->tag_list }}
                             </small>
                         </td>
                         <td>
