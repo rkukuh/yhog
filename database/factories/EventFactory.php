@@ -29,7 +29,7 @@ $factory->define(Event::class, function (Faker $faker) {
         },
         
         'name' => 'Event Test #' . $faker->unixTime(),
-        'size' => $faker->randomElement([null, $faker->randomDigitNotNull * 10]),
+        'size' => $faker->randomElement([null, 0, $faker->randomDigitNotNull * 10]),
         'location' => $faker->randomElement([null, $faker->address]),
         'description' => $faker->randomElement([null, $faker->paragraph]),
         
