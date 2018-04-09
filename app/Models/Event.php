@@ -84,4 +84,38 @@ class Event extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        return $this->created_at->diffForHumans() . '<br>' .
+                '<small class="text-muted">' .
+                    $this->created_at->format('d-M-Y') .
+                '</small>';
+    }
+
+    public function getCategoryListAttribute()
+    {
+        if ($this->categories->isEmpty()) return '-';
+
+        foreach ($this->categories as $category) {
+            echo '<a href="#">' . $category->name . '</a>, ';
+        }
+    }
+
+    public function getTagListAttribute()
+    {
+        if ($this->tags->isEmpty()) return '-';
+        
+        foreach ($this->tags as $tag) {
+            echo '<a href="#">' . $tag->name . '</a>, ';
+        }
+    }
+
+    public function getFeaturedImageAttribute()
+    {
+        return $this->images()->latest()->first();
+    }
 }
