@@ -128,17 +128,20 @@ class Event extends Model
     {
         if ($this->price) {
 
-            echo number_format($this->price) .
-                    ' <small class="label label-default">normal</small> <br>';
+            echo number_format($this->price);
 
             if ($this->early_bird_price) {
+
+                echo ' <small class="label label-default">normal</small> <br>';
 
                 return number_format($this->early_bird_price).
                         ' <small class="label label-warning">early</small>';
             }
         }
-        
-        return '<div class="label label-success">FREE</div>';
+        else {
+            
+            return '<div class="label label-success">FREE</div>';
+        }
     }
 
     public function getFeaturedImageAttribute()
