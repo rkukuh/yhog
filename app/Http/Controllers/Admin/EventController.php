@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Event;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
 use App\Http\Requests\Admin\EventUpdate;
 
 class EventController extends Controller
 {
+    protected $tags;
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->tags = Tag::get();
+
+        $this->categories = Category::ofEvent()
+                                    ->parentCategory()
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +30,22 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::with('creator', 'categories', 'tags')
+                        ->latest()
+                        ->paginate(env('PAGINATE', 5));
+
+        /* This will prevent "Pagination gives empty set on non existing page number",
+         * especially after deleting a data on the last page
+         */
+        if (Event::count()) {
+
+            if ($events->isEmpty()) {
+
+                return redirect()->route('event.index');
+            }
+        }
+
+        return view('admin.event.index', compact('events'));
     }
 
     /**
