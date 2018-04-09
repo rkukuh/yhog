@@ -24,10 +24,9 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Event Name</th>
-                    <th class="text-center">Location</th>
+                    <th class="text-center">Venue</th>
                     <th class="text-center">Price</th>
                     <th class="text-center">Audience Limit</th>
-                    <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
                     <th style="width: 180px;"></th>
                 </tr>
@@ -67,14 +66,6 @@
                         </td>
                         <td class="text-right">
                             {!! $event->size_formatted !!}
-                        </td>
-                        <td>
-                            {{ $event->creator->name }} <br>
-
-                            <span class="fa fa-envelope-o"></span>
-                            <a href="mailto:{{ $event->creator->email }}">
-                                {{ $event->creator->email }}
-                            </a>
                         </td>
                         <td class="text-center">
                             {!! $event->created_at_formatted !!}
