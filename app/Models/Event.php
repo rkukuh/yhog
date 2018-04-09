@@ -139,9 +139,19 @@ class Event extends Model
             }
         }
         else {
-            
+
             return '<div class="label label-success">FREE</div>';
         }
+    }
+
+    public function getSizeFormattedAttribute()
+    {
+        if ($this->size) {
+            return '~' . number_format($this->size) . 
+                    ' <small class="text-muted">people</small>';
+        }
+
+        return '<div class="badge">no limit</div>';
     }
 
     public function getFeaturedImageAttribute()
