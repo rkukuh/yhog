@@ -15,7 +15,23 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->string('name');
+            $table->integer('size')->nullable();
+            $table->text('location')->nullable();
+            $table->text('description')->nullable();
+
+            $table->double('price')->nullable();
+            $table->double('early_bird_price')->nullable();
+            $table->timestamp('early_bird_price_end_at')->nullable();
+            
+            
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
+            $table->integer('total_hours')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
