@@ -1,9 +1,8 @@
 <?php
 
-use App\Models\Tag as TagModel;
 use Illuminate\Database\Seeder;
 
-class Tag extends Seeder
+class Images extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class Tag extends Seeder
      */
     public function run()
     {
-        factory(TagModel::class, 10)->create();
+        //
     }
 }

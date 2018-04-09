@@ -1,10 +1,10 @@
 <?php
 
-use App\User as UserModel;
+use App\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-class User extends Seeder
+class Users extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class User extends Seeder
         /**
          * Create a 'guest' user
          */
-        factory(UserModel::class, 5)
+        factory(User::class, 5)
             ->create()
             ->each(function ($user) {
                 $user->assignRole(

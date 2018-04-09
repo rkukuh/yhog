@@ -13,17 +13,17 @@ class ExampleDataSeeder extends Seeder
     {
         /** USER, ROLE, PERMISSION */
 
-        $this->call(User::class);
+        $this->call(Users::class);
 
         /** POLYMORPHICS **/
 
-        $this->call(Tag::class);
-        $this->call(Image::class);
-        $this->call(Category::class);
+        $this->call(Tags::class);
+        $this->call(Images::class);
+        $this->call(Categories::class);
         
         /** BLOG **/
         
-        $this->call(Post::class);
+        $this->call(Posts::class);
 
         /** EVENT **/
 
@@ -31,6 +31,6 @@ class ExampleDataSeeder extends Seeder
 
         /** PARTNER **/
 
-        $this->call(Partner::class);
+        $this->call(Partners::class);
     }
 }
