@@ -70,4 +70,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Partner::class);
     }
+
+    /**
+     * One-to-Many: A creator may create zero or many event
+     *
+     * This function will retrieve the events created by a creator, if any.
+     * See: Event' creator() method for the inverse
+     *
+     * @return mixed
+     */
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

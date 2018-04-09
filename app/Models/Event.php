@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -32,4 +33,20 @@ class Event extends Model
         'end_at',
         'early_bird_price_end_at'
     ];
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: A creator may create zero or many event.
+     *
+     * This function will retrieve the author of an event.
+     * See: User' events() method for the inverse
+     *
+     * @return mixed
+     */
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
