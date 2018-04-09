@@ -27,7 +27,7 @@ class ExampleDataSeeder extends Seeder
 
         /** EVENT **/
 
-        $this->call(Event::class);
+        $this->call(Events::class);
 
         /** PARTNER **/
 
