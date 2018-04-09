@@ -33,7 +33,7 @@ class Partners extends Seeder
 
             $partner->categories()
                      ->attach(
-                        Category::pluck('id')->random()
+                        Category::ofPartner()->pluck('id')->random()
                     );
 
             /** Attach tags to generated partner data */

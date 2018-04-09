@@ -33,7 +33,7 @@ class Posts extends Seeder
 
             $post->categories()
                      ->attach(
-                        Category::pluck('id')->random()
+                        Category::ofPost()->pluck('id')->random()
                     );
 
             /** Attach tags to generated post data */

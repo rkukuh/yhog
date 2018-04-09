@@ -29,7 +29,7 @@ class Events extends Seeder
                 'updated_at' => $custom_date
             ]);
 
-            /** Attach only one category (of event) to generated event data */
+            /** Attach only one category to generated event data */
 
             $event->categories()
                      ->attach(
