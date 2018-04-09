@@ -44,6 +44,17 @@ class Tag extends Model
     }
 
     /**
+     * M-M Polymorphic: An event can have one or many tags.
+     * 
+     * This function will get all of the events that are assigned to this tag.
+     * See: Event's tags() method for the inverse
+     */
+    public function events()
+    {
+        return $this->morphedByMany(Event::class, 'taggable');
+    }
+
+    /**
      * M-M Polymorphic: A partner can have one or many tags.
      * 
      * This function will get all of the partners that are assigned to this tag.
