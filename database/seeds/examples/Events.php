@@ -17,7 +17,7 @@ class Events extends Seeder
      */
     public function run()
     {
-        Collection::times(15, function ($number) {
+        Collection::times(25, function ($number) {
 
             /** Generate events data from its factory */
 
