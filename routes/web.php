@@ -36,6 +36,8 @@ Route::name('admin.')->group(function () {
         ]);
     
         /** EVENT **/
+
+        Route::resource('event', 'EventController');
     
         Route::resource('category-event', 'CategoryEventController', [
             'parameters' => ['category-event' => 'category']

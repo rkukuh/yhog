@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PostsTableSeeder::class);
 
+        /** EVENT **/
+
+        $this->call(EventsTableSeeder::class);
+
         /** PARTNER **/
 
         $this->call(PartnersTableSeeder::class);
