@@ -24,5 +24,10 @@ class Event extends Model
         'total_hours',
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at',
+        'start_at',
+        'end_at',
+        'early_bird_price_end_at'
+    ];
 }
