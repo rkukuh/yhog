@@ -28,7 +28,7 @@
                     <th class="text-center">Price</th>
                     <th class="text-center">Audience Limit</th>
                     <th class="text-center">Created At</th>
-                    <th style="width: 150px;"></th>
+                    <th style="width: 120px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -76,8 +76,9 @@
                                 @slot('route', route('admin.event.edit', $event))
                             @endcomponent
 
-                            @component('common.datalist.button-show')
-                                @slot('route', route('admin.event.show', $event))
+                            @component('common.datalist.button-remove')
+                                @slot('text', '')
+                                @slot('route', route('admin.event.destroy', $event))
                             @endcomponent
                         </td>
                     </tr>
