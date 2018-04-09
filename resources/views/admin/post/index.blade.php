@@ -23,7 +23,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th class="text-center">Title</th>
+                    <th class="text-center">Post Title</th>
                     <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Published</th>
@@ -44,19 +44,17 @@
                         </td>
                         <td>
                             <h5 style="font-size: 16px;">
-                                <span class="text-muted">Title: </span>
-
                                 <a href="{{ route('admin.post.show', $post) }}">
                                     {{ $post->title }}
                                 </a>
                             </h5>
 
                             <small class="text-muted">
-                                Categories: {{ $post->category_list }}
+                                <i class="fa fa-folder"></i> {{ $post->category_list }}
                             </small> <br>
 
                             <small class="text-muted">
-                                Tags: {{ $post->tag_list }}
+                                <i class="fa fa-tag"></i> {{ $post->tag_list }}
                             </small>
                         </td>
                         <td>
