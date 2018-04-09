@@ -10,6 +10,8 @@ class Event extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'user_id',
+        
         'name',
         'size',
         'location',
