@@ -26,6 +26,7 @@
                     <th class="text-center">Event Name</th>
                     <th class="text-center">Location</th>
                     <th class="text-center">Price</th>
+                    <th class="text-center">Audience Limit</th>
                     <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
                     <th style="width: 180px;"></th>
@@ -63,6 +64,9 @@
                         </td>
                         <td class="text-right">
                             {!! $event->price_formatted !!}
+                        </td>
+                        <td class="text-right">
+                            {!! $event->size_formatted !!}
                         </td>
                         <td>
                             {{ $event->creator->name }} <br>
