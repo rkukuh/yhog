@@ -128,14 +128,22 @@ class Event extends Model
     {
         if ($this->price) {
 
+            if ($this->early_bird_price) {
+
+                echo number_format($this->early_bird_price) .
+                        ' <small class="label label-info">early</small> <br>';
+
+            }
+
             echo number_format($this->price);
 
             if ($this->early_bird_price) {
 
-                echo ' <small class="label label-default">normal</small> <br>';
+                echo ' <small class="label label-default">normal</small>';
+            }
+            else {
 
-                return number_format($this->early_bird_price).
-                        ' <small class="label label-warning">early</small>';
+                echo '<br> <small class="text-muted">(no early bird price)</small>';
             }
         }
         else {
