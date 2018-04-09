@@ -124,6 +124,23 @@ class Event extends Model
                 '<i class="fa fa-question-circle-o text-blue"></i>';
     }
 
+    public function getPriceFormattedAttribute()
+    {
+        if ($this->price) {
+
+            echo number_format($this->price) .
+                    ' <small class="label label-default">normal</small> <br>';
+
+            if ($this->early_bird_price) {
+
+                return number_format($this->early_bird_price).
+                        ' <small class="label label-warning">early</small>';
+            }
+        }
+        
+        return '<div class="label label-success">FREE</div>';
+    }
+
     public function getFeaturedImageAttribute()
     {
         return $this->images()->latest()->first();
