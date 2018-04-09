@@ -23,7 +23,7 @@
            <tbody>
                 @foreach ($categories as $categoryLv1)
                     <tr class="level-1">
-                        <td class="leveled"><strong>{{ $categoryLv1->name }}</strong></td>
+                        <td class="leveled">{{ $categoryLv1->name }}</td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
