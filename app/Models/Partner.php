@@ -53,14 +53,14 @@ class Partner extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: An author may create zero or many partner.
+     * One-to-Many: A creator may create zero or many partner.
      *
-     * This function will retrieve the author of a partner.
+     * This function will retrieve the creator of a partner.
      * See: User' partners() method for the inverse
      *
      * @return mixed
      */
-    public function author()
+    public function creator()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

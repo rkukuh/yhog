@@ -32,7 +32,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = Partner::with('author', 'categories', 'tags')
+        $partners = Partner::with('creator', 'categories', 'tags')
                             ->latest()
                             ->paginate(env('PAGINATE', 5));
 

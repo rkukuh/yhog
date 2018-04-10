@@ -59,10 +59,10 @@ class User extends Authenticatable
     }
 
     /**
-     * One-to-Many: An author may create zero or many partner
+     * One-to-Many: A creator may create zero or many partner
      *
-     * This function will retrieve the partners created by an author, if any.
-     * See: Partner' author() method for the inverse
+     * This function will retrieve the partners created by a creator, if any.
+     * See: Partner's creator() method for the inverse
      *
      * @return mixed
      */

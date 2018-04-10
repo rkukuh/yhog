@@ -19,9 +19,9 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Partner Name</th>
-                    <th class="text-center">Creator</th>
-                    <th class="text-center">Created At</th>
                     <th class="text-center">Published</th>
+                    <th class="text-center">Created At</th>
+                    <th class="text-center">Creator</th>
                     <th></th>
                 </tr>
             </thead>
@@ -52,19 +52,19 @@
                                 <i class="fa fa-tag"></i> {{ $partner->tag_list }}
                             </small>
                         </td>
-                        <td>
-                            {{ $partner->author->name }} <br>
-
-                            <span class="fa fa-envelope-o"></span>
-                            <a href="mailto:{{ $partner->author->email }}">
-                                {{ $partner->author->email }}
-                            </a>
+                        <td class="text-center">
+                            {{ $partner->published_at_formatted }}
                         </td>
                         <td class="text-center">
                             {{ $partner->created_at_formatted }}
                         </td>
-                        <td class="text-center">
-                            {{ $partner->published_at_formatted }}
+                        <td>
+                            {{ $partner->creator->name }} <br>
+
+                            <span class="fa fa-envelope-o"></span>
+                            <a href="mailto:{{ $partner->creator->email }}">
+                                {{ $partner->creator->email }}
+                            </a>
                         </td>
                         <td class="text-right">
                             <form method="post" action="{{ route('admin.partner.update', $partner) }}" style="display: inline;">
