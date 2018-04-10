@@ -23,9 +23,7 @@
 </div>
 
 <div class="form-group {{ $errors->has('category_id') ? 'has-error has-feedback' : '' }}">
-    <label for="category_id">
-        Category @include('common.form.label-required-field')
-    </label>
+    <label for="category_id">Category</label>
 
     <select class="form-control select2" id="category_id" name="category_id">
         @foreach ($parent_categories as $parent)
