@@ -22,7 +22,7 @@
                     <th class="text-center">Creator</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Published</th>
-                    <th style="width: 180px;"></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
                             </h5>
 
                             <small class="text-muted">
-                                <i class="fa fa-folder"></i> {{ $partner->category_list }}
+                                <i class="fa fa-folder"></i> {{ $partner->category_link }}
                             </small> <br>
 
                             <small class="text-muted">
@@ -61,10 +61,10 @@
                             </a>
                         </td>
                         <td class="text-center">
-                            {!! $partner->created_at_formatted !!}
+                            {{ $partner->created_at_formatted }}
                         </td>
                         <td class="text-center">
-                            {!! $partner->published_at_formatted !!}
+                            {{ $partner->published_at_formatted }}
                         </td>
                         <td class="text-right">
                             <form method="post" action="{{ route('admin.partner.update', $partner) }}" style="display: inline;">
