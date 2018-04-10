@@ -55,7 +55,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.event.create', [
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
