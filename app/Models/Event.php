@@ -90,19 +90,17 @@ class Event extends Model
 
     public function getCreatedAtFormattedAttribute()
     {
-        return $this->created_at->diffForHumans() . '<br>' .
+        echo $this->created_at->diffForHumans() . '<br>' .
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
     }
 
-    public function getCategoryListAttribute()
+    public function getCategoryLinkAttribute()
     {
         if ($this->categories->isEmpty()) return '-';
 
-        foreach ($this->categories as $category) {
-            echo '<a href="#">' . $category->name . '</a>, ';
-        }
+        echo $this->categories[0]->name;
     }
 
     public function getTagListAttribute()
@@ -110,17 +108,19 @@ class Event extends Model
         if ($this->tags->isEmpty()) return '-';
         
         foreach ($this->tags as $tag) {
-            echo '<a href="#">' . $tag->name . '</a>, ';
+            echo $tag->name . ', ';
         }
     }
 
     public function getLocationFormattedAttribute()
     {
         if ($this->location) {
-            return $this->location;
+
+            echo nl2br($this->location);
+            return;
         }
 
-        return '<i class="fa fa-map-marker text-red"></i> ' .
+        echo '<i class="fa fa-map-marker text-red"></i> ' .
                 '<i class="fa fa-question-circle-o text-blue"></i>';
     }
 
@@ -148,18 +148,20 @@ class Event extends Model
         }
         else {
 
-            return '<div class="label label-success">FREE</div>';
+            echo '<div class="label label-success">FREE</div>';
         }
     }
 
     public function getSizeFormattedAttribute()
     {
         if ($this->size) {
-            return '~' . number_format($this->size) . 
+            
+            echo number_format($this->size) . 
                     ' <small class="text-muted">people</small>';
+            return;
         }
 
-        return '<div class="badge">no limit</div>';
+        echo '<div class="badge">no limit</div>';
     }
 
     public function getFeaturedImageAttribute()

@@ -51,7 +51,7 @@
                             </h5>
 
                             <small class="text-muted">
-                                <i class="fa fa-folder"></i> {{ $event->category_list }}
+                                <i class="fa fa-folder"></i> {{ $event->category_link }}
                             </small> <br>
 
                             <small class="text-muted">
@@ -59,16 +59,16 @@
                             </small>
                         </td>
                         <td>
-                            {!! nl2br($event->location_formatted) !!}
+                            {{ $event->location_formatted }}
                         </td>
                         <td class="text-right">
-                            {!! $event->price_formatted !!}
+                            {{ $event->price_formatted }}
                         </td>
                         <td class="text-right">
-                            {!! $event->size_formatted !!}
+                            {{ $event->size_formatted }}
                         </td>
                         <td class="text-center">
-                            {!! $event->created_at_formatted !!}
+                            {{ $event->created_at_formatted }}
                         </td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')
