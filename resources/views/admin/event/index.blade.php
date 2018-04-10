@@ -26,8 +26,9 @@
                     <th class="text-center">Event Name</th>
                     <th class="text-center">Venue</th>
                     <th class="text-center">Price</th>
-                    <th class="text-center">Audience Limit</th>
-                    <th class="text-center">Created At</th>
+                    <th class="text-center">Participant Limit</th>
+                    <th class="text-center">Start At</th>
+                    <th class="text-center">End At</th>
                     <th style="width: 120px;"></th>
                 </tr>
             </thead>
@@ -64,11 +65,14 @@
                         <td class="text-right">
                             {{ $event->price_formatted }}
                         </td>
-                        <td class="text-right">
+                        <td class="text-center">
                             {{ $event->size_formatted }}
                         </td>
                         <td class="text-center">
-                            {{ $event->created_at_formatted }}
+                            {{ $event->start_at_formatted }}
+                        </td>
+                        <td class="text-center">
+                            {{ $event->end_at_formatted }}
                         </td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')

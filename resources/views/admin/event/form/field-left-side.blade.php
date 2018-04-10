@@ -88,7 +88,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
-            <label for="size">Audience Size</label>
+            <label for="size">Participant Size</label>
 
             <input type="number" class="form-control text-right" id="size" name="size"
                     value="{{ old('size') ?: (isset($event->size) ? $event->size : 0) }}">
@@ -98,6 +98,8 @@
                     'message' => $errors->first('size')
                 ])
             @endif
+
+            <span class="help-block">Leave 0 for no limitation</span>
         </div>
     </div>
 </div>
@@ -117,6 +119,8 @@
                     'message' => $errors->first('early_bird_price')
                 ])
             @endif
+
+            <span class="help-block">Leave 0 for no early bird price</span>
         </div>
     </div>
     <div class="col-md-6">
