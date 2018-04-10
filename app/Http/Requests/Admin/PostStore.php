@@ -25,11 +25,11 @@ class PostStore extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3|max:255',
+            'title' => 'required|min:3|max:100',
             'body' => 'required|min:5',
             'excerpt' => 'required|min:5',
             'category_id' => 'required|exists:categories,id',
-            'tag_id' => 'exists:tags,id',
+            'tag_id' => 'nullable|exists:tags,id',
             'images' => 'required',
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000'
         ];
