@@ -4,7 +4,7 @@
     POST <small>of Blog</small>
 @endsection
 
-@section('content-header', 'Blog Post List')
+@section('content-header', 'Post List')
 
 @section('content-body')
     <div style="margin-bottom: 60px;">
@@ -24,10 +24,10 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Post Title</th>
-                    <th class="text-center">Creator</th>
-                    <th class="text-center">Created At</th>
                     <th class="text-center">Published</th>
-                    <th style="width: 180px;"></th>
+                    <th class="text-center">Created At</th>
+                    <th class="text-center">Author</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,12 +50,18 @@
                             </h5>
 
                             <small class="text-muted">
-                                <i class="fa fa-folder"></i> {{ $post->category_list }}
+                                <i class="fa fa-folder"></i> {{ $post->category_link }}
                             </small> <br>
 
                             <small class="text-muted">
                                 <i class="fa fa-tag"></i> {{ $post->tag_list }}
                             </small>
+                        </td>
+                        <td class="text-center">
+                            {{ $post->published_at_formatted }}
+                        </td>
+                        <td class="text-center">
+                            {{ $post->created_at_formatted }}
                         </td>
                         <td>
                             {{ $post->author->name }} <br>
@@ -64,12 +70,6 @@
                             <a href="mailto:{{ $post->author->email }}">
                                 {{ $post->author->email }}
                             </a>
-                        </td>
-                        <td class="text-center">
-                            {!! $post->created_at_formatted !!}
-                        </td>
-                        <td class="text-center">
-                            {!! $post->published_at_formatted !!}
                         </td>
                         <td class="text-right">
                             <form method="post" action="{{ route('admin.post.update', $post) }}" style="display: inline;">
