@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-5" style="border-right: 1px solid #eee;">
         @include('admin.event.form.field-left-side')
     </div>
 
-    <div class="col-md-5" style="margin-left: 20px;">
+    <div class="col-md-5">
         @include('admin.event.form.field-right-side')
     </div>
 </div>

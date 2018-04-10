@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('start_at') ? 'has-error' : '' }}">
-            <label for="start_at">Start Date</label>
+            <label for="start_at">
+                Start Date @include('common.form.label-required-field')
+            </label>
 
             <div class="input-group">
                 <div class="input-group-addon">
@@ -25,7 +27,9 @@
     </div>
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('end_at') ? 'has-error' : '' }}">
-            <label for="end_at">End Date</label>
+            <label for="end_at">
+                End Date @include('common.form.label-required-field')
+            </label>
 
             <div class="input-group">
                 <div class="input-group-addon">

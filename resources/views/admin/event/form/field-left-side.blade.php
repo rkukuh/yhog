@@ -14,18 +14,19 @@
 <div class="form-group {{ $errors->has('location') ? 'has-error has-feedback' : '' }}">
     <label for="location">Location</label>
 
-    <textarea class="form-control" id="location" name="location"
-                rows="3">{{ old('location') ?: (isset($event->location) ? $event->location : '') }}</textarea>
+    <textarea class="form-control" id="location" 
+            name="location">{{ old('location') ?: (isset($event->location) ? $event->location : '') }}</textarea>
 
     @if ($errors->has('location'))
         @include('common.form.input-error-message', ['message' => $errors->first('location')])
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('category_id') ? 'has-error has-feedback' : '' }}">
+<div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
     <label for="category_id">Category</label>
 
     <select class="form-control select2" id="category_id" name="category_id">
+        <option value=""></option>
         @foreach ($parent_categories as $parent)
             <option class="level-1" value="{{ $parent->id }}"
                     {{ (old('category_id') == $parent->id) ? 'selected' : '' }}
@@ -51,7 +52,9 @@
     </select>
 
     @if ($errors->has('category_id'))
-        @include('common.form.input-error-message', ['message' => $errors->first('category_id')])
+        @include('common.form.input-error-message-no-feedback', [
+            'message' => $errors->first('category_id')
+        ])
     @endif
 
     <span class="help-block">
@@ -77,7 +80,9 @@
                     value="{{ old('price') ?: (isset($event->price) ? $event->price : 0) }}">
 
             @if ($errors->has('price'))
-                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('price')])
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('price')
+                ])
             @endif
         </div>
     </div>
@@ -89,7 +94,9 @@
                     value="{{ old('size') ?: (isset($event->size) ? $event->size : 0) }}">
 
             @if ($errors->has('size'))
-                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('stock')])
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('size')
+                ])
             @endif
         </div>
     </div>
