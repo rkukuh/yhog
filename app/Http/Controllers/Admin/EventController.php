@@ -107,7 +107,11 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('admin.event.edit', [
+            'event' => $event,
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
