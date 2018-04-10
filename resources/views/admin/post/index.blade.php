@@ -73,8 +73,8 @@
                         </td>
                         <td class="text-right">
                             <form method="post" action="{{ route('admin.post.update', $post) }}" style="display: inline;">
-                                @method('PATCH')
                                 @csrf
+                                @method('PATCH')
     
                                 @if ($post->published_at)
                                     @component('common.buttons.submit')
