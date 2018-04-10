@@ -11,6 +11,61 @@
     @endif
 </div>
 
+<div class="row">
+    <div class="col-md-9">
+        <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
+            <label for="category_id">
+                Category @include('common.form.label-required-field')
+            </label>
+        
+            <select class="form-control select2" id="category_id" name="category_id">
+                <option value=""></option>
+                @foreach ($parent_categories as $parent)
+                    <option class="level-1" value="{{ $parent->id }}"
+                            {{ (old('category_id') == $parent->id) ? 'selected' : '' }}
+                            
+                            {{ isset($event->categories) ? 
+                                ((in_array($parent->id, $event->categories->pluck('id')->toArray()) ? 
+                                    'selected' : '')) : '' }}>
+        
+                        {{ $parent->name }}
+                    </option>
+                    @foreach ($parent->childs as $child)
+                        <option class="level-2" value="{{ $child->id }}"
+                            {{ (old('category_id') == $child->id) ? 'selected' : '' }}
+                            
+                            {{ isset($event->categories) ? 
+                                ((in_array($child->id, $event->categories->pluck('id')->toArray()) ? 
+                                    'selected' : '')) : '' }}>
+        
+                            — {{ $child->name }}
+                        </option>
+                    @endforeach
+                @endforeach
+            </select>
+        
+            @if ($errors->has('category_id'))
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('category_id')
+                ])
+            @endif
+        
+            <span class="help-block">
+                Can not spot the Category you're looking for?
+        
+                @component('common.buttons.create-new')
+                    @slot('size', 'xs')
+                    @slot('color', 'info')
+                    @slot('alignment' , '')
+                    @slot('text', 'New Category')
+                    @slot('style', 'display: inline;')
+                    @slot('route', route('admin.category-event.index'))
+                @endcomponent
+            </span>
+        </div>
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('location') ? 'has-error has-feedback' : '' }}">
     <label for="location">Location</label>
 
@@ -22,129 +77,35 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
-    <label for="category_id">Category</label>
+<div class="form-group {{ $errors->has('description') ? 'has-error has-feedback' : '' }}">
+    <label for="description">Description</label>
 
-    <select class="form-control select2" id="category_id" name="category_id">
-        <option value=""></option>
-        @foreach ($parent_categories as $parent)
-            <option class="level-1" value="{{ $parent->id }}"
-                    {{ (old('category_id') == $parent->id) ? 'selected' : '' }}
-                    
-                    {{ isset($event->categories) ? 
-                        ((in_array($parent->id, $event->categories->pluck('id')->toArray()) ? 
-                            'selected' : '')) : '' }}>
+    <textarea class="form-control" id="description" name="description" 
+                rows="4">{{ old('description') ?: (isset($event->description) ? $event->description : '') }}</textarea>
 
-                {{ $parent->name }}
-            </option>
-            @foreach ($parent->childs as $child)
-                <option class="level-2" value="{{ $child->id }}"
-                    {{ (old('category_id') == $child->id) ? 'selected' : '' }}
-                    
-                    {{ isset($event->categories) ? 
-                        ((in_array($child->id, $event->categories->pluck('id')->toArray()) ? 
-                            'selected' : '')) : '' }}>
+    @if ($errors->has('description'))
+        @include('common.form.input-error-message', ['message' => $errors->first('description')])
+    @endif
+</div>
 
-                    — {{ $child->name }}
-                </option>
-            @endforeach
-        @endforeach
-    </select>
+<div class="form-group {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
+        {{ $errors->has('images.*') ? 'has-error has-feedback' : '' }}">
 
-    @if ($errors->has('category_id'))
-        @include('common.form.input-error-message-no-feedback', [
-            'message' => $errors->first('category_id')
-        ])
+    <label for="images">Images</label>
+
+    <input type="file" name="images[][image]" multiple class="form-control">
+
+    @if ($errors->has('images'))
+        @include('common.form.input-error-message', ['message' => $errors->first('images')])
     @endif
 
     <span class="help-block">
-        Can not spot the Category you're looking for?
-
-        @component('common.buttons.create-new')
-            @slot('size', 'xs')
-            @slot('color', 'info')
-            @slot('alignment' , '')
-            @slot('text', 'New Category')
-            @slot('style', 'display: inline;')
-            @slot('route', route('admin.category-event.index'))
-        @endcomponent
+        Acceptable types are PNG or JPG.
     </span>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-            <label for="price">Price</label>
-
-            <input type="number" class="form-control text-right" id="price" name="price"
-                    value="{{ old('price') ?: (isset($event->price) ? $event->price : 0) }}">
-
-            @if ($errors->has('price'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('price')
-                ])
-            @endif
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
-            <label for="size">Participant Size</label>
-
-            <input type="number" class="form-control text-right" id="size" name="size"
-                    value="{{ old('size') ?: (isset($event->size) ? $event->size : 0) }}">
-
-            @if ($errors->has('size'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('size')
-                ])
-            @endif
-
-            <span class="help-block">Leave 0 for no limitation</span>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('early_bird_price') ? 'has-error' : '' }}">
-            <label for="early_bird_price">Early Bird Price</label>
-
-            <input type="number" class="form-control text-right" id="early_bird_price" name="early_bird_price"
-                    value="{{ old('early_bird_price') ?: 
-                                (isset($event->early_bird_price) ? 
-                                        $event->early_bird_price : 0) }}">
-
-            @if ($errors->has('early_bird_price'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('early_bird_price')
-                ])
-            @endif
-
-            <span class="help-block">Leave 0 for no early bird price</span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('early_bird_price_end_at') ? 'has-error' : '' }}">
-            <label for="early_bird_price_end_at">Early Bird End Date</label>
-
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-
-                <input type="text" class="form-control" id="early_bird_price_end_at" name="early_bird_price_end_at" 
-                        placeholder="dd/mm/yyyy"
-                        value="{{ old('early_bird_price_end_at') ?
-                                    old('early_bird_price_end_at') : 
-                                        (isset($event->early_bird_price_end_at) ?
-                                                $event->early_bird_price_end_at->format('d/m/Y') : '') }}">
-            </div>
-
-            @if ($errors->has('early_bird_price_end_at'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('early_bird_price_end_at')
-                ])
-            @endif
-        </div>
-    </div>
+    @if ($errors->has('images.*'))
+        @foreach ($errors->get('images.*') as $image)
+            @include('common.form.input-error-message', ['message' => $image[0]])
+        @endforeach
+    @endif
 </div>
