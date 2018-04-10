@@ -3,8 +3,8 @@
 		<a href="{{ url('') }}">Home</a>
 	</li>
 	
-	<li @if($current_page == "projects") class="active" @endif>
-		<a href="{{ url('/projects') }}">Our Projects</a>
+	<li @if($current_page == "our-projects") class="active" @endif>
+		<a href="{{ url('/our-projects') }}">Our Projects</a>
 	</li>
 	
 	<li @if($current_page == "fundraising") class="active" @endif>

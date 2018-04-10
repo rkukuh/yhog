@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-<section class="hero-image" data-interchange="[{{ asset('assets/img/hero-image-home.jpg') }}, large]">
+<section class="hero-image" data-interchange="[{{ asset('assets/img/hero-image-home.jpg') }}, xsmall], [{{ asset('assets/img/hero-image-home.jpg') }}, large]">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-middle align-right">
 			<h1>
@@ -35,65 +35,43 @@
 </section>
 
 <section class="support-us">
-	<div class="grid-container images">
-		<div class="grid-x xsmall-up-2 medium-up-4 large-up-6">
-			<div class="cell">
+	<div class="grid-container">
+		<div class="grid-x xsmall-up-3 medium-up-4 large-up-6 images">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-1.jpg') }}">
 			</div>
 			
-			<div class="cell">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-2.jpg') }}">
 			</div>
 			
-			<div class="cell">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-3.jpg') }}">
 			</div>
 			
-			<div class="cell">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-1.jpg') }}">
 			</div>
 			
-			<div class="cell">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-2.jpg') }}">
 			</div>
 			
-			<div class="cell">
+			<div class="cell image">
 				<img src="{{ asset('assets/img/tn-support-sample-3.jpg') }}">
 			</div>
 		</div>
 	</div>
 	
+		@include('front-end.common.elements.goals')
+	
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell">
-				<div class="grid-x large-up-4 goals">
-					<div class="cell goal reached">
-						<p>10.000.000 IDR<br><small>Goal Reached</small></p>
-					</div>
-					
-					<div class="cell goal on-progress">
-						<div class="bar" style="width: 75%"></div>
-						
-						<p>20.000.000 IDR<br><small>Target Goal</small></p>
-					</div>
-					
-					<div class="cell goal">
-						<p>30.000.000 IDR<br><small>Stretched Goal</small></p>
-					</div>
-					
-					<div class="cell goal">
-						<p>50.000.000 IDR<br><small>Super stretched Goal</small></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 large-8">
 				<p>The incidence of these birth defects remains terribly high in Indonesia, and many families cannot afford the surgery needed. Yet, without these relatively simple operations, these children can become outcasts in their own society and face a future of even greater hardship and struggle. Your assistance to these children truly helps change lives for the better.</p>
 			</div>
 			
-			<div class="cell xsmall-12 large-4">
+			<div class="cell xsmall-12 large-4 text-center">
 				<h2>Help us, help more kids.</h2>
 				
 				<a class="cta">Support Us Today!</a>
@@ -141,11 +119,15 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 large-8">
 				<h2>We support Dr. Gentur and the Gentur Cleft Foundation</h2>
-				
+			</div>
+		</div>
+		
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12 medium-7 large-8">
 				<p><img src="{{ asset('assets/img/logo-gentur-cleft-foundation.jpg') }}" class="align left">For many years we have worked closely in support of Dr. Gentur and his surgical team. Dr. Gentur is widely respected both in Indonesia and abroad for his wealth of knowledge in the reconstructive surgery field, and in particular for his pioneering work in Indonesia in operating on babies and infants.</p>
 			</div>
 			
-			<div class="cell xsmall-12 large-4">
+			<div class="cell xsmall-12 medium-5 large-4">
 				<img src="{{ asset('assets/img/gentur-cleft-foundation.jpg') }}">
 			</div>
 		</div>
@@ -155,17 +137,17 @@
 <section class="upcoming-events">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell large-10 text-center">
+			<div class="cell medium-11 large-10 text-center">
 				<h2>Upcoming Events</h2>
 				
 				<div class="events grid-x grid-padding-x align-justify text-left">
-					<div class="event cell large-5">
+					<div class="event cell medium-12 large-5">
 						<div class="grid-x grid-padding-x">
-							<div class="cell large-5">
+							<div class="cell medium-3 large-5 hide-for-xsmall-only hide-for-small-only">
 								<img src="{{ asset('assets/img/tn-event-sample.jpg') }}">
 							</div>
 							
-							<div class="cell large-7 text">
+							<div class="cell xsmall-12 medium-9 large-7 text">
 								<p class="title">HOG FEST</p>
 								
 								<p>May 1, 2018<br>Location</p>
@@ -175,13 +157,13 @@
 						</div>
 					</div>
 					
-					<div class="event cell large-5">
+					<div class="event cell medium-12 large-5">
 						<div class="grid-x grid-padding-x">
-							<div class="cell large-5">
+							<div class="cell medium-3 large-5 hide-for-xsmall-only hide-for-small-only">
 								<img src="{{ asset('assets/img/tn-event-sample.jpg') }}">
 							</div>
 							
-							<div class="cell large-7 text">
+							<div class="cell xsmall-12 medium-9 large-7 text">
 								<p class="title">HOG FEST</p>
 								
 								<p>May 1, 2018<br>Location</p>
