@@ -44,10 +44,7 @@
             $("#start_at").inputmask("dd/mm/yyyy");
             $("#end_at").inputmask("dd/mm/yyyy");
 
-            $(".start_times").inputmask("hh:mm");
-            $(".end_times").inputmask("hh:mm");
-
-            $("#early_bird_end_at").inputmask("dd/mm/yyyy");
+            $("#early_bird_price_end_at").inputmask("dd/mm/yyyy");
 
         });
     </script>

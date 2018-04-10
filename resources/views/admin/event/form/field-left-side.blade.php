@@ -22,33 +22,6 @@
     @endif
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-            <label for="price">Price</label>
-
-            <input type="number" class="form-control text-right" id="price" name="price"
-                    value="{{ old('price') ?: (isset($event->price) ? $event->price : 0) }}">
-
-            @if ($errors->has('price'))
-                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('price')])
-            @endif
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
-            <label for="size">Audience Size</label>
-
-            <input type="number" class="form-control text-right" id="size" name="size"
-                    value="{{ old('size') ?: (isset($event->size) ? $event->size : 0) }}">
-
-            @if ($errors->has('size'))
-                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('stock')])
-            @endif
-        </div>
-    </div>
-</div>
-
 <div class="form-group {{ $errors->has('category_id') ? 'has-error has-feedback' : '' }}">
     <label for="category_id">
         Category @include('common.form.label-required-field')
@@ -97,60 +70,72 @@
     </span>
 </div>
 
-<div class="form-group {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
-        {{ $errors->has('images.*') ? 'has-error has-feedback' : '' }}">
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+            <label for="price">Price</label>
 
-    <label for="images">Images</label>
+            <input type="number" class="form-control text-right" id="price" name="price"
+                    value="{{ old('price') ?: (isset($event->price) ? $event->price : 0) }}">
 
-    <input type="file" name="images[][image]" multiple class="form-control">
+            @if ($errors->has('price'))
+                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('price')])
+            @endif
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
+            <label for="size">Audience Size</label>
 
-    @if ($errors->has('images'))
-        @include('common.form.input-error-message', ['message' => $errors->first('images')])
-    @endif
+            <input type="number" class="form-control text-right" id="size" name="size"
+                    value="{{ old('size') ?: (isset($event->size) ? $event->size : 0) }}">
 
-    <span class="help-block">
-        Acceptable types are PNG or JPG.
-    </span>
-
-    @if ($errors->has('images.*'))
-        @foreach ($errors->get('images.*') as $image)
-            @include('common.form.input-error-message', ['message' => $image[0]])
-        @endforeach
-    @endif
+            @if ($errors->has('size'))
+                @include('common.form.input-error-message-no-feedback', ['message' => $errors->first('stock')])
+            @endif
+        </div>
+    </div>
 </div>
 
-<div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
-    <label for="tag_id">Tag</label>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('early_bird_price') ? 'has-error' : '' }}">
+            <label for="early_bird_price">Early Bird Price</label>
 
-    <select class="form-control select2" id="tag_id" name="tag_id[]" multiple>
-        @foreach ($tags as $tag)
-            <option value="{{ $tag->id }}" 
-                
-                    {{ old('tag_id') ? (in_array($tag->id, old('tag_id')) ? 'selected' : '') : '' }}
+            <input type="number" class="form-control text-right" id="early_bird_price" name="early_bird_price"
+                    value="{{ old('early_bird_price') ?: 
+                                (isset($event->early_bird_price) ? 
+                                        $event->early_bird_price : 0) }}">
 
-                    {{ isset($event->tags) ? 
-                        ((in_array($tag->id, $event->tags->pluck('id')->toArray()) ? 
-                            'selected' : '')) : '' }}>
+            @if ($errors->has('early_bird_price'))
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('early_bird_price')
+                ])
+            @endif
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('early_bird_price_end_at') ? 'has-error' : '' }}">
+            <label for="early_bird_price_end_at">Early Bird End Date</label>
 
-                {{ $tag->name }}
-            </option>
-        @endforeach
-    </select>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
 
-    @if ($errors->has('tag_id'))
-        @include('common.form.input-error-message', ['message' => $errors->first('tag_id')])
-    @endif
+                <input type="text" class="form-control" id="early_bird_price_end_at" name="early_bird_price_end_at" 
+                        placeholder="dd/mm/yyyy"
+                        value="{{ old('early_bird_price_end_at') ?
+                                    old('early_bird_price_end_at') : 
+                                        (isset($event->early_bird_price_end_at) ?
+                                                $event->early_bird_price_end_at->format('d/m/Y') : '') }}">
+            </div>
 
-    <span class="help-block">
-        Can not spot the Tag you're looking for?
-
-        @component('common.buttons.create-new')
-            @slot('size', 'xs')
-            @slot('color', 'info')
-            @slot('alignment' , '')
-            @slot('text', 'New Tag')
-            @slot('style', 'display: inline;')
-            @slot('route', route('admin.tag.index'))
-        @endcomponent
-    </span>
+            @if ($errors->has('early_bird_price_end_at'))
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('early_bird_price_end_at')
+                ])
+            @endif
+        </div>
+    </div>
 </div>
