@@ -86,9 +86,7 @@
 </div>
 
 <div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
-    <label for="tag_id">
-        Tag 
-    </label>
+    <label for="tag_id">Tag</label>
 
     <select class="form-control select2" id="tag_id" name="tag_id[]" multiple>
         @foreach ($tags as $tag)
