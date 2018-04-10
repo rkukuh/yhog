@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -164,8 +165,126 @@ class Event extends Model
         echo '<div class="badge">no limit</div>';
     }
 
+    public function getStartAtFormattedAttribute()
+    {
+        if ($this->hasEnded()) {
+
+            echo '<span class="label label-danger">ENDED</span> <br>' .
+                    '<span class="text-muted">' .
+                        $this->start_at->format('d-M-Y') .
+                    '</span>';
+
+            return;
+        }
+
+        $output = '';
+
+        if ($this->isWaiting()) {
+
+            $output = '<span class="label label-default">WAITING</span> <br>';
+        }
+
+        if ($this->isActive()) {
+
+            $output = '<span class="label label-success">ACTIVE</span> <br>';
+        }
+
+        $output .= '<span class="text-muted">' .
+                        $this->start_at->format('d-M-Y') .
+                    '</span>';
+
+        echo $output;
+    }
+
+    public function getEndAtFormattedAttribute()
+    {
+        if ($this->isEndless()) {
+
+            echo '<span class="label label-info">ENDLESS</span> <br> ' .
+                    '<small class="text-muted">until manually ended</small>';
+
+            return;
+        }
+
+        if ($this->hasEnded()) {
+
+            $output = '<span class="label label-danger">ENDED</span>';
+        }
+        else {
+
+            $output = $this->end_at->diffForHumans();
+        }
+
+        $output .=  '<br>' .
+                    '<span class="text-muted">' .
+                        $this->end_at->format('d-M-Y') .
+                    '</span>';
+
+        echo $output;
+    }
+
     public function getFeaturedImageAttribute()
     {
         return $this->images()->latest()->first();
+    }
+
+
+    /***************************************** HELPER ********************************************/
+
+    /**
+     * Determine whether an event is active
+     *
+     * @return boolean
+     */
+    public function isActive()
+    {
+        if ( ! $this->isWaiting() ) return true;
+
+        return false;
+    }
+
+    /**
+     * Determine whether an event is waiting for active period
+     *
+     * @return boolean
+     */
+    public function isWaiting()
+    {
+        $now = Carbon::now();
+
+        if ($now->diffInDays($this->start_at, false) > 0) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine whether an event is already ended
+     *
+     * @return boolean
+     */
+    public function hasEnded()
+    {
+        if ($this->end_at != null
+            && Carbon::now() > $this->end_at) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine whether an event has no expire date
+     *
+     * @return boolean
+     */
+    public function isEndless()
+    {
+        if ($this->end_at == null) return true;
+
+        return false;
     }
 }
