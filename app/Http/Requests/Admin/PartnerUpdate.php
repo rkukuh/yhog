@@ -61,14 +61,14 @@ class PartnerUpdate extends FormRequest
 
             if ($this['submit'] == 'draft') {
 
-                $this->post->update(['previewed_at' => null]);
-                $this->post->update(['published_at' => null]);
+                $this->partner->update(['previewed_at' => null]);
+                $this->partner->update(['published_at' => null]);
 
             } 
             else if ($this['submit'] == 'publish') {
 
-                $this->post->update(['previewed_at' => null]);
-                $this->post->update(['published_at' => Carbon::now()]);
+                $this->partner->update(['previewed_at' => null]);
+                $this->partner->update(['published_at' => Carbon::now()]);
 
             }
             else if ($this['submit'] == 'preview') {
