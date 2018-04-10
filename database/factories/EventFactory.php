@@ -39,7 +39,6 @@ $factory->define(Event::class, function (Faker $faker) {
 
         'start_at' => $start_at,
         'end_at' => $faker->randomElement([null, Carbon::now()->addWeek(rand(2, 4))]),
-        'total_hours' => $faker->randomDigitNotNull,
     ];
 
 });

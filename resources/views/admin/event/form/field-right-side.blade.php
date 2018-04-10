@@ -56,25 +56,6 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="form-group {{ $errors->has('total_hours') ? 'has-error' : '' }}">
-            <label for="total_hours">Total Hours</label>
-
-            <input type="text" class="form-control" id="total_hours" name="total_hours"
-                    value="{{ old('total_hours') ?: 
-                                (isset($event->total_hours) ? 
-                                        $event->total_hours : '') }}">
-
-            @if ($errors->has('total_hours'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('total_hours')
-                ])
-            @endif
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
         <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
             <label for="price">Price</label>
 

@@ -29,7 +29,6 @@ class CreateEventsTable extends Migration
             
             $table->timestamp('start_at')->nullable();
             $table->timestamp('end_at')->nullable();
-            $table->integer('total_hours')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
