@@ -105,7 +105,7 @@ class Post extends Model
 
     public function getPublishedAtFormattedAttribute()
     {
-        return ($this->published_at) ? 
+        echo ($this->published_at) ? 
                     '<strong class="text-green">YES</strong> <br>' .
                     '<span class="text-muted">' . 
                         $this->published_at->format('d-M-Y') . 
@@ -115,19 +115,17 @@ class Post extends Model
 
     public function getCreatedAtFormattedAttribute()
     {
-        return $this->created_at->diffForHumans() . '<br>' .
+        echo $this->created_at->diffForHumans() . '<br>' .
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
     }
 
-    public function getCategoryListAttribute()
+    public function getCategoryLinkAttribute()
     {
         if ($this->categories->isEmpty()) return '-';
 
-        foreach ($this->categories as $category) {
-            echo '<a href="#">' . $category->name . '</a>, ';
-        }
+        echo $this->categories[0]->name;
     }
 
     public function getTagListAttribute()
@@ -135,7 +133,7 @@ class Post extends Model
         if ($this->tags->isEmpty()) return '-';
         
         foreach ($this->tags as $tag) {
-            echo '<a href="#">' . $tag->name . '</a>, ';
+            echo $tag->name . ', ';
         }
     }
 
