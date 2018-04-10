@@ -69,7 +69,23 @@ class EventController extends Controller
      */
     public function store(EventStore $request)
     {
-        //
+        if ($event = Event::create($request->all())) {
+
+            // Persist its category, they're always exists (required)
+            $event->categories()->attach($request->category_id);
+
+            if ($request->has('tag_id')) {
+                $event->tags()->attach($request->tag_id);
+            }
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $event);
+            }
+        }
+
+        return redirect()->route('admin.event.index')
+                         ->with('success-message', 'New event has been added.');
     }
 
     /**
@@ -115,5 +131,32 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
+    }
+
+    /**
+     * Associate a file(s) for a event.
+     *
+     * @param  \Illuminate\Foundation\Http\FormRequest $request
+     * @param  \App\Models\Event $event
+     * @return void
+     */
+    protected function uploadFile(FormRequest $request, Event $event)
+    {
+        $path = 'event-' . $event->id;
+
+        foreach ($request['images'] as $file) {
+
+            $fileExtension  = $file['image']->getClientOriginalExtension();
+            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
+
+            $file['image']->storeAs('public/' . $path, $fileName);
+
+            // Persist file(s) to database, and associate them with this event
+            $event->images()->create([
+                'path' => $path . '/' . $fileName,
+                'size' => $file['image']->getSize(),
+                'mime' => $file['image']->getMimeType()
+            ]);
+        }
     }
 }
