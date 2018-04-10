@@ -20,6 +20,7 @@
         
             <select class="form-control select2" id="category_id" name="category_id">
                 <option value=""></option>
+                
                 @foreach ($parent_categories as $parent)
                     <option class="level-1" value="{{ $parent->id }}"
                             {{ (old('category_id') == $parent->id) ? 'selected' : '' }}
