@@ -73,7 +73,6 @@ Route::name('admin.')->group(function () {
 });
 
 
-
 ////////////////////////////// FRONT-END //////////////////////////////
 
 Route::get('/interchange/{view}', 'InterchangeController@index');
