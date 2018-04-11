@@ -32,5 +32,9 @@ class ExampleDataSeeder extends Seeder
         /** PARTNER **/
 
         $this->call(Partners::class);
+
+        /** DONATION **/
+
+        $this->call(Donations::class);
     }
 }
