@@ -58,20 +58,8 @@
 </section>
 
 <section class="support-us">
-	<div class="grid-container full">
-		<div class="grid-x xsmall-up-1 medium-up-2 large-up-3 images">
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-4.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-5.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-6.jpg') }}">	
-			</div>
-		</div>
+	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
+		
 	</div>
 	
 	<header>
@@ -148,22 +136,9 @@
 </section>
 
 <section class="upcoming-events">
-	<div class="grid-container full">
-		<div class="grid-x xsmall-up-1 medium-up-2 large-up-3 images">
-			<div class="cell image">
-				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/hero-image-our-projects.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">	
-			</div>
-		</div>
+	<div class="grid-container full" data-interchange="[{{ url('interchange/events-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/events-thumbnails-small') }}, small], [{{ url('interchange/events-thumbnails-small') }}, medium], [{{ url('interchange/events-thumbnails-large') }}, large], [{{ url('interchange/events-thumbnails-large') }}, xlarge], [{{ url('interchange/events-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/events-thumbnails-xxxlarge') }}, xxxlarge]">
+		
 	</div>
-	
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell medium-11 large-10 text-center">
