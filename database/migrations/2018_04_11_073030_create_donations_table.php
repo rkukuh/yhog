@@ -18,7 +18,7 @@ class CreateDonationsTable extends Migration
             $table->unsignedInteger('user_id');
 
             $table->string('title');
-            $table->double('target');
+            $table->double('target')->nullable();
             $table->text('location')->nullable();
             $table->timestamp('end_at')->nullable();
 
