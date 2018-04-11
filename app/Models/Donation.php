@@ -44,4 +44,15 @@ class Donation extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    /**
+     * M-M Polymorphic: A donation can have one or many categories.
+     * 
+     * This function will get all of the categories that are assigned to this donation.
+     * See: Category's donations() method for the inverse
+     */
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'categorizable');
+    }
 }
