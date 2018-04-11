@@ -9,5 +9,21 @@ class Donation extends Model
 {
     use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+    protected $fillable = [
+        'user_id',
+
+        'title',
+        'target',
+        'location',
+        'end_at',
+
+        'video_url',
+        'excerpt',
+        'description',
+    ];
+
+    protected $dates = [
+        'deleted_at',
+        'end_at'
+    ];
 }
