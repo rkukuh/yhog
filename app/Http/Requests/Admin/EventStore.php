@@ -35,7 +35,7 @@ class EventStore extends FormRequest
             'start_at' => 'required|date_format:"d/m/Y"|after_or_equal:today',
             'end_at' => 'required|date_format:"d/m/Y"|after_or_equal:start_at',
             'early_bird_price' => 'numeric|min:0',
-            'early_bird_price_end_at' => 'nullable|after_or_equal:today',
+            'early_bird_price_end_at' => 'nullable|date_format:"d/m/Y"|before_or_equal:start_at',
             // 'images' => 'required',
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000'
         ];
@@ -68,13 +68,8 @@ class EventStore extends FormRequest
 
                 'user_id' => auth()->user()->id,
 
-                'start_at' => ($this->start_at) ? 
-                                Carbon::createFromFormat('d/m/Y', $this->start_at) : 
-                                null,
-
-                'end_at' => ($this->end_at) ? 
-                                Carbon::createFromFormat('d/m/Y', $this->end_at) : 
-                                null,
+                'start_at' => Carbon::createFromFormat('d/m/Y', $this->start_at),
+                'end_at' => Carbon::createFromFormat('d/m/Y', $this->end_at),
 
                 'early_bird_price_end_at' => ($this->early_bird_price_end_at) ? 
                                                 Carbon::createFromFormat('d/m/Y', $this->early_bird_price_end_at) : 

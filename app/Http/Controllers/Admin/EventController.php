@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Event;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
 use App\Http\Requests\Admin\EventUpdate;
+use Illuminate\Foundation\Http\FormRequest;
 
 class EventController extends Controller
 {
@@ -107,7 +109,11 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('admin.event.edit', [
+            'event' => $event,
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
@@ -119,7 +125,23 @@ class EventController extends Controller
      */
     public function update(EventUpdate $request, Event $event)
     {
-        //
+        if ($event->update($request->all())) {
+
+            // Sync its tags and/or categories
+            $event->tags()->sync($request->tag_id);
+            $event->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $event);
+            }
+        }
+
+        return redirect()
+                ->route('admin.event.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Event has been updated.');
     }
 
     /**
@@ -130,7 +152,11 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $event->delete();
+
+        return back()->with('success-message', 'Event has been removed.');
     }
 
     /**
