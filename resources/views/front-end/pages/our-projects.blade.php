@@ -103,7 +103,7 @@
 			</div>
 			
 			<div class="cell xsmall-12 large-3">
-				
+				<img src="{{ asset('assets/img/ad-unit.png') }}">
 			</div>
 		</div>
 	</div>

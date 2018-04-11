@@ -95,6 +95,7 @@
 			</div>
 			
 			<div class="cell xsmall-12 large-3">
+				<img src="{{ asset('assets/img/logo-sponsor.png') }}">
 			</div>
 		</div>
 	</div>

@@ -80,6 +80,58 @@
 	</div>
 </section>
 
+<section class="support-us option-2">
+	<div class="grid-container full">
+		<div class="grid-x xsmall-up-1 medium-up-2 large-up-3 images">
+			<div class="cell image">
+				<img src="{{ asset('assets/img/tn-support-sample-4.jpg') }}">
+			</div>
+			
+			<div class="cell image">
+				<img src="{{ asset('assets/img/tn-support-sample-5.jpg') }}">
+			</div>
+			
+			<div class="cell image">
+				<img src="{{ asset('assets/img/tn-support-sample-6.jpg') }}">	
+			</div>
+		</div>
+	</div>
+	
+	<header>
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="cell xsmall-12 large-10 text-center">
+					<p>Through your donations we provide facial reconstructive surgery for infants and children born with harelip or cleft palate defects.</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	@include('front-end.common.elements.goals')
+	
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12 large-9">
+				<div class="grid-x grid-padding-x">
+					<div class="cell xsmall-12 large-6">
+						<h2>Help us, help more kids.</h2>
+					</div>
+					
+					<div class="cell xsmall-12 large-6">
+						<a class="cta">Support Us Today!</a>
+					</div>
+				</div>
+				
+				<p>The incidence of these birth defects remains terribly high in Indonesia, and many families cannot afford the surgery needed. Yet, without these relatively simple operations, these children can become outcasts in their own society and face a future of even greater hardship and struggle. Your assistance to these children truly helps change lives for the better.</p>
+			</div>
+			
+			<div class="cell xsmall-12 large-3">
+				<img src="{{ asset('assets/img/ad-unit.png') }}">
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="partners">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
@@ -152,7 +204,7 @@
 								
 								<p>May 1, 2018<br>Location</p>
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a>Continue</a></p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a href="{{ url('events/detail') }}">Continue</a></p>
 							</div>
 						</div>
 					</div>
@@ -168,13 +220,13 @@
 								
 								<p>May 1, 2018<br>Location</p>
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a>Continue</a></p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a href="{{ url('events/detail') }}">Continue</a></p>
 							</div>
 						</div>
 					</div>
 				</div>
 				
-				<a class="cta">View all events</a>
+				<a class="cta"  href="{{ url('events') }}">View all events</a>
 			</div>
 		</div>
 	</div>
@@ -198,6 +250,36 @@
 			</div>
 			
 			<div class="cell xsmall-12 large-5">
+				<blockquote>&ldquo;The Yayasan HOG committee and members give their time and efforts free of charge, we are proud to say that <strong>over 97 cents of every dollar</strong> raise goes straight to supporting our surgical programs, bettering young and impoverished Indonesian children’s lives.&rdquo;</blockquote>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="yayasan-hog">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12 large-9">
+				<h2>About YAYASAN HOG</h2>
+			</div>
+		</div>
+		
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12 large-9">
+				<p><img src="{{ asset('assets/img/logo-yayasan-hog.jpg') }}" class="align left">Yayasan HOG was established by the ten founding members in 1987 and was right from the very start intended to be primarily a charitable organisation, having as its main objective the improvement of the lot of the children of impoverished Indonesian families.</p>
+				
+				<p>YHOG was founded by ten Jakarta based friends in 1987 – and is the longest established HOG group in Indonesia, and one of the oldest HOG Chapters in the world – and has been active ever since.</p>
+
+				<p>Yayasan HOG is a  non-profit group, leveraging our shared love of the Harley-Davidson motorbike to raise funds exclusively in support of a variety of Jakarta children’s charities through our activities. We are one of Indonesia’s major charities for Cranial Facial Reconstructive surgery for cleft lip and cleft palate.</p>
+			</div>
+			
+			<div class="cell xsmall-12 large-3">
+				<img src="{{ asset('assets/img/ad-unit.png') }}">
+			</div>
+		</div>
+		
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12">
 				<blockquote>&ldquo;The Yayasan HOG committee and members give their time and efforts free of charge, we are proud to say that <strong>over 97 cents of every dollar</strong> raise goes straight to supporting our surgical programs, bettering young and impoverished Indonesian children’s lives.&rdquo;</blockquote>
 			</div>
 		</div>

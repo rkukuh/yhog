@@ -6048,6 +6048,19 @@ form {
     margin-top: 4px;
     margin-bottom: 16px; }
 
+#home-page .support-us.option-2 .cta {
+  font-size: 24px;
+  color: #fff;
+  background-color: #FF9900;
+  margin-bottom: 24px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 11px;
+  padding-bottom: 12px; }
+
+#home-page .support-us.option-2 h2 {
+  margin-top: 3px; }
+
 #our-projects-page .hero-image {
   background-color: #504B4B;
   padding-top: 54px; }
@@ -6138,10 +6151,13 @@ form {
     padding-bottom: 48px; }
     #events-page .event-list .items .item {
       background-color: #504B4B;
+      margin-bottom: 32px;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 10px;
       padding-bottom: 10px; }
+      #events-page .event-list .items .item.ad-unit {
+        background-color: #707070 !important; }
       #events-page .event-list .items .item img {
         margin-bottom: 6px; }
       #events-page .event-list .items .item h3 {

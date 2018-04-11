@@ -103,6 +103,40 @@
 				
 				<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
 			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
+			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
+			</div>
+			
+			<div class="item ad-unit cell">
+				<img src="{{ asset('assets/img/ad-unit.png') }}">
+			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
+			</div>
 		</div>
 	</div>
 </section>

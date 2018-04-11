@@ -563,6 +563,25 @@ form {
 			margin-bottom: 16px;
 		}
 	}
+	
+	.support-us {
+		&.option-2 {
+			.cta {
+				font-size: 24px;
+				color: $white;
+				background-color: $orange;
+				margin-bottom: 24px;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 11px;
+				padding-bottom: 12px;
+			}
+			
+			h2 {
+				margin-top: 3px;
+			}
+		}
+	}
 }
 
 
@@ -705,10 +724,15 @@ form {
 			
 			.item {
 				background-color: $brown;
+				margin-bottom: 32px;
 				padding-left: 10px;
 				padding-right: 10px;
 				padding-top: 10px;
 				padding-bottom: 10px;
+				
+				&.ad-unit {
+					background-color: #707070 !important;
+				}
 				
 				img {
 					margin-bottom: 6px;
