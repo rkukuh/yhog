@@ -15,7 +15,24 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+
+            $table->string('title');
+            $table->double('target');
+            $table->text('location')->nullable();
+            $table->timestamp('end_at')->nullable();
+
+            $table->text('video_url');
+            $table->text('excerpt');
+            $table->longText('description');
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('user_id')
+                    ->references('id')->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
         });
     }
 
