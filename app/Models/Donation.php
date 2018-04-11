@@ -66,4 +66,17 @@ class Donation extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    /**
+     * Polymorphic: A donation may have one or more images.
+     *
+     * This function will retrieve the image(s) of an donation.
+     * See: Image's imageable() method
+     *
+     * @return mixed
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
