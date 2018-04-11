@@ -9,6 +9,18 @@ use App\Http\Requests\Admin\DonationUpdate;
 
 class DonationController extends Controller
 {
+    protected $tags;
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->tags = Tag::get();
+
+        $this->categories = Category::ofDonation()
+                                    ->parentCategory()
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
