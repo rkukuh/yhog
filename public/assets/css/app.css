@@ -5775,6 +5775,42 @@ form {
         transition-delay: 0;
         transition-duration: 0.5s;
         transition-property: width border-color; }
+  #main-header .button {
+    color: #fff;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    z-index: 100; }
+    @media (min-width: 0) {
+      #main-header .button {
+        display: block; } }
+    @media (min-width: 1024px) {
+      #main-header .button {
+        display: none; } }
+
+aside {
+  padding-top: 55px; }
+  aside .main-navigation li {
+    border-bottom: 1px solid #707070; }
+    aside .main-navigation li.active a {
+      color: #fff;
+      background-color: #FF9900; }
+    aside .main-navigation li a {
+      font-size: 1rem;
+      color: #504B4B;
+      background-color: transparent;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 11px;
+      padding-bottom: 12px;
+      display: block; }
+      aside .main-navigation li a:focus {
+        outline: none; }
 
 .hero-image {
   background-position: center center;

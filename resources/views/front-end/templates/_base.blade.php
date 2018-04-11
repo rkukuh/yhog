@@ -29,8 +29,10 @@
     	@include('front-end.templates._base-elements.header')
     	
 	    <div class="off-canvas-wrapper">
-		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
-		    	 @include('front-end.templates._base-elements.main-navigation')
+			<div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+				<aside>
+					@include('front-end.templates._base-elements.main-navigation')
+			    </aside>
 		    </div>
 		    
 		    <div class="off-canvas-content" data-off-canvas-content>

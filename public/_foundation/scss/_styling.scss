@@ -172,6 +172,58 @@ form {
 			}
 		}
 	}
+	
+	.button {
+		color: $white;
+		background-color: transparent;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 100;
+		
+		@include breakpoint(xsmall) {
+			display: block;
+		}
+		
+		@include breakpoint(large) {
+			display: none;
+		}
+	}
+}
+
+aside {
+	padding-top: 55px;
+	
+	.main-navigation {
+		li {
+			border-bottom: 1px solid #707070;
+			
+			&.active {
+				a {
+					color: $white;
+					background-color: $orange;
+				}	
+			}
+			
+			a {
+				font-size: 1rem;
+				color: $brown;
+				background-color: transparent;
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-top: 11px;
+				padding-bottom: 12px;
+				display: block;
+				
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+	}
 }
 
 .hero-image {
