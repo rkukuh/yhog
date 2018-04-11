@@ -152,7 +152,11 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $event->delete();
+
+        return back()->with('success-message', 'Event has been removed.');
     }
 
     /**
