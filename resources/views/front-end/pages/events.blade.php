@@ -152,35 +152,12 @@
 		</div>
 	</header>
 	
+	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
+	</div>
+	
+	@include('front-end.common.elements.goals')
+	
 	<div class="grid-container">
-		<div class="grid-x xsmall-up-3 medium-up-4 large-up-6 images">
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-1.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-2.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-3.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-1.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-2.jpg') }}">
-			</div>
-			
-			<div class="cell image">
-				<img src="{{ asset('assets/img/tn-support-sample-3.jpg') }}">
-			</div>
-		</div>
-	
-		@include('front-end.common.elements.goals')
-	
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 text-center">
 				<h2>Help us, help more kids.</h2>

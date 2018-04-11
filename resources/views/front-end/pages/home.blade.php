@@ -39,7 +39,7 @@
 		
 	</div>
 	
-		@include('front-end.common.elements.goals')
+	@include('front-end.common.elements.goals')
 	
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
