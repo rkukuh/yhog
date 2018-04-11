@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use Carbon\Carbon;
 use App\Models\Donation;
 use Faker\Generator as Faker;
 
