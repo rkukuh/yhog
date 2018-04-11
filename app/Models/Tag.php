@@ -64,4 +64,15 @@ class Tag extends Model
     {
         return $this->morphedByMany(Partner::class, 'taggable');
     }
+
+    /**
+     * M-M Polymorphic: A donation can have one or many tags.
+     * 
+     * This function will get all of the donations that are assigned to this tag.
+     * See: Donation's tags() method for the inverse
+     */
+    public function donations()
+    {
+        return $this->morphedByMany(Donation::class, 'taggable');
+    }
 }
