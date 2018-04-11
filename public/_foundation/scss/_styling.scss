@@ -661,6 +661,27 @@ aside {
 			padding-bottom: 7px;
 			border: 1px solid $white;
 		}
+		
+		&> .grid-container {
+			@include breakpoint(xlarge) {
+				max-width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				
+				.cell {
+					&:last-child {
+						padding-left: 0.9375rem;
+						padding-right: 0.9375rem;
+					}
+				}
+			}
+			
+			@include breakpoint(xxlarge) {
+				max-width: 1200px;
+				padding-left: 0.9375rem;
+				padding-right: 0.9375rem;
+			}
+		}
 	}
 	
 	.info {
@@ -765,6 +786,27 @@ aside {
 			padding-top: 7px;
 			padding-bottom: 7px;
 			border: 1px solid $white;
+		}
+		
+		&> .grid-container {
+			@include breakpoint(xlarge) {
+				max-width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				
+				.cell {
+					&:last-child {
+						padding-left: 0.9375rem;
+						padding-right: 0.9375rem;
+					}
+				}
+			}
+			
+			@include breakpoint(xxlarge) {
+				max-width: 1200px;
+				padding-left: 0.9375rem;
+				padding-right: 0.9375rem;
+			}
 		}
 	}
 	

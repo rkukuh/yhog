@@ -11,7 +11,7 @@
 @section('content')
 <section class="hero-image">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
+		<div class="grid-x">
 			<div class="cell xsmall-12 large-6">
 				<img src="{{ asset('assets/img/hero-image-our-projects.jpg') }}">
 			</div>

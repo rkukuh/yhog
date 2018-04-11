@@ -6113,6 +6113,19 @@ aside {
     padding-top: 7px;
     padding-bottom: 7px;
     border: 1px solid #fff; }
+  @media (min-width: 1200px) {
+    #our-projects-page .hero-image > .grid-container {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0; }
+      #our-projects-page .hero-image > .grid-container .cell:last-child {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem; } }
+  @media (min-width: 1440px) {
+    #our-projects-page .hero-image > .grid-container {
+      max-width: 1200px;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
 
 #our-projects-page .info {
   padding-top: 80px;
@@ -6180,6 +6193,19 @@ aside {
     padding-top: 7px;
     padding-bottom: 7px;
     border: 1px solid #fff; }
+  @media (min-width: 1200px) {
+    #events-page .featured > .grid-container {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0; }
+      #events-page .featured > .grid-container .cell:last-child {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem; } }
+  @media (min-width: 1440px) {
+    #events-page .featured > .grid-container {
+      max-width: 1200px;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
 
 #events-page .event-list {
   padding-top: 16px; }
