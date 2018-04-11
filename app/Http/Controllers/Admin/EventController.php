@@ -125,7 +125,23 @@ class EventController extends Controller
      */
     public function update(EventUpdate $request, Event $event)
     {
-        //
+        if ($event->update($request->all())) {
+
+            // Sync its tags and/or categories
+            $event->tags()->sync($request->tag_id);
+            $event->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $this->uploadFile($request, $event);
+            }
+        }
+
+        return redirect()
+                ->route('admin.event.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Event has been updated.');
     }
 
     /**
