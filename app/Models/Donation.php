@@ -4,11 +4,13 @@ namespace App\Models;
 
 use App\User;
 use Carbon\Carbon;
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Donation extends Model
 {
+    use Imageable;
     use SoftDeletes;
 
     protected $fillable = [
@@ -67,19 +69,6 @@ class Donation extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
-    }
-
-    /**
-     * Polymorphic: A donation may have one or more images.
-     *
-     * This function will retrieve the image(s) of an donation.
-     * See: Image's imageable() method
-     *
-     * @return mixed
-     */
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
     }
 
 
@@ -195,11 +184,6 @@ class Donation extends Model
         foreach ($this->tags as $tag) {
             echo $tag->name . ', ';
         }
-    }
-
-    public function getFeaturedImageAttribute()
-    {
-        return $this->images()->latest()->first();
     }
 
 
