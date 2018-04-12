@@ -9,10 +9,10 @@ trait Categorizable
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * M-M Polymorphic: A post can have one or many categories.
+     * M-M Polymorphic: An entity can have one or many categories.
      * 
-     * This function will get all of the categories that are assigned to this post.
-     * See: Category's posts() method for the inverse
+     * This function will get all of the categories that are assigned to this entity.
+     * See: Category's [entity]s() method for the inverse
      */
     public function categories()
     {
