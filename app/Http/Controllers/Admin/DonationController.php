@@ -30,7 +30,22 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $donations = Donation::with('creator', 'categories', 'tags')
+                        ->latest()
+                        ->paginate(env('PAGINATE', 5));
+
+        /* This will prevent "Pagination gives empty set on non existing page number",
+         * especially after deleting a data on the last page
+         */
+        if (Donation::count()) {
+
+            if ($donations->isEmpty()) {
+
+                return redirect()->route('donation.index');
+            }
+        }
+
+        return view('admin.donation.index', compact('donations'));
     }
 
     /**
