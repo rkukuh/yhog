@@ -100,6 +100,11 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/partner"]').parent().addClass('active');
     }
 
+    if (full_url.indexOf('admin/donation') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#donation"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/donation"]').parent().addClass('active');
+    }
+
     if (full_url.indexOf('admin/user') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#setting"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/user"]').parent().addClass('active');
