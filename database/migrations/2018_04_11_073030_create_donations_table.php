@@ -20,6 +20,7 @@ class CreateDonationsTable extends Migration
             $table->string('title');
             $table->double('target')->nullable();
             $table->text('location')->nullable();
+            $table->timestamp('start_at');
             $table->timestamp('end_at')->nullable();
 
             $table->text('video_url');
