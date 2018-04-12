@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use App\Traits\Imageable;
+use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -11,6 +12,7 @@ class Partner extends Model
 {
     use Imageable;
     use SoftDeletes;
+    use Categorizable;
 
     protected $fillable = [
         'user_id',
@@ -68,17 +70,6 @@ class Partner extends Model
     }
 
     /**
-     * M-M Polymorphic: A partner can have one or many categories.
-     * 
-     * This function will get all of the categories that are assigned to this partner.
-     * See: Category's partners() method for the inverse
-     */
-    public function categories()
-    {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
-
-    /**
      * M-M Polymorphic: A partner can have one or many tags.
      * 
      * This function will get all of the tags that are assigned to this partner.
@@ -108,13 +99,6 @@ class Partner extends Model
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
-    }
-
-    public function getCategoryLinkAttribute()
-    {
-        if ($this->categories->isEmpty()) return '-';
-
-        echo $this->categories[0]->name;
     }
 
     public function getTagListAttribute()
