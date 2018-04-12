@@ -20,7 +20,7 @@ class PartnerController extends Controller
     {
         $this->tags = Tag::get();
 
-        $this->categories = Category::ofpartner()
+        $this->categories = Category::ofPartner()
                                     ->parentCategory()
                                     ->get();
     }

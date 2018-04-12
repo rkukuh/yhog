@@ -166,4 +166,15 @@ class Category extends Model
     {
         return $this->morphedByMany(Partner::class, 'categorizable');
     }
+
+    /**
+     * M-M Polymorphic: A donation can have one or many categories.
+     * 
+     * This function will get all of the donations that are assigned to this category.
+     * See: Donation's categories() method for the inverse
+     */
+    public function donations()
+    {
+        return $this->morphedByMany(Donation::class, 'categorizable');
+    }
 }

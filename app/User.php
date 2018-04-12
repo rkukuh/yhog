@@ -59,6 +59,19 @@ class User extends Authenticatable
     }
 
     /**
+     * One-to-Many: A creator may create zero or many event
+     *
+     * This function will retrieve the events created by a creator, if any.
+     * See: Event' creator() method for the inverse
+     *
+     * @return mixed
+     */
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    /**
      * One-to-Many: A creator may create zero or many partner
      *
      * This function will retrieve the partners created by a creator, if any.
@@ -72,15 +85,15 @@ class User extends Authenticatable
     }
 
     /**
-     * One-to-Many: A creator may create zero or many event
+     * One-to-Many: A creator may create zero or many donation
      *
-     * This function will retrieve the events created by a creator, if any.
-     * See: Event' creator() method for the inverse
+     * This function will retrieve the donations created by a creator, if any.
+     * See: Donation's creator() method for the inverse
      *
      * @return mixed
      */
-    public function events()
+    public function donations()
     {
-        return $this->hasMany(Event::class);
+        return $this->hasMany(Donation::class);
     }
 }

@@ -114,7 +114,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin.donation.index') }}">
                             <i class="fa fa-circle-o"></i> Donation
                         </a>
                     </li>
