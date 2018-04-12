@@ -4,9 +4,9 @@ namespace App\Models;
 
 use App\User;
 use Carbon\Carbon;
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\Imageable;
 
 class Event extends Model
 {
