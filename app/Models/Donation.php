@@ -4,11 +4,11 @@ namespace App\Models;
 
 use App\User;
 use Carbon\Carbon;
+use App\Traits\Taggable;
 use App\Traits\Imageable;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\Taggable;
 
 class Donation extends Model
 {
