@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostStore;
 use App\Http\Requests\Admin\PostUpdate;
-use Illuminate\Foundation\Http\FormRequest;
 
 class PostController extends Controller
 {
@@ -81,7 +80,7 @@ class PostController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $post);
+                $post->uploadImages($request, $post);
             }
         }
 
@@ -137,7 +136,7 @@ class PostController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $post);
+                $post->uploadImages($request, $post);
             }
         }
 
@@ -166,32 +165,5 @@ class PostController extends Controller
         $post->delete();
 
         return back()->with('success-message', 'Post has been removed.');
-    }
-
-    /**
-     * Associate a file(s) for a post.
-     *
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
-     * @param  \App\Models\Post $post
-     * @return void
-     */
-    protected function uploadFile(FormRequest $request, Post $post)
-    {
-        $path = 'post-' . $post->id;
-
-        foreach ($request['images'] as $file) {
-
-            $fileExtension  = $file['image']->getClientOriginalExtension();
-            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
-
-            $file['image']->storeAs('public/' . $path, $fileName);
-
-            // Persist file(s) to database, and associate them with this post
-            $post->images()->create([
-                'path' => $path . '/' . $fileName,
-                'size' => $file['image']->getSize(),
-                'mime' => $file['image']->getMimeType()
-            ]);
-        }
     }
 }
