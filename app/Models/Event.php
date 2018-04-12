@@ -59,14 +59,6 @@ class Event extends Model
 
     /***************************************** ACCESSOR ******************************************/
 
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
-    }
-
     public function getLocationFormattedAttribute()
     {
         if ($this->location) {
@@ -178,6 +170,14 @@ class Event extends Model
                     '</span>';
 
         echo $output;
+    }
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        echo $this->created_at->diffForHumans() . '<br>' .
+                '<small class="text-muted">' .
+                    $this->created_at->format('d-M-Y') .
+                '</small>';
     }
 
 
