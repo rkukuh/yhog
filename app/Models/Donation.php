@@ -102,11 +102,14 @@ class Donation extends Model
         if ($this->target) {
 
             echo number_format($this->target);
+
             return;
-
         }
-
-        return '-';
+        else {
+            
+            echo '<span style="font-size: 20px;">∞</span> <br>' . 
+                    '<small class="text-muted">(continuous)</small>';
+        }
     }
 
     public function getStartAtFormattedAttribute()
