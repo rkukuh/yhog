@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\User;
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Partner extends Model
 {
+    use Imageable;
     use SoftDeletes;
 
     protected $fillable = [
@@ -87,19 +89,6 @@ class Partner extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
-    /**
-     * Polymorphic: A partner may have one or more images.
-     *
-     * This function will retrieve the image(s) of a partner.
-     * See: Image's imageable() method
-     *
-     * @return mixed
-     */
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
-
 
     /***************************************** ACCESSOR ******************************************/
 
@@ -135,10 +124,5 @@ class Partner extends Model
         foreach ($this->tags as $tag) {
             echo $tag->name . ', ';
         }
-    }
-
-    public function getFeaturedImageAttribute()
-    {
-        return $this->images()->latest()->first();
     }
 }
