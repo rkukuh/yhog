@@ -8,9 +8,11 @@ use App\Traits\Imageable;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Taggable;
 
 class Donation extends Model
 {
+    use Taggable;
     use Imageable;
     use SoftDeletes;
     use Categorizable;
@@ -49,17 +51,6 @@ class Donation extends Model
     public function creator()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    /**
-     * M-M Polymorphic: A donation can have one or many tags.
-     * 
-     * This function will get all of the tags that are assigned to this donation.
-     * See: Tag's donations() method for the inverse
-     */
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
     }
 
 
@@ -159,15 +150,6 @@ class Donation extends Model
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
-    }
-
-    public function getTagListAttribute()
-    {
-        if ($this->tags->isEmpty()) return '-';
-        
-        foreach ($this->tags as $tag) {
-            echo $tag->name . ', ';
-        }
     }
 
 
