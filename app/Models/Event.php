@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use Carbon\Carbon;
 use App\Traits\Imageable;
+use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -12,6 +13,7 @@ class Event extends Model
 {
     use Imageable;
     use SoftDeletes;
+    use Categorizable;
 
     protected $fillable = [
         'user_id',
@@ -53,17 +55,6 @@ class Event extends Model
     }
 
     /**
-     * M-M Polymorphic: An event can have one or many categories.
-     * 
-     * This function will get all of the categories that are assigned to this event.
-     * See: Category's events() method for the inverse
-     */
-    public function categories()
-    {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
-
-    /**
      * M-M Polymorphic: An event can have one or many tags.
      * 
      * This function will get all of the tags that are assigned to this event.
@@ -83,13 +74,6 @@ class Event extends Model
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
-    }
-
-    public function getCategoryLinkAttribute()
-    {
-        if ($this->categories->isEmpty()) return '-';
-
-        echo $this->categories[0]->name;
     }
 
     public function getTagListAttribute()
