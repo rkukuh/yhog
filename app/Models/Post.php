@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use App\Traits\Taggable;
 use App\Traits\Imageable;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use Taggable;
     use Imageable;
     use SoftDeletes;
     use Categorizable;
@@ -69,17 +71,6 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * M-M Polymorphic: A post can have one or many tags.
-     * 
-     * This function will get all of the tags that are assigned to this post.
-     * See: Tag's posts() method for the inverse
-     */
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
-    }
-
 
     /***************************************** ACCESSOR ******************************************/
 
@@ -99,14 +90,5 @@ class Post extends Model
                 '<small class="text-muted">' .
                     $this->created_at->format('d-M-Y') .
                 '</small>';
-    }
-
-    public function getTagListAttribute()
-    {
-        if ($this->tags->isEmpty()) return '-';
-        
-        foreach ($this->tags as $tag) {
-            echo $tag->name . ', ';
-        }
     }
 }
