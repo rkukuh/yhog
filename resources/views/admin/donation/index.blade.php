@@ -15,15 +15,13 @@
     </div>
 
     @if ($donations->isEmpty())
-        @component('common.datalist.no-data')
-            @slot('text', 'No event yet. Be the first to create!')
-        @endcomponent
+        @include('common.datalist.no-data')
     @else
         <table id="table1" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th></th>
-                    <th class="text-center">Event Name</th>
+                    <th class="text-center">Donation Title</th>
                     <th class="text-center">Target</th>
                     <th class="text-center">Location</th>
                     <th class="text-center">Created At</th>
