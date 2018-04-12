@@ -168,7 +168,7 @@ class Event extends Model
     {
         if ($this->hasEnded()) {
 
-            echo '<span class="label label-danger">ENDED</span> <br>' .
+            echo '<span class="label label-warning">ENDED</span> <br>' .
                     '<span class="text-muted">' .
                         $this->start_at->format('d-M-Y') .
                     '</span>';
@@ -181,14 +181,16 @@ class Event extends Model
         if ($this->isWaiting()) {
 
             $output = '<span class="label label-default">WAITING</span> <br>';
+            $output .= '<small>' . $this->start_at->diffForHumans() . '</small>';
         }
 
         if ($this->isActive()) {
 
-            $output = '<span class="label label-success">ACTIVE</span> <br>';
+            $output = '<span class="label label-success">ACTIVE</span>';
         }
 
-        $output .= '<span class="text-muted">' .
+        $output .= '<br>' .
+                    '<span class="text-muted">' .
                         $this->start_at->format('d-M-Y') .
                     '</span>';
 
@@ -207,11 +209,12 @@ class Event extends Model
 
         if ($this->hasEnded()) {
 
-            $output = '<span class="label label-danger">ENDED</span>';
+            $output = '<span class="label label-warning">ENDED</span>';
         }
         else {
 
-            $output = $this->end_at->diffForHumans();
+            $output = '<span class="label label-default">WAITING</span> <br>';
+            $output .= '<small>' . $this->end_at->diffForHumans() . '</small>';
         }
 
         $output .=  '<br>' .
