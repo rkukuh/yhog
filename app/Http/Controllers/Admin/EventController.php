@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
 use App\Http\Requests\Admin\EventUpdate;
-use Illuminate\Foundation\Http\FormRequest;
 
 class EventController extends Controller
 {
@@ -82,7 +81,7 @@ class EventController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $event);
+                $event->uploadImages($request, $event);
             }
         }
 
@@ -133,7 +132,7 @@ class EventController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $event);
+                $event->uploadImages($request, $event);
             }
         }
 
@@ -157,32 +156,5 @@ class EventController extends Controller
         $event->delete();
 
         return back()->with('success-message', 'Event has been removed.');
-    }
-
-    /**
-     * Associate a file(s) for a event.
-     *
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
-     * @param  \App\Models\Event $event
-     * @return void
-     */
-    protected function uploadFile(FormRequest $request, Event $event)
-    {
-        $path = 'event-' . $event->id;
-
-        foreach ($request['images'] as $file) {
-
-            $fileExtension  = $file['image']->getClientOriginalExtension();
-            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
-
-            $file['image']->storeAs('public/' . $path, $fileName);
-
-            // Persist file(s) to database, and associate them with this event
-            $event->images()->create([
-                'path' => $path . '/' . $fileName,
-                'size' => $file['image']->getSize(),
-                'mime' => $file['image']->getMimeType()
-            ]);
-        }
     }
 }

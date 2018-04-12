@@ -6,9 +6,11 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Imageable;
 
 class Event extends Model
 {
+    use Imageable;
     use SoftDeletes;
 
     protected $fillable = [
@@ -70,19 +72,6 @@ class Event extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
-    }
-
-    /**
-     * Polymorphic: An event may have one or more images.
-     *
-     * This function will retrieve the image(s) of an event.
-     * See: Image's imageable() method
-     *
-     * @return mixed
-     */
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
     }
 
 
@@ -223,11 +212,6 @@ class Event extends Model
                     '</span>';
 
         echo $output;
-    }
-
-    public function getFeaturedImageAttribute()
-    {
-        return $this->images()->latest()->first();
     }
 
 
