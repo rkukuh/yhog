@@ -11,7 +11,7 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('category_id') ? 'has-error has-feedback' : '' }}">
+<div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
     <label for="category_id">
         Category @include('common.form.label-required-field')
     </label>
@@ -44,7 +44,9 @@
     </select>
 
     @if ($errors->has('category_id'))
-        @include('common.form.input-error-message', ['message' => $errors->first('category_id')])
+        @include('common.form.input-error-message-no-feedback', [
+            'message' => $errors->first('category_id')
+        ])
     @endif
 
     <span class="help-block">
