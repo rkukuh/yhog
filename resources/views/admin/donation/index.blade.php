@@ -24,9 +24,7 @@
                     <th class="text-center">Donation Title</th>
                     <th class="text-center">Target</th>
                     <th class="text-center">Location</th>
-                    <th class="text-center">Created At</th>
-                    <th class="text-center">Start At</th>
-                    <th class="text-center">End At</th>
+                    <th class="text-center">Deadline</th>
                     <th style="width: 120px;"></th>
                 </tr>
             </thead>
@@ -62,12 +60,6 @@
                         </td>
                         <td>
                             {{ $donation->location_formatted }}
-                        </td>
-                        <td class="text-center">
-                            {{ $donation->created_at_formatted }}
-                        </td>
-                        <td class="text-center">
-                            {{ $donation->start_at_formatted }}
                         </td>
                         <td class="text-center">
                             {{ $donation->end_at_formatted }}
