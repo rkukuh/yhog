@@ -24,7 +24,6 @@ class CreateDonationsTable extends Migration
             $table->timestamp('end_at')->nullable();
 
             $table->text('video_url');
-            $table->text('excerpt');
             $table->longText('description');
 
             $table->timestamps();

@@ -28,7 +28,6 @@ class Donation extends Model
         'end_at',
 
         'video_url',
-        'excerpt',
         'description',
     ];
 
