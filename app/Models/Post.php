@@ -5,8 +5,8 @@ namespace App\Models;
 use App\User;
 
 use App\Traits\Taggable;
-use App\Traits\Imageable;
 use App\Traits\Blameable;
+use App\Traits\Imageable;
 use App\Traits\Categorizable;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,8 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use Taggable;
-    use Imageable;
     use Blameable;
+    use Imageable;
     use Categorizable;
     
     use SoftDeletes;
