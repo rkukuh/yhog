@@ -64,11 +64,11 @@
                             {{ $post->created_at_formatted }}
                         </td>
                         <td>
-                            {{ $post->author->name }} <br>
+                            {{ $post->creator->name }} <br>
 
                             <span class="fa fa-envelope-o"></span>
-                            <a href="mailto:{{ $post->author->email }}">
-                                {{ $post->author->email }}
+                            <a href="mailto:{{ $post->creator->email }}">
+                                {{ $post->creator->email }}
                             </a>
                         </td>
                         <td class="text-right">

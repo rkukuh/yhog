@@ -30,7 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('author', 'categories', 'tags')
+        $posts = Post::with('creator', 'categories', 'tags')
                         ->latest()
                         ->paginate(env('PAGINATE', 5));
 
