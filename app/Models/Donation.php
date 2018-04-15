@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use App\Traits\Taggable;
 use App\Traits\Imageable;
+use App\Traits\HasDeadline;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,6 +15,7 @@ class Donation extends Model
     use Taggable;
     use Imageable;
     use SoftDeletes;
+    use HasDeadline;
     use Categorizable;
 
     protected $fillable = [

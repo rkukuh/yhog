@@ -62,7 +62,7 @@
                             {{ $donation->location_formatted }}
                         </td>
                         <td class="text-center">
-                            {{ $donation->end_at_formatted }}
+                            {{ $donation->deadline }}
                         </td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')
