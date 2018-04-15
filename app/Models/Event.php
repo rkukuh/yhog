@@ -100,12 +100,4 @@ class Event extends Model
 
         echo '<div class="badge">no limit</div>';
     }
-
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
-    }
 }
