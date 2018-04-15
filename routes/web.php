@@ -42,12 +42,6 @@ Route::name('admin.')->group(function () {
             'parameters' => ['category-event' => 'category']
         ]);
     
-        /** GALLERY **/
-    
-        Route::resource('category-gallery', 'CategoryGalleryController', [
-            'parameters' => ['category-gallery' => 'category']
-        ]);
-    
         /** PARTNER **/
 
         Route::resource('partner', 'PartnerController');
@@ -62,6 +56,14 @@ Route::name('admin.')->group(function () {
     
         Route::resource('category-donation', 'CategoryDonationController', [
             'parameters' => ['category-donation' => 'category']
+        ]);
+
+        /** GALLERY **/
+
+        Route::resource('gallery', 'GalleryController');
+    
+        Route::resource('category-gallery', 'CategoryGalleryController', [
+            'parameters' => ['category-gallery' => 'category']
         ]);
     
         /** SETTING **/
