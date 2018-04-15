@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use App\User;
+
 use App\Traits\Taggable;
 use App\Traits\Imageable;
+use App\Traits\Blameable;
 use App\Traits\HasSchedule;
 use App\Traits\Categorizable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -14,12 +17,14 @@ class Event extends Model
 {
     use Taggable;
     use Imageable;
-    use SoftDeletes;
+    use Blameable;
     use HasSchedule;
     use Categorizable;
 
+    use SoftDeletes;
+
     protected $fillable = [
-        'user_id',
+        'creator_id',
         
         'name',
         'size',
@@ -40,22 +45,6 @@ class Event extends Model
         'end_at',
         'early_bird_price_end_at',
     ];
-
-
-    /*************************************** RELATIONSHIP ****************************************/
-
-    /**
-     * One-to-Many: A creator may create zero or many event.
-     *
-     * This function will retrieve the author of an event.
-     * See: User' events() method for the inverse
-     *
-     * @return mixed
-     */
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 
 
     /***************************************** ACCESSOR ******************************************/
