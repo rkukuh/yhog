@@ -5,7 +5,6 @@ namespace App\Models;
 use App\User;
 use App\Traits\Taggable;
 use App\Traits\Imageable;
-use App\Traits\HasSchedule;
 use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,25 +14,20 @@ class Donation extends Model
     use Taggable;
     use Imageable;
     use SoftDeletes;
-    use HasSchedule;
     use Categorizable;
 
     protected $fillable = [
         'user_id',
-
         'title',
+        'description',
         'target',
         'location',
-        'start_at',
-        'end_at',
-
         'video_url',
-        'description',
+        'end_at',
     ];
 
     protected $dates = [
         'end_at',
-        'start_at',
         'deleted_at',
     ];
 

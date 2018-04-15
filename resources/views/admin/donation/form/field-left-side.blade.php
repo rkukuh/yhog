@@ -60,7 +60,7 @@
                     @slot('alignment' , '')
                     @slot('text', 'New Category')
                     @slot('style', 'display: inline;')
-                    @slot('route', route('admin.category-event.index'))
+                    @slot('route', route('admin.category-donation.index'))
                 @endcomponent
             </span>
         </div>
@@ -81,16 +81,12 @@
                 ])
             @endif
 
-            <span class="help-block">
-                Leave 0 for continuous donation
-            </span>
+            <span class="help-block">Leave 0 for continuous donation</span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('end_at') ? 'has-error' : '' }}">
-            <label for="end_at">
-                Deadline @include('common.form.label-required-field')
-            </label>
+            <label for="end_at">Deadline</label>
 
             <div class="input-group">
                 <div class="input-group-addon">
@@ -99,11 +95,9 @@
 
                 <input type="text" class="form-control" id="end_at" name="end_at" 
                         placeholder="dd/mm/yyyy"
-                        value="{{ old('end_at') ?
-                                    old('end_at') : 
+                        value="{{ old('end_at') ? old('end_at') : 
                                         (isset($donation->end_at) ?
-                                                $donation->end_at->format('d/m/Y') :
-                                                Carbon\Carbon::now()->addMonth(1)->format('d/m/Y')) }}">
+                                            $donation->end_at->format('d/m/Y') : '') }}">
             </div>
 
             @if ($errors->has('end_at'))
@@ -111,6 +105,8 @@
                     'message' => $errors->first('end_at')
                 ])
             @endif
+
+            <span class="help-block">Leave blank for continuous donation</span>
         </div>
     </div>
 </div>

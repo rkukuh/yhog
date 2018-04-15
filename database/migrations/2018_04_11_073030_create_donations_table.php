@@ -18,13 +18,11 @@ class CreateDonationsTable extends Migration
             $table->unsignedInteger('user_id');
 
             $table->string('title');
+            $table->longText('description');
             $table->double('target')->nullable();
             $table->text('location')->nullable();
-            $table->timestamp('start_at');
-            $table->timestamp('end_at')->nullable();
-
             $table->text('video_url');
-            $table->longText('description');
+            $table->timestamp('end_at')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
