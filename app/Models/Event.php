@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\User;
-
 use App\Traits\Taggable;
 use App\Traits\Imageable;
 use App\Traits\Blameable;
