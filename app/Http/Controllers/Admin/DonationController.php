@@ -122,7 +122,23 @@ class DonationController extends Controller
      */
     public function update(DonationUpdate $request, Donation $donation)
     {
-        //
+        if ($donation->update($request->all())) {
+
+            // Sync its tags and/or categories
+            $donation->tags()->sync($request->tag_id);
+            $donation->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $donation->uploadImages($request, $donation);
+            }
+        }
+
+        return redirect()
+                ->route('admin.donation.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Donation has been updated.');
     }
 
     /**
