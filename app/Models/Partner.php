@@ -7,6 +7,7 @@ use App\User;
 use App\Traits\Taggable;
 use App\Traits\Blameable;
 use App\Traits\Imageable;
+use App\Traits\Publishable;
 use App\Traits\Categorizable;
 
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Partner extends Model
     use Taggable;
     use Blameable;
     use Imageable;
+    use Publishable;
     use Categorizable;
 
     use SoftDeletes;
@@ -27,6 +29,7 @@ class Partner extends Model
         'title',
         'excerpt',
         'body',
+
         'published_at',
         'previewed_at'
     ];
@@ -63,16 +66,6 @@ class Partner extends Model
 
 
     /***************************************** ACCESSOR ******************************************/
-
-    public function getPublishedAtFormattedAttribute()
-    {
-        echo ($this->published_at) ? 
-                    '<strong class="text-green">YES</strong> <br>' .
-                    '<span class="text-muted">' . 
-                        $this->published_at->format('d-M-Y') . 
-                    '<span>' : 
-                    '<strong class="text-red">NO</strong>';
-    }
 
     public function getCreatedAtFormattedAttribute()
     {
