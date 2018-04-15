@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\User;
-
 use App\Traits\Taggable;
 use App\Traits\Blameable;
 use App\Traits\Imageable;
@@ -67,13 +65,5 @@ class Donation extends Model
             echo '<span style="font-size: 20px;">∞</span> <br>' . 
                     '<small class="text-muted">(continuous)</small>';
         }
-    }
-
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
     }
 }
