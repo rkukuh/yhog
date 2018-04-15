@@ -61,15 +61,4 @@ class Partner extends Model
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
     }
-
-
-    /***************************************** ACCESSOR ******************************************/
-
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
-    }
 }
