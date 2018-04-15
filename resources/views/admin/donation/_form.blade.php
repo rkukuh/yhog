@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6" style="border-right: 1px solid #eee;">
+    <div class="col-md-5" style="border-right: 1px solid #eee;">
         @include('admin.donation.form.field-left-side')
     </div>
 
@@ -72,9 +72,9 @@
     <script>
         $(function () {
 
-            $('#description').summernote({
-                height: 200
-            });
+            // $('#description').summernote({
+            //     height: 200
+            // });
 
         });
     </script>

@@ -67,6 +67,54 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('target') ? 'has-error' : '' }}">
+            <label for="target">Target Amount</label>
+
+            <input type="number" class="form-control text-right" id="target" name="target"
+                    value="{{ old('target') ?: (isset($donation->target) ? $donation->target : 0) }}">
+
+            @if ($errors->has('target'))
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('target')
+                ])
+            @endif
+
+            <span class="help-block">
+                Leave 0 for continuous donation
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('end_at') ? 'has-error' : '' }}">
+            <label for="end_at">
+                Deadline @include('common.form.label-required-field')
+            </label>
+
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+
+                <input type="text" class="form-control" id="end_at" name="end_at" 
+                        placeholder="dd/mm/yyyy"
+                        value="{{ old('end_at') ?
+                                    old('end_at') : 
+                                        (isset($donation->end_at) ?
+                                                $donation->end_at->format('d/m/Y') :
+                                                Carbon\Carbon::now()->addMonth(1)->format('d/m/Y')) }}">
+            </div>
+
+            @if ($errors->has('end_at'))
+                @include('common.form.input-error-message-no-feedback', [
+                    'message' => $errors->first('end_at')
+                ])
+            @endif
+        </div>
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('description') ? 'has-error has-feedback' : '' }}">
     <label for="description">
         Description @include('common.form.label-required-field')

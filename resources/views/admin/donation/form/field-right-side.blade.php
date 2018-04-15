@@ -1,47 +1,3 @@
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('target') ? 'has-error' : '' }}">
-            <label for="target">Target Amount</label>
-
-            <input type="number" class="form-control text-right" id="target" name="target"
-                    value="{{ old('target') ?: (isset($donation->target) ? $donation->target : 0) }}">
-
-            @if ($errors->has('target'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('target')
-                ])
-            @endif
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('end_at') ? 'has-error' : '' }}">
-            <label for="end_at">
-                Deadline @include('common.form.label-required-field')
-            </label>
-
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-
-                <input type="text" class="form-control" id="end_at" name="end_at" 
-                        placeholder="dd/mm/yyyy"
-                        value="{{ old('end_at') ?
-                                    old('end_at') : 
-                                        (isset($event->end_at) ?
-                                                $event->end_at->format('d/m/Y') :
-                                                Carbon\Carbon::now()->addMonth(1)->format('d/m/Y')) }}">
-            </div>
-
-            @if ($errors->has('end_at'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('end_at')
-                ])
-            @endif
-        </div>
-    </div>
-</div>
-
 <div class="form-group {{ $errors->has('location') ? 'has-error has-feedback' : '' }}">
     <label for="location">Location</label>
 
@@ -85,4 +41,40 @@
     @if ($errors->has('video_url'))
         @include('common.form.input-error-message', ['message' => $errors->first('video_url')])
     @endif
+</div>
+
+<div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
+    <label for="tag_id">Tag</label>
+
+    <select class="form-control select2" id="tag_id" name="tag_id[]" multiple>
+        @foreach ($tags as $tag)
+            <option value="{{ $tag->id }}" 
+                
+                    {{ old('tag_id') ? (in_array($tag->id, old('tag_id')) ? 'selected' : '') : '' }}
+
+                    {{ isset($donation->tags) ? 
+                        ((in_array($tag->id, $donation->tags->pluck('id')->toArray()) ? 
+                            'selected' : '')) : '' }}>
+
+                {{ $tag->name }}
+            </option>
+        @endforeach
+    </select>
+
+    @if ($errors->has('tag_id'))
+        @include('common.form.input-error-message', ['message' => $errors->first('tag_id')])
+    @endif
+
+    <span class="help-block">
+        Can not spot the Tag you're looking for?
+
+        @component('common.buttons.create-new')
+            @slot('size', 'xs')
+            @slot('color', 'info')
+            @slot('alignment' , '')
+            @slot('text', 'New Tag')
+            @slot('style', 'display: inline;')
+            @slot('route', route('admin.tag.index'))
+        @endcomponent
+    </span>
 </div>
