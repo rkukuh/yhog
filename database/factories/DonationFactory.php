@@ -16,7 +16,7 @@ $factory->define(Donation::class, function (Faker $faker) {
         'target' => $faker->randomElement([0, $faker->randomDigitNotNull * 1000000]),
         'location' => $faker->randomElement([null, $faker->address]),
         'video_url' => 'www.myvideo.example/' . $faker->uuid,
-        'end_at' => $faker->randomElement([null, Carbon::now()->addWeek(rand(0, 3))]),
+        'end_at' => $faker->randomElement([null, Carbon::now()->addWeek(rand(2, 4))]),
     ];
 
 });
