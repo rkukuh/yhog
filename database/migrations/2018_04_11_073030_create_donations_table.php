@@ -15,7 +15,7 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('creator_id');
 
             $table->string('title');
             $table->longText('description');
@@ -27,7 +27,7 @@ class CreateDonationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')
+            $table->foreign('creator_id')
                     ->references('id')->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');

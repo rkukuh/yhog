@@ -3,23 +3,29 @@
 namespace App\Models;
 
 use App\User;
+
 use App\Traits\Taggable;
+use App\Traits\Blameable;
 use App\Traits\Imageable;
 use App\Traits\HasDeadline;
 use App\Traits\Categorizable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Donation extends Model
 {
     use Taggable;
+    use Blameable;
     use Imageable;
-    use SoftDeletes;
     use HasDeadline;
     use Categorizable;
 
+    use SoftDeletes;
+
     protected $fillable = [
-        'user_id',
+        'creator_id',
+
         'title',
         'description',
         'target',
@@ -32,22 +38,6 @@ class Donation extends Model
         'end_at',
         'deleted_at',
     ];
-
-
-    /*************************************** RELATIONSHIP ****************************************/
-
-    /**
-     * One-to-Many: A creator may create zero or many donation.
-     *
-     * This function will retrieve the author of an donation.
-     * See: User' donations() method for the inverse
-     *
-     * @return mixed
-     */
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 
 
     /***************************************** ACCESSOR ******************************************/
