@@ -129,6 +129,10 @@ class DonationController extends Controller
      */
     public function destroy(Donation $donation)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $donation->delete();
+
+        return back()->with('success-message', 'Donation has been removed.');
     }
 }
