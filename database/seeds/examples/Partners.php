@@ -24,7 +24,7 @@ class Partners extends Seeder
             $custom_date = Carbon::now()->subDays(rand(3, 5));
 
             $partner = factory(Partner::class)->create([
-                'user_id' => User::role(['admin'])->pluck('id')->random(),
+                'creator_id' => User::role(['admin'])->pluck('id')->random(),
                 'created_at' => $custom_date,
                 'updated_at' => $custom_date
             ]);

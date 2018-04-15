@@ -15,16 +15,18 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('creator_id');
+
             $table->string('title');
             $table->longText('excerpt');
             $table->longText('body');
             $table->timestamp('published_at')->nullable();
             $table->timestamp('previewed_at')->nullable();
+            
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')
+            $table->foreign('creator_id')
                     ->references('id')->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');

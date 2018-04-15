@@ -3,21 +3,27 @@
 namespace App\Models;
 
 use App\User;
+
 use App\Traits\Taggable;
+use App\Traits\Blameable;
 use App\Traits\Imageable;
 use App\Traits\Categorizable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Partner extends Model
 {
     use Taggable;
+    use Blameable;
     use Imageable;
-    use SoftDeletes;
     use Categorizable;
 
+    use SoftDeletes;
+
     protected $fillable = [
-        'user_id',
+        'creator_id',
+
         'title',
         'excerpt',
         'body',
@@ -53,22 +59,6 @@ class Partner extends Model
         });
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
-    }
-
-
-    /*************************************** RELATIONSHIP ****************************************/
-
-    /**
-     * One-to-Many: A creator may create zero or many partner.
-     *
-     * This function will retrieve the creator of a partner.
-     * See: User' partners() method for the inverse
-     *
-     * @return mixed
-     */
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'user_id');
     }
 
 
