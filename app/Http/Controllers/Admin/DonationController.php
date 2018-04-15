@@ -69,7 +69,22 @@ class DonationController extends Controller
      */
     public function store(DonationStore $request)
     {
-        //
+        if ($donation = Donation::create($request->all())) {
+
+            // Persist its category, they're always exists (required)
+            $donation->categories()->attach($request->category_id);
+
+            // Persist its tag, they're always exists (required)
+            $donation->tags()->attach($request->tag_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $donation->uploadImages($request, $donation);
+            }
+        }
+
+        return redirect()->route('admin.donation.index')
+                         ->with('success-message', 'New donation has been added.');
     }
 
     /**
