@@ -106,7 +106,11 @@ class DonationController extends Controller
      */
     public function edit(Donation $donation)
     {
-        //
+        return view('admin.donation.edit', [
+            'donation' => $donation,
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
