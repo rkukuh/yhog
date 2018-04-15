@@ -55,7 +55,10 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.donation.create', [
+            'tags' => $this->tags,
+            'parent_categories' => $this->categories
+        ]);
     }
 
     /**
