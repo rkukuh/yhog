@@ -32,4 +32,25 @@ class Gallery extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getPublishedAtFormattedAttribute()
+    {
+        echo ($this->published_at) ? 
+                    '<strong class="text-green">YES</strong> <br>' .
+                    '<span class="text-muted">' . 
+                        $this->published_at->format('d-M-Y') . 
+                    '<span>' : 
+                    '<strong class="text-red">NO</strong>';
+    }
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        echo $this->created_at->diffForHumans() . '<br>' .
+                '<small class="text-muted">' .
+                    $this->created_at->format('d-M-Y') .
+                '</small>';
+    }
 }
