@@ -22,15 +22,4 @@ class Gallery extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-
-
-    /***************************************** ACCESSOR ******************************************/
-
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
-    }
 }
