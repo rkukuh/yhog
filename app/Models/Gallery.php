@@ -34,4 +34,12 @@ class Gallery extends Model
         'deleted_at',
         'published_at',
     ];
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getTitleTrimmedAttribute()
+    {
+        echo substr($this->title, 0, 30) . '...';
+    }
 }
