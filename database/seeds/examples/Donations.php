@@ -41,9 +41,9 @@ class Donations extends Seeder
             for ($i = 1; $i <= rand(2, 4); $i++) {
 
                 $donation->tags()
-                     ->attach(
-                        Tag::pluck('id')->random()
-                     );
+                        ->attach(
+                            Tag::pluck('id')->random()
+                        );
             }
 
         });

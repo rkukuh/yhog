@@ -41,9 +41,9 @@ class Events extends Seeder
             for ($i = 1; $i <= rand(2, 4); $i++) {
 
                 $event->tags()
-                     ->attach(
+                      ->attach(
                         Tag::pluck('id')->random()
-                     );
+                      );
             }
 
         });

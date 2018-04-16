@@ -41,9 +41,9 @@ class Partners extends Seeder
             for ($i = 1; $i <= rand(2, 4); $i++) {
 
                 $partner->tags()
-                     ->attach(
+                        ->attach(
                         Tag::pluck('id')->random()
-                     );
+                        );
             }
 
         });
