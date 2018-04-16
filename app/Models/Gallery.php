@@ -38,8 +38,8 @@ class Gallery extends Model
 
     /***************************************** ACCESSOR ******************************************/
 
-    public function getTitleTrimmedAttribute()
+    public function getTitleLimitedAttribute()
     {
-        echo substr($this->title, 0, 30) . '...';
+        echo substr($this->title, 0, 40) . '...';
     }
 }
