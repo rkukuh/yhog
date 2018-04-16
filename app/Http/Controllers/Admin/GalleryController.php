@@ -32,7 +32,7 @@ class GalleryController extends Controller
     {
         $galleries = Gallery::with('creator', 'categories', 'tags')
                         ->latest()
-                        ->paginate(env('PAGINATE', 5));
+                        ->paginate(env('PAGINATE', 8));
 
         /* This will prevent "Pagination gives empty set on non existing page number",
          * especially after deleting a data on the last page
