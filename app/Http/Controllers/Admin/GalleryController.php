@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Gallery;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\GalleryStore;
 use App\Http\Requests\Admin\GalleryUpdate;
@@ -28,7 +30,22 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $galleries = Gallery::with('creator', 'categories', 'tags')
+                        ->latest()
+                        ->paginate(env('PAGINATE', 5));
+
+        /* This will prevent "Pagination gives empty set on non existing page number",
+         * especially after deleting a data on the last page
+         */
+        if (Gallery::count()) {
+
+            if ($galleries->isEmpty()) {
+
+                return redirect()->route('gallery.index');
+            }
+        }
+
+        return view('admin.gallery.index', compact('galleries'));
     }
 
     /**
@@ -44,7 +61,7 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \GalleryStore  $request
+     * @param  \Galleriestore  $request
      * @return \Illuminate\Http\Response
      */
     public function store(GalleryStore $request)
