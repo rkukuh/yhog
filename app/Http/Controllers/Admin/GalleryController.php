@@ -9,6 +9,18 @@ use App\Http\Requests\Admin\GalleryUpdate;
 
 class GalleryController extends Controller
 {
+    protected $tags;
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->tags = Tag::get();
+
+        $this->categories = Category::ofGallery()
+                                    ->parentCategory()
+                                    ->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
