@@ -40,16 +40,16 @@ class Partner extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: An event may have zero or many 'event sponsor' partner.
+     * One-to-Many: An event may have zero or many partner.
      *
-     * This function will retrieve the event of a 'event sponsor' partner.
+     * This function will retrieve the events of a partner.
      * See: Event's partners() method for the inverse
      *
      * @return mixed
      */
-    public function event()
+    public function events()
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsToMany(Event::class);
     }
 
 
