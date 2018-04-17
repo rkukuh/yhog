@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
 use App\Models\Event;
+use App\Models\Partner;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
@@ -12,11 +13,14 @@ use App\Http\Requests\Admin\EventUpdate;
 class EventController extends Controller
 {
     protected $tags;
+    protected $partners;
     protected $categories;
 
     public function __construct()
     {
         $this->tags = Tag::get();
+
+        $this->partners = Partner::ofEvent()->get();
 
         $this->categories = Category::ofEvent()
                                     ->parentCategory()
@@ -57,7 +61,8 @@ class EventController extends Controller
     {
         return view('admin.event.create', [
             'tags' => $this->tags,
-            'parent_categories' => $this->categories
+            'partners' => $this->partners,
+            'parent_categories' => $this->categories,
         ]);
     }
 
@@ -110,7 +115,8 @@ class EventController extends Controller
         return view('admin.event.edit', [
             'event' => $event,
             'tags' => $this->tags,
-            'parent_categories' => $this->categories
+            'partners' => $this->partners,
+            'parent_categories' => $this->categories,
         ]);
     }
 
