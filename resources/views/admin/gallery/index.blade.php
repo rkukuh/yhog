@@ -27,10 +27,13 @@
                                     {{ $gallery->title_limited }}
                                 </a> 
                                 
-                                <hr>
+                                <br><br>
 
                                 @if ($gallery->featured_image)
-                                    <img src="{{ asset('storage/' . $gallery->featured_image->path) }}" width="75px;">
+                                    <div class="text-center">
+                                        <img src="{{ asset('storage/' . $gallery->featured_image->path) }}" 
+                                            width="70px">
+                                    </div>
                                 @else
                                     <div class="text-center">
                                         <i class="fa fa-picture-o fa-5x text-muted"></i>
