@@ -76,12 +76,10 @@ class EventController extends Controller
     {
         if ($event = Event::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $event->categories()->attach($request->category_id);
-
-            if ($request->has('tag_id')) {
-                $event->tags()->attach($request->tag_id);
-            }
+            $event->partners()->attach($request->partner_id);
+            $event->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
@@ -131,9 +129,10 @@ class EventController extends Controller
     {
         if ($event->update($request->all())) {
 
-            // Sync its tags and/or categories
-            $event->tags()->sync($request->tag_id);
+            // Sync its attributes
             $event->categories()->sync($request->category_id);
+            $event->partners()->sync($request->partner_id);
+            $event->tags()->sync($request->tag_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
