@@ -93,7 +93,7 @@ class CategoryPostController extends Controller
         $category->update($request->all());
 
         return redirect()
-                ->route('category-post.index', [
+                ->route('admin.category-post.index', [
                     'page' => $request->page ?? 1
                 ])
                 ->with('success-message', 'Post category has been updated.');
