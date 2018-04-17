@@ -34,7 +34,7 @@ class Donations extends Seeder
             $donation->categories()
                      ->attach(
                         Category::ofdonation()->pluck('id')->random()
-                    );
+                     );
 
             /** Attach tags to generated donation data */
 

@@ -42,7 +42,7 @@ class Partners extends Seeder
 
                 $partner->tags()
                         ->attach(
-                        Tag::pluck('id')->random()
+                            Tag::pluck('id')->random()
                         );
             }
 
