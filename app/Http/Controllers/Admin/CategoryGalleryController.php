@@ -93,7 +93,7 @@ class CategoryGalleryController extends Controller
         $category->update($request->all());
 
         return redirect()
-                ->route('category-gallery.index', [
+                ->route('admin.category-gallery.index', [
                     'page' => $request->page ?? 1
                 ])
                 ->with('success-message', 'Gallery category has been updated.');
