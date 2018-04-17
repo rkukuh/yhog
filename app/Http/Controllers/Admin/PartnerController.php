@@ -71,10 +71,8 @@ class PartnerController extends Controller
     {
         if ($partner = Partner::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $partner->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $partner->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist
@@ -124,7 +122,7 @@ class PartnerController extends Controller
     {
         if ($partner->update($request->all())) {
 
-            // Sync its tags and/or categories
+            // Sync its attributes, if necessary
             $partner->tags()->sync($request->tag_id);
             $partner->categories()->sync($request->category_id);
 

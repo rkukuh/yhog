@@ -71,10 +71,8 @@ class DonationController extends Controller
     {
         if ($donation = Donation::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $donation->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $donation->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist

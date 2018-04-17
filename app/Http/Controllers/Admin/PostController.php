@@ -71,10 +71,8 @@ class PostController extends Controller
     {
         if ($post = Post::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $post->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $post->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist
@@ -129,7 +127,7 @@ class PostController extends Controller
     {
         if ($post->update($request->all())) {
 
-            // Sync its tags and/or categories
+            // Sync its attributes, if necessary
             $post->tags()->sync($request->tag_id);
             $post->categories()->sync($request->category_id);
 

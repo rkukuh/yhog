@@ -71,10 +71,8 @@ class GalleryController extends Controller
     {
         if ($gallery = Gallery::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $gallery->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $gallery->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist

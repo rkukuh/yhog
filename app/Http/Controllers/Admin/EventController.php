@@ -129,7 +129,7 @@ class EventController extends Controller
     {
         if ($event->update($request->all())) {
 
-            // Sync its attributes
+            // Sync its attributes, if necessary
             $event->categories()->sync($request->category_id);
             $event->partners()->sync($request->partner_id);
             $event->tags()->sync($request->tag_id);
