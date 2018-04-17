@@ -66,7 +66,7 @@ class DonationStore extends FormRequest
 
             $this->merge([
 
-                'user_id' => auth()->user()->id,
+                'creator_id' => auth()->user()->id,
                 
                 'end_at' => ($this->end_at) ? 
                             Carbon::createFromFormat('d/m/Y', $this->end_at) : null,

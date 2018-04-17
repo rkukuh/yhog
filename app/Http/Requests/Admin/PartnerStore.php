@@ -60,7 +60,7 @@ class PartnerStore extends FormRequest
     {
         $validator->after(function ($validator) {
 
-            $this->merge(['user_id' => auth()->user()->id]);
+            $this->merge(['creator_id' => auth()->user()->id]);
 
             if ($this['submit'] == 'draft') {
 

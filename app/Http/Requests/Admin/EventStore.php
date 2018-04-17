@@ -66,7 +66,7 @@ class EventStore extends FormRequest
 
             $this->merge([
 
-                'user_id' => auth()->user()->id,
+                'creator_id' => auth()->user()->id,
 
                 'start_at' => Carbon::createFromFormat('d/m/Y', $this->start_at),
                 'end_at' => Carbon::createFromFormat('d/m/Y', $this->end_at),
