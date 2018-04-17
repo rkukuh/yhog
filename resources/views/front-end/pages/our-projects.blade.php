@@ -107,15 +107,7 @@
 			<div class="cell xsmall-12 medium-10">
 				<div class="grid-x grid-padding-x">
 					<div class="cell xsmall-12 medium-6">
-						<p>Another area receiving the Yayasan’s consistent support over the years have been the Indonesian children’s hospitals and orphanages which we visit each year. Our support never takes the form of cash but in books and other educational materials – and of course presents for the kids!</p>
-					</div>
-				</div>
-				
-				<div class="grid-x grid-padding-x">
-					<div class="cell xsmall-12 medium-6">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>The Yayasan HOG Indonesian Chapter (YHOG) is a registered charity of bike riders and non-riders alike. The Chapter was incorporated in 1987 and is the first Harley Davidson Owners Group Chapter to be registered outside of the United States. Since our incorporation, we have focused our fund-raising efforts on helping orphanages, and in particular supporting facial reconstructive surgery for infants and children born with harelip or cleft palate defects. By the end of this year YHOG will have helped change the lives of over 3,250 Indonesian children.</p>
 					</div>
 					
 					<div class="cell xsmall-12 medium-6">

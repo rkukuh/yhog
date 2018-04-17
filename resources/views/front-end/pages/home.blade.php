@@ -196,11 +196,7 @@
 		
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 large-7">
-				<p><img src="{{ asset('assets/img/logo-yayasan-hog.jpg') }}" class="align left">Yayasan HOG was established by the ten founding members in 1987 and was right from the very start intended to be primarily a charitable organisation, having as its main objective the improvement of the lot of the children of impoverished Indonesian families.</p>
-				
-				<p>YHOG was founded by ten Jakarta based friends in 1987 – and is the longest established HOG group in Indonesia, and one of the oldest HOG Chapters in the world – and has been active ever since.</p>
-
-				<p>Yayasan HOG is a  non-profit group, leveraging our shared love of the Harley-Davidson motorbike to raise funds exclusively in support of a variety of Jakarta children’s charities through our activities. We are one of Indonesia’s major charities for Cranial Facial Reconstructive surgery for cleft lip and cleft palate.</p>
+				<p><img src="{{ asset('assets/img/logo-yayasan-hog.jpg') }}" class="align left">The Yayasan HOG Indonesian Chapter (YHOG) is a registered charity of bike riders and non-riders alike. The Chapter was incorporated in 1987 and is the first Harley Davidson Owners Group Chapter to be registered outside of the United States. Since our incorporation, we have focused our fund-raising efforts on helping orphanages, and in particular supporting facial reconstructive surgery for infants and children born with harelip or cleft palate defects. By the end of this year YHOG will have helped change the lives of over 3,250 Indonesian children.</p>
 			</div>
 			
 			<div class="cell xsmall-12 large-5">

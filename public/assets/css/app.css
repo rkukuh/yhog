@@ -6097,6 +6097,84 @@ aside {
 #home-page .support-us.option-2 h2 {
   margin-top: 3px; }
 
+#about-us-page .hero-image {
+  background-color: #504B4B;
+  padding-top: 54px; }
+  @media (min-width: 1200px) {
+    #about-us-page .hero-image > .grid-container {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0; }
+      #about-us-page .hero-image > .grid-container .cell {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-size: cover; }
+        #about-us-page .hero-image > .grid-container .cell:last-child {
+          padding-left: 0.9375rem;
+          padding-right: 0.9375rem; } }
+  @media (min-width: 1440px) {
+    #about-us-page .hero-image > .grid-container {
+      max-width: 1200px;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  #about-us-page .hero-image h1 {
+    color: #504B4B;
+    margin-right: 15px; }
+    @media (min-width: 0) {
+      #about-us-page .hero-image h1 {
+        font-size: 16px;
+        padding: 0; } }
+    @media (min-width: 640px) {
+      #about-us-page .hero-image h1 {
+        font-size: 16px;
+        padding-left: 60px; } }
+    #about-us-page .hero-image h1 span {
+      background-color: #fff;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: inline-block; }
+      @media (min-width: 0) {
+        #about-us-page .hero-image h1 span:nth-child(1), #about-us-page .hero-image h1 span:nth-child(5), #about-us-page .hero-image h1 span:nth-child(7) {
+          margin-left: 0; } }
+      @media (min-width: 640px) {
+        #about-us-page .hero-image h1 span:nth-child(1) {
+          margin-left: 0; }
+        #about-us-page .hero-image h1 span:nth-child(3) {
+          margin-left: 30px; }
+        #about-us-page .hero-image h1 span:nth-child(5) {
+          margin-left: 20px; } }
+  #about-us-page .hero-image + .content {
+    margin-top: 42px; }
+
+#about-us-page .blockquote {
+  background-color: #504B4B;
+  margin-top: 9px;
+  padding-top: 26px;
+  padding-bottom: 23px; }
+  #about-us-page .blockquote blockquote {
+    font-family: "American Typewriter", serif;
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.2;
+    margin-top: -1px;
+    padding: 0;
+    border: none; }
+
+#about-us-page .support-us header {
+  background-color: #FF9900; }
+  #about-us-page .support-us header p {
+    color: #fff; }
+
+#about-us-page .support-us .cta {
+  width: auto;
+  display: inline-block; }
+
+#about-us-page .upcoming-events {
+  padding-top: 0; }
+  #about-us-page .upcoming-events .images {
+    margin-bottom: 38px; }
+
 #our-projects-page .hero-image {
   background-color: #504B4B;
   padding-top: 54px; }

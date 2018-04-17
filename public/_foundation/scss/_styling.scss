@@ -638,6 +638,121 @@ aside {
 
 
 
+#about-us-page {
+	.hero-image {
+		background-color: $brown;
+		padding-top: 54px;
+		
+		&> .grid-container {
+			@include breakpoint(xlarge) {
+				max-width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				
+				.cell {
+					padding-top: 20px;
+					padding-bottom: 20px;
+					background-size: cover;
+					
+					&:last-child {
+						padding-left: 0.9375rem;
+						padding-right: 0.9375rem;
+					}
+				}
+			}
+			
+			@include breakpoint(xxlarge) {
+				max-width: 1200px;
+				padding-left: 0.9375rem;
+				padding-right: 0.9375rem;
+			}
+		}
+		
+		h1 {
+			color: $brown;
+			margin-right: 15px;
+			
+			@include breakpoint(xsmall) {
+				font-size: 16px;
+				padding: 0;
+			}
+			
+			@include breakpoint(medium) {
+				font-size: 16px;
+				padding-left: 60px;
+			}
+			
+			span {
+				background-color: $white;
+				margin-bottom: 10px;
+				padding-left: 10px;
+				padding-right: 10px;
+				display: inline-block;
+				
+				@include breakpoint(xsmall) {
+					&:nth-child(1), &:nth-child(5), &:nth-child(7) {
+						margin-left: 0;
+					}
+				}
+				
+				@include breakpoint(medium) {
+					&:nth-child(1) { margin-left: 0; }
+				
+					&:nth-child(3) { margin-left: 30px; }
+					
+					&:nth-child(5) { margin-left: 20px; }
+				}
+			}
+		}
+		
+		&+ .content {
+			margin-top: 42px;
+		}
+	}
+	
+	.blockquote {
+		background-color: $brown;
+		margin-top: 9px;
+		padding-top: 26px;
+		padding-bottom: 23px;
+		
+		blockquote {
+			font-family: $american_typewriter;
+			font-size: 32px;
+			color: $white;
+			line-height: 1.2;
+			margin-top: -1px;
+			padding: 0;
+			border: none;
+		}
+	}
+	
+	.support-us {
+		header {
+			background-color: $orange;
+			
+			p {
+				color: $white;
+			}
+		}
+		
+		.cta {
+			width: auto;
+			display: inline-block;
+		}
+	}
+	
+	.upcoming-events {
+		padding-top: 0;
+		
+		.images {
+			margin-bottom: 38px;
+		}
+	}
+}
+
+
+
 #our-projects-page {
 	.hero-image {
 		background-color: $brown;

@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Croworx Registration Survey</title>
+		
+		<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+	</head>
+	
+	<body>
+		<form data-abide novalidate>
+			<section data-anchor="two">
+		    	<div class="grid-container">
+			    	<div class="grid-x grid-padding-x align-center">
+				    	<div class="cell xsmall-12 medium-8 grid-x align-middle">
+					    	<div class="container">
+						    	<a class="button" rel="back">Back</a>
+						    	
+						    	<label>Q2 <i class="fas fa-arrow-right"></i> Have you launched a chatbot?*
+						    	</label>
+						    	
+						    	<fieldset class="container" id="q2" data-required="true">
+						    		<div class="faux">
+							    		<input type="radio" name="q2" value="0" id="q2-no">
+							    		
+							    		<label for="q2-no">No</label>
+						    		</div>
+						    		
+						    		<div class="faux">
+							    		<input type="radio" name="q2" value="1" id="q2-yes">
+							    		
+							    		<label for="q2-yes">Yes</label>
+						    		</div>
+						    	</fieldset>
+						    	
+						    	<p class="error-message"></p>
+						    	
+						    	<a class="button" data-validate="#q2">Next</a>
+					    	</div>
+				    	</div>
+			    	</div>
+		    	</div>
+	    	</section>
+	    </form>
+			
+		<script src="assets/js/vendor/jquery.js"></script>
+		<script src="assets/js/vendor/what-input.js"></script>
+		<script src="assets/js/vendor/foundation.js"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+</html>
