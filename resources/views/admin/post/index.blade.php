@@ -24,6 +24,7 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Post Title</th>
+                    <th class="text-center">Excerpt</th>
                     <th class="text-center">Published</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Author</th>
@@ -56,6 +57,9 @@
                             <small class="text-muted">
                                 <i class="fa fa-tag"></i> {{ $post->tag_list }}
                             </small>
+                        </td>
+                        <td>
+                            {{ $post->excerpt_limited }}
                         </td>
                         <td class="text-center">
                             {{ $post->published_at_formatted }}
