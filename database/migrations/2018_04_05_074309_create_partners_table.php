@@ -21,7 +21,6 @@ class CreatePartnersTable extends Migration
             $table->longText('excerpt');
             $table->longText('body');
             $table->timestamp('published_at')->nullable();
-            $table->timestamp('previewed_at')->nullable();
             
             $table->timestamps();
             $table->softDeletes();

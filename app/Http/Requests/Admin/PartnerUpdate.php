@@ -72,10 +72,6 @@ class PartnerUpdate extends FormRequest
                 $this->partner->update(['published_at' => Carbon::now()]);
 
             }
-            else if ($this['submit'] == 'preview') {
-                
-                $this->merge(['previewed_at' => Carbon::now()]);
-            }
 
         });
     }

@@ -70,10 +70,6 @@ class PartnerStore extends FormRequest
 
                 $this->merge(['published_at' => Carbon::now()]);
             }
-            else if ($this['submit'] == 'preview') {
-                
-                $this->merge(['previewed_at' => Carbon::now()]);
-            }
             
         });
     }

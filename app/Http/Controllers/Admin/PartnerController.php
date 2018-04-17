@@ -83,11 +83,6 @@ class PartnerController extends Controller
             }
         }
 
-        // If preview action performed, redirect to preview page
-        if ($partner->previewed_at) {
-            return view('admin.partner.preview', ['partner' => $partner]);
-        }
-
         return redirect()->route('admin.partner.index')
                          ->with('success-message', 'New partner has been added.');
     }
@@ -137,11 +132,6 @@ class PartnerController extends Controller
             if ($request->hasFile('images.*.image')) {
                 $partner->uploadImages($request, $partner);
             }
-        }
-
-        // If preview action performed, redirect to preview page
-        if ($partner->previewed_at) {
-            return view('admin.partner.preview', ['partner' => $partner]);
         }
 
         return redirect()
