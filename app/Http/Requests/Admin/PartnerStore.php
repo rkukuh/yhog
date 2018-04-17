@@ -27,7 +27,6 @@ class PartnerStore extends FormRequest
         return [
             'title' => 'required|min:3|max:100',
             'body' => 'required|min:5',
-            'excerpt' => 'required|min:5',
             'category_id' => 'required|exists:categories,id',
             'tag_id' => 'nullable|exists:tags,id',
             'images' => 'required',

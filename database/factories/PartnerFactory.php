@@ -12,8 +12,7 @@ $factory->define(Partner::class, function (Faker $faker) {
             return factory(User::class)->create()->id;
         },
         'title' => $faker->sentence,
-        'excerpt' => $faker->text,
-        'body' => $faker->text(3000),
+        'body' => $faker->text,
         'published_at' => $faker->randomElement([
             null, 
             Carbon::now()->addDay(rand(0, 3))

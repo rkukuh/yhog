@@ -25,7 +25,6 @@ class Partner extends Model
         'creator_id',
 
         'title',
-        'excerpt',
         'body',
 
         'published_at',
@@ -55,20 +54,5 @@ class Partner extends Model
         });
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
-    }
-
-
-    /***************************************** ACCESSOR ******************************************/
-
-    public function getExcerptLimitedAttribute()
-    {
-        if (strlen($this->excerpt) >= 50) {
-
-            echo substr($this->excerpt, 0, 50) . '...';
-
-            return;
-        }
-
-        return $this->excerpt;
     }
 }

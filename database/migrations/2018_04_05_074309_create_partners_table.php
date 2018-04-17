@@ -18,7 +18,6 @@ class CreatePartnersTable extends Migration
             $table->unsignedInteger('creator_id');
 
             $table->string('title');
-            $table->longText('excerpt');
             $table->longText('body');
             $table->timestamp('published_at')->nullable();
             
