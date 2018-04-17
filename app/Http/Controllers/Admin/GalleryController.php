@@ -135,6 +135,10 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        // NOTE: This is a soft delete, no need to remove its associated image(s)
+
+        $gallery->delete();
+
+        return back()->with('success-message', 'Gallery has been removed.');
     }
 }
