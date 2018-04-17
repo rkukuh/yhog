@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use \App\Scopes\OrderByColumn;
+use App\Scopes\OrderByColumn;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
@@ -44,7 +45,7 @@ class Category extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeParentCategory($query)
+    public function scopeParentCategory(Builder $query)
     {
         return $query->doesntHave('parent');
     }
@@ -55,7 +56,7 @@ class Category extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOfPost($query)
+    public function scopeOfPost(Builder $query)
     {
         return $query->where('_of', 'post');
     }
@@ -66,20 +67,9 @@ class Category extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOfEvent($query)
+    public function scopeOfEvent(Builder $query)
     {
         return $query->where('_of', 'event');
-    }
-
-    /**
-     * Scope a query to only include category of gallery.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOfGallery($query)
-    {
-        return $query->where('_of', 'gallery');
     }
 
     /**
@@ -88,7 +78,7 @@ class Category extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOfPartner($query)
+    public function scopeOfPartner(Builder $query)
     {
         return $query->where('_of', 'partner');
     }
@@ -99,9 +89,20 @@ class Category extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOfDonation($query)
+    public function scopeOfDonation(Builder $query)
     {
         return $query->where('_of', 'donation');
+    }
+
+    /**
+     * Scope a query to only include category of gallery.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfGallery(Builder $query)
+    {
+        return $query->where('_of', 'gallery');
     }
 
 
