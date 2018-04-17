@@ -37,6 +37,12 @@ class CategoriesTableSeeder extends Seeder
         ]);
 
         Category::create([
+            'name' => 'Event Sponsor',
+            'slug' => 'event-sponsor',
+            '_of'  => 'partner'
+        ]);
+
+        Category::create([
             'name' => 'Uncategorized',
             'slug' => 'uncategorized',
             '_of'  => 'donation'
