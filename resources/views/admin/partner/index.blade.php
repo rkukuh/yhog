@@ -19,6 +19,7 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Partner Name</th>
+                    <th class="text-center">Excerpt</th>
                     <th class="text-center">Published</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Creator</th>
@@ -51,6 +52,9 @@
                             <small class="text-muted">
                                 <i class="fa fa-tag"></i> {{ $partner->tag_list }}
                             </small>
+                        </td>
+                        <td>
+                            {{ $partner->excerpt_limited }}
                         </td>
                         <td class="text-center">
                             {{ $partner->published_at_formatted }}
