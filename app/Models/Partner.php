@@ -9,6 +9,7 @@ use App\Traits\Publishable;
 use App\Traits\Categorizable;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Partner extends Model
@@ -54,5 +55,20 @@ class Partner extends Model
         });
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
+    }
+
+    /**
+     * Scope a query to only include category of post.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfEvent(Builder $query)
+    {
+        return $query->whereHas('categories', function ($filter) {
+
+            $filter->where('slug', 'event-sponsor');
+
+        });
     }
 }
