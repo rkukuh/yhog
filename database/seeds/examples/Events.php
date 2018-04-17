@@ -4,6 +4,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Event;
+use App\Models\Partner;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -43,6 +44,16 @@ class Events extends Seeder
                 $event->tags()
                       ->attach(
                         Tag::pluck('id')->random()
+                      );
+            }
+
+            /** Attach only 'event sponsor' partners to generated event data */
+
+            for ($i = 1; $i <= rand(0, 3); $i++) {
+
+                $event->partners()
+                      ->attach(
+                        Partner::ofEvent()->get()->random()
                       );
             }
 
