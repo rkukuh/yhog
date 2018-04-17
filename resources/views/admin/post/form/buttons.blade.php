@@ -1,10 +1,10 @@
-@component('common.buttons.submit')
+{{-- @component('common.buttons.submit')
     @slot('size', 'lg')
     @slot('text', 'Preview')
     @slot('target', '_blank')
     @slot('class', 'btn-block')
     @slot('value', 'preview')
-@endcomponent
+@endcomponent --}}
 
 @component('common.buttons.submit')
     @slot('size', 'lg')
