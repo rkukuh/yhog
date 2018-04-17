@@ -118,7 +118,13 @@ class GalleryController extends Controller
      */
     public function update(GalleryUpdate $request, Gallery $gallery)
     {
-        //
+        $gallery->update($request->all());
+
+        return redirect()
+                ->route('admin.gallery.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Gallery has been updated.');
     }
 
     /**
