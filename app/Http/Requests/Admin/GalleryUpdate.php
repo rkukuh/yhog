@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GalleryUpdate extends FormRequest
@@ -13,7 +14,7 @@ class GalleryUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -26,5 +27,27 @@ class GalleryUpdate extends FormRequest
         return [
             //
         ];
+    }
+
+    /**
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+
+            if ($this['submit'] == 'draft') {
+
+                $this->merge(['published_at' => null]);
+            } 
+            else if ($this['submit'] == 'publish') {
+
+                $this->merge(['published_at' => Carbon::now()]);
+            }
+            
+        });
     }
 }
