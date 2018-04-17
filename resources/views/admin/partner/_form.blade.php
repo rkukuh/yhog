@@ -35,7 +35,11 @@
             $('.select2').select2();
 
             $('#body').summernote({
-                height: 200
+                height: 200,
+                toolbar: [
+                    ['insert', ['link']],
+                    ['misc', ['fullscreen', 'codeview', 'help']],
+                ],
             });
 
             $('input').iCheck({
