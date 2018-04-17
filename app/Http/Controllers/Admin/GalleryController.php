@@ -69,7 +69,22 @@ class GalleryController extends Controller
      */
     public function store(GalleryStore $request)
     {
-        //
+        if ($gallery = Gallery::create($request->all())) {
+
+            // Persist its category, they're always exists (required)
+            $gallery->categories()->attach($request->category_id);
+
+            // Persist its tag, they're always exists (required)
+            $gallery->tags()->attach($request->tag_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+                $gallery->uploadImages($request, $gallery);
+            }
+        }
+
+        return redirect()->route('admin.gallery.index')
+                         ->with('success-message', 'New gallery has been added.');
     }
 
     /**
