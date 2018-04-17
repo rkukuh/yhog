@@ -40,6 +40,13 @@ class Gallery extends Model
 
     public function getTitleLimitedAttribute()
     {
-        echo substr($this->title, 0, 40) . '...';
+        if (strlen($this->title) >= 40) {
+
+            echo substr($this->title, 0, 40) . '...';
+
+            return;
+        }
+
+        return $this->title;
     }
 }
