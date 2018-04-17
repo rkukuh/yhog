@@ -64,12 +64,6 @@
                                         @endif
                                     </form>
         
-                                    @component('common.datalist.button-edit')
-                                        @slot('text', '')
-                                        @slot('size', 'xs')
-                                        @slot('route', route('admin.gallery.edit', $gallery))
-                                    @endcomponent
-        
                                     @component('common.datalist.button-remove')
                                         @slot('text', '')
                                         @slot('size', 'xs')
