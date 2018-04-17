@@ -56,4 +56,19 @@ class Partner extends Model
 
         // TODO: Use 'deleted' hooks to delete any related image(s)
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getExcerptLimitedAttribute()
+    {
+        if (strlen($this->excerpt) >= 50) {
+
+            echo substr($this->excerpt, 0, 50) . '...';
+
+            return;
+        }
+
+        return $this->excerpt;
+    }
 }
