@@ -706,7 +706,10 @@ aside {
 					margin: 0;
 					
 					.cell {
+						background-size: cover;
 						padding: 0;
+						padding-top: 30px;
+						padding-bottom: 30px;
 						
 						&:last-child {
 							padding-left: 0.9375rem;

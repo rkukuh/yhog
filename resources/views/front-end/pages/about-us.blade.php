@@ -11,7 +11,7 @@
 @section('content')
 <section class="hero-image">
 	<div class="grid-container">
-		<div class="grid-x">
+		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 large-6 grid-x align-middle align-right" data-interchange="[{{ asset('assets/img/hero-image-home.jpg') }}, xsmall], [{{ asset('assets/img/hero-image-home.jpg') }}, large]">
 				<h1>
 					<span>Bettering lives</span><br>

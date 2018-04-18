@@ -6154,7 +6154,10 @@ aside {
       #about-us-page .hero-image > .grid-container .grid-padding-x {
         margin: 0; }
         #about-us-page .hero-image > .grid-container .grid-padding-x .cell {
-          padding: 0; }
+          background-size: cover;
+          padding: 0;
+          padding-top: 30px;
+          padding-bottom: 30px; }
           #about-us-page .hero-image > .grid-container .grid-padding-x .cell:last-child {
             padding-left: 0.9375rem;
             padding-right: 0.9375rem; } }
