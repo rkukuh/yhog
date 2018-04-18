@@ -53,6 +53,7 @@ Route::name('admin.')->group(function () {
         /** DONATION **/
 
         Route::resource('donation', 'DonationController');
+        Route::resource('donate', 'DonateController');
     
         Route::resource('category-donation', 'CategoryDonationController', [
             'parameters' => ['category-donation' => 'category']

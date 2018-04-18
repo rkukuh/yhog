@@ -97,6 +97,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.donate.create') }}">
+                            <i class="fa fa-circle-o"></i> Receive Donation
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('admin.category-donation.index') }}" class="hide">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
