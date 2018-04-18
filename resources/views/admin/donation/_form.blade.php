@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-5" style="border-right: 1px solid #eee;">
+    <div class="col-md-5">
         @include('admin.donation.form.field-left-side')
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-5 hide">
         @include('admin.donation.form.field-right-side')
     </div>
 </div>
@@ -11,7 +11,7 @@
 <hr>
 
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-5">
         @component('common.form.button-cancel')
             @slot('route_edit', route('admin.donation.edit', ($donation ?? 0)))
             @slot('route_redirect', route('admin.donation.index'))
