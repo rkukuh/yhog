@@ -38,6 +38,22 @@ class Donation extends Model
     ];
 
 
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: A donation may have zero or many donates.
+     *
+     * This function will retrieve the donates of a donation.
+     * See: Donate's donation() method for the inverse
+     *
+     * @return mixed
+     */
+    public function donates()
+    {
+        return $this->hasMany(Donate::class);
+    }
+
+
     /***************************************** ACCESSOR ******************************************/
 
     public function getDescriptionLimitedAttribute()
