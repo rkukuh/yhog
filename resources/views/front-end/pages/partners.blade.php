@@ -1,7 +1,7 @@
 @extends('front-end.templates._base')
 
 @push('page-meta-tags')
-<title>About Yayasan HOG</title>
+<title>Yayasan HOG Partners</title>
 @endpush
 
 @push('body-class')
