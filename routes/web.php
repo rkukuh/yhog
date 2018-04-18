@@ -84,3 +84,7 @@ Route::get('/about-us', 'MainController@about');
 Route::get('/our-projects', 'MainController@projects');
 Route::get('/events', 'MainController@events');
 Route::get('/events/detail', 'MainController@event_detail');
+Route::get('/blog', 'MainController@blog');
+Route::get('/blog/article', 'MainController@blog_article');
+Route::get('/gallery', 'MainController@gallery');
+Route::get('/gallery/detail', 'MainController@gallery_detail');
