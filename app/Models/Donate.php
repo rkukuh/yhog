@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\Blameable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Donate extends Model
 {
+    use Blameable;
     use SoftDeletes;
 
     protected $fillable = [
@@ -32,5 +34,13 @@ class Donate extends Model
     public function donation()
     {
         return $this->belongsTo(Donation::class);
+    }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getAmountFormattedAttribute()
+    {
+        return number_format($this->amount);
     }
 }
