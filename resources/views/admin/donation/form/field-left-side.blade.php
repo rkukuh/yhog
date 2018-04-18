@@ -11,7 +11,7 @@
     @endif
 </div>
 
-<div class="row">
+<div class="row hide">
     <div class="col-md-9">
         <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
             <label for="category_id">
