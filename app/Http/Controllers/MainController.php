@@ -18,6 +18,13 @@ class MainController extends Controller
         return view('front-end.pages.about-us', compact('current_page'));
     }
     
+    public function partners()
+    {
+        $current_page = 'partners';
+        
+        return view('front-end.pages.partners', compact('current_page'));
+    }
+    
     public function projects()
     {
         $current_page = 'our-projects';

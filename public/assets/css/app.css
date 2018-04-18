@@ -6202,6 +6202,8 @@ aside {
           margin-left: 30px; }
         #about-us-page .hero-image h1 span:nth-child(5) {
           margin-left: 20px; } }
+  #about-us-page .hero-image h2 {
+    color: #fff; }
   #about-us-page .hero-image + .content {
     margin-top: 42px; }
 
@@ -6232,6 +6234,13 @@ aside {
   padding-top: 0; }
   #about-us-page .upcoming-events .images {
     margin-bottom: 38px; }
+
+#about-us-page .partner {
+  margin-bottom: 8px; }
+  #about-us-page .partner h3 {
+    margin-top: -7px; }
+  #about-us-page .partner img {
+    margin-bottom: 24px; }
 
 #our-projects-page .hero-image {
   background-color: #504B4B;

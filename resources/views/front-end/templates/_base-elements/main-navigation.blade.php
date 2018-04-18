@@ -19,6 +19,10 @@
 		<a href="{{ url('/about-us') }}">About Us</a>
 	</li>
 	
+	<li @if($current_page == "partners") class="active" @endif>
+		<a href="{{ url('/partners') }}">Partners</a>
+	</li>
+	
 	<li @if($current_page == "blog") class="active" @endif>
 		<a href="{{ url('/blog') }}">Blog</a>
 	</li>

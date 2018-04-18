@@ -92,25 +92,35 @@
 			<div class="cell text-center">
 				<h2>Supporting Partners</h2>
 				
-				<ul class="partners">
-					<li>
-						<img src="{{ asset('assets/img/logo-hotel-kristal.png') }}"
+				<ul class="partners" data-equalizer>
+					<li class="grid-x align-middle" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-hotel-kristal') }}">
+							<img src="{{ asset('assets/img/logo-hotel-kristal.png') }}">
+						</a>
 					</li>
 					
-					<li>
-						<img src="{{ asset('assets/img/logo-v-door.png') }}"
+					<li class="grid-x align-middle" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-v-door') }}">
+							<img src="{{ asset('assets/img/logo-v-door.png') }}">
+						</a>
 					</li>
 					
-					<li>
-						<img src="{{ asset('assets/img/logo-seascape.png') }}"
+					<li class="grid-x align-middle" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-seascape') }}">
+							<img src="{{ asset('assets/img/logo-seascape.png') }}">
+						</a>
 					</li>
 					
-					<li>
-						<img src="{{ asset('assets/img/logo-tesco.png') }}"
+					<li class="grid-x align-middle" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-tesco') }}">
+							<img src="{{ asset('assets/img/logo-tesco.png') }}">
+						</a>
 					</li>
 					
-					<li>
-						<img src="{{ asset('assets/img/logo-star-deli.png') }}"
+					<li class="grid-x align-middle" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-star-deli') }}">
+							<img src="{{ asset('assets/img/logo-star-deli.png') }}">
+						</a>
 					</li>
 				</ul>
 				
