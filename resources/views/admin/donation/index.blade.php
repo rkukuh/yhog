@@ -23,7 +23,7 @@
                     <th></th>
                     <th class="text-center">Donation Title</th>
                     <th class="text-center">Target</th>
-                    <th class="text-center">Location</th>
+                    <th class="text-center">Description</th>
                     <th class="text-center">Deadline</th>
                     <th style="width: 120px;"></th>
                 </tr>
@@ -59,7 +59,7 @@
                             {{ $donation->target_formatted }}
                         </td>
                         <td>
-                            {{ $donation->location_formatted }}
+                            {{ $donation->description_limited }}
                         </td>
                         <td class="text-center">
                             {{ $donation->deadline }}
