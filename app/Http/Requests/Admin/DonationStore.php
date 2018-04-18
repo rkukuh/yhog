@@ -26,7 +26,7 @@ class DonationStore extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:100',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'nullable|exists:categories,id',
             'target' => 'numeric|min:0',
             'end_at' => 'nullable|date_format:"d/m/Y"|after_or_equal:today',
             'description' => 'required|min:5',
