@@ -93,11 +93,11 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.donation.index') }}">
-                            <i class="fa fa-circle-o"></i> Donation
+                            <i class="fa fa-circle-o"></i> Add New / Edit
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.category-donation.index') }}">
+                        <a href="{{ route('admin.category-donation.index') }}" class="hide">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>
