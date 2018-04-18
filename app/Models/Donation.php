@@ -40,16 +40,16 @@ class Donation extends Model
 
     /***************************************** ACCESSOR ******************************************/
 
-    public function getLocationFormattedAttribute()
+    public function getDescriptionLimitedAttribute()
     {
-        if ($this->location) {
+        if (strlen($this->description) >= 50) {
 
-            echo nl2br($this->location);
+            echo substr($this->description, 0, 50) . '...';
+
             return;
         }
 
-        echo '<i class="fa fa-map-marker text-red"></i> ' .
-                '<i class="fa fa-question-circle-o text-blue"></i>';
+        return $this->description;
     }
 
     public function getTargetFormattedAttribute()
@@ -65,5 +65,17 @@ class Donation extends Model
             echo '<span style="font-size: 20px;">∞</span> <br>' . 
                     '<small class="text-muted">(continuous)</small>';
         }
+    }
+
+    public function getLocationFormattedAttribute()
+    {
+        if ($this->location) {
+
+            echo nl2br($this->location);
+            return;
+        }
+
+        echo '<i class="fa fa-map-marker text-red"></i> ' .
+                '<i class="fa fa-question-circle-o text-blue"></i>';
     }
 }
