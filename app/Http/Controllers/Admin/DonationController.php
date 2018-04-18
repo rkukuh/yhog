@@ -93,7 +93,7 @@ class DonationController extends Controller
      */
     public function show(Donation $donation)
     {
-        //
+        return view('admin.donation.show', compact('donation'));
     }
 
     /**
