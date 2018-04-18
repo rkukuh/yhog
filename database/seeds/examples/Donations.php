@@ -33,7 +33,7 @@ class Donations extends Seeder
 
             $donation->categories()
                      ->attach(
-                        Category::ofdonation()->pluck('id')->random()
+                        Category::ofDonation()->pluck('id')->random()
                      );
 
             /** Attach tags to generated donation data */
@@ -41,9 +41,9 @@ class Donations extends Seeder
             for ($i = 1; $i <= rand(2, 4); $i++) {
 
                 $donation->tags()
-                        ->attach(
+                         ->attach(
                             Tag::pluck('id')->random()
-                        );
+                         );
             }
 
         });
