@@ -47,11 +47,11 @@
                                 </a>
                             </h5>
 
-                            <small class="text-muted">
+                            <small class="text-muted hide">
                                 <i class="fa fa-folder"></i> {{ $donation->category_link }}
                             </small> <br>
 
-                            <small class="text-muted">
+                            <small class="text-muted hide">
                                 <i class="fa fa-tag"></i> {{ $donation->tag_list }}
                             </small>
                         </td>
