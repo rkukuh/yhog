@@ -22,7 +22,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.post.index') }}">
-                            <i class="fa fa-circle-o"></i> Post
+                            <i class="fa fa-circle-o"></i> Posts
                         </a>
                     </li>
                     <li>
@@ -41,28 +41,6 @@
 
             @role('admin')
             <li class="treeview">
-                <a href="#gallery"><i class="fa fa-image"></i> <span>Gallery</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i> Gallery
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.category-gallery.index') }}">
-                            <i class="fa fa-circle-o"></i> Category
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            @endrole
-
-            @role('admin')
-            <li class="treeview">
                 <a href="#event"><i class="fa fa-calendar"></i> <span>Event</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -71,7 +49,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.event.index') }}">
-                            <i class="fa fa-circle-o"></i> Event
+                            <i class="fa fa-circle-o"></i> Events
                         </a>
                     </li>
                     <li>
@@ -93,7 +71,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.partner.index') }}">
-                            <i class="fa fa-circle-o"></i> Partner
+                            <i class="fa fa-circle-o"></i> Partners
                         </a>
                     </li>
                     <li>
@@ -115,11 +93,38 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.donation.index') }}">
-                            <i class="fa fa-circle-o"></i> Donation
+                            <i class="fa fa-circle-o"></i> Donations
+                        </a>
+                    </li>
+                    <li class="hide">
+                        <a href="{{ route('admin.donate.create') }}">
+                            <i class="fa fa-circle-o"></i> Receive Donation
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.category-donation.index') }}">
+                        <a href="{{ route('admin.category-donation.index') }}" class="hide">
+                            <i class="fa fa-circle-o"></i> Category
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            @endrole
+
+            @role('admin')
+            <li class="treeview">
+                <a href="#gallery"><i class="fa fa-image"></i> <span>Gallery</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ route('admin.gallery.index') }}">
+                            <i class="fa fa-circle-o"></i> Galleries
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.category-gallery.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
                     </li>

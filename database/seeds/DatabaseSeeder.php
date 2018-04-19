@@ -37,5 +37,10 @@ class DatabaseSeeder extends Seeder
         /** DONATION **/
 
         $this->call(DonationsTableSeeder::class);
+        $this->call(DonatesTableSeeder::class);
+
+        /** GALLERY **/
+
+        $this->call(GalleriesTableSeeder::class);
     }
 }

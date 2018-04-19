@@ -93,7 +93,7 @@ class CategoryPartnerController extends Controller
         $category->update($request->all());
 
         return redirect()
-                ->route('category-partner.index', [
+                ->route('admin.category-partner.index', [
                     'page' => $request->page ?? 1
                 ])
                 ->with('success-message', 'Partner category has been updated.');

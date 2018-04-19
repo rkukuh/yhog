@@ -96,4 +96,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Donation::class);
     }
+
+    /**
+     * One-to-Many: A creator may create zero or many gallery
+     *
+     * This function will retrieve the gallerys created by a creator, if any.
+     * See: Gallery's creator() method for the inverse
+     *
+     * @return mixed
+     */
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

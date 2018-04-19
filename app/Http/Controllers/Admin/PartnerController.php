@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Partner;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PartnerStore;
 use App\Http\Requests\Admin\PartnerUpdate;
-use Illuminate\Foundation\Http\FormRequest;
 
 class PartnerController extends Controller
 {
@@ -73,21 +71,14 @@ class PartnerController extends Controller
     {
         if ($partner = Partner::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $partner->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $partner->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $partner);
+                $partner->uploadImages($request, $partner);
             }
-        }
-
-        // If preview action performed, redirect to preview page
-        if ($partner->previewed_at) {
-            return view('admin.partner.preview', ['partner' => $partner]);
         }
 
         return redirect()->route('admin.partner.index')
@@ -131,19 +122,14 @@ class PartnerController extends Controller
     {
         if ($partner->update($request->all())) {
 
-            // Sync its tags and/or categories
+            // Sync its attributes, if necessary
             $partner->tags()->sync($request->tag_id);
             $partner->categories()->sync($request->category_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $partner);
+                $partner->uploadImages($request, $partner);
             }
-        }
-
-        // If preview action performed, redirect to preview page
-        if ($partner->previewed_at) {
-            return view('admin.partner.preview', ['partner' => $partner]);
         }
 
         return redirect()
@@ -166,32 +152,5 @@ class PartnerController extends Controller
         $partner->delete();
 
         return back()->with('success-message', 'Partner has been removed.');
-    }
-
-    /**
-     * Associate a file(s) for a partner.
-     *
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
-     * @param  \App\Models\Partner $partner
-     * @return void
-     */
-    protected function uploadFile(FormRequest $request, Partner $partner)
-    {
-        $path = 'partner-' . $partner->id;
-
-        foreach ($request['images'] as $file) {
-
-            $fileExtension  = $file['image']->getClientOriginalExtension();
-            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
-
-            $file['image']->storeAs('public/' . $path, $fileName);
-
-            // Persist file(s) to database, and associate them with this partner
-            $partner->images()->create([
-                'path' => $path . '/' . $fileName,
-                'size' => $file['image']->getSize(),
-                'mime' => $file['image']->getMimeType()
-            ]);
-        }
     }
 }

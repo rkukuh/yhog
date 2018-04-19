@@ -2,81 +2,96 @@
 
 namespace App\Models;
 
-use App\User;
-use Carbon\Carbon;
+use App\Traits\Taggable;
+use App\Traits\Blameable;
+use App\Traits\Imageable;
+use App\Traits\HasDeadline;
+use App\Traits\Categorizable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Donation extends Model
 {
+    use Taggable;
+    use Blameable;
+    use Imageable;
+    use HasDeadline;
+    use Categorizable;
+
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id',
+        'creator_id',
 
         'title',
+        'description',
         'target',
         'location',
-        'end_at',
-
         'video_url',
-        'excerpt',
-        'description',
+        'end_at',
     ];
 
     protected $dates = [
+        'end_at',
         'deleted_at',
-        'end_at'
     ];
 
 
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: A creator may create zero or many donation.
+     * One-to-Many: A donation may have zero or many donates.
      *
-     * This function will retrieve the author of an donation.
-     * See: User' donations() method for the inverse
-     *
-     * @return mixed
-     */
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    /**
-     * M-M Polymorphic: A donation can have one or many categories.
-     * 
-     * This function will get all of the categories that are assigned to this donation.
-     * See: Category's donations() method for the inverse
-     */
-    public function categories()
-    {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
-
-    /**
-     * M-M Polymorphic: A donation can have one or many tags.
-     * 
-     * This function will get all of the tags that are assigned to this donation.
-     * See: Tag's donations() method for the inverse
-     */
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
-    }
-
-    /**
-     * Polymorphic: A donation may have one or more images.
-     *
-     * This function will retrieve the image(s) of an donation.
-     * See: Image's imageable() method
+     * This function will retrieve the donates of a donation.
+     * See: Donate's donation() method for the inverse
      *
      * @return mixed
      */
-    public function images()
+    public function donates()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->hasMany(Donate::class);
+    }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getDescriptionLimitedAttribute()
+    {
+        if (strlen($this->description) >= 50) {
+
+            echo substr($this->description, 0, 50) . '...';
+
+            return;
+        }
+
+        return $this->description;
+    }
+
+    public function getTargetFormattedAttribute()
+    {
+        if ($this->target) {
+
+            echo number_format($this->target);
+
+            return;
+        }
+        else {
+            
+            echo '<span style="font-size: 20px;">∞</span> <br>' . 
+                    '<small class="text-muted">(continuous)</small>';
+        }
+    }
+
+    public function getLocationFormattedAttribute()
+    {
+        if ($this->location) {
+
+            echo nl2br($this->location);
+            return;
+        }
+
+        echo '<i class="fa fa-map-marker text-red"></i> ' .
+                '<i class="fa fa-question-circle-o text-blue"></i>';
     }
 }

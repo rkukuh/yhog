@@ -15,21 +15,19 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('creator_id');
 
             $table->string('title');
-            $table->double('target')->nullable();
-            $table->text('location')->nullable();
-            $table->timestamp('end_at')->nullable();
-
-            $table->text('video_url');
-            $table->text('excerpt');
             $table->longText('description');
+            $table->unsignedInteger('target')->nullable();
+            $table->text('location')->nullable();
+            $table->text('video_url')->nullable();
+            $table->timestamp('end_at')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')
+            $table->foreign('creator_id')
                     ->references('id')->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');

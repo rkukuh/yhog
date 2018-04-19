@@ -25,16 +25,21 @@ class ExampleDataSeeder extends Seeder
         
         $this->call(Posts::class);
 
-        /** EVENT **/
-
-        $this->call(Events::class);
-
         /** PARTNER **/
 
         $this->call(Partners::class);
 
+        /** EVENT **/
+
+        $this->call(Events::class);
+
         /** DONATION **/
 
         $this->call(Donations::class);
+        $this->call(Donates::class);
+
+        /** GALLERY **/
+
+        $this->call(Galleries::class);
     }
 }

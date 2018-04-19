@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostStore;
 use App\Http\Requests\Admin\PostUpdate;
-use Illuminate\Foundation\Http\FormRequest;
 
 class PostController extends Controller
 {
@@ -32,7 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('author', 'categories', 'tags')
+        $posts = Post::with('creator', 'categories', 'tags')
                         ->latest()
                         ->paginate(env('PAGINATE', 5));
 
@@ -73,15 +71,13 @@ class PostController extends Controller
     {
         if ($post = Post::create($request->all())) {
 
-            // Persist its category, they're always exists (required)
+            // Persist its attributes, if any
             $post->categories()->attach($request->category_id);
-
-            // Persist its tag, they're always exists (required)
             $post->tags()->attach($request->tag_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $post);
+                $post->uploadImages($request, $post);
             }
         }
 
@@ -131,13 +127,13 @@ class PostController extends Controller
     {
         if ($post->update($request->all())) {
 
-            // Sync its tags and/or categories
+            // Sync its attributes, if necessary
             $post->tags()->sync($request->tag_id);
             $post->categories()->sync($request->category_id);
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $this->uploadFile($request, $post);
+                $post->uploadImages($request, $post);
             }
         }
 
@@ -166,32 +162,5 @@ class PostController extends Controller
         $post->delete();
 
         return back()->with('success-message', 'Post has been removed.');
-    }
-
-    /**
-     * Associate a file(s) for a post.
-     *
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
-     * @param  \App\Models\Post $post
-     * @return void
-     */
-    protected function uploadFile(FormRequest $request, Post $post)
-    {
-        $path = 'post-' . $post->id;
-
-        foreach ($request['images'] as $file) {
-
-            $fileExtension  = $file['image']->getClientOriginalExtension();
-            $fileName       = Carbon::now()->format('Ymdhis') . '-' . mt_rand(100, 999) . '.' . $fileExtension;
-
-            $file['image']->storeAs('public/' . $path, $fileName);
-
-            // Persist file(s) to database, and associate them with this post
-            $post->images()->create([
-                'path' => $path . '/' . $fileName,
-                'size' => $file['image']->getSize(),
-                'mime' => $file['image']->getMimeType()
-            ]);
-        }
     }
 }

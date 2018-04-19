@@ -2,28 +2,55 @@
 
 namespace App\Models;
 
-use App\User;
+use App\Traits\Taggable;
+use App\Traits\Blameable;
+use App\Traits\Imageable;
+use App\Traits\Publishable;
+use App\Traits\Categorizable;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Partner extends Model
 {
+    use Taggable;
+    use Blameable;
+    use Imageable;
+    use Publishable;
+    use Categorizable;
+
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id',
+        'creator_id',
+
         'title',
-        'excerpt',
         'body',
+
         'published_at',
-        'previewed_at'
     ];
 
     protected $dates = [
         'deleted_at',
         'published_at',
-        'previewed_at'
     ];
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: An event may have zero or many partner.
+     *
+     * This function will retrieve the events of a partner.
+     * See: Event's partners() method for the inverse
+     *
+     * @return mixed
+     */
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
 
 
     /******************************************* SCOPE *******************************************/
@@ -39,9 +66,6 @@ class Partner extends Model
 
         static::created(function ($partner) {
 
-            // Soft delete all partner previews, if any
-            $partner->whereNotNull('previewed_at')->delete();
-
             // TODO: Force delete preview partners, if any
 
         });
@@ -49,96 +73,18 @@ class Partner extends Model
         // TODO: Use 'deleted' hooks to delete any related image(s)
     }
 
-
-    /*************************************** RELATIONSHIP ****************************************/
-
     /**
-     * One-to-Many: A creator may create zero or many partner.
+     * Scope a query to only include category of post.
      *
-     * This function will retrieve the creator of a partner.
-     * See: User' partners() method for the inverse
-     *
-     * @return mixed
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function creator()
+    public function scopeOfEvent(Builder $query)
     {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+        return $query->whereHas('categories', function ($filter) {
 
-    /**
-     * M-M Polymorphic: A partner can have one or many categories.
-     * 
-     * This function will get all of the categories that are assigned to this partner.
-     * See: Category's partners() method for the inverse
-     */
-    public function categories()
-    {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
+            $filter->where('slug', 'event-sponsor');
 
-    /**
-     * M-M Polymorphic: A partner can have one or many tags.
-     * 
-     * This function will get all of the tags that are assigned to this partner.
-     * See: Tag's partners() method for the inverse
-     */
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
-    }
-
-    /**
-     * Polymorphic: A partner may have one or more images.
-     *
-     * This function will retrieve the image(s) of a partner.
-     * See: Image's imageable() method
-     *
-     * @return mixed
-     */
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
-
-
-    /***************************************** ACCESSOR ******************************************/
-
-    public function getPublishedAtFormattedAttribute()
-    {
-        echo ($this->published_at) ? 
-                    '<strong class="text-green">YES</strong> <br>' .
-                    '<span class="text-muted">' . 
-                        $this->published_at->format('d-M-Y') . 
-                    '<span>' : 
-                    '<strong class="text-red">NO</strong>';
-    }
-
-    public function getCreatedAtFormattedAttribute()
-    {
-        echo $this->created_at->diffForHumans() . '<br>' .
-                '<small class="text-muted">' .
-                    $this->created_at->format('d-M-Y') .
-                '</small>';
-    }
-
-    public function getCategoryLinkAttribute()
-    {
-        if ($this->categories->isEmpty()) return '-';
-
-        echo $this->categories[0]->name;
-    }
-
-    public function getTagListAttribute()
-    {
-        if ($this->tags->isEmpty()) return '-';
-        
-        foreach ($this->tags as $tag) {
-            echo $tag->name . ', ';
-        }
-    }
-
-    public function getFeaturedImageAttribute()
-    {
-        return $this->images()->latest()->first();
+        });
     }
 }

@@ -24,7 +24,7 @@ class Donations extends Seeder
             $custom_date = Carbon::now()->subDays(rand(3, 5));
 
             $donation = factory(Donation::class)->create([
-                'user_id' => User::role(['admin'])->pluck('id')->random(),
+                'creator_id' => User::role(['admin'])->pluck('id')->random(),
                 'created_at' => $custom_date,
                 'updated_at' => $custom_date
             ]);
@@ -33,17 +33,17 @@ class Donations extends Seeder
 
             $donation->categories()
                      ->attach(
-                        Category::ofdonation()->pluck('id')->random()
-                    );
+                        Category::ofDonation()->pluck('id')->random()
+                     );
 
             /** Attach tags to generated donation data */
 
             for ($i = 1; $i <= rand(2, 4); $i++) {
 
                 $donation->tags()
-                     ->attach(
-                        Tag::pluck('id')->random()
-                     );
+                         ->attach(
+                            Tag::pluck('id')->random()
+                         );
             }
 
         });

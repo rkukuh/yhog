@@ -1,0 +1,51 @@
+<?php
+
+use App\User;
+use Carbon\Carbon;
+use App\Models\Tag;
+use App\Models\Gallery;
+use App\Models\Category;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
+
+class Galleries extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Collection::times(25, function ($number) {
+
+            /** Generate galleries data from its factory */
+
+            $custom_date = Carbon::now()->subDays(rand(3, 5));
+
+            $gallery = factory(Gallery::class)->create([
+                'creator_id' => User::role(['admin'])->pluck('id')->random(),
+                'created_at' => $custom_date,
+                'updated_at' => $custom_date
+            ]);
+
+            /** Attach only one category to generated gallery data */
+
+            $gallery->categories()
+                     ->attach(
+                        Category::ofGallery()->pluck('id')->random()
+                    );
+
+            /** Attach tags to generated gallery data */
+
+            for ($i = 1; $i <= rand(2, 4); $i++) {
+
+                $gallery->tags()
+                        ->attach(
+                            Tag::pluck('id')->random()
+                        );
+            }
+
+        });
+    }
+}

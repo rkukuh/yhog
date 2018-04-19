@@ -93,7 +93,7 @@ class CategoryDonationController extends Controller
         $category->update($request->all());
 
         return redirect()
-                ->route('category-donation.index', [
+                ->route('admin.category-donation.index', [
                     'page' => $request->page ?? 1
                 ])
                 ->with('success-message', 'Donation category has been updated.');

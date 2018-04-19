@@ -27,7 +27,6 @@ class PartnerStore extends FormRequest
         return [
             'title' => 'required|min:3|max:100',
             'body' => 'required|min:5',
-            'excerpt' => 'required|min:5',
             'category_id' => 'required|exists:categories,id',
             'tag_id' => 'nullable|exists:tags,id',
             'images' => 'required',
@@ -60,7 +59,7 @@ class PartnerStore extends FormRequest
     {
         $validator->after(function ($validator) {
 
-            $this->merge(['user_id' => auth()->user()->id]);
+            $this->merge(['creator_id' => auth()->user()->id]);
 
             if ($this['submit'] == 'draft') {
 
@@ -69,10 +68,6 @@ class PartnerStore extends FormRequest
             else if ($this['submit'] == 'publish') {
 
                 $this->merge(['published_at' => Carbon::now()]);
-            }
-            else if ($this['submit'] == 'preview') {
-                
-                $this->merge(['previewed_at' => Carbon::now()]);
             }
             
         });

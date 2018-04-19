@@ -19,9 +19,11 @@ class Users extends Seeder
         factory(User::class, 5)
             ->create()
             ->each(function ($user) {
+
                 $user->assignRole(
                     Role::where('name', 'guest')->first()
                 );
+                
             });
     }
 }

@@ -74,23 +74,8 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('excerpt') ? 'has-error has-feedback' : '' }}">
-    <label for="excerpt">
-        Excerpt @include('common.form.label-required-field')
-    </label>
-
-    <textarea class="form-control" id="excerpt" name="excerpt"
-                rows="5">{{ old('excerpt') ?: (isset($partner->excerpt) ? $partner->excerpt : '') }}</textarea>
-
-    @if ($errors->has('excerpt'))
-        @include('common.form.input-error-message', ['message' => $errors->first('excerpt')])
-    @endif
-</div>
-
 <div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
-    <label for="tag_id">
-        Tag 
-    </label>
+    <label for="tag_id">Tag</label>
 
     <select class="form-control select2" id="tag_id" name="tag_id[]" multiple>
         @foreach ($tags as $tag)
@@ -138,9 +123,7 @@
         @include('common.form.input-error-message', ['message' => $errors->first('images')])
     @endif
 
-    <span class="help-block">
-        Acceptable types are PNG or JPG.
-    </span>
+    <span class="help-block">Acceptable types are PNG or JPG.</span>
 
     @if ($errors->has('images.*'))
         @foreach ($errors->get('images.*') as $image)

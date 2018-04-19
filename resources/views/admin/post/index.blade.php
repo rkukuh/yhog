@@ -24,6 +24,7 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Post Title</th>
+                    <th class="text-center">Excerpt</th>
                     <th class="text-center">Published</th>
                     <th class="text-center">Created At</th>
                     <th class="text-center">Author</th>
@@ -57,6 +58,9 @@
                                 <i class="fa fa-tag"></i> {{ $post->tag_list }}
                             </small>
                         </td>
+                        <td>
+                            {{ $post->excerpt_limited }}
+                        </td>
                         <td class="text-center">
                             {{ $post->published_at_formatted }}
                         </td>
@@ -64,11 +68,11 @@
                             {{ $post->created_at_formatted }}
                         </td>
                         <td>
-                            {{ $post->author->name }} <br>
+                            {{ $post->creator->name }} <br>
 
                             <span class="fa fa-envelope-o"></span>
-                            <a href="mailto:{{ $post->author->email }}">
-                                {{ $post->author->email }}
+                            <a href="mailto:{{ $post->creator->email }}">
+                                {{ $post->creator->email }}
                             </a>
                         </td>
                         <td class="text-right">

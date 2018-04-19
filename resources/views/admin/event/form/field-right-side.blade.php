@@ -132,6 +132,42 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('partner_id') ? 'has-error has-feedback' : '' }}">
+    <label for="partner_id">Partners</label>
+
+    <select class="form-control select2" id="partner_id" name="partner_id[]" multiple>
+        @foreach ($partners as $partner)
+            <option value="{{ $partner->id }}" 
+                
+                    {{ old('partner_id') ? (in_array($partner->id, old('partner_id')) ? 'selected' : '') : '' }}
+
+                    {{ isset($event->partners) ? 
+                        ((in_array($partner->id, $event->partners->pluck('id')->toArray()) ? 
+                            'selected' : '')) : '' }}>
+
+                {{ $partner->title }}
+            </option>
+        @endforeach
+    </select>
+
+    @if ($errors->has('partner_id'))
+        @include('common.form.input-error-message', ['message' => $errors->first('partner_id')])
+    @endif
+
+    <span class="help-block">
+        Only 'Event Sponsor'-type Partners listed here. Not found?
+
+        @component('common.buttons.create-new')
+            @slot('size', 'xs')
+            @slot('color', 'info')
+            @slot('alignment' , '')
+            @slot('text', 'New Partner')
+            @slot('style', 'display: inline;')
+            @slot('route', route('admin.partner.create'))
+        @endcomponent
+    </span>
+</div>
+
 <div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
     <label for="tag_id">Tag</label>
 
