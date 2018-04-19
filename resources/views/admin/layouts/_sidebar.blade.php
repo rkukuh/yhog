@@ -96,7 +96,7 @@
                             <i class="fa fa-circle-o"></i> Add New / Edit
                         </a>
                     </li>
-                    <li>
+                    <li class="hide">
                         <a href="{{ route('admin.donate.create') }}">
                             <i class="fa fa-circle-o"></i> Receive Donation
                         </a>
