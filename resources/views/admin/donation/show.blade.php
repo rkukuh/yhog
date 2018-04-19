@@ -38,7 +38,15 @@
             </div>
         </div>
         <div class="col-md-3">
-            <h4>Receive History</h4>
+            <h4>
+                Receive History
+
+                @component('common.buttons.create-new')
+                    @slot('size', 'xs')
+                    @slot('text', 'receive new')
+                    @slot('route', route('admin.donate.create'))
+                @endcomponent
+            </h4>
 
             <ul class="list-group">
                 @foreach ($donation->donates as $donate)
@@ -47,7 +55,7 @@
                             <div class="col-md-4">
                                 {{ $donate->amount_formatted }}
                             </div>
-                            <div class="col-md-4 pull-right">
+                            <div class="col-md-5 pull-right">
                                 {{ $donate->created_at_formatted }}
                             </div>
                         </div>
