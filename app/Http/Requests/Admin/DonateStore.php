@@ -27,4 +27,19 @@ class DonateStore extends FormRequest
             'amount' => 'required|numeric|min:1',
         ];
     }
+
+    /**
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+
+            $this->merge(['creator_id' => auth()->user()->id]);
+            
+        });
+    }
 }
