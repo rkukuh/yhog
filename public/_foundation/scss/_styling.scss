@@ -13,10 +13,15 @@ body {
 form {
 	padding-bottom: 16px;
 	
-	[type="text"], [type="email"] {
+	[type="text"], [type="email"], textarea {
 		font-family: $open_sans;
 		color: $brown;
+		border: 1px solid $brown;
 		box-shadow: none;
+	}
+	
+	textarea {
+		height: auto;
 	}
 	
 	select {
@@ -1377,6 +1382,159 @@ aside {
 			width: auto;
 			display: inline-block;
 		}
+	}
+}
+
+
+
+#contact-page {
+	.hero-image {
+		background-color: $brown;
+		padding-top: 54px;
+		
+		h2 {
+			font-size: 28px;
+			color: $white;
+		}
+		
+		p {
+			color: $white;
+		}
+		
+		.cta {
+			font-size: 16px;
+			color: $white;
+			padding-left: 15px;
+			padding-right: 15px;
+			padding-top: 7px;
+			padding-bottom: 7px;
+			border: 1px solid $white;
+		}
+		
+		&> .grid-container {
+			@include breakpoint(xlarge) {
+				max-width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				
+				.grid-padding-x {
+					margin: 0;
+					
+					.cell {
+						padding: 0;
+						
+						&:last-child {
+							padding-left: 0.9375rem;
+							padding-right: 0.9375rem;
+						}
+					}
+				}
+			}
+			
+			@include breakpoint(xxlarge) {
+				max-width: 1200px;
+				padding-left: 0.9375rem;
+				padding-right: 0.9375rem;
+				
+				.grid-padding-x {
+					margin-left: -0.9375rem;
+					margin-right: -0.9375rem;
+					
+					.cell {
+						padding-left: 0.9375rem;
+						padding-right: 0.9375rem;
+						
+						&:last-child {
+							padding-left: 0.9375rem;
+							padding-right: 0.9375rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	h3 {
+		
+		&+ p {
+			margin-top: 16px;
+		}
+	}
+	
+	form {
+		margin-top: 14px;
+		
+		&.sending {
+			.cta {
+				i {
+					display: inline-block;
+				}
+			}
+		}
+		
+		.callout {
+			background-color: rgba($brown, 0.1);
+			display: none;
+			position: relative;
+			
+			&.show {
+				display: block !important;
+			}
+			
+			p {
+				font-size: 14px;
+				color: $brown;
+				margin-bottom: 0;
+			}
+			
+			[data-close-callout] {
+				color: $white;
+				background-color: $orange;
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: translate(50%,-50%);
+				
+				i {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%,-50%);
+				}
+			}
+		}
+		
+		.cta {
+			font-family: $american_typewriter;
+			font-weight: 600;
+			color: $white;
+			text-align: center;
+			background-color: $orange;
+			padding-top: 11px;
+			padding-bottom: 12px;
+			
+			@include breakpoint(xsmall) {
+				width: auto;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			
+			i {
+				display: none;
+				margin-right: 5px;
+			}
+		}
+	}
+	
+	#gmap {
+		width: 100%;
+		height: 210px;
+		margin-top: 27px;
+		border: 1px solid $brown;
 	}
 }
 

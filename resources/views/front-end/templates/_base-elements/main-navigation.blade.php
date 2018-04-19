@@ -7,10 +7,6 @@
 		<a href="{{ url('/our-projects') }}">Our Projects</a>
 	</li>
 	
-	<li @if($current_page == "fundraising") class="active" @endif>
-		<a href="{{ url('/fundraising') }}">Fundraising</a>
-	</li>
-	
 	<li @if($current_page == "events") class="active" @endif>
 		<a href="{{ url('/events') }}">Events</a>
 	</li>

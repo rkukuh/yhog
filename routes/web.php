@@ -89,3 +89,4 @@ Route::get('/blog', 'MainController@blog');
 Route::get('/blog/article', 'MainController@blog_article');
 Route::get('/gallery', 'MainController@gallery');
 Route::get('/gallery/detail', 'MainController@gallery_detail');
+Route::get('/contact-us', 'MainController@contact');
