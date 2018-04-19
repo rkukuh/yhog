@@ -43,6 +43,8 @@
             <form action="{{ route('admin.donate.store') }}" method="post" class="form-inline">
                 @csrf
 
+                <input type="hidden" name="donation" value="{{ $donation->id }}">
+
                 <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
                     <input type="number" class="form-control text-right" id="amount" name="amount"
                             value="{{ old('amount') ?: 0 }}">
@@ -61,7 +63,7 @@
             </form> <br>
 
             <ul class="list-group">
-                @foreach ($donation->donates as $donate)
+                @foreach ($donation->donates()->latest()->get() as $donate)
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-4">
