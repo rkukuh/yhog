@@ -53,8 +53,6 @@ Route::name('admin.')->group(function () {
         /** DONATION **/
 
         Route::resource('donation', 'DonationController');
-
-        Route::post('/donate/{donation}', 'DonateController@store')->name('donate.store');
         Route::resource('donate', 'DonateController');
     
         Route::resource('category-donation', 'CategoryDonationController', [
