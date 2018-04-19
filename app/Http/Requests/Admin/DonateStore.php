@@ -13,7 +13,7 @@ class DonateStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +24,7 @@ class DonateStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'amount' => 'required|numeric|min:1',
         ];
     }
 }
