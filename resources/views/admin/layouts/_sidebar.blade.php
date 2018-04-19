@@ -22,7 +22,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.post.index') }}">
-                            <i class="fa fa-circle-o"></i> Post
+                            <i class="fa fa-circle-o"></i> Posts
                         </a>
                     </li>
                     <li>
@@ -49,7 +49,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.event.index') }}">
-                            <i class="fa fa-circle-o"></i> Event
+                            <i class="fa fa-circle-o"></i> Events
                         </a>
                     </li>
                     <li>
@@ -71,7 +71,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.partner.index') }}">
-                            <i class="fa fa-circle-o"></i> Partner
+                            <i class="fa fa-circle-o"></i> Partners
                         </a>
                     </li>
                     <li>
@@ -93,7 +93,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.donation.index') }}">
-                            <i class="fa fa-circle-o"></i> Add New / Edit
+                            <i class="fa fa-circle-o"></i> Donations
                         </a>
                     </li>
                     <li class="hide">
@@ -120,7 +120,7 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ route('admin.gallery.index') }}">
-                            <i class="fa fa-circle-o"></i> Gallery
+                            <i class="fa fa-circle-o"></i> Galleries
                         </a>
                     </li>
                     <li>
