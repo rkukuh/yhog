@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Donate;
+use App\Models\Donation;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\DonateStore;
 use App\Http\Requests\Admin\DonateUpdate;
@@ -26,7 +27,7 @@ class DonateController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.donate.create');
     }
 
     /**
