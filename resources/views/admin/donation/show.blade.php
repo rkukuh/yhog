@@ -43,7 +43,7 @@
             <form action="{{ route('admin.donate.store') }}" method="post" class="form-inline">
                 @csrf
 
-                <input type="hidden" name="donation" value="{{ $donation->id }}">
+                <input type="hidden" name="donation_id" value="{{ $donation->id }}">
 
                 <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
                     <input type="number" class="form-control text-right" id="amount" name="amount"
