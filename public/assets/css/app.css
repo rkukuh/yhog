@@ -6240,6 +6240,8 @@ aside {
 
 #about-us-page .partner {
   margin-bottom: 8px; }
+  #about-us-page .partner:last-child {
+    margin-bottom: 24px; }
   #about-us-page .partner h3 {
     margin-top: -7px; }
   #about-us-page .partner img {
@@ -6501,6 +6503,39 @@ aside {
     #article-page .detail aside img {
       margin-bottom: 21px; }
 
+#article-page .article-list {
+  padding-top: 16px; }
+  #article-page .article-list .items {
+    padding-bottom: 8px; }
+    #article-page .article-list .items .item {
+      background-color: #504B4B;
+      margin-bottom: 32px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px; }
+      #article-page .article-list .items .item.ad-unit {
+        background-color: #707070 !important; }
+      #article-page .article-list .items .item img {
+        margin-bottom: 6px; }
+      #article-page .article-list .items .item h3 {
+        font-size: 14px;
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 6px; }
+      #article-page .article-list .items .item p {
+        font-size: 12px;
+        color: #fff; }
+      #article-page .article-list .items .item .cta {
+        font-size: 14px;
+        color: #fff;
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border: 1px solid #fff; }
+
 #article-page .support-us {
   margin-top: 14px; }
   #article-page .support-us header {
@@ -6630,7 +6665,8 @@ aside {
   margin-top: 16px; }
 
 #contact-page form {
-  margin-top: 14px; }
+  margin-top: 14px;
+  padding-bottom: 48px; }
   #contact-page form.sending .cta i {
     display: inline-block; }
   #contact-page form .callout {
@@ -6683,5 +6719,14 @@ aside {
   height: 210px;
   margin-top: 27px;
   border: 1px solid #504B4B; }
+
+#contact-page .support-us header {
+  background-color: #FF9900; }
+  #contact-page .support-us header p {
+    color: #fff; }
+
+#contact-page .support-us .cta {
+  width: auto;
+  display: inline-block; }
 
 /* ========== END WEBSITE STYLES ==========  */

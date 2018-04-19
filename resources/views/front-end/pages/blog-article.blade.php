@@ -43,6 +43,58 @@
 	</div>
 </section>
 
+<section class="article-list">
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x">
+			<div class="cell">
+				<h3>Related articles</h3>
+			</div>
+		</div>
+		
+		<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('blog/article') }}">Full Details</a></div>
+			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('blog/article') }}">Full Details</a></div>
+			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('blog/article') }}">Full Details</a></div>
+			</div>
+			
+			<div class="item cell">
+				<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+				
+				<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
+				
+				<div class="text-center"><a class="cta" href="{{ url('blog/article') }}">Full Details</a></div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="support-us">
 	<header>
 		<div class="grid-container">

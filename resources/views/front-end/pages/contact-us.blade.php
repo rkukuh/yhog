@@ -69,6 +69,33 @@
 		</div>
 	</div>
 </section>
+
+<section class="support-us">
+	<header>
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="cell xsmall-12 large-10 text-center">
+					<p>All funds raised through our events go directly towards providing facial reconstructive surgery for infants and children born with harelip or cleft palate defects.</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
+	</div>
+	
+	@include('front-end.common.elements.goals')
+	
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="cell xsmall-12 text-center">
+				<h2>Help us, help more kids.</h2>
+				
+				<a class="cta">Support Us Today!</a>
+			</div>
+		</div>
+	</div>
+</section>
 @endsection
 
 @push('page-styles')

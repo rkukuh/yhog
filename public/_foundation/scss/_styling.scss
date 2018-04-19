@@ -835,6 +835,10 @@ aside {
 	.partner {
 		margin-bottom: 8px;
 		
+		&:last-child {
+			margin-bottom: 24px;
+		}
+		
 		h3 {
 			margin-top: -7px;
 		}
@@ -1250,6 +1254,54 @@ aside {
 		}
 	}
 	
+	.article-list {
+		padding-top: 16px;
+		
+		.items {
+			padding-bottom: 8px;
+			
+			.item {
+				background-color: $brown;
+				margin-bottom: 32px;
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				
+				&.ad-unit {
+					background-color: #707070 !important;
+				}
+				
+				img {
+					margin-bottom: 6px;
+				}
+				
+				h3 {
+					font-size: 14px;
+					color: $white;
+					margin-top: 0;
+					margin-bottom: 6px;
+				}
+				
+				p {
+					font-size: 12px;
+					color: $white;
+				}
+				
+				.cta {
+					font-size: 14px;
+					color: $white;
+					margin: 0;
+					padding-left: 15px;
+					padding-right: 15px;
+					padding-top: 7px;
+					padding-bottom: 7px;
+					border: 1px solid $white;
+				}
+			}
+		}
+	}
+	
 	.support-us {
 		margin-top: 14px;
 		
@@ -1463,6 +1515,7 @@ aside {
 	
 	form {
 		margin-top: 14px;
+		padding-bottom: 48px;
 		
 		&.sending {
 			.cta {
@@ -1535,6 +1588,21 @@ aside {
 		height: 210px;
 		margin-top: 27px;
 		border: 1px solid $brown;
+	}
+	
+	.support-us {
+		header {
+			background-color: $orange;
+			
+			p {
+				color: $white;
+			}
+		}
+		
+		.cta {
+			width: auto;
+			display: inline-block;
+		}
 	}
 }
 
