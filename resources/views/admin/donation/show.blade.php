@@ -38,15 +38,27 @@
             </div>
         </div>
         <div class="col-md-3">
-            <h4>
-                Receive History
+            <h4>Receive History</h4>
 
-                @component('common.buttons.create-new')
-                    @slot('size', 'xs')
-                    @slot('text', 'receive new')
-                    @slot('route', route('admin.donate.create'))
+            <form action="{{ route('admin.donate.store') }}" method="post" class="form-inline">
+                @csrf
+
+                <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
+                    <input type="number" class="form-control text-right" id="amount" name="amount"
+                            value="{{ old('amount') ?: 0 }}">
+        
+                    @if ($errors->has('amount'))
+                        @include('common.form.input-error-message-no-feedback', [
+                            'message' => $errors->first('amount')
+                        ])
+                    @endif
+                </div>
+
+                @component('common.buttons.submit')
+                    @slot('color', 'primary')
+                    @slot('text', 'Receive New')
                 @endcomponent
-            </h4>
+            </form> <br>
 
             <ul class="list-group">
                 @foreach ($donation->donates as $donate)
