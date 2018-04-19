@@ -38,7 +38,9 @@ class DonateController extends Controller
      */
     public function store(DonateStore $request)
     {
-        //
+        Donate::create($request->all());
+
+        return back()->with('success-message', 'New donation has been received.');
     }
 
     /**
