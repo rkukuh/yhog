@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "547185d263d2c2d1b43d3696932f24a5",
+    "content-hash": "30ec7707ab310355043f5761fd09ea56",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1389,16 +1389,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.9.2",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "9fdf2e850ff27b1ee9705c5f562d2411a7b5ce43"
+                "reference": "cc98e4dca988af6fb546e7e95248481713782cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/9fdf2e850ff27b1ee9705c5f562d2411a7b5ce43",
-                "reference": "9fdf2e850ff27b1ee9705c5f562d2411a7b5ce43",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/cc98e4dca988af6fb546e7e95248481713782cbe",
+                "reference": "cc98e4dca988af6fb546e7e95248481713782cbe",
                 "shasum": ""
             },
             "require": {
@@ -1449,7 +1449,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-03-12T16:15:16+00:00"
+            "time": "2018-04-16T15:09:56+00:00"
         },
         {
             "name": "spatie/temporary-directory",
