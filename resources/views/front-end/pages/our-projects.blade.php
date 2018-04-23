@@ -46,11 +46,11 @@
 				<h3>About the foundation</h3>
 				
 				<ul>
-					<li>Lorem ipsum dolor sit amet</li>
+					<li>The Doctors provide their surgical time and expertise free of charge while money raised covers all hospital fees associated with these surgical procedures.</li>
 					
-					<li>consectetur adipisicing elit</li>
+					<li>Through partnerships with other hospitals and sponsors, the GCF has been able to reach farther into Indonesia than just the greater Jakarta areas to perform these surgeries.</li>
 					
-					<li>sed do eiusmod tempor incididunt</li>
+					<li>Because the demand is so high for children in Indonesia requiring this surgery, Dr. Gentur has developed a patented method and trained several doctors in his method to help as many children as possible throughout Indonesia.</li>
 				</ul>
 			</div>
 		</div>
@@ -114,11 +114,11 @@
 						<h3>About Yayasan HOG</h3>
 						
 						<ul>
-							<li>Lorem ipsum dolor sit amet</li>
+							<li>YHOG was incorporated in 1987 and is the first Harley Davidson Owners Group Chapter to be registered outside of the USA.</li>
 							
-							<li>consectetur adipisicing elit</li>
+							<li>Focused fund raising efforts on supporting facial reconstructive surgery for infants and children born with cleft lip and cranial birth defects as well as support to local orphanages.</li>
 							
-							<li>sed do eiusmod tempor incididunt</li>
+							<li>YHOG provides 95% of funds needed to support these surgeries performed by the Gentur Cleft Foundation.</li>
 						</ul>
 					</div>
 				</div>
