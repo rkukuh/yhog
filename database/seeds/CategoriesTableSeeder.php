@@ -31,14 +31,14 @@ class CategoriesTableSeeder extends Seeder
         /** Partner **/
 
         Category::create([
-            'name' => 'Uncategorized',
-            'slug' => 'uncategorized',
+            'name' => 'Yayasan Partner',
+            'slug' => 'yayasan-partner',
             '_of'  => 'partner'
         ]);
 
         Category::create([
-            'name' => 'Event Sponsor',
-            'slug' => 'event-sponsor',
+            'name' => 'Event Partner',
+            'slug' => 'event-partner',
             '_of'  => 'partner'
         ]);
 
