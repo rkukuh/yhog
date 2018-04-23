@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PartnerUpdate extends FormRequest
@@ -27,9 +28,12 @@ class PartnerUpdate extends FormRequest
         return [
             'title' => 'required|min:3|max:100',
             'body' => 'required|min:5',
-            'category_id' => 'required|exists:categories,id',
+            'category' => [
+                'required',
+                Rule::in(['yayasan-partner', 'event-partner']),
+            ],
             'tag_id' => 'nullable|exists:tags,id',
-            // 'images' => 'required',
+            'images' => 'nullable',
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000',
         ];
     }
@@ -43,9 +47,7 @@ class PartnerUpdate extends FormRequest
     {
         return [
             'body.required' => 'The content field is required.',
-            'category_id.required' => 'The category field is required.',
             'tag_id.required' => 'The tag field is required.',
-            // 'images.required' => 'The featured image field is required.',
         ];
     }
 
