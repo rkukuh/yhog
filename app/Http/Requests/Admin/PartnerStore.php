@@ -28,7 +28,7 @@ class PartnerStore extends FormRequest
         return [
             'title' => 'required|min:3|max:100',
             'body' => 'required|min:5',
-            'category_id' => [
+            'category' => [
                 'required',
                 Rule::in(['yayasan-partner', 'event-partner']),
             ],
@@ -47,8 +47,6 @@ class PartnerStore extends FormRequest
     {
         return [
             'body.required' => 'The content field is required.',
-            'category_id.required' => 'The category field is required.',
-            'category_id.in' => 'The selected category is invalid.',
             'tag_id.required' => 'The tag field is required.',
             'images.required' => 'The featured image field is required.',
         ];

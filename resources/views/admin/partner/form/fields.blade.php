@@ -1,22 +1,22 @@
-<div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
-    <label for="category_id">
+<div class="form-group {{ $errors->has('category') ? 'has-error' : '' }}">
+    <label for="category">
         Category @include('common.form.label-required-field')
     </label> 
 
     <label class="radio-inline">
-        <input type="radio" name="category_id" id="radio_yayasan" value="yayasan-partner" 
-                {{ (old('category_id') == 'yayasan-partner') ? 'checked' : '' }}> 
+        <input type="radio" name="category" value="yayasan-partner" 
+                {{ (old('category') == 'yayasan-partner') ? 'checked' : '' }}> 
         Yayasan Partner
     </label>
     <label class="radio-inline">
-        <input type="radio" name="category_id" id="radio_event" value="event-partner" 
-                {{ (old('category_id') == 'event-partner') ? 'checked' : '' }}> 
+        <input type="radio" name="category" value="event-partner" 
+                {{ (old('category') == 'event-partner') ? 'checked' : '' }}> 
         Event Partner
     </label>
     
-    @if ($errors->has('category_id'))
+    @if ($errors->has('category'))
         @include('common.form.input-error-message-no-feedback', [
-            'message' => $errors->first('category_id')
+            'message' => $errors->first('category')
         ])
     @endif
 </div>
