@@ -127,8 +127,12 @@ class PartnerController extends Controller
         if ($partner->update($request->all())) {
 
             // Sync its attributes, if necessary
+
             $partner->tags()->sync($request->tag_id);
-            $partner->categories()->sync($request->category_id);
+            
+            $partner->categories()->sync(
+                Category::ofPartner()->where('slug', $request->category)->first()
+            );
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
