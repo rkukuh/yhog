@@ -83,7 +83,7 @@ class Partner extends Model
     {
         return $query->whereHas('categories', function ($filter) {
 
-            $filter->where('slug', 'event-sponsor');
+            $filter->where('slug', 'event-partner');
 
         });
     }
