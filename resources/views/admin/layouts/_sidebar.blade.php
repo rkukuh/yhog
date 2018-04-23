@@ -62,51 +62,18 @@
             @endrole
 
             @role('admin')
-            <li class="treeview">
-                <a href="#partner"><i class="fa fa-users"></i> <span>Partner</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+            <li>
+                <a href="{{ route('admin.partner.index') }}">
+                    <i class="fa fa-users"></i> Partner
                 </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="{{ route('admin.partner.index') }}">
-                            <i class="fa fa-circle-o"></i> Partners
-                        </a>
-                    </li>
-                    <li class="hide">
-                        <a href="{{ route('admin.category-partner.index') }}">
-                            <i class="fa fa-circle-o"></i> Category
-                        </a>
-                    </li>
-                </ul>
             </li>
             @endrole
 
             @role('admin')
-            <li class="treeview">
-                <a href="#donation"><i class="fa fa-money"></i> <span>Donation</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+            <li>
+                <a href="{{ route('admin.donation.index') }}">
+                    <i class="fa fa-money"></i> Donation
                 </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="{{ route('admin.donation.index') }}">
-                            <i class="fa fa-circle-o"></i> Donations
-                        </a>
-                    </li>
-                    <li class="hide">
-                        <a href="{{ route('admin.donate.create') }}">
-                            <i class="fa fa-circle-o"></i> Receive Donation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.category-donation.index') }}" class="hide">
-                            <i class="fa fa-circle-o"></i> Category
-                        </a>
-                    </li>
-                </ul>
             </li>
             @endrole
 
