@@ -69,9 +69,14 @@
                             <div class="col-md-4">
                                 {{ $donate->amount_formatted }}
                             </div>
-                            <div class="col-md-5 pull-right">
+                            <div class="col-md-5">
                                 {{ $donate->created_at_formatted }}
                             </div>
+
+                            @component('common.datalist.button-remove')
+                                @slot('text', '')
+                                @slot('route', route('admin.donate.destroy', $donate))
+                            @endcomponent
                         </div>
                     </li>
                 @endforeach
