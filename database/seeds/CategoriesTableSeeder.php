@@ -12,11 +12,15 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+        /** Post **/
+
         Category::create([
             'name' => 'Uncategorized',
             'slug' => 'uncategorized',
             '_of'  => 'post'
         ]);
+
+        /** Event **/
 
         Category::create([
             'name' => 'Uncategorized',
@@ -24,11 +28,7 @@ class CategoriesTableSeeder extends Seeder
             '_of'  => 'event'
         ]);
 
-        Category::create([
-            'name' => 'Uncategorized',
-            'slug' => 'uncategorized',
-            '_of'  => 'gallery'
-        ]);
+        /** Partner **/
 
         Category::create([
             'name' => 'Uncategorized',
@@ -42,10 +42,20 @@ class CategoriesTableSeeder extends Seeder
             '_of'  => 'partner'
         ]);
 
+        /** Donation **/
+
         Category::create([
             'name' => 'Uncategorized',
             'slug' => 'uncategorized',
             '_of'  => 'donation'
+        ]);
+
+        /** Gallery **/
+
+        Category::create([
+            'name' => 'Uncategorized',
+            'slug' => 'uncategorized',
+            '_of'  => 'gallery'
         ]);
     }
 }
