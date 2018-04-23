@@ -17,7 +17,7 @@ class Partners extends Seeder
      */
     public function run()
     {
-        /** NON-"Event Sponsor" Partners **/
+        /** NON-"Event Partner" Partners **/
 
         Collection::times(20, function ($number) {
 
@@ -36,7 +36,7 @@ class Partners extends Seeder
             $partner->categories()
                      ->attach(
                         Category::ofPartner()
-                                  ->where('slug', '<>', 'event-sponsor')
+                                  ->where('slug', '<>', 'event-partner')
                                   ->pluck('id')
                                   ->random()
                     );
@@ -54,7 +54,7 @@ class Partners extends Seeder
         });
 
 
-        /** An "Event Sponsor" Partners **/
+        /** An "Event Partner" Partners **/
 
         Collection::times(5, function ($number) {
 
@@ -73,7 +73,7 @@ class Partners extends Seeder
             $partner->categories()
                      ->attach(
                         Category::ofPartner()
-                                  ->where('slug', 'event-sponsor')
+                                  ->where('slug', 'event-partner')
                                   ->pluck('id')
                                   ->random()
                     );
