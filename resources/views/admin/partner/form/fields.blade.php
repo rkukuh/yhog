@@ -5,13 +5,20 @@
 
     <label class="radio-inline">
         <input type="radio" name="category" value="yayasan-partner" 
-                {{ (old('category') == 'yayasan-partner') ? 'checked' : '' }}> 
-        Yayasan Partner
+
+                {{ isset($partner->categories) ? 
+                    (($partner->categories()->first()->slug == 'yayasan-partner') ? 'checked' : '') : '' }}
+
+                {{ (old('category') == 'yayasan-partner') ? 'checked' : '' }}> Yayasan Partner
     </label>
+    
     <label class="radio-inline">
         <input type="radio" name="category" value="event-partner" 
-                {{ (old('category') == 'event-partner') ? 'checked' : '' }}> 
-        Event Partner
+
+                {{ isset($partner->categories) ? 
+                    (($partner->categories()->first()->slug == 'event-partner') ? 'checked' : '') : '' }}
+
+                {{ (old('category') == 'event-partner') ? 'checked' : '' }}> Event Partner
     </label>
     
     @if ($errors->has('category'))
