@@ -72,8 +72,12 @@ class PartnerController extends Controller
         if ($partner = Partner::create($request->all())) {
 
             // Persist its attributes, if any
-            $partner->categories()->attach($request->category_id);
+
             $partner->tags()->attach($request->tag_id);
+
+            $partner->categories()->attach(
+                Category::ofPartner()->where('slug', $request->category)->first()
+            );
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
