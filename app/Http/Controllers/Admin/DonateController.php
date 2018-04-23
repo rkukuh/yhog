@@ -85,6 +85,8 @@ class DonateController extends Controller
      */
     public function destroy(Donate $donate)
     {
-        //
+        $donate->forceDelete();
+
+        return back()->with('success-message', 'Donation has been removed.');
     }
 }
