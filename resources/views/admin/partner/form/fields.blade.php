@@ -11,17 +11,17 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('category_id') ? 'has-error has-feedback' : '' }}">
-    <label for="category_id">
+<div class="hide form-group {{ $errors->has('___category_id') ? 'has-error has-feedback' : '' }}">
+    <label for="___category_id">
         Category @include('common.form.label-required-field')
     </label>
 
-    <select class="form-control select2" id="category_id" name="category_id">
+    <select class="form-control select2" id="___category_id" name="___category_id">
         <option value=""></option>
         
         @foreach ($parent_categories as $parent)
             <option class="level-1" value="{{ $parent->id }}"
-                    {{ (old('category_id') == $parent->id) ? 'selected' : '' }}
+                    {{ (old('___category_id') == $parent->id) ? 'selected' : '' }}
                     
                     {{ isset($partner->categories) ? 
                         ((in_array($parent->id, $partner->categories->pluck('id')->toArray()) ? 
@@ -31,7 +31,7 @@
             </option>
             @foreach ($parent->childs as $child)
                 <option class="level-2" value="{{ $child->id }}"
-                    {{ (old('category_id') == $child->id) ? 'selected' : '' }}
+                    {{ (old('___category_id') == $child->id) ? 'selected' : '' }}
                     
                     {{ isset($partner->categories) ? 
                         ((in_array($child->id, $partner->categories->pluck('id')->toArray()) ? 
@@ -43,8 +43,8 @@
         @endforeach
     </select>
 
-    @if ($errors->has('category_id'))
-        @include('common.form.input-error-message', ['message' => $errors->first('category_id')])
+    @if ($errors->has('___category_id'))
+        @include('common.form.input-error-message', ['message' => $errors->first('___category_id')])
     @endif
 
     <span class="help-block">
