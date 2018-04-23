@@ -90,7 +90,7 @@ class UserController extends Controller
         $user->update($request->all());
 
         return redirect()
-                ->route('user.index', [
+                ->route('admin.user.index', [
                     'page' => $request->page ?? 1
                 ])
                 ->with('success-message', 'User has been updated.');
