@@ -1,5 +1,6 @@
 <form method="post"
-      action="{{ $route }}"
+      action="{{ $route }}" 
+      class="{{ $class or '' }}" 
       style="{{ $style or 'display: inline;' }}">
 
     {{ method_field('DELETE') }}
