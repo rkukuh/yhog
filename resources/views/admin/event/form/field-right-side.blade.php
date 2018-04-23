@@ -155,7 +155,7 @@
     @endif
 
     <span class="help-block">
-        Only 'Event Sponsor'-type Partners listed here. Not found?
+        Only 'Event Partner'-type Partners listed here. Not found?
 
         @component('common.buttons.create-new')
             @slot('size', 'xs')
