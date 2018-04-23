@@ -34,56 +34,6 @@
     @endif
 </div>
 
-<div class="hide form-group {{ $errors->has('___category_id') ? 'has-error has-feedback' : '' }}">
-    <label for="___category_id">
-        Category @include('common.form.label-required-field')
-    </label>
-
-    <select class="form-control select2" id="___category_id" name="___category_id">
-        <option value=""></option>
-        
-        @foreach ($parent_categories as $parent)
-            <option class="level-1" value="{{ $parent->id }}"
-                    {{ (old('___category_id') == $parent->id) ? 'selected' : '' }}
-                    
-                    {{ isset($partner->categories) ? 
-                        ((in_array($parent->id, $partner->categories->pluck('id')->toArray()) ? 
-                            'selected' : '')) : '' }}>
-
-                {{ $parent->name }}
-            </option>
-            @foreach ($parent->childs as $child)
-                <option class="level-2" value="{{ $child->id }}"
-                    {{ (old('___category_id') == $child->id) ? 'selected' : '' }}
-                    
-                    {{ isset($partner->categories) ? 
-                        ((in_array($child->id, $partner->categories->pluck('id')->toArray()) ? 
-                            'selected' : '')) : '' }}>
-
-                    — {{ $child->name }}
-                </option>
-            @endforeach
-        @endforeach
-    </select>
-
-    @if ($errors->has('___category_id'))
-        @include('common.form.input-error-message', ['message' => $errors->first('___category_id')])
-    @endif
-
-    <span class="help-block">
-        Can not spot the Category you're looking for?
-
-        @component('common.buttons.create-new')
-            @slot('size', 'xs')
-            @slot('color', 'info')
-            @slot('alignment' , '')
-            @slot('text', 'New Category')
-            @slot('style', 'display: inline;')
-            @slot('route', route('admin.category-partner.index'))
-        @endcomponent
-    </span>
-</div>
-
 <div class="form-group {{ $errors->has('body') ? 'has-error has-feedback' : '' }}">
     <label for="body">
         Content @include('common.form.label-required-field')
