@@ -74,7 +74,7 @@
                             <i class="fa fa-circle-o"></i> Partners
                         </a>
                     </li>
-                    <li>
+                    <li class="hide">
                         <a href="{{ route('admin.category-partner.index') }}">
                             <i class="fa fa-circle-o"></i> Category
                         </a>
