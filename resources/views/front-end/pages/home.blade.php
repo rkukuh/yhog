@@ -34,7 +34,7 @@
 	</div>
 </section>
 
-<section class="support-us">
+<!--<section class="support-us">
 	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
 		
 	</div>
@@ -54,7 +54,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>-->
 
 <section class="support-us option-2">
 	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
@@ -216,7 +216,7 @@
 	</div>
 </section>
 
-<section class="yayasan-hog">
+<!--<section class="yayasan-hog">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12 large-9">
@@ -244,7 +244,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>-->
 @endsection
 
 @push('page-styles')
