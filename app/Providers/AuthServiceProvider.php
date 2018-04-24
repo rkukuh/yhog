@@ -10,6 +10,7 @@ use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Gallery;
 use App\Models\Donate;
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Donation;
 use App\Policies\TagPolicy;
@@ -18,6 +19,7 @@ use App\Policies\UserPolicy;
 use App\Policies\EventPolicy;
 use App\Policies\ImagePolicy;
 use App\Policies\DonatePolicy;
+use App\Policies\BannerPolicy;
 use App\Policies\PartnerPolicy;
 use App\Policies\GalleryPolicy;
 use App\Policies\CategoryPolicy;
@@ -39,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         Image::class => ImagePolicy::class,
         Event::class => EventPolicy::class,
         Donate::class => DonatePolicy::class,
+        Banner::class => BannerPolicy::class,
         Partner::class => PartnerPolicy::class,
         Gallery::class => GalleryPolicy::class,
         Category::class => CategoryPolicy::class,

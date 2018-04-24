@@ -42,5 +42,9 @@ class DatabaseSeeder extends Seeder
         /** GALLERY **/
 
         $this->call(GalleriesTableSeeder::class);
+
+        /** BANNER **/
+
+        $this->call(BannersTableSeeder::class);
     }
 }

@@ -41,5 +41,9 @@ class ExampleDataSeeder extends Seeder
         /** GALLERY **/
 
         $this->call(Galleries::class);
+
+        /** BANNER **/
+
+        $this->call(Banners::class);
     }
 }
