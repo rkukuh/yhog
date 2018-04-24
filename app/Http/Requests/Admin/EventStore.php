@@ -36,8 +36,8 @@ class EventStore extends FormRequest
             'end_at' => 'required|date_format:"d/m/Y"|after_or_equal:start_at',
             'early_bird_price' => 'numeric|min:0',
             'early_bird_price_end_at' => 'nullable|date_format:"d/m/Y"|before_or_equal:start_at',
-            // 'images' => 'required',
-            'images.*.image' => 'mimes:jpeg,png|min:50|max:1000'
+            'images' => 'nullable',
+            'images.*.image' => 'mimes:jpeg,png|min:50|max:1000',
         ];
     }
 
