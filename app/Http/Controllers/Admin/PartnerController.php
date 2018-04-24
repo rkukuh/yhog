@@ -81,7 +81,12 @@ class PartnerController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $partner->uploadImages($request, $partner);
+                $partner->uploadImages($request, $partner, false);
+            }
+
+            // If sponsor image(s) exists, persist
+            if ($request->hasFile('sponsor_images.*.image')) {
+                $partner->uploadSponsorImage($request, $partner, true);
             }
         }
 
@@ -136,7 +141,20 @@ class PartnerController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
-                $partner->uploadImages($request, $partner);
+                
+                // Remove any previous non-sponsor image(s)
+                $partner->images()->where('is_sponsor_image', false)->delete();
+
+                $partner->uploadImages($request, $partner, false);
+            }
+
+            // If sponsor image(s) exists, persist
+            if ($request->hasFile('sponsor_images.*.image')) {
+                
+                // Remove any previous sponsor image(s)
+                $partner->images()->where('is_sponsor_image', true)->delete();
+
+                $partner->uploadSponsorImage($request, $partner, true);
             }
         }
 
