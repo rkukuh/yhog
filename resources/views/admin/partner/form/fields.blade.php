@@ -112,22 +112,61 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('sponsor_images') ? 'has-error has-feedback' : '' }}
+<fieldset>
+    <legend>Sponsor</legend>
+
+    <div class="form-group {{ $errors->has('sponsor_images') ? 'has-error has-feedback' : '' }}
         {{ $errors->has('sponsor_images.*') ? 'has-error has-feedback' : '' }}">
 
-    <label for="sponsor_images">Sponsor Image</label>
+        <input type="file" name="sponsor_images[][image]" class="form-control">
 
-    <input type="file" name="sponsor_images[][image]" class="form-control">
+        @if ($errors->has('sponsor_images'))
+            @include('common.form.input-error-message', ['message' => $errors->first('sponsor_images')])
+        @endif
 
-    @if ($errors->has('sponsor_images'))
-        @include('common.form.input-error-message', ['message' => $errors->first('sponsor_images')])
-    @endif
+        <span class="help-block">Should be 300px by 250px JPG/PNG image file.</span>
 
-    <span class="help-block">Should be 300px by 250px JPG/PNG image file.</span>
+        @if ($errors->has('sponsor_images.*'))
+            @foreach ($errors->get('sponsor_images.*') as $image)
+                @include('common.form.input-error-message', ['message' => $image[0]])
+            @endforeach
+        @endif
+    </div>
+</fieldset>
 
-    @if ($errors->has('sponsor_images.*'))
-        @foreach ($errors->get('sponsor_images.*') as $image)
-            @include('common.form.input-error-message', ['message' => $image[0]])
-        @endforeach
-    @endif
-</div>
+<fieldset>
+    <legend>Ad Unit</legend>
+
+    <div class="form-group {{ $errors->has('ads_image') ? 'has-error has-feedback' : '' }}
+        {{ $errors->has('ads_image.*') ? 'has-error has-feedback' : '' }}">
+
+        <label for="ads_image">Banner</label>
+
+        <input type="file" name="ads_image[][image]" class="form-control">
+
+        @if ($errors->has('ads_image'))
+            @include('common.form.input-error-message', ['message' => $errors->first('ads_image')])
+        @endif
+
+        <span class="help-block">Should be 300px by 250px JPG/PNG image file.</span>
+
+        @if ($errors->has('ads_image.*'))
+            @foreach ($errors->get('ads_image.*') as $image)
+                @include('common.form.input-error-message', ['message' => $image[0]])
+            @endforeach
+        @endif
+    </div>
+
+    <div class="form-group {{ $errors->has('url') ? 'has-error has-feedback' : '' }}">
+        <label for="url">URL</label>
+
+        <input type="url" class="form-control" id="url" name="url" placeholder="http://..."
+                value="{{ old('title') ?: 
+                            isset($partner) ? 
+                                $partner->advertisements()->first()->url : '' }}">
+
+        @if ($errors->has('url'))
+            @include('common.form.input-error-message', ['message' => $errors->first('url')])
+        @endif
+    </div>
+</fieldset>
