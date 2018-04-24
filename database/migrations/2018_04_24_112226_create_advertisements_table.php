@@ -15,7 +15,16 @@ class CreateAdvertisementsTable extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('partner_id');
+            $table->text('url');
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('partner_id')
+                    ->references('id')->on('partners')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
         });
     }
 
