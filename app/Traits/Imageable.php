@@ -41,7 +41,7 @@ trait Imageable
     /****************************************** HELPER *******************************************/
 
     /**
-     * Associate a file(s) for a model.
+     * Associate an image(s) for a model.
      *
      * @param  \Illuminate\Foundation\Http\FormRequest $request
      * @param  \Illuminate\Database\Eloquent\Model; $model
@@ -65,6 +65,34 @@ trait Imageable
                 'size' => $file['image']->getSize(),
                 'mime' => $file['image']->getMimeType(),
                 'is_sponsor_image' => $is_sponsor_image,
+            ]);
+        }
+    }
+
+    /**
+     * Associate a sponsor image for a Partner.
+     *
+     * @param  \Illuminate\Foundation\Http\FormRequest $request
+     * @param  \Illuminate\Database\Eloquent\Model; $model
+     * @return void
+     */
+    public function uploadSponsorImage(FormRequest $request, Model $model)
+    {
+        $path = strtolower(class_basename($model)) . '-' . $model->id;
+
+        foreach ($request['sponsor_images'] as $file) {
+
+            $fileExtension  = $file['image']->getClientOriginalExtension();
+            $fileName       =  'sponsor-' . mt_rand(1000, 9999) . '.' . $fileExtension;
+
+            $file['image']->storeAs('public/' . $path, $fileName);
+
+            // Persist file(s) to database, and associate them with this model
+            $model->images()->create([
+                'path' => $path . '/' . $fileName,
+                'size' => $file['image']->getSize(),
+                'mime' => $file['image']->getMimeType(),
+                'is_sponsor_image' => true,
             ]);
         }
     }
