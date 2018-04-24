@@ -133,6 +133,10 @@ class PostController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
+
+                // Remove any previous image(s)
+                $post->images()->delete();
+
                 $post->uploadImages($request, $post);
             }
         }
