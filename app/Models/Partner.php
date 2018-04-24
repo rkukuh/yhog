@@ -52,6 +52,19 @@ class Partner extends Model
         return $this->belongsToMany(Event::class);
     }
 
+    /**
+     * One-to-Many: A partner may have zero or many advertisements.
+     *
+     * This function will retrieve the advertisements of a partner.
+     * See: Advertisement's partner() method for the inverse
+     *
+     * @return mixed
+     */
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class);
+    }
+
 
     /******************************************* SCOPE *******************************************/
 

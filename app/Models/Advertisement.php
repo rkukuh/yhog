@@ -17,4 +17,20 @@ class Advertisement extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * One-to-Many: A partner may have zero or many advertisements.
+     *
+     * This function will retrieve the partner of an advertisement.
+     * See: Partner's advertisements() method for the inverse
+     *
+     * @return mixed
+     */
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
 }
