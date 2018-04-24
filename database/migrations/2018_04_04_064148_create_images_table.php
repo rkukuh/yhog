@@ -20,6 +20,7 @@ class CreateImagesTable extends Migration
             $table->string('path');
             $table->integer('size');
             $table->string('mime');
+            $table->boolean('is_sponsor_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

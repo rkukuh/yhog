@@ -10,11 +10,12 @@ class Image extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'imageable_id',
+        'imageable_type',
         'path',
         'size',
         'mime',
-        'imageable_id',
-        'imageable_type'
+        'is_sponsor_image',
     ];
     
     protected $dates = ['deleted_at'];

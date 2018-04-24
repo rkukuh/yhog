@@ -45,9 +45,10 @@ trait Imageable
      *
      * @param  \Illuminate\Foundation\Http\FormRequest $request
      * @param  \Illuminate\Database\Eloquent\Model; $model
+     * @param  Boolean $is_sponsor_image
      * @return void
      */
-    public function uploadImages(FormRequest $request, Model $model)
+    public function uploadImages(FormRequest $request, Model $model, $is_sponsor_image = null)
     {
         $path = strtolower(class_basename($model)) . '-' . $model->id;
 
@@ -62,7 +63,8 @@ trait Imageable
             $model->images()->create([
                 'path' => $path . '/' . $fileName,
                 'size' => $file['image']->getSize(),
-                'mime' => $file['image']->getMimeType()
+                'mime' => $file['image']->getMimeType(),
+                'is_sponsor_image' => $is_sponsor_image,
             ]);
         }
     }
