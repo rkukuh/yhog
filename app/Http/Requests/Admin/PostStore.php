@@ -31,7 +31,7 @@ class PostStore extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'tag_id' => 'nullable|exists:tags,id',
             'images' => 'required',
-            'images.*.image' => 'mimes:jpeg,png|min:50|max:1000'
+            'images.*.image' => 'mimes:jpeg,png|min:50|max:1000',
         ];
     }
 
