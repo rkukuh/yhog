@@ -132,7 +132,7 @@
         Featured Image @include('common.form.label-required-field')
     </label>
 
-    <input type="file" name="images[][image]" multiple class="form-control">
+    <input type="file" name="images[][image]" class="form-control">
 
     @if ($errors->has('images'))
         @include('common.form.input-error-message', ['message' => $errors->first('images')])

@@ -97,7 +97,7 @@
         Featured Image @include('common.form.label-required-field')
     </label>
 
-    <input type="file" name="images[][image]" multiple class="form-control">
+    <input type="file" name="images[][image]" class="form-control">
 
     @if ($errors->has('images'))
         @include('common.form.input-error-message', ['message' => $errors->first('images')])
@@ -117,7 +117,7 @@
 
 <label for="sponsor_images">Sponsor Image</label>
 
-<input type="file" name="sponsor_images[][image]" multiple class="form-control">
+<input type="file" name="sponsor_images[][image]" class="form-control">
 
 @if ($errors->has('sponsor_images'))
     @include('common.form.input-error-message', ['message' => $errors->first('sponsor_images')])
