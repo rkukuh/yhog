@@ -136,6 +136,10 @@ class EventController extends Controller
 
             // If featured image(s) exists, persist
             if ($request->hasFile('images.*.image')) {
+
+                // Remove any previous image(s)
+                $event->images()->delete();
+
                 $event->uploadImages($request, $event);
             }
         }
