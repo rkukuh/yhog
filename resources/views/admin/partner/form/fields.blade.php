@@ -111,3 +111,23 @@
         @endforeach
     @endif
 </div>
+
+<div class="form-group {{ $errors->has('sponsor_images') ? 'has-error has-feedback' : '' }}
+    {{ $errors->has('sponsor_images.*') ? 'has-error has-feedback' : '' }}">
+
+<label for="sponsor_images">Sponsor Image</label>
+
+<input type="file" name="sponsor_images[][image]" multiple class="form-control">
+
+@if ($errors->has('sponsor_images'))
+    @include('common.form.input-error-message', ['message' => $errors->first('sponsor_images')])
+@endif
+
+<span class="help-block">Should be 300px by 250px JPG/PNG image file.</span>
+
+@if ($errors->has('sponsor_images.*'))
+    @foreach ($errors->get('sponsor_images.*') as $image)
+        @include('common.form.input-error-message', ['message' => $image[0]])
+    @endforeach
+@endif
+</div>
