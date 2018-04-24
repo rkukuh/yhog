@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Banner;
+use App\Models\Advertisement;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\BannerStore;
-use App\Http\Requests\Admin\BannerUpdate;
+use App\Http\Requests\Admin\AdvertisementStore;
+use App\Http\Requests\Admin\AdvertisementUpdate;
 
-class BannerController extends Controller
+class AdvertisementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \BannerStore  $request
+     * @param  \AdvertisementStore  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BannerStore $request)
+    public function store(AdvertisementStore $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Banner  $banner
+     * @param  \App\Models\Advertisement  $advertisement
      * @return \Illuminate\Http\Response
      */
-    public function show(Banner $banner)
+    public function show(Advertisement $advertisement)
     {
         //
     }
@@ -54,10 +54,10 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Banner  $banner
+     * @param  \App\Models\Advertisement  $advertisement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit(Advertisement $advertisement)
     {
         //
     }
@@ -65,11 +65,11 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \BannerUpdate  $request
-     * @param  \App\Models\Banner  $banner
+     * @param  \AdvertisementUpdate  $request
+     * @param  \App\Models\Advertisement  $advertisement
      * @return \Illuminate\Http\Response
      */
-    public function update(BannerUpdate $request, Banner $banner)
+    public function update(AdvertisementUpdate $request, Advertisement $advertisement)
     {
         //
     }
@@ -77,10 +77,10 @@ class BannerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Banner  $banner
+     * @param  \App\Models\Advertisement  $advertisement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy(Advertisement $advertisement)
     {
         //
     }

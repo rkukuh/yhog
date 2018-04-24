@@ -10,21 +10,21 @@ use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Gallery;
 use App\Models\Donate;
-use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Donation;
 use App\Policies\TagPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\UserPolicy;
+use App\Models\Advertisement;
 use App\Policies\EventPolicy;
 use App\Policies\ImagePolicy;
 use App\Policies\DonatePolicy;
-use App\Policies\BannerPolicy;
 use App\Policies\PartnerPolicy;
 use App\Policies\GalleryPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\DonationPolicy;
 use Illuminate\Support\Facades\Gate;
+use App\Policies\AdvertisementPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -41,11 +41,11 @@ class AuthServiceProvider extends ServiceProvider
         Image::class => ImagePolicy::class,
         Event::class => EventPolicy::class,
         Donate::class => DonatePolicy::class,
-        Banner::class => BannerPolicy::class,
         Partner::class => PartnerPolicy::class,
         Gallery::class => GalleryPolicy::class,
         Category::class => CategoryPolicy::class,
         Donation::class => DonationPolicy::class,
+        Advertisement::class => AdvertisementPolicy::class,
     ];
 
     /**

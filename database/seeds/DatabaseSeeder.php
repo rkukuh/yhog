@@ -43,8 +43,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GalleriesTableSeeder::class);
 
-        /** BANNER **/
+        /** ADVERTISEMENT **/
 
-        $this->call(BannersTableSeeder::class);
+        $this->call(AdvertisementsTableSeeder::class);
     }
 }

@@ -67,9 +67,9 @@ Route::name('admin.')->group(function () {
             'parameters' => ['category-gallery' => 'category']
         ]);
 
-        /** BANNER **/
+        /** ADVERTISEMENT **/
 
-        Route::resource('banner', 'BannerController');
+        Route::resource('advertisement', 'AdvertisementController');
     
         /** SETTING **/
     

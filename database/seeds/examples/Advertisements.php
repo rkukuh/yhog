@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Banners extends Seeder
+class Advertisements extends Seeder
 {
     /**
      * Run the database seeds.
