@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{{ asset('assets/adminlte/bower_components/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/adminlte/plugins/iCheck/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/summernote/summernote.css') }}">
+
+    <style>
+        fieldset { margin-top: 30px; }
+    </style>
 @endpush
 
 @push('footer-scripts')
