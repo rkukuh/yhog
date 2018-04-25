@@ -17,13 +17,13 @@ class Users extends Seeder
          * Create a 'guest' user
          */
         factory(User::class, 5)
-            ->create()
-            ->each(function ($user) {
+                ->create()
+                ->each(function ($user) {
 
-                $user->assignRole(
-                    Role::where('name', 'guest')->first()
-                );
-                
-            });
+                    $user->assignRole(
+                        Role::where('name', 'guest')->first()
+                    );
+                    
+                });
     }
 }
