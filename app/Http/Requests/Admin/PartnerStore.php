@@ -37,6 +37,8 @@ class PartnerStore extends FormRequest
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000',
             'sponsor_images' => 'nullable',
             'sponsor_images.*.image' => 'mimes:jpeg,png|dimensions:width=300,height=250',
+            'ads_image' => 'nullable',
+            'ads_image.*.image' => 'mimes:jpeg,png|dimensions:width=300,height=250',
         ];
     }
 
