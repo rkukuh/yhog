@@ -14,9 +14,13 @@ class Advertisement extends Model
     protected $fillable = [
         'partner_id',
         'url',
+        'activated_at',
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'activated_at',
+        'deleted_at',
+    ];
 
 
     /*************************************** RELATIONSHIP ****************************************/

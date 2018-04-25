@@ -17,6 +17,7 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('partner_id');
             $table->text('url');
+            $table->timestamp('activated_at')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
