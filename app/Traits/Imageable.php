@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Carbon\Carbon;
 use App\Models\Image;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -95,5 +96,29 @@ trait Imageable
                 'is_sponsor_image' => true,
             ]);
         }
+    }
+
+    /**
+     * Associate an Ad Unit for a Partner.
+     *
+     * @param  \Illuminate\Http\UploadedFile $file
+     * @param  \Illuminate\Database\Eloquent\Model; $model
+     * @return void
+     */
+    public function uploadAdUnit(UploadedFile $file, Model $model)
+    {
+        $path = strtolower(class_basename($model)) . '-' . $model->id;
+
+        $fileExtension  = $file->getClientOriginalExtension();
+        $fileName       =  'ad_unit-' . mt_rand(1000, 9999) . '.' . $fileExtension;
+
+        $file->storeAs('public/' . $path, $fileName);
+
+        // Persist file(s) to database, and associate them with this model
+        $model->images()->create([
+            'path' => $path . '/' . $fileName,
+            'size' => $file->getSize(),
+            'mime' => $file->getMimeType(),
+        ]);
     }
 }
