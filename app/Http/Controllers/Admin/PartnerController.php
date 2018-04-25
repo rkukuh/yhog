@@ -88,6 +88,14 @@ class PartnerController extends Controller
             if ($request->hasFile('sponsor_images.*.image')) {
                 $partner->uploadSponsorImage($request, $partner, true);
             }
+
+            // If ad unit exists, persist
+            if ($request->hasFile('ads_image')) {
+                
+                $ads = $partner->advertisements()->create(['url' => $request['url']]);
+                
+                $partner->uploadAdUnit($request['ads_image'], $ads);
+            }
         }
 
         return redirect()->route('admin.partner.index')
