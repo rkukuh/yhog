@@ -93,7 +93,7 @@ class PartnerController extends Controller
             if ($request->hasFile('ads_image')) {
                 
                 $ads = $partner->advertisements()->create(['url' => $request['url']]);
-                
+
                 $partner->uploadAdUnit($request['ads_image'], $ads);
             }
         }
@@ -163,6 +163,21 @@ class PartnerController extends Controller
                 $partner->images()->where('is_sponsor_image', true)->delete();
 
                 $partner->uploadSponsorImage($request, $partner, true);
+            }
+
+            // If ad unit exists, persist
+            if ($request->hasFile('ads_image')) {
+
+                // Remove any previous ad unit and its image, if any
+                if ( ! $partner->advertisements->isEmpty()) {
+
+                    $partner->advertisements()->first()->images()->delete();
+                    $partner->advertisements()->delete();
+                }
+                
+                $ads = $partner->advertisements()->create(['url' => $request['url']]);
+                
+                $partner->uploadAdUnit($request['ads_image'], $ads);
             }
         }
 
