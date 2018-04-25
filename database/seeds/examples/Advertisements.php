@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Partner;
+use App\Models\Advertisement;
 use Illuminate\Database\Seeder;
 
 class Advertisements extends Seeder
@@ -11,6 +13,11 @@ class Advertisements extends Seeder
      */
     public function run()
     {
-        //
+        for ($i = 1; $i <= Partner::count(); $i++) {
+
+            factory(Advertisement::class)->create([
+                'partner_id' => $i
+            ]);
+        }
     }
 }
