@@ -87,6 +87,12 @@
                     </li>
                 </ul>
             </li>
+
+            <li>
+                <a href="{{ route('admin.advertisement.index') }}">
+                    <i class="fa fa-bullseye"></i> Advertisement
+                </a>
+            </li>
             
             <li class="treeview">
                 <a href="#setting"><i class="fa fa-cog"></i> <span>Setting</span>
