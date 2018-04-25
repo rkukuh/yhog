@@ -107,7 +107,7 @@ trait Imageable
      */
     public function uploadAdUnit(UploadedFile $file, Model $model)
     {
-        $path = strtolower(class_basename($model)) . '-' . $model->id;
+        $path = 'ads-' . $model->id;
 
         $fileExtension  = $file->getClientOriginalExtension();
         $fileName       =  'ad_unit-' . mt_rand(1000, 9999) . '.' . $fileExtension;
