@@ -80,7 +80,8 @@ Route::name('admin.')->group(function () {
 
 ////////////////////////////// FRONT-END //////////////////////////////
 
-Route::get('/interchange/{view}', 'InterchangeController@index');
+Route::get('/interchange/donation/{view}', 'InterchangeController@donation');
+Route::get('/interchange/thumbnails/{view}', 'InterchangeController@thumbnails');
 
 Route::get('/', 'MainController@home');
 Route::get('/about-us', 'MainController@about');
