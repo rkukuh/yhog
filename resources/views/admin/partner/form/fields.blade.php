@@ -142,7 +142,7 @@
 
         <label for="ads_image">Banner</label>
 
-        <input type="file" name="ads_image[][image]" class="form-control">
+        <input type="file" name="ads_image" class="form-control">
 
         @if ($errors->has('ads_image'))
             @include('common.form.input-error-message', ['message' => $errors->first('ads_image')])
