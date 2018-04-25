@@ -161,9 +161,7 @@
         <label for="url">URL</label>
 
         <input type="url" class="form-control" id="url" name="url" placeholder="http://..."
-                value="{{ old('title') ?: 
-                            isset($partner) ? 
-                                $partner->advertisements()->first()->url : '' }}">
+                value="{{ old('url') }}">
 
         @if ($errors->has('url'))
             @include('common.form.input-error-message', ['message' => $errors->first('url')])
