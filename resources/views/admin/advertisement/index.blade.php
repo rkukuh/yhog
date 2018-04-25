@@ -41,7 +41,9 @@
                             {{ $advertisement->activated_at_formatted }}
                         </td>
                         <td class="text-right">
-                            <form method="post" action="{{ route('admin.partner.update', $advertisement) }}" style="display: inline;">
+                            <form method="post" action="{{ route('admin.advertisement.update', $advertisement) }}" 
+                                    style="display: inline;">
+                                    
                                 @csrf
                                 @method('PATCH')
     
