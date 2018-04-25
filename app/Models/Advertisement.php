@@ -37,4 +37,17 @@ class Advertisement extends Model
     {
         return $this->belongsTo(Partner::class);
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getActivatedAtFormattedAttribute()
+    {
+        echo ($this->activated_at) ? 
+                '<strong class="text-green">YES</strong> <br>' .
+                '<span class="text-muted">' . 
+                    $this->activated_at->format('d-M-Y') . 
+                '<span>' : 
+                '<strong class="text-red">NO</strong>';
+    }
 }
