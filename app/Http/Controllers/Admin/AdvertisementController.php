@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\Advertisement;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdvertisementStore;
@@ -73,7 +74,13 @@ class AdvertisementController extends Controller
      */
     public function update(AdvertisementUpdate $request, Advertisement $advertisement)
     {
-        //
+        // Deactivate all Ad Unit first
+        Advertisement::query()->update(['activated_at' => null]);
+
+        // Activate only *this* Ad Unit
+        $advertisement->update(['activated_at' => Carbon::now()]);
+
+        return redirect()->back()->with('success-message', 'Ad Unit has been activated.');
     }
 
     /**
