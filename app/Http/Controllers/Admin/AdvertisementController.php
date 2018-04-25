@@ -16,20 +16,7 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        $advertisements = Advertisement::with('partner')
-                            ->latest()
-                            ->paginate(env('PAGINATE', 5));
-
-        /* This will prevent "Pagination gives empty set on non existing page number",
-         * especially after deleting a data on the last page
-         */
-        if (Advertisement::count()) {
-
-            if ($advertisements->isEmpty()) {
-
-                return redirect()->route('advertisement.index');
-            }
-        }
+        $advertisements = Advertisement::with('partner')->latest()->get();
 
         return view('admin.advertisement.index', compact('advertisements'));
     }
