@@ -13,7 +13,7 @@
                     <th></th>
                     <th class="text-center">Partner</th>
                     <th class="text-center">URL Target</th>
-                    <th class="text-center">Activated</th>
+                    <th class="text-center" style="width: 120px;">Activated</th>
                     <th></th>
                 </tr>
             </thead>
@@ -21,8 +21,8 @@
                 @foreach ($advertisements as $advertisement)
                     <tr>
                         <td class="text-center">
-                            @if ($advertisement->banner)
-                                <img src="{{ asset('storage/' . $advertisement->banner->path) }}" width="75px;">
+                            @if ($advertisement->featured_image)
+                                <img src="{{ asset('storage/' . $advertisement->featured_image->path) }}" width="75px;">
                             @else
                                 <div class="text-center">
                                     <i class="fa fa-picture-o fa-5x text-muted"></i>
