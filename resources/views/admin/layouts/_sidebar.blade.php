@@ -10,9 +10,7 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li class="treeview">
                 <a href="#blog"><i class="fa fa-file-text-o"></i> <span>Blog</span>
                     <span class="pull-right-container">
@@ -37,9 +35,7 @@
                     </li>
                 </ul>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li class="treeview">
                 <a href="#event"><i class="fa fa-calendar"></i> <span>Event</span>
                     <span class="pull-right-container">
@@ -59,25 +55,19 @@
                     </li>
                 </ul>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li>
                 <a href="{{ route('admin.partner.index') }}">
                     <i class="fa fa-users"></i> Partner
                 </a>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li>
                 <a href="{{ route('admin.donation.index') }}">
                     <i class="fa fa-money"></i> Donation
                 </a>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li class="treeview">
                 <a href="#gallery"><i class="fa fa-image"></i> <span>Gallery</span>
                     <span class="pull-right-container">
@@ -97,9 +87,7 @@
                     </li>
                 </ul>
             </li>
-            @endrole
-
-            @role('admin')
+            
             <li class="treeview">
                 <a href="#setting"><i class="fa fa-cog"></i> <span>Setting</span>
                     <span class="pull-right-container">
