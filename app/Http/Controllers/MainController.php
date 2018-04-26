@@ -51,8 +51,7 @@ class MainController extends Controller
 
             $events = Event::where('id', '<>', $latest_event->id)
                             ->latest()
-                            ->skip(1)->take(10)
-                            ->paginate(9);
+                            ->get();
         }
 	    
         return view('front-end.pages.events', [
@@ -65,9 +64,10 @@ class MainController extends Controller
     
     public function event_detail($id)
     {
-        $current_page = 'events';
-        
-        return view('front-end.pages.event-detail', compact('current_page'));
+        return view('front-end.pages.event-detail', [
+            'current_page'  => 'events',
+            'event'         => Event::findOrFail($id)
+        ]);
     }
     
     public function blog()
