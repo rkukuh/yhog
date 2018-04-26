@@ -92,11 +92,22 @@ class MainController extends Controller
         ]);
     }
     
-    public function blog_article()
+    public function blog_article($id)
     {
-        $current_page = 'blog';
+        $post = Post::findOrFail($id);
         
-        return view('front-end.pages.blog-article', compact('current_page'));
+        if (Post::count() <= 4) {
+            $posts = Post::get()->random(Post::count());
+        }
+        elseif (Post::count() > 4) {
+            $posts = Post::where('id', '<>', $post->id)->get()->random(4);
+        }
+
+        return view('front-end.pages.blog-article', [
+            'current_page'  => 'blog',
+            'post'          => $post,
+            'more_posts'    => $posts,
+        ]);
     }
     
     public function gallery()
