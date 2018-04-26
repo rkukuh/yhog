@@ -21,7 +21,9 @@
 					</div>
 					
 					<div class="cell xsmall-12 large-6">
-						<h2><span>{{ $latest_event->name }}</span></h2>
+						<h2>
+							<span>{{ $latest_event->name }}</span>
+						</h2>
 						
 						<p>
 							<strong>Date:</strong> {{ $latest_event->start_at->format('d-M-Y h:i') }}&nbsp;&nbsp;
