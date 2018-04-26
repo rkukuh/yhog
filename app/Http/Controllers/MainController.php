@@ -34,7 +34,7 @@ class MainController extends Controller
     {
         return view('front-end.pages.partners', [
             'current_page'  => 'partners',
-            'partner'       => Partner::get()
+            'partners'      => Partner::get()
         ]);
     }
     
