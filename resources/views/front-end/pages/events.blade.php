@@ -64,89 +64,43 @@
 			</div>
 		</div>
 		
-		<div class="grid-container">
-			<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
+		@if (isset($events))
+			<div class="grid-container">
+
+				@foreach ($events->chunk(4) as $chunked_events)
+					<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
+
+						@foreach ($chunked_events as $event)
+							<div class="item cell">
+								@if ($event->featured_image)
+									<img src="{{ asset('storage/' . $event->featured_image->path) }}">
+								@endif
+								
+								<h3>{{ $event->name }}</h3>
+								
+								<p>
+									<strong>Date:</strong> {{ $event->start_at->format('d-M-Y h:i') }}
+									<br>
+									<strong>Location:</strong> {{ $event->location }}
+									<br>
+									<strong>Cost:</strong> {{ number_format($event->price) }} IDR
+									<br>
+									<strong>Details:</strong> 
+									{{ $event->description }}&hellip;</p>
+								
+								<div class="text-center">
+									<a class="cta" href="{{ url('events/detail/' . $event->id) }}">
+										Full Details
+									</a>
+								</div>
+							</div>
+						@endforeach
+
+					</div>
+				@endforeach
 				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble</h3>
-					
-					<p><strong>Date:</strong> MM/DD/YYYY<br><strong>Location:</strong> Jakarta<br><strong>Cost:</strong> 150.000 IDR<br><strong>Details:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('events/detail') }}">Full Details</a></div>
-				</div>
 			</div>
-		</div>
+		@endif
 	</section>
 
 	<section class="support-us">
