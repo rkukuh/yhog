@@ -57,8 +57,8 @@ class MainController extends Controller
 	    
         return view('front-end.pages.events', [
             'current_page'  => 'events',
-            'events'        => $events,
             'latest_event'  => $latest_event,
+            'events'        => $events ?? null,
             'categories'    => Category::ofEvent()->get(),
         ]);
     }
