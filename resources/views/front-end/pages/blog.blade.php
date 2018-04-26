@@ -68,7 +68,7 @@
 					<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
 
 						@foreach ($chunked_posts as $post)
-						<div class="item cell">
+							<div class="item cell">
 								@if ($post->featured_image)
 									<img src="{{ asset('storage/' . $post->featured_image->path) }}">
 								@endif
