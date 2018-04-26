@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Partner;
 use App\Models\Category;
 
 
@@ -31,9 +32,10 @@ class MainController extends Controller
     
     public function partners()
     {
-        $current_page = 'partners';
-        
-        return view('front-end.pages.partners', compact('current_page'));
+        return view('front-end.pages.partners', [
+            'current_page'  => 'partners',
+            'partner'       => Partner::get()
+        ]);
     }
     
     public function projects()
