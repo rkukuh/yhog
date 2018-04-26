@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Category;
@@ -74,9 +75,21 @@ class MainController extends Controller
     
     public function blog()
     {
-        $current_page = 'blog';
+        $latest_post = Post::latest()->first();
         
-        return view('front-end.pages.blog', compact('current_page'));
+        if (isset($latest_post)) {
+
+            $posts = Post::where('id', '<>', $latest_post->id)
+                        ->latest()
+                        ->get();
+        }
+	    
+        return view('front-end.pages.blog', [
+            'current_page'  => 'blog',
+            'latest_post'   => $latest_post,
+            'posts'         => $posts ?? null,
+            'categories'    => Category::ofPost()->get(),
+        ]);
     }
     
     public function blog_article()
