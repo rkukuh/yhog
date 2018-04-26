@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Category;
+
+
 class MainController extends Controller
 {
     public function home()
@@ -41,12 +45,25 @@ class MainController extends Controller
     
     public function events()
     {
-        $current_page = 'events';
+        $latest_event = Event::latest()->first();
         
-        return view('front-end.pages.events', compact('current_page'));
+        if (isset($latest_event)) {
+
+            $events = Event::where('id', '<>', $latest_event->id)
+                            ->latest()
+                            ->skip(1)->take(10)
+                            ->paginate(9);
+        }
+	    
+        return view('front-end.pages.events', [
+            'current_page'  => 'events',
+            'events'        => $events,
+            'latest_event'  => $latest_event,
+            'categories'    => Category::ofEvent()->get(),
+        ]);
     }
     
-    public function event_detail()
+    public function event_detail($id)
     {
         $current_page = 'events';
         
