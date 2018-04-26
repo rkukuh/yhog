@@ -27,65 +27,23 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell xsmall-12">
-				<div class="partner grid-x grid-padding-x" id="partner-hotel-kristal">
-					<div class="cell xsmall-12 large-3 text-center">
-						<img src="{{ asset('assets/img/logo-hotel-kristal.png') }}">
-					</div>
-					
-					<div class="cell xsmall-12 large-9">
-						<h3>Hotel Kristal</h3>
-						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
 				
-				<div class="partner grid-x grid-padding-x" id="partner-seascape">
-					<div class="cell xsmall-12 large-3 text-center">
-						<img src="{{ asset('assets/img/logo-seascape.png') }}">
-					</div>
-					
-					<div class="cell xsmall-12 large-9">
-						<h3>Seascape</h3>
+				@foreach($partners as $partner)
+					<div class="partner grid-x grid-padding-x" id="partner-hotel-kristal">
+						<div class="cell xsmall-12 large-3 text-center">
+							@if ($partner->featured_image)
+								<img src="{{ asset('storage/' . $partner->featured_image->path) }}">
+							@endif
+						</div>
 						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<div class="cell xsmall-12 large-9">
+							<h3>{{ $partner->title }}</h3>
+							
+							<p>{{ $partner->body }}</p>
+						</div>
 					</div>
-				</div>
-				
-				<div class="partner grid-x grid-padding-x" id="partner-star-deli">
-					<div class="cell xsmall-12 large-3 text-center">
-						<img src="{{ asset('assets/img/logo-star-deli.png') }}">
-					</div>
-					
-					<div class="cell xsmall-12 large-9">
-						<h3>Star Deli</h3>
-						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
-				
-				<div class="partner grid-x grid-padding-x" id="partner-tesco">
-					<div class="cell xsmall-12 large-3 text-center">
-						<img src="{{ asset('assets/img/logo-tesco.png') }}">
-					</div>
-					
-					<div class="cell xsmall-12 large-9">
-						<h3>Tesco</h3>
-						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
-				
-				<div class="partner grid-x grid-padding-x" id="partner-v-door">
-					<div class="cell xsmall-12 large-3 text-center">
-						<img src="{{ asset('assets/img/logo-v-door.png') }}">
-					</div>
-					
-					<div class="cell xsmall-12 large-9">
-						<h3>V Door</h3>
-						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
+				@endforeach
+
 			</div>
 		</div>
 	</div>
