@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tag;
 use App\Models\Event;
 use App\Models\Partner;
+use App\Models\Gallery;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
@@ -18,13 +19,10 @@ class EventController extends Controller
 
     public function __construct()
     {
-        $this->tags = Tag::get();
-
-        $this->partners = Partner::ofEvent()->get();
-
-        $this->categories = Category::ofEvent()
-                                    ->parentCategory()
-                                    ->get();
+        $this->tags         = Tag::get();
+        $this->partners     = Partner::ofEvent()->get();
+        $this->galleries    = Gallery::get();
+        $this->categories   = Category::ofEvent()->parentCategory()->get();
     }
 
     /**
@@ -62,6 +60,7 @@ class EventController extends Controller
         return view('admin.event.create', [
             'tags' => $this->tags,
             'partners' => $this->partners,
+            'galleries' => $this->galleries,
             'parent_categories' => $this->categories,
         ]);
     }
