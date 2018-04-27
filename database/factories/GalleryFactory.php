@@ -12,16 +12,13 @@ $factory->define(Gallery::class, function (Faker $faker) {
             return factory(User::class)->create()->id;
         },
         
-        'event_id' => function() {
-            return factory(Event::class)->create()->id;
-        },
         'title' => $faker->sentence,
         'description' => $faker->text,
 
         'published_at' => $faker->randomElement([
             null, 
             Carbon::now()->addDay(rand(0, 3))
-        ])
+        ]),
     ];
 
 });

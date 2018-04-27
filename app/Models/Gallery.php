@@ -24,7 +24,6 @@ class Gallery extends Model
     protected $fillable = [
         'creator_id',
 
-        'event_id',
         'title',
         'description',
         
@@ -39,18 +38,7 @@ class Gallery extends Model
 
     /*************************************** RELATIONSHIP ****************************************/
 
-    /**
-     * One-to-One: A gallery can be attached to an event
-     *
-     * This function will retrieve the event of a gallery.
-     * See: Event's gallery() method
-     *
-     * @return mixed
-     */
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
-    }
+    //
 
 
     /***************************************** ACCESSOR ******************************************/
