@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Gallery;
 use Faker\Generator as Faker;
 
@@ -11,6 +12,9 @@ $factory->define(Gallery::class, function (Faker $faker) {
             return factory(User::class)->create()->id;
         },
         
+        'event_id' => function() {
+            return factory(Event::class)->create()->id;
+        },
         'title' => $faker->sentence,
         'description' => $faker->text,
 
