@@ -17,7 +17,7 @@ class Galleries extends Seeder
      */
     public function run()
     {
-        Collection::times(20, function ($number) {
+        Collection::times(25, function ($number) {
 
             /** Generate galleries data from its factory */
 
