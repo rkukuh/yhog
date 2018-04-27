@@ -126,7 +126,7 @@
 				<div class="cell xsmall-12 text-center">
 					<h2>Help us, help more kids.</h2>
 					
-					<a class="cta">Support Us Today!</a>
+					<a class="cta" href="{{ url('/donations') }}">Support Us Today!</a>
 				</div>
 			</div>
 		</div>

@@ -28,7 +28,7 @@
 			<div class="cell xsmall-12 large-8 text-center">
 				<p>Through your donations we provide facial reconstructive surgery for infants and children born with harelip or cleft palate defects.</p>
 				
-				<a class="cta">Donate Today</a>
+				<a class="cta" href="{{ url('/donations') }}">Donate Today</a>
 			</div>
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 					</div>
 					
 					<div class="cell xsmall-12 large-6">
-						<a class="cta">Support Us Today!</a>
+						<a class="cta" href="{{ url('/donations') }}">Support Us Today!</a>
 					</div>
 				</div>
 				

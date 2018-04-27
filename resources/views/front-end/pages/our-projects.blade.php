@@ -83,7 +83,7 @@
 					</div>
 					
 					<div class="cell xsmall-12 large-6">
-						<a class="cta">Support Us Today!</a>
+						<a class="cta" href="{{ url('/donations') }}">Support Us Today!</a>
 					</div>
 				</div>
 				
@@ -170,7 +170,7 @@
 					</div>
 				</div>
 				
-				<a class="cta">View all events</a>
+				<a class="cta" href="{{ url('/events') }}">View all events</a>
 			</div>
 		</div>
 	</div>

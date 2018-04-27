@@ -123,4 +123,11 @@ class MainController extends Controller
         
         return view('front-end.pages.gallery-detail', compact('current_page'));
     }
+    
+    public function donations()
+    {
+        $current_page = 'donations';
+        
+        return view('front-end.pages.donations', compact('current_page'));
+    }
 }

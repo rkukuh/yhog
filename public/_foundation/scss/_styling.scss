@@ -1744,6 +1744,17 @@ footer {
 		}
 	}
 	
+	blockquote {
+		font-family: $american_typewriter;
+		font-size: 32px;
+		color: $brown;
+		line-height: 1.2;
+		margin-top: 18px;
+		margin-bottom: 56px;
+		padding: 0;
+		border: none;
+	}
+	
 	#gmap {
 		width: 100%;
 		height: 210px;
