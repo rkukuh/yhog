@@ -60,6 +60,19 @@ class Event extends Model
         return $this->belongsToMany(Partner::class);
     }
 
+    /**
+     * One-to-One: A gallery can be attached to an event
+     *
+     * This function will retrieve the gallery of an event.
+     * See: Gallery's event() method
+     *
+     * @return mixed
+     */
+    public function gallery()
+    {
+        return $this->hasOne(Gallery::class);
+    }
+
 
     /***************************************** ACCESSOR ******************************************/
 
