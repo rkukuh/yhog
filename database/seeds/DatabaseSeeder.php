@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PostsTableSeeder::class);
 
+        /** GALLERY **/
+
+        $this->call(GalleriesTableSeeder::class);
+
         /** EVENT **/
 
         $this->call(EventsTableSeeder::class);
@@ -38,10 +42,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(DonationsTableSeeder::class);
         $this->call(DonatesTableSeeder::class);
-
-        /** GALLERY **/
-
-        $this->call(GalleriesTableSeeder::class);
 
         /** ADVERTISEMENT **/
 
