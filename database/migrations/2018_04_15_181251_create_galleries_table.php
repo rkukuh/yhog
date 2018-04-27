@@ -16,6 +16,7 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('creator_id');
+            $table->unsignedInteger('event_id')->nullable();
 
             $table->string('title');
             $table->longText('description');
@@ -26,6 +27,11 @@ class CreateGalleriesTable extends Migration
 
             $table->foreign('creator_id')
                     ->references('id')->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
+
+            $table->foreign('event_id')
+                    ->references('id')->on('events')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });
