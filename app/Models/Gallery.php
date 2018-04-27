@@ -38,7 +38,18 @@ class Gallery extends Model
 
     /*************************************** RELATIONSHIP ****************************************/
 
-    //
+    /**
+     * Many-to-Many: An event may have zero or many gallery.
+     *
+     * This function will retrieve the events of a gallery.
+     * See: Event's galleries() method for the inverse
+     *
+     * @return mixed
+     */
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
 
 
     /***************************************** ACCESSOR ******************************************/
