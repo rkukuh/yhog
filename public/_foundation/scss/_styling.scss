@@ -95,6 +95,7 @@ form {
 			font-size: 16px;
 			color: $brown;
 			line-height: 1.5;
+			background-color: rgba($brown, 0);
 			margin: 0;
 			padding-left: 10px;
 			padding-right: 10px;
@@ -102,6 +103,12 @@ form {
 			padding-bottom: 3px;
 			display: inline-block;
 			border: 1px solid $brown;
+			transition-duration: 0.5s;
+			transition-property: all;
+			
+			&:hover {
+				background-color: rgba($brown, 0.25);
+			}
 		}
 	}
 }
