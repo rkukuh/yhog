@@ -11,7 +11,7 @@ body {
 }
 
 form {
-	padding-bottom: 16px;
+	padding-bottom: 8px;
 	
 	[type="text"], [type="email"], textarea {
 		font-family: $open_sans;
@@ -57,11 +57,25 @@ form {
 		float: left;
 	}
 	
+	&.article-filter {
+		margin-left: -5px;
+		margin-right: -5px;
+		
+		legend {
+			margin-left: 5px;
+			margin-bottom: 8px;
+		}
+		
+		.faux {
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-bottom: 8px;
+			float: left;
+		}
+	}
+	
 	.faux {
-		margin-left: 5px;
-		margin-right: 5px;
 		position: relative;
-		float: left;
 		
 		[type="radio"] {
 			position: absolute;
@@ -431,7 +445,7 @@ aside {
 		padding-bottom: 14px;
 		
 		&:hover {
-			background-color: rgba($white, 0.5);
+			background-color: rgba($white, 0.25);
 		}
 	}
 }
@@ -443,6 +457,7 @@ aside {
 	transition-delay: 0;
 	transition-duration: 0.25s;
 	transition-property: all;
+	cursor: pointer;
 }
 
 .align {
@@ -573,7 +588,7 @@ aside {
 			border: 1px solid $white;
 			
 			&:hover {
-				background-color: rgba($white, 0.5);
+				background-color: rgba($white, 0.25);
 			}
 		}
 	}
@@ -837,6 +852,12 @@ aside {
 		.cta {
 			width: auto;
 			display: inline-block;
+			border: 1px solid $orange;
+			
+			&:hover {
+				color: $orange;
+				background-color: rgba($orange, 0.25);
+			}
 		}
 	}
 	
@@ -1003,8 +1024,6 @@ aside {
 	}
 	
 	.upcoming-events {
-		padding-top: 0;
-		
 		.images {
 			margin-bottom: 38px;
 		}
@@ -1038,11 +1057,16 @@ aside {
 		.cta {
 			font-size: 16px;
 			color: $white;
+			background-color: rgba($white, 0);
 			padding-left: 15px;
 			padding-right: 15px;
 			padding-top: 7px;
 			padding-bottom: 7px;
 			border: 1px solid $white;
+			
+			&:hover {
+				background-color: rgba($white, 0.25);
+			}
 		}
 		
 		&> .grid-container {
@@ -1090,10 +1114,9 @@ aside {
 	
 	.article-list {
 		padding-top: 16px;
+		padding-bottom: 48px;
 		
 		.items {
-			padding-bottom: 48px;
-			
 			.item {
 				background-color: $brown;
 				margin-bottom: 32px;
@@ -1125,12 +1148,17 @@ aside {
 				.cta {
 					font-size: 14px;
 					color: $white;
+					background-color: rgba($white, 0);
 					margin: 0;
 					padding-left: 15px;
 					padding-right: 15px;
 					padding-top: 7px;
 					padding-bottom: 7px;
 					border: 1px solid $white;
+					
+					&:hover {
+						background-color: rgba($white, 0.25);
+					}
 				}
 			}
 		}
@@ -1147,7 +1175,13 @@ aside {
 		
 		.cta {
 			width: auto;
+			border: 1px solid $orange;
 			display: inline-block;
+			
+			&:hover {
+				color: $orange;
+				background-color: rgba($orange, 0.25);
+			}
 		}
 	}
 }
@@ -1592,6 +1626,11 @@ aside {
 			background-color: $orange;
 			padding-top: 11px;
 			padding-bottom: 12px;
+			border: 1px solid $orange;
+			
+			&:hover {
+				background-color: rgba($orange, 0.25);
+			}
 			
 			@include breakpoint(xsmall) {
 				width: auto;
@@ -1625,6 +1664,11 @@ aside {
 		.cta {
 			width: auto;
 			display: inline-block;
+			border: 1px solid $orange;
+			
+			&:hover {
+				background-color: rgba($orange, 0.25);
+			}
 		}
 	}
 }

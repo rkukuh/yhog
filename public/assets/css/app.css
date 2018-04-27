@@ -5651,7 +5651,7 @@ body {
   color: #504B4B; }
 
 form {
-  padding-bottom: 16px; }
+  padding-bottom: 8px; }
   form [type="text"], form [type="email"], form textarea {
     font-family: "Open Sans", sans-serif;
     color: #504B4B;
@@ -5687,11 +5687,19 @@ form {
     padding-bottom: 4px;
     display: inline-block;
     float: left; }
+  form.article-filter {
+    margin-left: -5px;
+    margin-right: -5px; }
+    form.article-filter legend {
+      margin-left: 5px;
+      margin-bottom: 8px; }
+    form.article-filter .faux {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: 8px;
+      float: left; }
   form .faux {
-    margin-left: 5px;
-    margin-right: 5px;
-    position: relative;
-    float: left; }
+    position: relative; }
     form .faux [type="radio"] {
       position: absolute;
       left: 0;
@@ -5947,7 +5955,7 @@ aside {
     padding-top: 14px;
     padding-bottom: 14px; }
     .upcoming-events .cta:hover {
-      background-color: rgba(255, 255, 255, 0.5); }
+      background-color: rgba(255, 255, 255, 0.25); }
 
 .cta {
   font-size: 24px;
@@ -5955,7 +5963,8 @@ aside {
   display: inline-block;
   transition-delay: 0;
   transition-duration: 0.25s;
-  transition-property: all; }
+  transition-property: all;
+  cursor: pointer; }
 
 .align {
   margin-top: 4px;
@@ -6056,7 +6065,7 @@ aside {
     padding-bottom: 14px;
     border: 1px solid #fff; }
     #home-page .donate .cta:hover {
-      background-color: rgba(255, 255, 255, 0.5); }
+      background-color: rgba(255, 255, 255, 0.25); }
 
 #home-page .partners {
   background-color: #504B4B;
@@ -6242,7 +6251,11 @@ aside {
 
 #about-us-page .support-us .cta {
   width: auto;
-  display: inline-block; }
+  display: inline-block;
+  border: 1px solid #FF9900; }
+  #about-us-page .support-us .cta:hover {
+    color: #FF9900;
+    background-color: rgba(255, 153, 0, 0.25); }
 
 #about-us-page .upcoming-events {
   padding-top: 0; }
@@ -6345,10 +6358,8 @@ aside {
     color: #FF9900;
     background-color: rgba(255, 153, 0, 0.25); }
 
-#our-projects-page .upcoming-events {
-  padding-top: 0; }
-  #our-projects-page .upcoming-events .images {
-    margin-bottom: 38px; }
+#our-projects-page .upcoming-events .images {
+  margin-bottom: 38px; }
 
 #blog-page .featured {
   background-color: #504B4B;
@@ -6367,11 +6378,14 @@ aside {
   #blog-page .featured .cta {
     font-size: 16px;
     color: #fff;
+    background-color: rgba(255, 255, 255, 0);
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 7px;
     padding-bottom: 7px;
     border: 1px solid #fff; }
+    #blog-page .featured .cta:hover {
+      background-color: rgba(255, 255, 255, 0.25); }
   @media (min-width: 1200px) {
     #blog-page .featured > .grid-container {
       max-width: 100%;
@@ -6400,37 +6414,39 @@ aside {
             padding-right: 0.9375rem; } }
 
 #blog-page .article-list {
-  padding-top: 16px; }
-  #blog-page .article-list .items {
-    padding-bottom: 48px; }
-    #blog-page .article-list .items .item {
-      background-color: #504B4B;
-      margin-bottom: 32px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px; }
-      #blog-page .article-list .items .item.ad-unit {
-        background-color: #707070 !important; }
-      #blog-page .article-list .items .item img {
-        margin-bottom: 6px; }
-      #blog-page .article-list .items .item h3 {
-        font-size: 14px;
-        color: #fff;
-        margin-top: 0;
-        margin-bottom: 6px; }
-      #blog-page .article-list .items .item p {
-        font-size: 12px;
-        color: #fff; }
-      #blog-page .article-list .items .item .cta {
-        font-size: 14px;
-        color: #fff;
-        margin: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        border: 1px solid #fff; }
+  padding-top: 16px;
+  padding-bottom: 48px; }
+  #blog-page .article-list .items .item {
+    background-color: #504B4B;
+    margin-bottom: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    #blog-page .article-list .items .item.ad-unit {
+      background-color: #707070 !important; }
+    #blog-page .article-list .items .item img {
+      margin-bottom: 6px; }
+    #blog-page .article-list .items .item h3 {
+      font-size: 14px;
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 6px; }
+    #blog-page .article-list .items .item p {
+      font-size: 12px;
+      color: #fff; }
+    #blog-page .article-list .items .item .cta {
+      font-size: 14px;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0);
+      margin: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      border: 1px solid #fff; }
+      #blog-page .article-list .items .item .cta:hover {
+        background-color: rgba(255, 255, 255, 0.25); }
 
 #blog-page .support-us header {
   background-color: #FF9900; }
@@ -6439,7 +6455,11 @@ aside {
 
 #blog-page .support-us .cta {
   width: auto;
+  border: 1px solid #FF9900;
   display: inline-block; }
+  #blog-page .support-us .cta:hover {
+    color: #FF9900;
+    background-color: rgba(255, 153, 0, 0.25); }
 
 #article-page .featured {
   background-color: #504B4B;
@@ -6720,7 +6740,10 @@ aside {
     text-align: center;
     background-color: #FF9900;
     padding-top: 11px;
-    padding-bottom: 12px; }
+    padding-bottom: 12px;
+    border: 1px solid #FF9900; }
+    #contact-page form .cta:hover {
+      background-color: rgba(255, 153, 0, 0.25); }
     @media (min-width: 0) {
       #contact-page form .cta {
         width: auto;
@@ -6743,6 +6766,9 @@ aside {
 
 #contact-page .support-us .cta {
   width: auto;
-  display: inline-block; }
+  display: inline-block;
+  border: 1px solid #FF9900; }
+  #contact-page .support-us .cta:hover {
+    background-color: rgba(255, 153, 0, 0.25); }
 
 /* ========== END WEBSITE STYLES ==========  */

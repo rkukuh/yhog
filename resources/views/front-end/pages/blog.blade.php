@@ -43,7 +43,7 @@
 	<section class="article-list">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<form class="cell xsmall-12">
+				<form class="article-filter cell xsmall-12">
 					<fieldset>
 						<legend>Sort by article category:</legend>
 						

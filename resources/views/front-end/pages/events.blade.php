@@ -48,7 +48,7 @@
 	<section class="article-list">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<form class="cell xsmall-12">
+				<form class="article-filter cell xsmall-12">
 					<fieldset>
 						<legend>Sort by event type:</legend>
 						
@@ -70,7 +70,7 @@
 			<div class="grid-container">
 
 				@foreach ($events->chunk(4) as $chunked_events)
-					<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
+					<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4" data-equalizer>
 
 						@foreach ($chunked_events as $event)
 							<div class="item cell">
@@ -80,7 +80,7 @@
 								
 								<h3>{{ $event->name }}</h3>
 								
-								<p>
+								<p data-equalizer-watch>
 									<strong>Date:</strong> {{ $event->start_at->format('d-M-Y h:i') }}
 									<br>
 									<strong>Location:</strong> {{ $event->location }}
