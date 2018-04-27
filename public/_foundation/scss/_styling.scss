@@ -423,11 +423,16 @@ aside {
 	
 	.cta {
 		color: $white;
+		background-color: rgba($white, 0);
 		border: 1px solid $white;
 		padding-left: 20px;
 		padding-right: 20px;
 		padding-top: 14px;
 		padding-bottom: 14px;
+		
+		&:hover {
+			background-color: rgba($white, 0.5);
+		}
 	}
 }
 
@@ -435,6 +440,9 @@ aside {
 	font-size: 24px;
 	line-height: 1;
 	display: inline-block;
+	transition-delay: 0;
+	transition-duration: 0.25s;
+	transition-property: all;
 }
 
 .align {
@@ -557,11 +565,16 @@ aside {
 		
 		.cta {
 			color: $white;
+			background-color: rgba($white, 0);
 			padding-left: 30px;
 			padding-right: 30px;
 			padding-top: 12px;
 			padding-bottom: 14px;
 			border: 1px solid $white;
+			
+			&:hover {
+				background-color: rgba($white, 0.5);
+			}
 		}
 	}
 	
@@ -596,13 +609,14 @@ aside {
 				@include breakpoint(xsmall) {
 					text-align: center;
 					width: 50%;
-					margin-left: 0;
-					margin-right: 0;
+					padding-left: 10px;
+					padding-right: 10px;
 					margin-bottom: 16px;
-					
-					&:last-child {
-						width: 100%;
-					}
+				}
+				
+				@include breakpoint(medium) {
+					text-align: center;
+					width: 33.3333%;
 				}
 				
 				@include breakpoint(large) {
@@ -677,14 +691,16 @@ aside {
 	.support-us {
 		&.option-2 {
 			.cta {
-				font-size: 24px;
-				color: $white;
 				background-color: $orange;
-				margin-bottom: 24px;
-				padding-left: 15px;
-				padding-right: 15px;
-				padding-top: 11px;
-				padding-bottom: 12px;
+				width: 100%;
+				border: 1px solid $orange;
+				display: inline-block;
+				margin-bottom: 22px;
+				
+				&:hover {
+					color: $orange;
+					background-color: rgba($orange, 0.25);
+				}
 			}
 			
 			h2 {
@@ -973,9 +989,16 @@ aside {
 		}
 		
 		.cta {
+			background-color: $orange;
 			width: 100%;
+			border: 1px solid $orange;
 			display: inline-block;
 			margin-bottom: 22px;
+			
+			&:hover {
+				color: $orange;
+				background-color: rgba($orange, 0.25);
+			}
 		}
 	}
 	
