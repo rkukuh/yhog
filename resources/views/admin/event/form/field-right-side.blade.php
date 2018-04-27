@@ -168,6 +168,42 @@
     </span>
 </div>
 
+<div class="form-group {{ $errors->has('gallery_id') ? 'has-error has-feedback' : '' }}">
+    <label for="gallery_id">Galleries</label>
+
+    <select class="form-control select2" id="gallery_id" name="gallery_id[]" multiple>
+        @foreach ($galleries as $gallery)
+            <option value="{{ $gallery->id }}" 
+                
+                    {{ old('gallery_id') ? (in_array($gallery->id, old('gallery_id')) ? 'selected' : '') : '' }}
+
+                    {{ isset($event->galleries) ? 
+                        ((in_array($gallery->id, $event->galleries->pluck('id')->toArray()) ? 
+                            'selected' : '')) : '' }}>
+
+                {{ $gallery->title }}
+            </option>
+        @endforeach
+    </select>
+
+    @if ($errors->has('gallery_id'))
+        @include('common.form.input-error-message', ['message' => $errors->first('gallery_id')])
+    @endif
+
+    <span class="help-block">
+        Can not spot the Gallery you're looking for?
+
+        @component('common.buttons.create-new')
+            @slot('size', 'xs')
+            @slot('color', 'info')
+            @slot('alignment' , '')
+            @slot('text', 'New Gallery')
+            @slot('style', 'display: inline;')
+            @slot('route', route('admin.gallery.create'))
+        @endcomponent
+    </span>
+</div>
+
 <div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
     <label for="tag_id">Tag</label>
 
