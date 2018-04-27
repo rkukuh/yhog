@@ -92,9 +92,9 @@
 <div class="form-group {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
         {{ $errors->has('images.*') ? 'has-error has-feedback' : '' }}">
 
-    <label for="images">Images</label>
+    <label for="images">Featured Image</label>
 
-    <input type="file" name="images[][image]" multiple class="form-control">
+    <input type="file" name="images[][image]" class="form-control">
 
     @if ($errors->has('images'))
         @include('common.form.input-error-message', ['message' => $errors->first('images')])
