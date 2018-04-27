@@ -17,7 +17,7 @@ class Galleries extends Seeder
      */
     public function run()
     {
-        Collection::times(25, function ($number) {
+        Collection::times(20, function ($number) {
 
             /** Generate galleries data from its factory */
 
@@ -25,6 +25,7 @@ class Galleries extends Seeder
 
             $gallery = factory(Gallery::class)->create([
                 'creator_id' => User::role(['admin'])->pluck('id')->random(),
+                'event_id'   => $number,
                 'created_at' => $custom_date,
                 'updated_at' => $custom_date
             ]);
