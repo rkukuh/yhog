@@ -41,89 +41,37 @@
 	@endif
 
 	<section class="article-list">
-		<div class="grid-container">
-			<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
+
+		@if (isset($galleries))
+			<div class="grid-container">
+
+				@foreach ($galleries->chunk(4) as $chunked_galleries)
+				<div class="items grid-x grid-margin-x xsmall-up-1 medium-up-2 large-up-4">
+
+					@foreach ($chunked_galleries as $gallery)
+						<div class="item cell">
+							@if ($gallery->featured_image)
+								<img src="{{ asset('storage/' . $gallery->featured_image->path) }}">
+							@endif
+							
+							<h3>{{ $gallery->title }}</h3>
+							
+							<p>{{ $gallery->description }}&hellip;</p>
+							
+							<div class="text-center">
+								<a class="cta" href="{{ url('gallery/detail/' . $gallery->id) }}">
+									Full Details
+								</a>
+							</div>
+						</div>
+					@endforeach
+
 				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
-				
-				<div class="item cell">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-					
-					<h3>Yayasan Harley Owners Group 2018 Charity Golf Scramble Image Gallery</h3>
-					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<div class="text-center"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></div>
-				</div>
+				@endforeach
+
 			</div>
-		</div>
+		@endif
+		
 	</section>
 
 	<section class="support-us">
