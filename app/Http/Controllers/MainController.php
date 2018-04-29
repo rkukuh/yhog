@@ -130,11 +130,12 @@ class MainController extends Controller
         ]);
     }
     
-    public function gallery_detail()
+    public function gallery_detail($id)
     {
-        $current_page = 'gallery';
-        
-        return view('front-end.pages.gallery-detail', compact('current_page'));
+        return view('front-end.pages.gallery-detail', [
+            'current_page'  => 'gallery',
+            'gallery'       => Gallery::findOrFail($id),
+        ]);
     }
     
     public function donations()
