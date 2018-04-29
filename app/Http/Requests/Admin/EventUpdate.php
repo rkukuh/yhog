@@ -38,6 +38,7 @@ class EventUpdate extends FormRequest
             'size' => 'numeric|min:0',
             'early_bird_price' => 'numeric|min:0',
             'early_bird_price_end_at' => 'nullable|date_format:"d/m/Y"|before_or_equal:start_at',
+            'partner_id' => 'nullable|exists:partners,id',
             'tag_id' => 'nullable|exists:tags,id',
         ];
     }
