@@ -9,23 +9,36 @@
 @endpush
 
 @section('content')
-	<section class="featured">
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x">
-				<div class="cell xsmall-12 large-6">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
-				</div>
-				
-				<div class="cell xsmall-12 large-6">
-					<h2><span>Yayasan Harley Owners Group</span><br><span>2018 Charity Golf Scramble Image Gallery</span></h2>
+
+	@if (isset($latest_gallery))
+		<section class="featured">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x">
+					<div class="cell xsmall-12 large-6">
+						@if ($latest_gallery->featured_image)
+							<img src="{{ asset('storage/' . $latest_gallery->featured_image->path) }}">
+						@endif
+					</div>
 					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&hellip;</p>
-					
-					<p class="text-right"><a class="cta" href="{{ url('gallery/detail') }}">Full Details</a></p>
+					<div class="cell xsmall-12 large-6">
+						<h2>
+							<span>{{ $latest_gallery->title }}</span>
+						</h2>
+						
+						<p>
+							{{ $latest_gallery->description }}&hellip;
+						</p>
+						
+						<p class="text-right">
+							<a class="cta" href="{{ url('gallery/detail/' . $latest_gallery->id) }}">
+								Full Details
+							</a>
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	@endif
 
 	<section class="article-list">
 		<div class="grid-container">
