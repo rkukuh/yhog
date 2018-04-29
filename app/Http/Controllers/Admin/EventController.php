@@ -114,6 +114,7 @@ class EventController extends Controller
             'event' => $event,
             'tags' => $this->tags,
             'partners' => $this->partners,
+            'galleries' => $this->galleries,
             'parent_categories' => $this->categories,
         ]);
     }
