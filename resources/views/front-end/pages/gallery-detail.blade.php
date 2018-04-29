@@ -13,13 +13,17 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell xsmall-12 large-6">
-					<img src="{{ asset('assets/img/event-sample-large.jpg') }}">
+					@if ($gallery->events()->first()->featured_image)
+						<img src="{{ asset('storage/' . $gallery->events()->first()->featured_image->path) }}">
+					@endif
 				</div>
 				
 				<div class="cell xsmall-12 large-6">
-					<h2><span>Yayasan Harley Owners Group</span><br><span>2018 Charity Golf Scramble</span></h2>
+					<h2>
+						<span>{{ $gallery->events()->first()->name }}</span>
+					</h2>
 					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+					<p>{{ $gallery->events()->first()->description }}</p>
 				</div>
 			</div>
 		</div>
