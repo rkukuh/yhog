@@ -32,7 +32,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('creator', 'categories', 'tags')
+        $events = Event::with('creator', 'categories', 'tags', 'partners', 'galleries')
                         ->latest()
                         ->paginate(env('PAGINATE', 5));
 
@@ -77,6 +77,7 @@ class EventController extends Controller
 
             // Persist its attributes, if any
             $event->categories()->attach($request->category_id);
+            $event->galleries()->attach($request->gallery_id);
             $event->partners()->attach($request->partner_id);
             $event->tags()->attach($request->tag_id);
 
