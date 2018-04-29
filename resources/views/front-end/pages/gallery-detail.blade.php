@@ -11,65 +11,47 @@
 @section('content')
 	<section class="featured">
 		<div class="grid-container">
-			<div class="grid-x grid-padding-x">
-				<div class="cell xsmall-12 large-6">
-					@if ($gallery->events()->first()->featured_image)
-						<img src="{{ asset('storage/' . $gallery->events()->first()->featured_image->path) }}">
-					@endif
-				</div>
-				
-				<div class="cell xsmall-12 large-6">
-					<h2>
-						<span>{{ $gallery->events()->first()->name }}</span>
-					</h2>
+			@if ( ! $gallery->events->isEmpty() )
+				<div class="grid-x grid-padding-x">
+					<div class="cell xsmall-12 large-6">
+						@if ($gallery->events()->first()->featured_image)
+							<img src="{{ asset('storage/' . $gallery->events()->first()->featured_image->path) }}">
+						@endif
+					</div>
 					
-					<p>{{ $gallery->events()->first()->description }}</p>
+					<div class="cell xsmall-12 large-6">
+						<h2>
+							<span>{{ $gallery->events()->first()->name }}</span>
+						</h2>
+						
+						<p>{{ $gallery->events()->first()->description }}</p>
+					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 	</section>
 
-	<section class="detail">
-		<div class="grid-container">
-			<div class="gallery grid-x grid-padding-x xsmall-up-1 medium-up-3 large-up-4">
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 1">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
-				
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 2">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
-				
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 3">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
-				
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 4">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
-				
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 5">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
-				
-				<div class="cell">
-					<a data-popup href="{{ asset('assets/img/hero-image-home.jpg') }}" title="image 6">
-						<img src="{{ asset('assets/img/tn-gallery-sample.jpg') }}">
-					</a>
-				</div>
+	@if ( ! $gallery->images->isEmpty() )
+		<section class="detail">
+			<div class="grid-container">
+
+				@foreach ($gallery->images->chunk(4) as $chunked_images)
+					<div class="gallery grid-x grid-padding-x xsmall-up-1 medium-up-3 large-up-4">
+
+						@foreach ($chunked_images as $image)
+							<div class="cell">
+								<a data-popup href="{{ asset('storage/' . $image->path) }}" title="">
+									<img src="{{ asset('storage/' . $image->path) }}">
+								</a>
+							</div>
+						@endforeach
+
+					</div>
+				@endforeach
+
 			</div>
-		</div>
-	</section>
+		</section>
+	@endif
 
 	<section class="support-us">
 		<header>
