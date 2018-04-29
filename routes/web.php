@@ -96,6 +96,6 @@ Route::get('/events/detail/{id}', 'MainController@event_detail');
 Route::get('/blog', 'MainController@blog');
 Route::get('/blog/article/{id}', 'MainController@blog_article');
 Route::get('/gallery', 'MainController@gallery');
-Route::get('/gallery/detail/{$id}', 'MainController@gallery_detail');
+Route::get('/gallery/detail/{id}', 'MainController@gallery_detail');
 Route::get('/contact-us', 'MainController@contact');
 Route::get('/donations', 'MainController@donations');
