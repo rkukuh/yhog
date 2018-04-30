@@ -57,10 +57,21 @@
 						<input type="email" name="email" required>
 					</label>
 					
-					<label>
-						Amount (IDR) <small>(required)</small>
-						<input type="text" name="amount" required pattern="number">
-					</label>
+					
+					<div class="grid-x grid-padding-x">
+						<div class="cell xsmall-12 large-6">
+							<label>Amount <small>(required)</small></label>
+							
+							<div class="input-group">
+								<select>
+									<option>IDR</option>
+									<option>USD</option>
+								</select>
+								
+								<input type="text" name="amount" required pattern="number">
+							</div>
+						</div>
+					</div>
 					
 					<button class="cta"><i class="fas fa-spinner fa-spin"></i><span>Submit</span></button>
 				</form>

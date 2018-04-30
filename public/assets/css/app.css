@@ -6823,6 +6823,8 @@ footer {
     #contact-page form .cta i {
       display: none;
       margin-right: 5px; }
+  #contact-page form .input-group select {
+    margin-right: 5px; }
 
 #contact-page blockquote {
   font-family: "American Typewriter", serif;
