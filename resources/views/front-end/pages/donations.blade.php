@@ -68,7 +68,7 @@
 									<option>USD</option>
 								</select>
 								
-								<input type="text" name="amount" required pattern="number">
+								<input id="donation-amount" type="text" name="amount" required pattern="number">
 							</div>
 						</div>
 					</div>
@@ -89,4 +89,9 @@
 @endpush
 
 @push('page-scripts')
+<script src="{{ asset('assets/js/vendor/jquery.mask.min.js') }}"></script>
+
+<script>
+	$('#donation-amount').mask('000,000,000,000', {reverse: true});
+</script>
 @endpush
