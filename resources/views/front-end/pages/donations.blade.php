@@ -58,8 +58,8 @@
 					</label>
 					
 					<label>
-						Amount <small>(required)</small>
-						<input type="text" name="amount" required>
+						Amount (IDR) <small>(required)</small>
+						<input type="text" name="amount" required pattern="number">
 					</label>
 					
 					<button class="cta"><i class="fas fa-spinner fa-spin"></i><span>Submit</span></button>
