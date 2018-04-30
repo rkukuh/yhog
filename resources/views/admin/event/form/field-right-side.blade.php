@@ -1,61 +1,5 @@
 <div class="row">
     <div class="col-md-6">
-        <div class="form-group {{ $errors->has('start_at') ? 'has-error' : '' }}">
-            <label for="start_at">
-                Start Date @include('common.form.label-required-field')
-            </label>
-
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-
-                <input type="text" class="form-control" id="start_at" name="start_at" 
-                        placeholder="dd/mm/yyyy"
-                        value="{{ old('start_at') ?
-                                    old('start_at') : (isset($event->start_at) ?
-                                                            $event->start_at->format('d/m/Y') :
-                                                            Carbon\Carbon::now()->format('d/m/Y')) }}">
-            </div>
-
-            @if ($errors->has('start_at'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('start_at')
-                ])
-            @endif
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group {{ $errors->has('end_at') ? 'has-error' : '' }}">
-            <label for="end_at">
-                End Date @include('common.form.label-required-field')
-            </label>
-
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-
-                <input type="text" class="form-control" id="end_at" name="end_at" 
-                        placeholder="dd/mm/yyyy"
-                        value="{{ old('end_at') ?
-                                    old('end_at') : 
-                                        (isset($event->end_at) ?
-                                                $event->end_at->format('d/m/Y') :
-                                                Carbon\Carbon::now()->addDay(1)->format('d/m/Y')) }}">
-            </div>
-
-            @if ($errors->has('end_at'))
-                @include('common.form.input-error-message-no-feedback', [
-                    'message' => $errors->first('end_at')
-                ])
-            @endif
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
         <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
             <label for="price">Price</label>
 
@@ -164,6 +108,42 @@
             @slot('text', 'New Partner')
             @slot('style', 'display: inline;')
             @slot('route', route('admin.partner.create'))
+        @endcomponent
+    </span>
+</div>
+
+<div class="form-group {{ $errors->has('gallery_id') ? 'has-error has-feedback' : '' }}">
+    <label for="gallery_id">Galleries</label>
+
+    <select class="form-control select2" id="gallery_id" name="gallery_id[]" multiple>
+        @foreach ($galleries as $gallery)
+            <option value="{{ $gallery->id }}" 
+                
+                    {{ old('gallery_id') ? (in_array($gallery->id, old('gallery_id')) ? 'selected' : '') : '' }}
+
+                    {{ isset($event->galleries) ? 
+                        ((in_array($gallery->id, $event->galleries->pluck('id')->toArray()) ? 
+                            'selected' : '')) : '' }}>
+
+                {{ $gallery->title }}
+            </option>
+        @endforeach
+    </select>
+
+    @if ($errors->has('gallery_id'))
+        @include('common.form.input-error-message', ['message' => $errors->first('gallery_id')])
+    @endif
+
+    <span class="help-block">
+        Can not spot the Gallery you're looking for?
+
+        @component('common.buttons.create-new')
+            @slot('size', 'xs')
+            @slot('color', 'info')
+            @slot('alignment' , '')
+            @slot('text', 'New Gallery')
+            @slot('style', 'display: inline;')
+            @slot('route', route('admin.gallery.create'))
         @endcomponent
     </span>
 </div>

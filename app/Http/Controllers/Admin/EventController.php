@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tag;
 use App\Models\Event;
 use App\Models\Partner;
+use App\Models\Gallery;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventStore;
@@ -18,13 +19,10 @@ class EventController extends Controller
 
     public function __construct()
     {
-        $this->tags = Tag::get();
-
-        $this->partners = Partner::ofEvent()->get();
-
-        $this->categories = Category::ofEvent()
-                                    ->parentCategory()
-                                    ->get();
+        $this->tags         = Tag::get();
+        $this->partners     = Partner::ofEvent()->get();
+        $this->galleries    = Gallery::get();
+        $this->categories   = Category::ofEvent()->parentCategory()->get();
     }
 
     /**
@@ -34,7 +32,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('creator', 'categories', 'tags')
+        $events = Event::with('creator', 'categories', 'tags', 'partners', 'galleries')
                         ->latest()
                         ->paginate(env('PAGINATE', 5));
 
@@ -62,6 +60,7 @@ class EventController extends Controller
         return view('admin.event.create', [
             'tags' => $this->tags,
             'partners' => $this->partners,
+            'galleries' => $this->galleries,
             'parent_categories' => $this->categories,
         ]);
     }
@@ -78,6 +77,7 @@ class EventController extends Controller
 
             // Persist its attributes, if any
             $event->categories()->attach($request->category_id);
+            $event->galleries()->attach($request->gallery_id);
             $event->partners()->attach($request->partner_id);
             $event->tags()->attach($request->tag_id);
 
@@ -114,6 +114,7 @@ class EventController extends Controller
             'event' => $event,
             'tags' => $this->tags,
             'partners' => $this->partners,
+            'galleries' => $this->galleries,
             'parent_categories' => $this->categories,
         ]);
     }
@@ -131,6 +132,7 @@ class EventController extends Controller
 
             // Sync its attributes, if necessary
             $event->categories()->sync($request->category_id);
+            $event->galleries()->sync($request->gallery_id);
             $event->partners()->sync($request->partner_id);
             $event->tags()->sync($request->tag_id);
 

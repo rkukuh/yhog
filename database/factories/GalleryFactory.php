@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Gallery;
 use Faker\Generator as Faker;
 
@@ -17,7 +18,7 @@ $factory->define(Gallery::class, function (Faker $faker) {
         'published_at' => $faker->randomElement([
             null, 
             Carbon::now()->addDay(rand(0, 3))
-        ])
+        ]),
     ];
 
 });

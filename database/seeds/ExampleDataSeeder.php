@@ -25,6 +25,10 @@ class ExampleDataSeeder extends Seeder
         
         $this->call(Posts::class);
 
+        /** GALLERY **/
+
+        $this->call(Galleries::class);
+
         /** PARTNER **/
 
         $this->call(Partners::class);
@@ -37,10 +41,6 @@ class ExampleDataSeeder extends Seeder
 
         $this->call(Donations::class);
         $this->call(Donates::class);
-
-        /** GALLERY **/
-
-        $this->call(Galleries::class);
 
         /** ADVERTISEMENT **/
 

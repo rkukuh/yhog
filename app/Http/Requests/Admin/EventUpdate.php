@@ -26,18 +26,20 @@ class EventUpdate extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:100',
-            'price' => 'numeric|min:0',
-            'size' => 'numeric|min:0',
+            'category_id' => 'required|exists:categories,id',
             'location' => 'nullable|min:5|max:255',
             'description' => 'nullable|min:5',
-            'category_id' => 'required|exists:categories,id',
-            'tag_id' => 'nullable|exists:tags,id',
-            'start_at' => 'required|date_format:"d/m/Y"|after_or_equal:today',
-            'end_at' => 'required|date_format:"d/m/Y"|after_or_equal:start_at',
-            'early_bird_price' => 'numeric|min:0',
-            'early_bird_price_end_at' => 'nullable|date_format:"d/m/Y"|before_or_equal:start_at',
             'images' => 'nullable',
             'images.*.image' => 'mimes:jpeg,png|min:50|max:1000',
+
+            'start_at' => 'required|date_format:"d/m/Y"|after_or_equal:today',
+            'end_at' => 'required|date_format:"d/m/Y"|after_or_equal:start_at',
+            'price' => 'numeric|min:0',
+            'size' => 'numeric|min:0',
+            'early_bird_price' => 'numeric|min:0',
+            'early_bird_price_end_at' => 'nullable|date_format:"d/m/Y"|before_or_equal:start_at',
+            'partner_id' => 'nullable|exists:partners,id',
+            'tag_id' => 'nullable|exists:tags,id',
         ];
     }
 

@@ -5,6 +5,7 @@ use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Event;
 use App\Models\Partner;
+use App\Models\Gallery;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -54,6 +55,16 @@ class Events extends Seeder
                 $event->partners()
                       ->attach(
                         Partner::ofEvent()->get()->random()
+                      );
+            }
+
+            /** Attach galleries to generated event data */
+
+            for ($i = 1; $i <= rand(0, 3); $i++) {
+
+                $event->galleries()
+                      ->attach(
+                        Gallery::get()->random()
                       );
             }
 

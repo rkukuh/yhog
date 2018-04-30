@@ -26,7 +26,7 @@ class Galleries extends Seeder
             $gallery = factory(Gallery::class)->create([
                 'creator_id' => User::role(['admin'])->pluck('id')->random(),
                 'created_at' => $custom_date,
-                'updated_at' => $custom_date
+                'updated_at' => $custom_date,
             ]);
 
             /** Attach only one category to generated gallery data */

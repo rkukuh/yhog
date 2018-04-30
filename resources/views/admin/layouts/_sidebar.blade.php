@@ -35,6 +35,26 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#gallery"><i class="fa fa-image"></i> <span>Gallery</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ route('admin.gallery.index') }}">
+                            <i class="fa fa-circle-o"></i> Galleries
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.category-gallery.index') }}">
+                            <i class="fa fa-circle-o"></i> Category
+                        </a>
+                    </li>
+                </ul>
+            </li>
             
             <li class="treeview">
                 <a href="#event"><i class="fa fa-calendar"></i> <span>Event</span>
@@ -66,26 +86,6 @@
                 <a href="{{ route('admin.donation.index') }}">
                     <i class="fa fa-money"></i> Donation
                 </a>
-            </li>
-            
-            <li class="treeview">
-                <a href="#gallery"><i class="fa fa-image"></i> <span>Gallery</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="{{ route('admin.gallery.index') }}">
-                            <i class="fa fa-circle-o"></i> Galleries
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.category-gallery.index') }}">
-                            <i class="fa fa-circle-o"></i> Category
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li>

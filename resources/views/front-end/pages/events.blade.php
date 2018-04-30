@@ -61,6 +61,7 @@
 								</label>
 							</div>
 						@endforeach
+						
 					</fieldset>
 				</form>
 			</div>

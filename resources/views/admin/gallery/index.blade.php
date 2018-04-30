@@ -29,16 +29,40 @@
                                 
                                 <br><br>
 
-                                @if ($gallery->featured_image)
-                                    <div class="text-center">
-                                        <img src="{{ asset('storage/' . $gallery->featured_image->path) }}" 
-                                            width="70px">
+                                @if ($gallery->images()->first())
+                                    <div id={{ "gallery-" . $gallery->id }} class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            @for ($i = 0; $i < $gallery->images()->count(); $i++)
+                                                <li data-target={{ "#gallery-" . $gallery->id }} data-slide-to="{{ $i }}"></li>
+                                            @endfor
+                                        </ol>
+
+                                        <div class="carousel-inner" role="listbox">
+                                            @foreach ($gallery->images as $image)
+                                                @if ($loop->first)
+                                                    <div class="item active">
+                                                @else
+                                                    <div class="item">
+                                                @endif
+                                                        <img src="{{ asset('storage/' . $image->path) }}">
+                                                    </div>
+                                            @endforeach
+                                        </div>
+
+                                        <a class="left carousel-control" href={{ "#gallery-" . $gallery->id }} role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href={{ "#gallery-" . $gallery->id }} role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
                                 @else
                                     <div class="text-center">
                                         <i class="fa fa-picture-o fa-5x text-muted"></i>
                                     </div>
-                                @endif 
+                                @endif
                                 
                                 <hr>
 

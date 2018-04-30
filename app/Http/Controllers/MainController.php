@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Event;
 use App\Models\Partner;
+use App\Models\Gallery;
 use App\Models\Category;
 
 
@@ -112,16 +113,29 @@ class MainController extends Controller
     
     public function gallery()
     {
-        $current_page = 'gallery';
+        $latest_gallery = Gallery::latest()->first();
         
-        return view('front-end.pages.gallery', compact('current_page'));
+        if (isset($latest_gallery)) {
+
+            $galleries = Gallery::where('id', '<>', $latest_gallery->id)
+                                ->latest()
+                                ->get();
+        }
+	    
+        return view('front-end.pages.gallery', [
+            'current_page'      => 'gallery',
+            'latest_gallery'    => $latest_gallery,
+            'galleries'         => $galleries ?? null,
+            'categories'        => Category::ofGallery()->get(),
+        ]);
     }
     
-    public function gallery_detail()
+    public function gallery_detail($id)
     {
-        $current_page = 'gallery';
-        
-        return view('front-end.pages.gallery-detail', compact('current_page'));
+        return view('front-end.pages.gallery-detail', [
+            'current_page'  => 'gallery',
+            'gallery'       => Gallery::findOrFail($id),
+        ]);
     }
     
     public function donations()
