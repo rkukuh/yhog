@@ -44,7 +44,7 @@
 			<div class="cell xsmall-12 medium-4 large-3">
 				<h3>Help us, help more kids.</h3>
 				
-				<a class="cta">Support Us Today</a>
+				<a class="cta" href="{{ url('/donations') }}">Support Us Today</a>
 			</div>
 			
 			<div class="cell xsmall-12 medium-12 large-3 text-center">
