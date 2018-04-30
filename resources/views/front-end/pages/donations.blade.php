@@ -92,6 +92,8 @@
 <script src="{{ asset('assets/js/vendor/jquery.mask.min.js') }}"></script>
 
 <script>
+	Foundation.Abide.defaults.patterns['money'] = /^\d{1,3}(,\d{3})*(\.\d+)?$/;
+	
 	$('#donation-amount').mask('000,000,000,000', {reverse: true});
 </script>
 @endpush
