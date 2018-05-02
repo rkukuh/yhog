@@ -16,6 +16,9 @@ $factory->define(Donate::class, function (Faker $faker) {
         'donation_id' => function() {
             return factory(Donation::class)->create()->id;
         },
+        'first_name' => $faker->first_name,
+        'last_name' => $faker->last_name,
+        'email' => $faker->email,
         'amount' => $faker->randomElement([0, $faker->randomDigitNotNull * 100000]),
     ];
 
