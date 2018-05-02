@@ -15,6 +15,10 @@ class Donate extends Model
         'creator_id',
 
         'donation_id',
+        'first_name',
+        'last_name',
+        'email',
+        'currency',
         'amount',
     ];
 
