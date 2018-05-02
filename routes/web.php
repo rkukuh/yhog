@@ -98,6 +98,6 @@ Route::get('/blog/article/{id}', 'MainController@blog_article');
 Route::get('/gallery', 'MainController@gallery');
 Route::get('/gallery/detail/{id}', 'MainController@gallery_detail');
 Route::get('/contact-us', 'MainController@contact');
-
 Route::get('/donations', 'MainController@donations');
-Route::post('/donation', 'MainController@donation_store');
+
+Route::resource('/donate', 'DonateController');
