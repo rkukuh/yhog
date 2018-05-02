@@ -88,6 +88,18 @@ class Event extends Model
                 '<i class="fa fa-question-circle-o text-blue"></i>';
     }
 
+    public function getDescriptionLimitedAttribute()
+    {
+        if (strlen($this->description) >= 250) {
+
+            echo substr($this->description, 0, 250) . '...';
+
+            return;
+        }
+
+        return $this->description;
+    }
+
     public function getPriceFormattedAttribute()
     {
         if ($this->price) {
