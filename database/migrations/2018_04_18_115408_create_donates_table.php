@@ -23,6 +23,7 @@ class CreateDonatesTable extends Migration
             $table->string('email');
             $table->string('currency');
             $table->unsignedInteger('amount');
+            $table->json('response')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
