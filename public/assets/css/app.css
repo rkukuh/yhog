@@ -6429,8 +6429,10 @@ footer {
     color: #FF9900;
     background-color: rgba(255, 153, 0, 0.25); }
 
-#our-projects-page .upcoming-events .images {
-  margin-bottom: 38px; }
+#our-projects-page .upcoming-events {
+  padding-top: 0; }
+  #our-projects-page .upcoming-events .images {
+    margin-bottom: 38px; }
 
 #blog-page .featured {
   background-color: #504B4B;
