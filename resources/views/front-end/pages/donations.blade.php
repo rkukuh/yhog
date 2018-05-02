@@ -66,7 +66,7 @@
 					
 					<div class="grid-x grid-padding-x">
 						<div class="cell xsmall-12 large-6">
-							<label>Amount <small>(required)</small></label>
+							<label>Amount <small>(required - min. amount: 20000)</small></label>
 							
 							<div class="input-group">
 								<select name="currency">
@@ -74,7 +74,8 @@
 									<option>USD</option>
 								</select>
 								
-								<input id="donation-amount" type="text" name="amount" required pattern="number">
+								<input id="donation-amount" type="number" name="amount" 
+										value="{{ old('amount') ?: 20000 }}" required>
 							</div>
 						</div>
 					</div>
@@ -101,8 +102,8 @@
 <script src="{{ asset('assets/js/vendor/jquery.mask.min.js') }}"></script>
 
 <script>
-	Foundation.Abide.defaults.patterns['money'] = /^\d{1,3}(,\d{3})*(\.\d+)?$/;
+	// Foundation.Abide.defaults.patterns['money'] = /^\d{1,3}(,\d{3})*(\.\d+)?$/;
 	
-	$('#donation-amount').mask('000,000,000,000', {reverse: true});
+	// $('#donation-amount').mask('000,000,000,000', {reverse: true});
 </script>
 @endpush
