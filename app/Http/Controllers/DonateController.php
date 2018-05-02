@@ -36,7 +36,9 @@ class DonateController extends Controller
      */
     public function store(DonateStore $request)
     {
-        //
+        Donate::create($request->all());
+
+        return back();
     }
 
     /**
