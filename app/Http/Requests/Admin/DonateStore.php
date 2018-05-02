@@ -39,6 +39,10 @@ class DonateStore extends FormRequest
         $validator->after(function ($validator) {
 
             $this->merge(['creator_id' => auth()->user()->id]);
+            $this->merge(['first_name' => auth()->user()->name]);
+            $this->merge(['last_name' => auth()->user()->name]);
+            $this->merge(['email' => auth()->user()->email]);
+            $this->merge(['currency' => 'IDR']);
             
         });
     }
