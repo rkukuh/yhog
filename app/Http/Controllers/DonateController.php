@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donate;
+use XenditClient\XenditPHPClient;
 use App\Http\Requests\DonateStore;
 use App\Http\Requests\DonateUpdate;
 
@@ -36,7 +37,11 @@ class DonateController extends Controller
      */
     public function store(DonateStore $request)
     {
-        Donate::create($request->all());
+        if ($donate = Donate::create($request->all())) {
+
+            // TODO: XenditInvoice code goes here
+            
+        }
 
         return back();
     }
