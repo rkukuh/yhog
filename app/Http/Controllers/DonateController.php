@@ -48,11 +48,14 @@ class DonateController extends Controller
             $description = 'Donation to ' . $donate->donation->title;
             $amount      = $donate->amount;
 
-            $response    = $xendit->createInvoice($external_id, $amount, $payer_email, $description);
-            
-            $donate->update([
-                'response' => $response
-            ]);
+            if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
+
+                $donate->update([
+                    'response' => $response
+                ]);
+
+                return redirect($donate->response['invoice_url']);
+            }
 
         }
 
