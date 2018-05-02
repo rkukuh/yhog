@@ -31,7 +31,8 @@
 							<strong>Cost:</strong> {{ number_format($latest_event->price) }} IDR
 							<br>
 							<strong>Details:</strong> 
-							{{ $latest_event->description }}&hellip;
+
+							{!! $latest_event->description_limited !!}&hellip;
 						</p>
 						
 						<p class="text-right">
@@ -89,7 +90,9 @@
 									<strong>Cost:</strong> {{ number_format($event->price) }} IDR
 									<br>
 									<strong>Details:</strong> 
-									{{ $event->description }}&hellip;</p>
+									
+									{!! $event->description_limited !!}&hellip;
+								</p>
 								
 								<div class="text-center">
 									<a class="cta" href="{{ url('events/detail/' . $event->id) }}">

@@ -39,7 +39,9 @@
 						<div class="cell xsmall-12 large-9">
 							<h3>{{ $partner->title }}</h3>
 							
-							<p>{{ $partner->body }}</p>
+							<p>
+								{!! $partner->body !!}
+							</p>
 						</div>
 					</div>
 				@endforeach

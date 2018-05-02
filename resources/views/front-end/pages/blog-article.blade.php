@@ -33,7 +33,9 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell xsmall-12 large-9">
-					<p>{{ $post->body }}</p>
+					<p>
+						{!! $post->body !!}
+					</p>
 				</div>
 				
 				<aside class="cell xsmall-12 large-3">

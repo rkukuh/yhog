@@ -26,7 +26,7 @@
 						</h2>
 						
 						<p>
-							{{ $latest_gallery->description }}&hellip;
+							{!! $latest_gallery->description !!}&hellip;
 						</p>
 						
 						<p class="text-right">
@@ -56,7 +56,9 @@
 								
 								<h3>{{ $gallery->title }}</h3>
 								
-								<p>{{ $gallery->description }}&hellip;</p>
+								<p>
+									{!! $latest_gallery->description !!}&hellip;
+								</p>
 								
 								<div class="text-center">
 									<a class="cta" href="{{ url('gallery/detail/' . $gallery->id) }}">

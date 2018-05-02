@@ -39,7 +39,9 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell xsmall-12 large-9">
-					<p>{{ $event->description }}</p>
+					<p>
+						{!! $event->description !!}
+					</p>
 					
 					<a class="cta">View photos from past events</a>
 					
