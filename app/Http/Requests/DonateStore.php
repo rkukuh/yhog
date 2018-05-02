@@ -13,7 +13,7 @@ class DonateStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -26,5 +26,21 @@ class DonateStore extends FormRequest
         return [
             //
         ];
+    }
+
+    /**
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+
+            $this->merge(['creator_id' => auth()->user()->id]);
+            $this->merge(['amount' => str_replace(',', '', $this->amount)]);
+            
+        });
     }
 }
