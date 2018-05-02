@@ -37,7 +37,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h4>Receive History</h4>
 
             <form action="{{ route('admin.donate.store') }}" method="post" class="form-inline">
@@ -66,17 +66,29 @@
                 @foreach ($donation->donates()->latest()->get() as $donate)
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2 text-right">
                                 {{ $donate->amount_formatted }}
                             </div>
-                            <div class="col-md-5">
-                                {{ $donate->created_at_formatted }}
+                            <div class="col-md-4 text-center">
+                                <span class="text-muted">
+                                    {{ $donate->created_at_formatted }}
+                                </span>
                             </div>
+                            <div class="col-md-3 text-center">
+                                <a href="{{ $donate->response['invoice_url'] }}" target="_blank">
+                                    <span class="">
+                                        {{ $donate->response['status'] }} 
 
-                            @component('common.datalist.button-remove')
-                                @slot('text', '')
-                                @slot('route', route('admin.donate.destroy', $donate))
-                            @endcomponent
+                                        <i class="fa fa-external-link"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                @component('common.datalist.button-remove')
+                                    @slot('text', '')
+                                    @slot('route', route('admin.donate.destroy', $donate))
+                                @endcomponent
+                            </div>
                         </div>
                     </li>
                 @endforeach
