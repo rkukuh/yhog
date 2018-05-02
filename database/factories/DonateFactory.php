@@ -20,6 +20,7 @@ $factory->define(Donate::class, function (Faker $faker) {
         'last_name' => $faker->last_name,
         'email' => $faker->email,
         'amount' => $faker->randomElement([0, $faker->randomDigitNotNull * 100000]),
+        'response' => null,
     ];
 
 });
