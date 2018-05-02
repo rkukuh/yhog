@@ -70,8 +70,7 @@
 		</div>
 	</header>
 	
-	<div class="grid-container full" data-interchange="[{{ url('interchange/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/support-thumbnails-xsmall') }}, small], [{{ url('interchange/support-thumbnails-medium') }}, medium], [{{ url('interchange/support-thumbnails-large') }}, large], [{{ url('interchange/support-thumbnails-large') }}, xlarge], [{{ url('interchange/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/support-thumbnails-xxxlarge') }}, xxxlarge]">
-	</div>
+	<div class="grid-container full" data-interchange="[{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, small], [{{ url('interchange/thumbnails/support-thumbnails-medium') }}, medium], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, large], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, xlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxxlarge') }}, xxxlarge]">
 	
 	@include('front-end.common.elements.goals')
 	
@@ -87,7 +86,7 @@
 </section>
 
 <section class="upcoming-events">
-	<div class="grid-container full" data-interchange="[{{ url('interchange/events-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/events-thumbnails-small') }}, small], [{{ url('interchange/events-thumbnails-small') }}, medium], [{{ url('interchange/events-thumbnails-large') }}, large], [{{ url('interchange/events-thumbnails-large') }}, xlarge], [{{ url('interchange/events-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/events-thumbnails-xxxlarge') }}, xxxlarge]">
+	<div class="grid-container full" data-interchange="[{{ url('interchange/thumbnails/events-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/thumbnails/events-thumbnails-small') }}, small], [{{ url('interchange/thumbnails/events-thumbnails-small') }}, medium], [{{ url('interchange/thumbnails/events-thumbnails-large') }}, large], [{{ url('interchange/thumbnails/events-thumbnails-large') }}, xlarge], [{{ url('interchange/thumbnails/events-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/thumbnails/events-thumbnails-xxxlarge') }}, xxxlarge]">
 		
 	</div>
 	<div class="grid-container">

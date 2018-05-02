@@ -52,13 +52,13 @@
 				
 				<ul class="follow-navigation">
 					<li>
-						<a href="https://www.facebook.com/groups/65514237783">
+						<a href="https://www.facebook.com/groups/65514237783" target="_blank">
 							<i class="fab fa-facebook-f"></i>
 						</a>
 					</li>
 					
 					<li>
-						<a href="https://www.instagram.com/yayasanyhogs/">
+						<a href="https://www.instagram.com/yayasanyhogs/" target="_blank">
 							<i class="fab fa-instagram"></i>
 						</a>
 					</li>
