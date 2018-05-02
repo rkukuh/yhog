@@ -29,7 +29,11 @@
 			<div class="cell xsmall-12 large-6">
 				<h3>Donation Form</h3>
 				
-				<form data-abide novalidate="">
+				<form action="{{ route('donate.store') }}" method="post" data-abide novalidate="">
+					@csrf
+
+					<input type="hidden" name="donation_id" value="1">
+
 					<div class="callout">
 						<p>Your donation has been sent.<br>Please allow time for our staff to get back to you.</p>
 						
@@ -40,30 +44,32 @@
 						<div class="cell xsmall-12 large-6">
 							<label>
 								First Name <small>(required)</small>
-								<input type="text" name="first_name" required>
+								<input type="text" name="first_name" 
+										value="{{ old('first_name') ?: '' }}" required>
 							</label>
 						</div>
 						
 						<div class="cell xsmall-12 large-6">
 							<label>
 								Last Name <small>(required)</small>
-								<input type="text" name="last_name" required>
+								<input type="text" name="last_name" 
+										value="{{ old('last_name') ?: '' }}" required>
 							</label>
 						</div>
 					</div>
 					
 					<label>
 						Email <small>(required)</small>
-						<input type="email" name="email" required>
+						<input type="email" name="email" 
+								value="{{ old('email') ?: '' }}" required>
 					</label>
-					
 					
 					<div class="grid-x grid-padding-x">
 						<div class="cell xsmall-12 large-6">
 							<label>Amount <small>(required)</small></label>
 							
 							<div class="input-group">
-								<select>
+								<select name="currency">
 									<option>IDR</option>
 									<option>USD</option>
 								</select>
@@ -73,7 +79,10 @@
 						</div>
 					</div>
 					
-					<button class="cta"><i class="fas fa-spinner fa-spin"></i><span>Submit</span></button>
+					<button type="submit" class="cta">
+						<i class="fas fa-spinner fa-spin"></i>
+						<span>Submit</span>
+					</button>
 				</form>
 			</div>
 			
