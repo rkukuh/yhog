@@ -38,7 +38,7 @@ class DonateStore extends FormRequest
     {
         $validator->after(function ($validator) {
 
-            $this->merge(['creator_id' => auth()->user()->id]);
+            $this->merge(['creator_id' => auth()->user()->id ?: 1]);
             $this->merge(['amount' => str_replace(',', '', $this->amount)]);
             
         });
