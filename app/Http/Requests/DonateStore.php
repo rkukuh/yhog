@@ -13,7 +13,7 @@ class DonateStore extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user()->hasRole('admin');
+        return true;
     }
 
     /**
