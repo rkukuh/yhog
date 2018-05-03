@@ -87,9 +87,17 @@
 	
 	<div class="fs-gal-view">
 		<h1></h1>
-		<img class="fs-gal-prev fs-gal-nav" src="{{ asset('assets/img/prev.svg') }}" alt="Previous picture" title="Previous picture" />
-		<img class="fs-gal-next fs-gal-nav" src="{{ asset('assets/img/next.svg') }}" alt="Next picture" title="Next picture" />
-		<img class="fs-gal-close" src="{{ asset('assets/img/close.svg') }}" alt="Close gallery" title="Close gallery" />
+		<button class="fs-gal-prev fs-gal-nav">
+			<i class="fas fa-chevron-left fa-2x"></i>
+		</button>
+		
+		<button class="fs-gal-next fs-gal-nav">
+			<i class="fas fa-chevron-right fa-2x"></i>
+		</button>
+		
+		<button class="fs-gal-close">
+			<i class="fas fa-times fa-2x"></i>
+		</button>
 		<img class="fs-gal-main" src="" alt="">
 	</div>
 @endsection
@@ -99,5 +107,5 @@
 @endpush
 
 @push('page-scripts')
-	<script src="{{ asset('assets/js/fs-gal.js') }}"></script>
+	<script src="{{ asset('assets/js/vendor/fs-gal.js') }}"></script>
 @endpush
