@@ -25,7 +25,7 @@
 <section class="donate">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell xsmall-12 large-8 text-center">
+			<div class="cell xsmall-12 text-center">
 				<p>Through your donations we provide facial reconstructive surgery for infants and children born with harelip or cleft palate defects.</p>
 				
 				<a class="cta" href="{{ url('/donations') }}">Donate Today</a>
@@ -33,28 +33,6 @@
 		</div>
 	</div>
 </section>
-
-<!--<section class="support-us">
-	<div class="grid-container full" data-interchange="[{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, small], [{{ url('interchange/thumbnails/support-thumbnails-medium') }}, medium], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, large], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, xlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxxlarge') }}, xxxlarge]">
-		
-	</div>
-	
-	@include('front-end.common.elements.goals')
-	
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell xsmall-12 large-8">
-				<p>The incidence of these birth defects remains terribly high in Indonesia, and many families cannot afford the surgery needed. Yet, without these relatively simple operations, these children can become outcasts in their own society and face a future of even greater hardship and struggle. Your assistance to these children truly helps change lives for the better.</p>
-			</div>
-			
-			<div class="cell xsmall-12 large-4 text-center">
-				<h2>Help us, help more kids.</h2>
-				
-				<a class="cta">Support Us Today!</a>
-			</div>
-		</div>
-	</div>
-</section>-->
 
 <section class="support-us option-2">
 	<div class="grid-container full" data-interchange="[{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, xsmall], [{{ url('interchange/thumbnails/support-thumbnails-xsmall') }}, small], [{{ url('interchange/thumbnails/support-thumbnails-medium') }}, medium], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, large], [{{ url('interchange/thumbnails/support-thumbnails-large') }}, xlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxlarge') }}, xxlarge], [{{ url('interchange/thumbnails/support-thumbnails-xxxlarge') }}, xxxlarge]">
@@ -88,41 +66,53 @@
 
 <section class="partners">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell text-center">
+		<div class="grid-x grid-padding-x align-center">
+			<div class="cell xsmall-12 large-10 text-center">
 				<h2>Supporting Partners</h2>
 				
-				<ul class="partners" data-equalizer>
-					<li class="grid-x align-middle" data-equalizer-watch>
+				<div id="partner-slider" data-equalizer>
+					<div class="item" data-equalizer-watch>
 						<a href="{{ url('/partners#partner-hotel-kristal') }}">
 							<img src="{{ asset('assets/img/logo-hotel-kristal.png') }}">
 						</a>
-					</li>
+					</div>
 					
-					<li class="grid-x align-middle" data-equalizer-watch>
+					<div class="item" data-equalizer-watch>
 						<a href="{{ url('/partners#partner-v-door') }}">
 							<img src="{{ asset('assets/img/logo-v-door.png') }}">
 						</a>
-					</li>
+					</div>
 					
-					<li class="grid-x align-middle" data-equalizer-watch>
+					<div class="item" data-equalizer-watch>
 						<a href="{{ url('/partners#partner-seascape') }}">
 							<img src="{{ asset('assets/img/logo-seascape.png') }}">
 						</a>
-					</li>
+					</div>
 					
-					<li class="grid-x align-middle" data-equalizer-watch>
+					<div class="item" data-equalizer-watch>
 						<a href="{{ url('/partners#partner-tesco') }}">
 							<img src="{{ asset('assets/img/logo-tesco.png') }}">
 						</a>
-					</li>
+					</div>
 					
-					<li class="grid-x align-middle" data-equalizer-watch>
+					<div class="item" data-equalizer-watch>
 						<a href="{{ url('/partners#partner-star-deli') }}">
 							<img src="{{ asset('assets/img/logo-star-deli.png') }}">
 						</a>
-					</li>
-				</ul>
+					</div>
+					
+					<div class="item" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-tesco') }}">
+							<img src="{{ asset('assets/img/logo-tesco.png') }}">
+						</a>
+					</div>
+					
+					<div class="item" data-equalizer-watch>
+						<a href="{{ url('/partners#partner-star-deli') }}">
+							<img src="{{ asset('assets/img/logo-star-deli.png') }}">
+						</a>
+					</div>
+				</div>
 				
 				<p>Over the years the financial support of these caring organizations has helped us change the lives of 1000’s of children.</p>
 			</div>
@@ -215,40 +205,47 @@
 		</div>
 	</div>
 </section>
-
-<!--<section class="yayasan-hog">
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell xsmall-12 large-9">
-				<h2>About YAYASAN HOG</h2>
-			</div>
-		</div>
-		
-		<div class="grid-x grid-padding-x">
-			<div class="cell xsmall-12 large-9">
-				<p><img src="{{ asset('assets/img/logo-yayasan-hog.jpg') }}" class="align left">Yayasan HOG was established by the ten founding members in 1987 and was right from the very start intended to be primarily a charitable organisation, having as its main objective the improvement of the lot of the children of impoverished Indonesian families.</p>
-				
-				<p>YHOG was founded by ten Jakarta based friends in 1987 – and is the longest established HOG group in Indonesia, and one of the oldest HOG Chapters in the world – and has been active ever since.</p>
-
-				<p>Yayasan HOG is a  non-profit group, leveraging our shared love of the Harley-Davidson motorbike to raise funds exclusively in support of a variety of Jakarta children’s charities through our activities. We are one of Indonesia’s major charities for Cranial Facial Reconstructive surgery for cleft lip and cleft palate.</p>
-			</div>
-			
-			<div class="cell xsmall-12 large-3">
-				<img src="{{ asset('assets/img/ad-unit.png') }}">
-			</div>
-		</div>
-		
-		<div class="grid-x grid-padding-x">
-			<div class="cell xsmall-12">
-				<blockquote>&ldquo;The Yayasan HOG committee and members give their time and efforts free of charge, we are proud to say that <strong>over 97 cents of every dollar</strong> raise goes straight to supporting our surgical programs, bettering young and impoverished Indonesian children’s lives.&rdquo;</blockquote>
-			</div>
-		</div>
-	</div>
-</section>-->
 @endsection
 
 @push('page-styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slick.css') }}">
 @endpush
 
 @push('page-scripts')
+<script src="{{ asset('assets/js/vendor/slick.js') }}"></script>
+
+<script>
+	var count = 0;
+	var w = 0;
+	
+	console.log(Foundation.MediaQuery.current);
+	
+	if (Foundation.MediaQuery.is('xsmall only') || Foundation.MediaQuery.is('small only')) {
+		$('#partner-slider').slick({
+			arrows: false,
+			dots: true,
+			infinite: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+		});
+
+	} else if (Foundation.MediaQuery.is('medium only')) {
+		$('#partner-slider').slick({
+			infinite: false,
+			nextArrow: '<button class="slick-arrow slick-next"><i class="fas fa-chevron-right fa-2x"></i></button>',
+			prevArrow: '<button class="slick-arrow slick-prev"><i class="fas fa-chevron-left fa-2x"></i></button>',
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		});
+		
+	} else if (Foundation.MediaQuery.atLeast('large')) {
+		$('#partner-slider').slick({
+			infinite: false,
+			nextArrow: '<button class="slick-arrow slick-next"><i class="fas fa-chevron-right fa-2x"></i></button>',
+			prevArrow: '<button class="slick-arrow slick-prev"><i class="fas fa-chevron-left fa-2x"></i></button>',
+			slidesToShow: 5,
+			slidesToScroll: 1,
+		});
+	}
+</script>
 @endpush

@@ -40,9 +40,7 @@
 
 						@foreach ($chunked_images as $image)
 							<div class="cell">
-								<a data-popup href="{{ asset('storage/' . $image->path) }}" title="">
-									<img src="{{ asset('storage/' . $image->path) }}">
-								</a>
+								<img  class="fs-gal" alt="" title="" src="{{ asset('storage/' . $image->path) }}" data-url="{{ asset('storage/' . $image->path) }}">
 							</div>
 						@endforeach
 
@@ -52,6 +50,16 @@
 			</div>
 		</section>
 	@endif
+	
+	<section class="detail">
+		<div class="grid-container">
+			<div class="gallery grid-x grid-padding-x xsmall-up-1 medium-up-3 large-up-4">
+				<div class="cell">
+					<img  class="fs-gal" alt="Example Image 1" title="Example Image 1" src="{{ asset('assets/img/tn-gallery-sample.jpg') }}" data-url="{{ asset('assets/img/hero-image-home.jpg') }}">
+				</div>
+			</div>
+		</div>
+	</section>		
 
 	<section class="support-us">
 		<header>
@@ -76,53 +84,28 @@
 			</div>
 		</div>
 	</section>
+	
+	<div class="fs-gal-view">
+		<h1></h1>
+		<button class="fs-gal-prev fs-gal-nav">
+			<i class="fas fa-chevron-left fa-2x"></i>
+		</button>
+		
+		<button class="fs-gal-next fs-gal-nav">
+			<i class="fas fa-chevron-right fa-2x"></i>
+		</button>
+		
+		<button class="fs-gal-close">
+			<i class="fas fa-times fa-2x"></i>
+		</button>
+		<img class="fs-gal-main" src="" alt="">
+	</div>
 @endsection
 
 @push('page-styles')
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fs-gal.css') }}">
 @endpush
 
 @push('page-scripts')
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
-	<script>
-	$('.gallery').each(function() { // the containers for all your galleries
-		$(this).magnificPopup({
-			delegate: 'a', // the selector for gallery item
-			type: 'image',
-			closeMarkup: '',
-			image: {
-				markup: '<div class="mfp-figure">'+
-							'<button class="btn-close" data-close-image><i class="fas fa-times"></i></button>'+
-							'<div class="mfp-img"></div>'+
-							'<div class="mfp-bottom-bar">'+
-								'<p class="mfp-title"></p>'+
-								'<div class="button-arrows">'+
-									'<button class="button-arrow" data-gallery-prev><i class="fas fa-angle-left"></i></button>'+
-									'<button class="button-arrow" data-gallery-next><i class="fas fa-angle-right"></i></button>'+
-								'</div>'+
-							'</div>'+
-						'</div>',
-			},
-			gallery: {
-			enabled: true,
-			arrowMarkup: '',
-			tPrev: '',
-			tNext: '',
-			}
-		});
-	});
-
-	$(document).on('click', '[data-close-image]', function(){
-		$.magnificPopup.close();
-	});
-
-	$(document).on('click', '[data-gallery-prev]', function(){
-		$.magnificPopup.instance.prev();
-	});
-
-	$(document).on('click', '[data-gallery-next]', function(){
-		$.magnificPopup.instance.next();
-	});
-	</script>
+	<script src="{{ asset('assets/js/vendor/fs-gal.js') }}"></script>
 @endpush
