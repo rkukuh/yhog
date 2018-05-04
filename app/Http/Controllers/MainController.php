@@ -4,20 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Event;
+use App\Models\Image;
 use App\Models\Partner;
 use App\Models\Gallery;
 use App\Models\Category;
-
 
 class MainController extends Controller
 {
     public function home()
     {
-        $upcoming_events = Event::latest()->take(2)->skip(0)->get();
+        $upcoming_events     = Event::latest()->take(2)->skip(0)->get();
+        $supporting_partners = Image::where('imageable_type', 'partner')->get();
 
         return view('front-end.pages.home', [
-            'current_page'      => 'home',
-            'upcoming_events'   => $upcoming_events ?? null,
+            'current_page'          => 'home',
+            'upcoming_events'       => $upcoming_events ?? null,
+            'supporting_partners'   => $supporting_partners ?? null,
         ]);
     }
     
