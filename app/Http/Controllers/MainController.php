@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Gallery;
+use App\Models\Donation;
 use App\Models\Category;
 
 class MainController extends Controller
