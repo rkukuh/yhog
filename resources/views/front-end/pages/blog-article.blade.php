@@ -39,7 +39,11 @@
 				</div>
 				
 				<aside class="cell xsmall-12 large-3">
-					<img src="{{ asset('assets/img/logo-sponsor.png') }}">
+					@if ($sponsor->featured_image)
+						<a href="{{ $sponsor->url }}" target="_blank">
+							<img src="{{ asset('storage/' . $sponsor->featured_image->path) }}">
+						</a>
+					@endif
 				</aside>
 			</div>
 		</div>
