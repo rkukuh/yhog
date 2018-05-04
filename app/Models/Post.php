@@ -65,6 +65,18 @@ class Post extends Model
 
     /***************************************** ACCESSOR ******************************************/
 
+    public function getTitleLimitedAttribute()
+    {
+        if (strlen($this->title) >= 50) {
+
+            echo substr($this->title, 0, 50) . '...';
+
+            return;
+        }
+
+        return $this->title;
+    }
+
     public function getExcerptLimitedAttribute()
     {
         if (strlen($this->excerpt) >= 50) {
