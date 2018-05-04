@@ -64,61 +64,33 @@
 		</div>
 	</section>
 
-	<section class="partners">
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x align-center">
-				<div class="cell xsmall-12 large-10 text-center">
-					<h2>Supporting Partners</h2>
-					
-					<div id="partner-slider" data-equalizer>
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-hotel-kristal') }}">
-								<img src="{{ asset('assets/img/logo-hotel-kristal.png') }}">
-							</a>
+	@if (isset($supporting_partners))
+		<section class="partners">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x align-center">
+					<div class="cell xsmall-12 large-10 text-center">
+						<h2>Supporting Partners</h2>
+						
+						<div id="partner-slider" data-equalizer>
+
+							@foreach ($supporting_partners as $partner)
+								@if ($partner->featured_image)
+									<div class="item" data-equalizer-watch>
+										<a href="{{ url('/partners#' . $partner->title) }}">
+											<img src="{{ asset('storage/' . $partner->featured_image->path) }}">
+										</a>
+									</div>
+								@endif
+							@endforeach
+
 						</div>
 						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-v-door') }}">
-								<img src="{{ asset('assets/img/logo-v-door.png') }}">
-							</a>
-						</div>
-						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-seascape') }}">
-								<img src="{{ asset('assets/img/logo-seascape.png') }}">
-							</a>
-						</div>
-						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-tesco') }}">
-								<img src="{{ asset('assets/img/logo-tesco.png') }}">
-							</a>
-						</div>
-						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-star-deli') }}">
-								<img src="{{ asset('assets/img/logo-star-deli.png') }}">
-							</a>
-						</div>
-						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-tesco') }}">
-								<img src="{{ asset('assets/img/logo-tesco.png') }}">
-							</a>
-						</div>
-						
-						<div class="item" data-equalizer-watch>
-							<a href="{{ url('/partners#partner-star-deli') }}">
-								<img src="{{ asset('assets/img/logo-star-deli.png') }}">
-							</a>
-						</div>
+						<p>Over the years the financial support of these caring organizations has helped us change the lives of 1000’s of children.</p>
 					</div>
-					
-					<p>Over the years the financial support of these caring organizations has helped us change the lives of 1000’s of children.</p>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	@endif
 
 	<section class="gentur-cleft-foundation">
 		<div class="grid-container">
