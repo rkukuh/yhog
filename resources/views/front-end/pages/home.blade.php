@@ -140,51 +140,55 @@
 	</div>
 </section>
 
-<section class="upcoming-events">
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x align-center">
-			<div class="cell medium-11 large-10 text-center">
-				<h2>Upcoming Events</h2>
-				
-				<div class="events grid-x grid-padding-x align-justify text-left">
-					<div class="event cell medium-12 large-5">
-						<div class="grid-x grid-padding-x">
-							<div class="cell medium-3 large-5 hide-for-xsmall-only hide-for-small-only">
-								<img src="{{ asset('assets/img/tn-event-sample.jpg') }}">
+@if (isset($upcoming_events))
+	<section class="upcoming-events">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="cell medium-11 large-10 text-center">
+					<h2>Upcoming Events</h2>
+					
+					<div class="events grid-x grid-padding-x align-justify text-left">
+
+						@foreach ($upcoming_events as $event)
+							<div class="event cell medium-12 large-5">
+								<div class="grid-x grid-padding-x">
+									<div class="cell medium-3 large-5 hide-for-xsmall-only hide-for-small-only">
+										@if ($event->featured_image)
+											<img src="{{ asset('storage/' . $event->featured_image->path) }}">
+										@endif
+									</div>
+									
+									<div class="cell xsmall-12 medium-9 large-7 text">
+										<p class="title">
+											{{ $event->name }}
+										</p>
+										
+										<p>
+											{{ $event->start_at }}
+											<br>
+											{{ $event->location }}
+										</p>
+										
+										<p>
+											{{ $event->description }}
+											<br> 
+											<a href="{{ url('events/detail/' . $event->id) }}">
+												Continue
+											</a>
+										</p>
+									</div>
+								</div>
 							</div>
-							
-							<div class="cell xsmall-12 medium-9 large-7 text">
-								<p class="title">HOG FEST</p>
-								
-								<p>May 1, 2018<br>Location</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a href="{{ url('events/detail') }}">Continue</a></p>
-							</div>
-						</div>
+						@endforeach
+
 					</div>
 					
-					<div class="event cell medium-12 large-5">
-						<div class="grid-x grid-padding-x">
-							<div class="cell medium-3 large-5 hide-for-xsmall-only hide-for-small-only">
-								<img src="{{ asset('assets/img/tn-event-sample.jpg') }}">
-							</div>
-							
-							<div class="cell xsmall-12 medium-9 large-7 text">
-								<p class="title">HOG FEST</p>
-								
-								<p>May 1, 2018<br>Location</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do. <br> <a href="{{ url('events/detail') }}">Continue</a></p>
-							</div>
-						</div>
-					</div>
+					<a class="cta"  href="{{ url('events') }}">View all events</a>
 				</div>
-				
-				<a class="cta"  href="{{ url('events') }}">View all events</a>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+@endif
 
 <section class="yayasan-hog">
 	<div class="grid-container">

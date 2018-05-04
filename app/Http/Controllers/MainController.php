@@ -13,9 +13,12 @@ class MainController extends Controller
 {
     public function home()
     {
-        $current_page = 'home';
-        
-        return view('front-end.pages.home', compact('current_page'));
+        $upcoming_events = Event::latest()->take(2)->skip(0)->get();
+
+        return view('front-end.pages.home', [
+            'current_page'      => 'home',
+            'upcoming_events'   => $upcoming_events ?? null,
+        ]);
     }
     
     public function about()
