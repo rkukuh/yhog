@@ -127,6 +127,7 @@ class MainController extends Controller
             'current_page'  => 'blog',
             'post'          => $post,
             'more_posts'    => $posts,
+            'sponsor'       => $this->sponsor,
         ]);
     }
     
