@@ -43,7 +43,9 @@
 						{!! $event->description !!}
 					</p>
 					
-					<a class="cta">View photos from past events</a>
+					<a class="cta" href="{{ url('gallery/detail/' . $event->galleries()->first()->id) }}">
+						View photos from past events
+					</a>
 					
 					<h3>Location</h3>
 					
