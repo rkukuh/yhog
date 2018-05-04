@@ -17,7 +17,7 @@ class Donations extends Seeder
      */
     public function run()
     {
-        Collection::times(25, function ($number) {
+        Collection::times(1, function ($number) {
 
             /** Generate donations data from its factory */
 
