@@ -49,9 +49,12 @@ class MainController extends Controller
     
     public function projects()
     {
-        $current_page = 'our-projects';
+        $upcoming_events = Event::latest()->take(2)->skip(0)->get();
         
-        return view('front-end.pages.our-projects', compact('current_page'));
+        return view('front-end.pages.our-projects', [
+            'current_page'      => 'our-projects',
+            'upcoming_events'   => $upcoming_events ?? null,
+        ]);
     }
     
     public function events()
