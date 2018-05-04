@@ -46,7 +46,7 @@
                         <td>
                             <h5 style="font-size: 16px;">
                                 <a href="{{ route('admin.post.show', $post) }}">
-                                    {{ $post->title }}
+                                    {{ $post->title_limited }}
                                 </a>
                             </h5>
 
