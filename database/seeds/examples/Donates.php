@@ -21,10 +21,13 @@ class Donates extends Seeder
 
                 Donation::find($i)
                         ->donates()
-                        ->create([
-                            'creator_id' => User::role(['admin'])->pluck('id')->random(),
-                            'amount' => rand(3, 5) * 100000,
-                        ]);
+                        ->save(
+                            factory(Donate::class)->create([
+                                'creator_id' => User::role(['admin'])->pluck('id')->random(),
+                                'donation_id' => Donation::get()->random()->id,
+                                'amount' => rand(3, 5) * 100000,
+                            ])
+                        );
 
             });
         }
