@@ -8,14 +8,17 @@ use App\Models\Partner;
 use App\Models\Gallery;
 use App\Models\Donation;
 use App\Models\Category;
+use App\Models\Advertisement;
 
 class MainController extends Controller
 {
+    protected $sponsor;
     protected $upcoming_events;
 
     public function __construct()
     {
         $this->upcoming_events = Event::latest()->take(2)->skip(0)->get();
+        $this->sponsor = Advertisement::whereNotNull('activated_at')->first();
     }
 
     public function home()
@@ -85,6 +88,7 @@ class MainController extends Controller
     {
         return view('front-end.pages.event-detail', [
             'current_page'  => 'events',
+            'sponsor'       => $this->sponsor,
             'event'         => Event::findOrFail($id)
         ]);
     }
