@@ -11,17 +11,23 @@ use App\Models\Category;
 
 class MainController extends Controller
 {
+    protected $upcoming_events;
+
+    public function __construct()
+    {
+        $this->upcoming_events = Event::latest()->take(2)->skip(0)->get();
+    }
+
     public function home()
     {
-        $upcoming_events     = Event::latest()->take(2)->skip(0)->get();
-        $latest_donation     = Donation::latest()->first();
         $supporting_partners = Partner::get();
+        $latest_donation     = Donation::latest()->first();
 
         return view('front-end.pages.home', [
             'current_page'          => 'home',
             'latest_donation'       => $donation ?? null,
-            'upcoming_events'       => $upcoming_events ?? null,
             'supporting_partners'   => $supporting_partners ?? null,
+            'upcoming_events'       => $this->upcoming_events ?? null,
         ]);
     }
     
@@ -49,11 +55,9 @@ class MainController extends Controller
     
     public function projects()
     {
-        $upcoming_events = Event::latest()->take(2)->skip(0)->get();
-        
         return view('front-end.pages.our-projects', [
             'current_page'      => 'our-projects',
-            'upcoming_events'   => $upcoming_events ?? null,
+            'upcoming_events'   => $this->upcoming_events ?? null,
         ]);
     }
     
