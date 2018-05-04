@@ -32,10 +32,11 @@ class MainController extends Controller
     }
     
     public function about()
-    {
-        $current_page = 'about-us';
-        
-        return view('front-end.pages.about-us', compact('current_page'));
+    {   
+        return view('front-end.pages.about-us', [
+            'current_page'      => 'about-us',
+            'upcoming_events'   => $this->upcoming_events ?? null,
+        ]);
     }
     
     public function contact()
