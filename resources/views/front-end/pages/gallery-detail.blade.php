@@ -40,7 +40,9 @@
 
 						@foreach ($chunked_images as $image)
 							<div class="cell">
-								<img  class="fs-gal" alt="" title="" src="{{ asset('storage/' . $image->path) }}" data-url="{{ asset('storage/' . $image->path) }}">
+								<img class="fs-gal" alt="Gallery photo" title="" 
+									 src="{{ asset('storage/' . $image->path) }}" 
+									 data-url="{{ asset('storage/' . $image->path) }}">
 							</div>
 						@endforeach
 
@@ -50,16 +52,6 @@
 			</div>
 		</section>
 	@endif
-	
-	<section class="detail">
-		<div class="grid-container">
-			<div class="gallery grid-x grid-padding-x xsmall-up-1 medium-up-3 large-up-4">
-				<div class="cell">
-					<img  class="fs-gal" alt="Example Image 1" title="Example Image 1" src="{{ asset('assets/img/tn-gallery-sample.jpg') }}" data-url="{{ asset('assets/img/hero-image-home.jpg') }}">
-				</div>
-			</div>
-		</div>
-	</section>		
 
 	<section class="support-us">
 		<header>
