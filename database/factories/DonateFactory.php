@@ -1,7 +1,6 @@
 <?php
 
 use App\User;
-use App\Models\Post;
 use App\Models\Donate;
 use App\Models\Donation;
 use Faker\Generator as Faker;
