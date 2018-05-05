@@ -143,17 +143,17 @@ class Event extends Model
 
     public function getNormalOrEarlybirdPriceAttribute()
     {
-        $output = '@ ';
+        $output = '';
 
         if ($this->price) {
 
             if ($this->early_bird_price) {
 
-                $output .= number_format($this->early_bird_price);
+                $output .= $this->early_bird_price;
             }
             else {
 
-                $output .= number_format($this->price);
+                $output .= $this->price;
             }
 
         }
