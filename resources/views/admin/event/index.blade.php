@@ -29,7 +29,7 @@
                     <th class="text-center">Gallery</th>
                     <th class="text-center">Start At</th>
                     <th class="text-center">End At</th>
-                    <th class="text-center">Participant Limit</th>
+                    <th class="text-center">Participant</th>
                     <th style="width: 120px;"></th>
                 </tr>
             </thead>
