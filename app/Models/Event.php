@@ -73,6 +73,19 @@ class Event extends Model
         return $this->belongsToMany(Gallery::class);
     }
 
+    /**
+     * Many-to-Many: An event may have zero or many participant.
+     *
+     * This function will retrieve the galleries of an event.
+     * See: Participant's events() method for the inverse
+     *
+     * @return mixed
+     */
+    public function participants()
+    {
+        return $this->belongsToMany(Participant::class);
+    }
+
 
     /***************************************** ACCESSOR ******************************************/
 
