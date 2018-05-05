@@ -11,8 +11,20 @@ class Participant extends Model
     use Blameable;
     use SoftDeletes;
 
+    protected $fillable = [
+        'creator_id',
+
+        'event_id',
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'quantity',
+        'price',
+    ];
+
     protected $dates = ['deleted_at'];
-    
+
 
     /*************************************** RELATIONSHIP ****************************************/
 
