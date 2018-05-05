@@ -22,7 +22,7 @@ class CreateParticipantsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->tinyInteger('quantity');
-            $table->double('price');
+            $table->double('price')->nullable();
             $table->json('response')->nullable();
             
             $table->unsignedInteger('creator_id');
