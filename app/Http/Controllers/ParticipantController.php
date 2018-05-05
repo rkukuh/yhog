@@ -36,7 +36,13 @@ class ParticipantController extends Controller
      */
     public function store(ParticipantStore $request)
     {
-        //
+        if ($participant = Participant::create($request->all())) {
+
+            //
+
+        }
+
+        return back();
     }
 
     /**
