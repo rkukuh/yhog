@@ -159,7 +159,7 @@ class Event extends Model
         }
         else {
 
-            $output .= 'FREE';
+            $output .= 0;
         }
 
         return $output;
