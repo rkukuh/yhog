@@ -14,8 +14,18 @@ class CreateEventParticipantTable extends Migration
     public function up()
     {
         Schema::create('event_participant', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->unsignedInteger('event_id');
+            $table->unsignedInteger('participant_id');
+
+            $table->foreign('event_id')
+                    ->references('id')->on('events')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
+
+            $table->foreign('participant_id')
+                    ->references('id')->on('participants')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
         });
     }
 
