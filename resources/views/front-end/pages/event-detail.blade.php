@@ -58,6 +58,8 @@
 					<form action="{{ route('participant.store') }}" method="post">
 						@csrf
 
+						<input type="hidden" name="event_id" value="{{ $event->id }}">
+
 						<div class="grid-x grid-padding-x">
 							<div class="cell xsmall-12 medium-6">
 								<label>
@@ -110,6 +112,8 @@
 								<p>
 									{{ $event->normal_or_earlybird_price }} / ticket
 								</p>
+
+								<input type="hidden" value="{{ $event->normal_or_earlybird_price }}">
 							</div>
 						</div>
 						
