@@ -71,9 +71,10 @@ class Rebuild extends Command
         $this->info('[DONE ] Flush the application cache.');
         $this->info('');
 
-        $this->info('[START] Clear all configuration cache files..........');
+        $this->info('[START] Re-caching configuration files..........');
         $this->callSilent('config:clear');
-        $this->info('[DONE ] Clear all configuration cache files.');
+        $this->callSilent('config:cache');
+        $this->info('[DONE ] Re-caching configuration files.');
         $this->info('');
 
         $this->info('[START] Remove the route cache file..........');
