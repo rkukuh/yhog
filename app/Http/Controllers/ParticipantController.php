@@ -39,22 +39,27 @@ class ParticipantController extends Controller
     {
         if ($participant = Participant::create($request->all())) {
 
-            $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
+            // Create Xendit's invoice only when the Event is paid
+            if ($participant->event->price) {
 
-            $xendit = new XenditPHPClient($options); 
+                $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
 
-            $external_id = 'participant#' . $participant->id;
-            $payer_email = $participant->email;
-            $description = 'Event ' . $participant->event->name;
-            $amount      = $participant->price * $participant->quantity;
+                $xendit = new XenditPHPClient($options); 
 
-            if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
+                $external_id = 'participant#' . $participant->id;
+                $payer_email = $participant->email;
+                $description = 'Event ' . $participant->event->name;
+                $amount      = $participant->price * $participant->quantity;
 
-                $participant->update([
-                    'response' => $response
-                ]);
+                if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
 
-                return redirect($participant->response['invoice_url']);
+                    $participant->update([
+                        'response' => $response
+                    ]);
+
+                    return redirect($participant->response['invoice_url']);
+                }
+
             }
 
         }
