@@ -39,7 +39,7 @@ class ParticipantController extends Controller
     {
         if ($participant = Participant::create($request->all())) {
 
-            $options['secret_api_key'] = env('XENDIT_SECRET_KEY', null); 
+            $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
 
             $xendit = new XenditPHPClient($options); 
 
