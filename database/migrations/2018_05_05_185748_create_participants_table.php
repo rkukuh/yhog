@@ -15,7 +15,26 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('creator_id');
+            $table->unsignedInteger('event_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->tinyInteger('quantity');
+            $table->double('price');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('creator_id')
+                    ->references('id')->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
+
+            $table->foreign('event_id')
+                    ->references('id')->on('events')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
         });
     }
 
