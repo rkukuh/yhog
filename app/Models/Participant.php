@@ -26,6 +26,10 @@ class Participant extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $casts = [
+        'response' => 'array',
+    ];
+
 
     /*************************************** RELATIONSHIP ****************************************/
 
