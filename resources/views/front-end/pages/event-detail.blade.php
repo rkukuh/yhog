@@ -110,10 +110,11 @@
 								</select>
 								
 								<p>
-									{{ $event->normal_or_earlybird_price }} / ticket
+									@ {{ number_format($event->normal_or_earlybird_price) }} 
+									/ ticket
 								</p>
 
-								<input type="hidden" value="{{ $event->normal_or_earlybird_price }}">
+								<input type="hidden" name="price" value="{{ $event->normal_or_earlybird_price }}">
 							</div>
 						</div>
 						
