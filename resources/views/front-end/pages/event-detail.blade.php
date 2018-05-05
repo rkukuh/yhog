@@ -110,7 +110,7 @@
 								</select>
 								
 								<p>
-									@ {{ number_format($event->normal_or_earlybird_price) }} 
+									@ {{ number_format($event->normal_or_earlybird_price) }} IDR 
 									/ ticket
 								</p>
 
