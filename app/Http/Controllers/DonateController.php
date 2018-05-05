@@ -39,7 +39,7 @@ class DonateController extends Controller
     {
         if ($donate = Donate::create($request->all())) {
 
-            $options['secret_api_key'] = env('XENDIT_SECRET_KEY', null); 
+            $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
 
             $xendit = new XenditPHPClient($options); 
 
