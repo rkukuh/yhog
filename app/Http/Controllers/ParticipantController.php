@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Participant;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ParticipantStore;
-use App\Http\Requests\Admin\ParticipantUpdate;
+use App\Http\Requests\ParticipantStore;
+use App\Http\Requests\ParticipantUpdate;
 
 class ParticipantController extends Controller
 {
