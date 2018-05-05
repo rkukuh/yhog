@@ -40,7 +40,7 @@ class Partner extends Model
     /*************************************** RELATIONSHIP ****************************************/
 
     /**
-     * One-to-Many: An event may have zero or many partner.
+     * Many-to-Many: An event may have zero or many partner.
      *
      * This function will retrieve the events of a partner.
      * See: Event's partners() method for the inverse
