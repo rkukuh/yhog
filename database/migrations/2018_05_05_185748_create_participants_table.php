@@ -15,7 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('creator_id');
+
             $table->unsignedInteger('event_id');
             $table->string('first_name');
             $table->string('last_name');
@@ -23,6 +23,8 @@ class CreateParticipantsTable extends Migration
             $table->string('phone');
             $table->tinyInteger('quantity');
             $table->double('price');
+            
+            $table->unsignedInteger('creator_id');
             $table->timestamps();
             $table->softDeletes();
 

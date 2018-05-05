@@ -15,15 +15,15 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('creator_id');
-
+            
             $table->string('title');
             $table->longText('description');
             $table->unsignedInteger('target')->nullable();
             $table->text('location')->nullable();
             $table->text('video_url')->nullable();
             $table->timestamp('end_at')->nullable();
-
+            
+            $table->unsignedInteger('creator_id');
             $table->timestamps();
             $table->softDeletes();
 

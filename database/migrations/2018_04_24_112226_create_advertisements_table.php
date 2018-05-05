@@ -15,6 +15,7 @@ class CreateAdvertisementsTable extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->unsignedInteger('partner_id');
             $table->text('url');
             $table->timestamp('activated_at')->nullable();

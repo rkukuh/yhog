@@ -15,12 +15,12 @@ class CreateGalleriesTable extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('creator_id');
-
+            
             $table->string('title');
             $table->longText('description');
             $table->timestamp('published_at')->nullable();
-
+            
+            $table->unsignedInteger('creator_id');
             $table->timestamps();
             $table->softDeletes();
 
