@@ -43,9 +43,11 @@
 						{!! $event->description !!}
 					</p>
 					
-					<a class="cta" href="{{ url('gallery/detail/' . $event->galleries()->first()->id) }}">
-						View photos from past events
-					</a>
+					@if ( ! $event->galleries->isEmpty() )
+						<a class="cta" href="{{ url('gallery/detail/' . $event->galleries()->first()->id) }}">
+							View photos from past events
+						</a>
+					@endif
 					
 					<h3>Location</h3>
 					
@@ -53,31 +55,41 @@
 					
 					<h3>Register</h3>
 					
-					<form>
+					<form action="{{ route('participant.store') }}" method="post">
+						@csrf
+
 						<div class="grid-x grid-padding-x">
 							<div class="cell xsmall-12 medium-6">
-								<label>First name
-									<input type="text">
+								<label>
+									First Name <small>(required)</small>
+									<input type="text" name="first_name" 
+											value="{{ old('first_name') ?: '' }}" required>
 								</label>
 							</div>
 							
 							<div class="cell xsmall-12 medium-6">
-								<label>Last name
-									<input type="text">
+								<label>
+									Last Name <small>(required)</small>
+									<input type="text" name="last_name" 
+											value="{{ old('last_name') ?: '' }}" required>
 								</label>
 							</div>
 						</div>
 						
 						<div class="grid-x grid-padding-x">
 							<div class="cell xsmall-12 medium-6">
-								<label>Email
-									<input type="email">
+								<label>
+									Email <small>(required)</small>
+									<input type="email" name="email" 
+											value="{{ old('email') ?: '' }}" required>
 								</label>
 							</div>
 							
 							<div class="cell xsmall-12 medium-6">
-								<label>Phone
-									<input type="text">
+								<label>
+									Phone
+									<input type="text" name="phone" 
+											value="{{ old('phone') ?: '' }}" required>
 								</label>
 							</div>
 						</div>
@@ -86,19 +98,24 @@
 							<div class="cell xsmall-12">
 								<label>Number of tickets</label>
 									
-								<select>
+								<select name="quantity">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>10</option>
 								</select>
 								
-								<p>@ 75.000 IDR / ticket</p>
+								<p>
+									{{ $event->normal_or_earlybird_price }} / ticket
+								</p>
 							</div>
 						</div>
 						
 						<div class="grid-x grid-padding-x">
 							<div class="cell xsmall-12">
-								<button class="cta">Purchase</button>
+								<button type="submit" class="cta">Purchase</button>
 							</div>
 						</div>
 					</form>
