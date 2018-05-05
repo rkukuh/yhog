@@ -21,6 +21,7 @@ class Participant extends Model
         'phone',
         'quantity',
         'price',
+        'response',
     ];
 
     protected $dates = ['deleted_at'];
