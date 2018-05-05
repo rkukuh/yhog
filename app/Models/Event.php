@@ -141,6 +141,30 @@ class Event extends Model
         }
     }
 
+    public function getNormalOrEarlybirdPriceAttribute()
+    {
+        $output = '@ ';
+
+        if ($this->price) {
+
+            if ($this->early_bird_price) {
+
+                $output .= number_format($this->early_bird_price);
+            }
+            else {
+
+                $output .= number_format($this->price);
+            }
+
+        }
+        else {
+
+            $output .= 'FREE';
+        }
+
+        echo $output;
+    }
+
     public function getSizeFormattedAttribute()
     {
         if ($this->size) {
