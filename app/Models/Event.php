@@ -145,11 +145,18 @@ class Event extends Model
     {
         if ($this->size) {
             
-            echo number_format($this->size) . 
-                    ' <small class="text-muted">people</small>';
-            return;
+            echo '<small>limit:</small> ' .
+                 number_format($this->size) . 
+                 ' <small class="text-muted">people</small>';
+        }
+        else {
+
+            echo '<div class="badge">no limit</div>';
         }
 
-        echo '<div class="badge">no limit</div>';
+        echo '<br><br>';
+
+        echo number_format($this->participants()->count()) . 
+             ' <small>registered</small> ';
     }
 }
