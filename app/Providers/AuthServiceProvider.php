@@ -13,6 +13,7 @@ use App\Models\Donate;
 use App\Models\Category;
 use App\Models\Donation;
 use App\Policies\TagPolicy;
+use App\Models\Participant;
 use App\Policies\PostPolicy;
 use App\Policies\UserPolicy;
 use App\Models\Advertisement;
@@ -23,6 +24,7 @@ use App\Policies\PartnerPolicy;
 use App\Policies\GalleryPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\DonationPolicy;
+use App\Policies\ParticipantPolicy;
 use Illuminate\Support\Facades\Gate;
 use App\Policies\AdvertisementPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -45,6 +47,7 @@ class AuthServiceProvider extends ServiceProvider
         Gallery::class => GalleryPolicy::class,
         Category::class => CategoryPolicy::class,
         Donation::class => DonationPolicy::class,
+        Participant::class => ParticipantPolicy::class,
         Advertisement::class => AdvertisementPolicy::class,
     ];
 

@@ -41,6 +41,8 @@ Route::name('admin.')->group(function () {
         Route::resource('category-event', 'CategoryEventController', [
             'parameters' => ['category-event' => 'category']
         ]);
+
+        Route::resource('participant', 'ParticipantController');
     
         /** PARTNER **/
 
