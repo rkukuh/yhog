@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Participant;
+use XenditClient\XenditPHPClient;
 use App\Http\Requests\ParticipantStore;
 use App\Http\Requests\ParticipantUpdate;
 
@@ -38,7 +39,23 @@ class ParticipantController extends Controller
     {
         if ($participant = Participant::create($request->all())) {
 
-            //
+            $options['secret_api_key'] = env('XENDIT_SECRET_KEY', null); 
+
+            $xendit = new XenditPHPClient($options); 
+
+            $external_id = 'participant#' . $participant->id;
+            $payer_email = $participant->email;
+            $description = 'Event ' . $participant->event->name;
+            $amount      = $participant->price * $participant->quantity;
+
+            if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
+
+                $participant->update([
+                    'response' => $response
+                ]);
+
+                return redirect($participant->response['invoice_url']);
+            }
 
         }
 
