@@ -162,7 +162,7 @@ class Event extends Model
             $output .= 'FREE';
         }
 
-        echo $output;
+        return $output;
     }
 
     public function getSizeFormattedAttribute()
