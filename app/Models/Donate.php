@@ -50,6 +50,7 @@ class Donate extends Model
 
     public function getAmountFormattedAttribute()
     {
-        return number_format($this->amount);
+        echo number_format($this->amount) . 
+             ' <small class="text-muted">' . $this->currency . '</small>';
     }
 }
