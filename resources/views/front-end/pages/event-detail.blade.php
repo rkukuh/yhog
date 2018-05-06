@@ -30,6 +30,9 @@
 						<br>
 						<strong>Cost:</strong> {{ number_format($event->price) }} IDR
 					</p>
+
+					<div id="lat" style="display: none;">{{ $lat }}</div>
+					<div id="lng" style="display: none;">{{ $lng }}</div>
 				</div>
 			</div>
 		</div>
@@ -169,8 +172,13 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKJIH7Ywy7JzOcsm9NhbpiRnCraSx5Dzk"></script>
 
 	<script>
+		var lat = document.getElementById("lat").innerText;
+		var lng = document.getElementById("lng").innerText;
+		
+		// console.log(lat + ', ' + lng);
+
 		var option = {
-			center: new google.maps.LatLng(-6.1833, 106.8333),
+			center: new google.maps.LatLng(lat, lng),
 			zoom: 16,
 			scrollwheel: false,
 			navigationControl: false,
