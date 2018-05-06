@@ -177,9 +177,10 @@
 			mapTypeControl: false,
 			scaleControl: false,
 			draggable: false,
-			mapTypeId: google.maps.MapTypeId.ROADMAP };
+			mapTypeId: google.maps.MapTypeId.ROADMAP 
+		};
 			
-		$(document).ready(function(){
+		$(document).ready(function() {
 			$('#map').height($('#map').width() * (9 / 16)); 
 		});
 		
