@@ -66,7 +66,7 @@
                 @foreach ($donation->donates()->latest()->get() as $donate)
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-2 text-right">
+                            <div class="col-md-3 text-right">
                                 {{ $donate->amount_formatted }}
                             </div>
                             <div class="col-md-4 text-center">
@@ -75,15 +75,9 @@
                                 </span>
                             </div>
                             <div class="col-md-3 text-center">
-                                <a href="{{ $donate->response['invoice_url'] }}" target="_blank">
-                                    <span class="">
-                                        {{ $donate->response['status'] }} 
-
-                                        <i class="fa fa-external-link"></i>
-                                    </span>
-                                </a>
+                                {{ $donate->invoice_url }}
                             </div>
-                            <div class="col-md-3 text-right">
+                            <div class="col-md-2 text-right">
                                 @component('common.datalist.button-remove')
                                     @slot('text', '')
                                     @slot('route', route('admin.donate.destroy', $donate))
