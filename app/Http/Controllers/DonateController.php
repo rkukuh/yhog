@@ -6,6 +6,8 @@ use App\Models\Donate;
 use XenditClient\XenditPHPClient;
 use App\Http\Requests\DonateStore;
 use App\Http\Requests\DonateUpdate;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client as GuzzleHttpClient;
 
 class DonateController extends Controller
 {
@@ -39,6 +41,29 @@ class DonateController extends Controller
     {
         if ($donate = Donate::create($request->all())) {
 
+            $amount        = 0;
+            $exchange_rate = 1; // Set default to 1, safe for IDR
+
+            // Convert to IDR when the amount is in USD
+            if ($request->currency == 'USD') {
+                
+                $client = new GuzzleHttpClient;
+
+                $response = $client->get('http://free.currencyconverterapi.com/api/v5/convert', [
+                    'query' => [
+                        'q' => 'USD_IDR',
+                        'compact' => 'ultra',
+                    ]
+                ])
+                ->getBody()
+                ->getContents();
+
+                $decoded_result = json_decode($response, true);
+                $exchange_rate  = $decoded_result['USD_IDR'];
+            }
+
+            /** Create invoice using Xendit **/
+
             $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
 
             $xendit = new XenditPHPClient($options); 
@@ -46,7 +71,7 @@ class DonateController extends Controller
             $external_id = 'donate#' . $donate->id;
             $payer_email = $donate->email;
             $description = 'Donation to ' . $donate->donation->title;
-            $amount      = $donate->amount;
+            $amount      = $exchange_rate * $donate->amount;
 
             if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
 
