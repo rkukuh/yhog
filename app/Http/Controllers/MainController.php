@@ -99,11 +99,11 @@ class MainController extends Controller
         ->getBody()
         ->getContents();
 
-        $decoded_result = json_decode($response, true);
+        $decoded = json_decode($response, true);
 
-        $location       = $decoded_result['results'][0]['geometry']['location'];
-        $latitude       = $location['lat'];
-        $longitude      = $location['lng'];
+        $location   = $decoded['results'][0]['geometry']['location'];
+        $latitude   = $location['lat'];
+        $longitude  = $location['lng'];
 
         return view('front-end.pages.event-detail', [
             'current_page'  => 'events',
