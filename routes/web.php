@@ -104,8 +104,31 @@ Route::resource('/donate', 'DonateController');
 Route::resource('/participant', 'ParticipantController');
 
 
-Route::get('/convert-usd-to-idr/{amount}', function () {
-    
-    //
+////////////////////////////// TESTING //////////////////////////////
+
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client as GuzzleHttpClient;
+
+Route::get('/test/convert/{amount}', function ($amount) {
+
+    $client = new GuzzleHttpClient;
+
+    $response = $client->get('http://free.currencyconverterapi.com/api/v5/convert', [
+        'query' => [
+            'q' => 'USD_IDR',
+            // 'compact' => 'y',
+        ]
+    ])
+    ->getBody()
+    ->getContents();
+
+    $decoded_result = json_decode($response, true);
+
+    $exchange_rate  = $decoded_result['results']['USD_IDR']['val'];
+    $converted      = $exchange_rate * $amount;
+
+    echo '1 USD = ' . number_format($exchange_rate) . ' IDR';
+    echo '<br>';
+    echo number_format($amount) . ' USD = ' . number_format($converted) . ' IDR';
 
 });
