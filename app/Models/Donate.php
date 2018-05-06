@@ -53,4 +53,11 @@ class Donate extends Model
         echo number_format($this->amount) . 
              ' <small class="text-muted">' . $this->currency . '</small>';
     }
+
+    public function getInvoiceUrlAttribute()
+    {
+        echo '<a href="' . $this->response['invoice_url'] . '" target="_blank">' .
+                '<span class="">' . $this->response['status'] . '</span>' .
+             '</a>';
+    }
 }
