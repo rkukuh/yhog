@@ -88,28 +88,31 @@ class MainController extends Controller
     
     public function event_detail($id)
     {
-        $client = new GuzzleHttpClient;
+        if ($address = Event::findOrFail($id)->location) {
 
-        $response = $client->get('https://maps.googleapis.com/maps/api/geocode/json', [
-            'query' => [
-                'key' => env('GOOGLE_MAP_API_KEY'),
-                'address' => Event::findOrFail($id)->location,
-            ]
-        ])
-        ->getBody()
-        ->getContents();
+            $client = new GuzzleHttpClient;
 
-        $decoded = json_decode($response, true);
+            $response = $client->get('https://maps.googleapis.com/maps/api/geocode/json', [
+                'query' => [
+                    'key' => env('GOOGLE_MAP_API_KEY'),
+                    'address' => $address,
+                ]
+            ])
+            ->getBody()
+            ->getContents();
 
-        $location   = $decoded['results'][0]['geometry']['location'];
-        $latitude   = $location['lat'];
-        $longitude  = $location['lng'];
+            $decoded = json_decode($response, true);
+
+            $location   = $decoded['results'][0]['geometry']['location'];
+            $latitude   = $location['lat'];
+            $longitude  = $location['lng'];
+        }
 
         return view('front-end.pages.event-detail', [
             'current_page'  => 'events',
-            'lat'           => $latitude,
-            'lng'           => $longitude,
             'sponsor'       => $this->sponsor,
+            'lat'           => $latitude ?? null,
+            'lng'           => $longitude ?? null,
             'event'         => Event::findOrFail($id),
         ]);
     }

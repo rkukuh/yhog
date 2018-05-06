@@ -54,7 +54,15 @@
 					
 					<h3>Location</h3>
 					
-					<div id="map" class="map"></div>
+					@if ($event->location)
+						<div id="map" class="map"></div>
+					@else
+						<p>
+							<span class="label alert">
+								This event location can not be displayed on the map due to inaccuracy
+							</span>
+						</p>
+					@endif
 					
 					<h3>Register</h3>
 					
