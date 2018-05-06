@@ -9,6 +9,8 @@ use App\Models\Gallery;
 use App\Models\Donation;
 use App\Models\Category;
 use App\Models\Advertisement;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client as GuzzleHttpClient;
 
 class MainController extends Controller
 {
@@ -86,10 +88,29 @@ class MainController extends Controller
     
     public function event_detail($id)
     {
+        $client = new GuzzleHttpClient;
+
+        $response = $client->get('https://maps.googleapis.com/maps/api/geocode/json', [
+            'query' => [
+                'key' => env('GOOGLE_MAP_API_KEY'),
+                'address' => Event::findOrFail($id)->location,
+            ]
+        ])
+        ->getBody()
+        ->getContents();
+
+        $decoded_result = json_decode($response, true);
+
+        $location       = $decoded_result['results'][0]['geometry']['location'];
+        $latitude       = $location['lat'];
+        $longitude      = $location['lng'];
+
         return view('front-end.pages.event-detail', [
             'current_page'  => 'events',
+            'lat'           => $latitude,
+            'lng'           => $longitude,
             'sponsor'       => $this->sponsor,
-            'event'         => Event::findOrFail($id)
+            'event'         => Event::findOrFail($id),
         ]);
     }
     
