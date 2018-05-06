@@ -116,7 +116,7 @@ Route::get('/test/convert/{amount}', function ($amount) {
     $response = $client->get('http://free.currencyconverterapi.com/api/v5/convert', [
         'query' => [
             'q' => 'USD_IDR',
-            // 'compact' => 'y',
+            'compact' => 'ultra',
         ]
     ])
     ->getBody()
@@ -124,7 +124,7 @@ Route::get('/test/convert/{amount}', function ($amount) {
 
     $decoded_result = json_decode($response, true);
 
-    $exchange_rate  = $decoded_result['results']['USD_IDR']['val'];
+    $exchange_rate  = $decoded_result['USD_IDR'];
     $converted      = $exchange_rate * $amount;
 
     echo '1 USD = ' . number_format($exchange_rate) . ' IDR';
