@@ -102,3 +102,10 @@ Route::get('/donations', 'MainController@donations');
 
 Route::resource('/donate', 'DonateController');
 Route::resource('/participant', 'ParticipantController');
+
+
+Route::get('/convert-usd-to-idr/{amount}', function () {
+    
+    //
+
+});
