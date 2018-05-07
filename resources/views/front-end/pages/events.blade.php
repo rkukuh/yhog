@@ -56,7 +56,9 @@
 					
 					@foreach ($categories as $category)
 						<li>
-							<a>{{ $category->name }}</a>
+							<a href="{{ url('/events?category=' . $category->id) }}">
+								{{ $category->name }}
+							</a>
 						</li>	
 					@endforeach
 				</ul>
