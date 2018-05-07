@@ -49,22 +49,17 @@
 	<section class="article-list">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<form class="article-filter cell xsmall-12">
-					<fieldset>
-						<legend>Sort by event type:</legend>
-						
-						@foreach ($categories as $category)
-							<div class="faux">
-								<input type="radio" name="sort" id="sort-{{ $category->id }}">
-								
-								<label for="sort-{{ $category->id }}">
-									{{ $category->name }}
-								</label>
-							</div>
-						@endforeach
-						
-					</fieldset>
-				</form>
+				<ul class="article-filter">
+					<li>
+						<span>Sort by event type:</span>
+					</li>
+					
+				@foreach ($categories as $category)
+					<li>
+						<a>{{ $category->name }}</a>
+					</li>	
+				@endforeach
+				</ul>
 			</div>
 		</div>
 		

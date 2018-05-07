@@ -5725,6 +5725,36 @@ form {
       form .faux label:hover {
         background-color: rgba(80, 75, 75, 0.25); }
 
+.article-filter {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  list-style-type: none; }
+  .article-filter li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 8px;
+    float: left; }
+    .article-filter li span, .article-filter li a {
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      display: block; }
+    .article-filter li span {
+      color: #fff;
+      background-color: #FF9900;
+      border: 1px solid #FF9900; }
+    .article-filter li a {
+      color: #504B4B;
+      border: 1px solid #504B4B; }
+      .article-filter li a:hover {
+        background-color: rgba(80, 75, 75, 0.25); }
+
 .main-navigation {
   padding: 0;
   margin: 0;
