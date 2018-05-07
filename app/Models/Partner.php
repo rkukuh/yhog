@@ -100,4 +100,19 @@ class Partner extends Model
 
         });
     }
+
+    /**
+     * Scope a query to only include category of post.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfYayasan(Builder $query)
+    {
+        return $query->whereHas('categories', function ($filter) {
+
+            $filter->where('slug', 'yayasan-partner');
+
+        });
+    }
 }
