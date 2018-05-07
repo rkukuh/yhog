@@ -54,11 +54,11 @@
 						<span>Sort by event type:</span>
 					</li>
 					
-				@foreach ($categories as $category)
-					<li>
-						<a>{{ $category->name }}</a>
-					</li>	
-				@endforeach
+					@foreach ($categories as $category)
+						<li>
+							<a>{{ $category->name }}</a>
+						</li>	
+					@endforeach
 				</ul>
 			</div>
 		</div>
