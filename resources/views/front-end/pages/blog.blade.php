@@ -31,7 +31,7 @@
 						
 						<p class="text-right">
 							<a class="cta" href="{{ url('blog/article/' . $latest_post->id) }}">
-								Full Details
+								Read more
 							</a>
 						</p>
 					</div>
@@ -45,7 +45,7 @@
 			<div class="grid-x grid-padding-x">
 				<ul class="article-filter">
 					<li>
-						<span>Sort by event type:</span>
+						<span>Sort article by category:</span>
 					</li>
 					
 					@foreach ($categories as $category)
@@ -77,7 +77,7 @@
 								
 								<div class="text-center">
 									<a class="cta" href="{{ url('blog/article/' . $post->id) }}">
-										Full Details
+										Read more
 									</a>
 								</div>
 							</div>
