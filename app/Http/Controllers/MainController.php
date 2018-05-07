@@ -73,9 +73,22 @@ class MainController extends Controller
         
         if (isset($latest_event)) {
 
-            $events = Event::where('id', '<>', $latest_event->id)
-                            ->latest()
-                            ->get();
+            if (request()->query('category')) {
+                
+                $events = Category::ofEvent()
+                                    ->findOrFail(
+                                        request()->query('category')
+                                    )
+                                    ->events;
+
+            }
+            else {
+
+                $events = Event::where('id', '<>', $latest_event->id)
+                                ->latest()
+                                ->get();
+
+            }
         }
 	    
         return view('front-end.pages.events', [
