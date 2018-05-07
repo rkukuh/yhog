@@ -113,6 +113,49 @@ form {
 	}
 }
 
+.article-filter {
+	margin: 0;
+	margin-left: 10px;
+	margin-right: 10px;
+	list-style-type: none;
+	
+	li {
+		display: inline-block;
+		margin-right: 5px;
+		margin-left: 5px;
+		margin-bottom: 8px;
+		float: left;
+		
+		
+		
+		span, a {
+			font-family: $open_sans;
+			font-size: 16px;
+			line-height: 1.5;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			display: block;
+		}
+		
+		span {
+			color: $white;
+			background-color: $orange;
+			border: 1px solid $orange;
+		}
+		
+		a {
+			color: $brown;
+			border: 1px solid $brown;
+			
+			&:hover {
+				background-color: rgba($brown, 0.25);
+			}
+		}
+	}
+}
+
 .main-navigation {
 	padding: 0;
 	margin: 0;
