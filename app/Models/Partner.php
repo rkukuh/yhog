@@ -87,7 +87,7 @@ class Partner extends Model
     }
 
     /**
-     * Scope a query to only include category of post.
+     * Scope a query to only include category of event partner.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -102,7 +102,7 @@ class Partner extends Model
     }
 
     /**
-     * Scope a query to only include category of post.
+     * Scope a query to only include category of yayasan partner.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
