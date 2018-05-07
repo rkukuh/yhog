@@ -119,7 +119,7 @@
 											</p>
 											
 											<p>
-												{{ $event->description }}
+												{{ $event->description_limited }}
 												<br> 
 												<a href="{{ url('events/detail/' . $event->id) }}">
 													Continue
