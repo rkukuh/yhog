@@ -80,14 +80,12 @@ class MainController extends Controller
                                         request()->query('category')
                                     )
                                     ->events;
-
             }
             else {
 
                 $events = Event::where('id', '<>', $latest_event->id)
                                 ->latest()
                                 ->get();
-
             }
         }
 	    
@@ -136,9 +134,21 @@ class MainController extends Controller
         
         if (isset($latest_post)) {
 
-            $posts = Post::where('id', '<>', $latest_post->id)
-                        ->latest()
-                        ->get();
+            if (request()->query('category')) {
+                
+                $posts = Category::ofPost()
+                                ->findOrFail(
+                                    request()->query('category')
+                                )
+                                ->posts;
+            } 
+            else {
+
+                $posts = Post::where('id', '<>', $latest_post->id)
+                            ->latest()
+                            ->get();
+            }
+
         }
 	    
         return view('front-end.pages.blog', [
