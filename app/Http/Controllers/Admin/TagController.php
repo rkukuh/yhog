@@ -9,6 +9,13 @@ use App\Http\Requests\Admin\TagUpdate;
 
 class TagController extends Controller
 {
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = Tag::paginate(env('PAGINATE', 10));
+    }
+
     /**
      * Display a listing of the resource.
      *
