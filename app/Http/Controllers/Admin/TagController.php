@@ -71,7 +71,11 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('admin.tag.index', [
+            'content_alt'   => true,
+            'tag_edit'      => $tag,
+            'tags'          => $this->tags
+        ]);
     }
 
     /**
