@@ -13,7 +13,7 @@ class TagUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +24,7 @@ class TagUpdate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:50',
         ];
     }
 }
