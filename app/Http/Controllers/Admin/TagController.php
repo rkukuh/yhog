@@ -87,7 +87,13 @@ class TagController extends Controller
      */
     public function update(TagUpdate $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+
+        return redirect()
+                ->route('admin.tag.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Tag has been updated.');
     }
 
     /**
