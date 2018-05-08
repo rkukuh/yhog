@@ -47,7 +47,9 @@ class TagController extends Controller
      */
     public function store(TagStore $request)
     {
-        //
+        Tag::create($request->all());
+
+        return back()->with('success-message', 'New tag has been added.');
     }
 
     /**
