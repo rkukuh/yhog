@@ -25,7 +25,7 @@ class TagController extends Controller
     {
         return view('admin.tag.index', [
             'content_alt' => true,
-            'categories'  => $this->tags
+            'tags'        => $this->tags
         ]);
     }
 
