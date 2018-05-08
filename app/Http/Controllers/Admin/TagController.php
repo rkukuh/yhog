@@ -104,6 +104,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return back()->with('success-message', 'Tag has been removed.');
     }
 }
