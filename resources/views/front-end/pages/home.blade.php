@@ -155,7 +155,7 @@
 
 						</div>
 						
-						<a class="cta"  href="{{ url('events') }}">View all events</a>
+						<a class="cta"  href="{{ url('events') }}">View All Events</a>
 					</div>
 				</div>
 			</div>
