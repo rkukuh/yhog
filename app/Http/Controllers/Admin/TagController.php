@@ -23,7 +23,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.tag.index', [
+            'content_alt' => true,
+            'categories'  => $this->tags
+        ]);
     }
 
     /**
