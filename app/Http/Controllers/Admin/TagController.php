@@ -9,6 +9,13 @@ use App\Http\Requests\Admin\TagUpdate;
 
 class TagController extends Controller
 {
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = Tag::paginate(env('PAGINATE', 10));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.tag.index', [
+            'content_alt' => true,
+            'tags'        => $this->tags
+        ]);
     }
 
     /**
@@ -37,7 +47,9 @@ class TagController extends Controller
      */
     public function store(TagStore $request)
     {
-        //
+        Tag::create($request->all());
+
+        return back()->with('success-message', 'New tag has been added.');
     }
 
     /**
@@ -59,7 +71,11 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('admin.tag.index', [
+            'content_alt'   => true,
+            'tag_edit'      => $tag,
+            'tags'          => $this->tags
+        ]);
     }
 
     /**
@@ -71,7 +87,13 @@ class TagController extends Controller
      */
     public function update(TagUpdate $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+
+        return redirect()
+                ->route('admin.tag.index', [
+                    'page' => $request->page ?? 1
+                ])
+                ->with('success-message', 'Tag has been updated.');
     }
 
     /**
@@ -82,6 +104,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return back()->with('success-message', 'Tag has been removed.');
     }
 }
