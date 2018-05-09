@@ -12,13 +12,7 @@
 					@endif
 
 					<p>
-						{{-- @if ($i == 1)
-							0 IDR
-						@elseif ($i == 4)
-							{{ number_format($donation->target) }} IDR
-						@endif --}}
-
-						{{ number_format($target * (($i * 25) / 100)) }}
+						{{ number_format($target * (($i * 25) / 100)) }} IDR
 
 						<br>
 
