@@ -81,11 +81,14 @@
 <div class="form-group {{ $errors->has('description') ? 'has-error has-feedback' : '' }}">
     <label for="description">Description</label>
 
-    <textarea class="form-control" id="description" name="description" 
-                rows="4">{{ old('description') ?: (isset($event->description) ? $event->description : '') }}</textarea>
+    <textarea class="form-control" id="description" name="description"
+                rows="5">{{ old('description') ?: 
+                            (isset($post->description) ? $post->description : '') }}</textarea>
 
     @if ($errors->has('description'))
-        @include('common.form.input-error-message', ['message' => $errors->first('description')])
+        @include('common.form.input-error-message', [
+            'message' => $errors->first('description')
+        ])
     @endif
 </div>
 
