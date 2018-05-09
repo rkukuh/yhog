@@ -8,15 +8,17 @@
 						@if ($progress >= ($i * 25)) on-progress @endif
 				">
 					@if ($progress >= ($i * 25)) 
-						<div class="bar" style="width: {{ $progress }}%"></div> 
+						<div class="bar" style="width: {{ 100 + $progress }}%"></div> 
 					@endif
 
 					<p>
-						@if ($i == 1)
+						{{-- @if ($i == 1)
 							0 IDR
 						@elseif ($i == 4)
 							{{ number_format($donation->target) }} IDR
-						@endif
+						@endif --}}
+
+						{{ number_format($target * (($i * 25) / 100)) }}
 
 						<br>
 
