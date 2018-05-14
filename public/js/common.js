@@ -59,15 +59,21 @@ $(function() {
     if (full_url.indexOf('admin/dashboard') > -1) {
         $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/dashboard"]').parent().addClass('active');
     }
+
+    if (full_url.indexOf('admin/post') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#blog"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/post"]').parent().addClass('active');
+    }
     
     if (full_url.indexOf('admin/category-post') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#blog"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-post"]').parent().addClass('active');
     }
 
-    if (full_url.indexOf('admin/category-event') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#event"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-event"]').parent().addClass('active');
+
+    if (full_url.indexOf('admin/gallery') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#gallery"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/gallery"]').parent().addClass('active');
     }
 
     if (full_url.indexOf('admin/category-gallery') > -1) {
@@ -75,19 +81,10 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-gallery"]').parent().addClass('active');
     }
 
-    if (full_url.indexOf('admin/category-partner') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#partner"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-partner"]').parent().addClass('active');
-    }
 
-    if (full_url.indexOf('admin/category-donation') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#donation"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-donation"]').parent().addClass('active');
-    }
-
-    if (full_url.indexOf('admin/post') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#blog"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/post"]').parent().addClass('active');
+    if (full_url.indexOf('admin/category-event') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#event"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-event"]').parent().addClass('active');
     }
 
     if (full_url.indexOf('admin/event') > -1) {
@@ -95,19 +92,27 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/event"]').parent().addClass('active');
     }
 
+
     if (full_url.indexOf('admin/partner') > -1) {
         $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/partner"]').parent().addClass('active');
     }
+
+    if (full_url.indexOf('admin/category-partner') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#partner"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-partner"]').parent().addClass('active');
+    }
+    
 
     if (full_url.indexOf('admin/donation') > -1) {
         $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/donation"]').parent().addClass('active');
     }
 
-    if (full_url.indexOf('admin/gallery') > -1) {
-        $('ul.sidebar-menu > li.treeview > a[href="#gallery"]').parent().addClass('active');
-        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/gallery"]').parent().addClass('active');
+    if (full_url.indexOf('admin/category-donation') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#donation"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-donation"]').parent().addClass('active');
     }
 
+    
     if (full_url.indexOf('admin/user') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#setting"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/user"]').parent().addClass('active');
