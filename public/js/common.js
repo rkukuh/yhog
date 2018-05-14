@@ -112,7 +112,17 @@ $(function() {
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/category-donation"]').parent().addClass('active');
     }
 
-    
+
+    if (full_url.indexOf('admin/advertisement') > -1) {
+        $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/advertisement"]').parent().addClass('active');
+    }
+
+
+    if (full_url.indexOf('admin/tag') > -1) {
+        $('ul.sidebar-menu > li.treeview > a[href="#setting"]').parent().addClass('active');
+        $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/tag"]').parent().addClass('active');
+    }
+
     if (full_url.indexOf('admin/user') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#setting"]').parent().addClass('active');
         $('ul.sidebar-menu > li.treeview > ul.treeview-menu > li > a[href="' + base_url + '/admin/user"]').parent().addClass('active');
