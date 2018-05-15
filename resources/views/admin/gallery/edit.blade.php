@@ -5,7 +5,9 @@
 
 @section('content-body')
     <div class="col-md-12">
-        <form action="{{ route('admin.gallery.update', $gallery) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.gallery.update', $gallery) }}" method="post" 
+              enctype="multipart/form-data">
+              
             @csrf
             @method('PATCH')
 
