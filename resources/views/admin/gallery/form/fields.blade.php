@@ -77,8 +77,8 @@
 </div>
 
 <div class="control-group 
-        {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
-        {{ $errors->has('images.*') ? 'has-error has-feedback' : '' }}">
+        {{ $errors->has('images') ? 'has-error' : '' }}
+        {{ $errors->has('images.*') ? 'has-error' : '' }}">
 
     <label for="images">
         Images @include('common.form.label-required-field')
@@ -96,14 +96,16 @@
     </div>
 
     @if ($errors->has('images'))
-        @include('common.form.input-error-message', ['message' => $errors->first('images')])
+        @include('common.form.input-error-message-no-feedback', [
+            'message' => $errors->first('images')
+        ])
     @endif
 
     <span class="help-block">Acceptable types are PNG or JPG.</span>
 
     @if ($errors->has('images.*'))
         @foreach ($errors->get('images.*') as $image)
-            @include('common.form.input-error-message', ['message' => $image[0]])
+            @include('common.form.input-error-message-no-feedback', ['message' => $image[0]])
         @endforeach
     @endif
 
