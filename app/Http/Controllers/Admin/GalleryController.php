@@ -104,7 +104,11 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        return view('admin.gallery.edit', [
+            'tags' => $this->tags,
+            'gallery' => $gallery,
+            'parent_categories' => $this->categories,
+        ]);
     }
 
     /**
