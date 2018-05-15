@@ -120,7 +120,18 @@ class GalleryController extends Controller
      */
     public function update(GalleryUpdate $request, Gallery $gallery)
     {
-        $gallery->update($request->all());
+        if ($gallery->update($request->all())) {
+
+            // Sync its attributes, if necessary
+            $gallery->tags()->sync($request->tag_id);
+            $gallery->categories()->sync($request->category_id);
+
+            // If featured image(s) exists, persist
+            if ($request->hasFile('images.*.image')) {
+
+                $gallery->uploadImages($request, $gallery);
+            }
+        }
 
         return redirect()
                 ->route('admin.gallery.index', [
