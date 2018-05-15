@@ -45,11 +45,3 @@
         });
     </script>
 @endpush
-
-@push('header-scripts')
-    <link rel="stylesheet" href="{{ asset('assets/dropzone/dropzone.css') }}">
-@endpush
-
-@push('footer-scripts')
-    <script src="{{ asset('assets/dropzone/dropzone.js') }}"></script>
-@endpush
