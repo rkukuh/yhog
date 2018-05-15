@@ -76,28 +76,37 @@
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
+<div class="control-group 
+        {{ $errors->has('images') ? 'has-error has-feedback' : '' }}
         {{ $errors->has('images.*') ? 'has-error has-feedback' : '' }}">
 
     <label for="images">
         Images @include('common.form.label-required-field')
     </label>
 
-    <input type="file" name="images[][image]" multiple class="form-control">
+    <div class="controls"> 
+        <div class="entry input-group col-md-8">
+            <input type="file" name="images[][image]" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-success btn-add" type="button">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
 
     @if ($errors->has('images'))
         @include('common.form.input-error-message', ['message' => $errors->first('images')])
     @endif
 
-    <span class="help-block">
-        Acceptable types are PNG or JPG.
-    </span>
+    <span class="help-block">Acceptable types are PNG or JPG.</span>
 
     @if ($errors->has('images.*'))
         @foreach ($errors->get('images.*') as $image)
             @include('common.form.input-error-message', ['message' => $image[0]])
         @endforeach
     @endif
+
 </div>
 
 <div class="form-group {{ $errors->has('tag_id') ? 'has-error has-feedback' : '' }}">
@@ -135,3 +144,44 @@
         @endcomponent
     </span>
 </div>
+
+
+@push('header-scripts')
+    <style>
+        .glyphicon { font-size: 12px; }
+        .entry:not(:first-of-type) { margin-top: 10px; }
+    </style>
+@endpush
+
+@push('footer-scripts')
+    <script>
+        $(function() {
+
+            $(document).on('click', '.btn-add', function(e) {
+
+                e.preventDefault();
+
+                var controlForm     = $('.controls'),
+                    currentEntry    = $(this).parents('.entry:first'),
+                    newEntry        = $(currentEntry.clone()).appendTo(controlForm);
+
+                newEntry.find('input').val('');
+
+                controlForm.find('.entry:not(:last) .btn-add')
+                            .removeClass('btn-add').addClass('btn-remove')
+                            .removeClass('btn-success').addClass('btn-danger')
+                            .html('<span class="glyphicon glyphicon-minus"></span>');
+
+            })
+            .on('click', '.btn-remove', function(e) {
+
+                $(this).parents('.entry:first').remove();
+
+                e.preventDefault();
+
+                return false;
+            });
+        });
+
+    </script>
+@endpush
