@@ -56,6 +56,7 @@ class GalleryController extends Controller
     public function create()
     {
         return view('admin.gallery.create', [
+            'mode' => 'create',
             'tags' => $this->tags,
             'parent_categories' => $this->categories
         ]);
@@ -105,6 +106,7 @@ class GalleryController extends Controller
     public function edit(Gallery $gallery)
     {
         return view('admin.gallery.edit', [
+            'mode' => 'edit',
             'tags' => $this->tags,
             'gallery' => $gallery,
             'parent_categories' => $this->categories,
