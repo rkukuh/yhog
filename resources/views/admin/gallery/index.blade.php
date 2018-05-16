@@ -23,7 +23,7 @@
                     <div class="col-md-3">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <a href="{{ route('admin.gallery.show', $gallery) }}">
+                                <a href="#">
                                     {{ $gallery->title_limited }}
                                 </a> 
                                 
