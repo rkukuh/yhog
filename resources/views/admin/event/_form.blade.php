@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-5" style="border-right: 1px solid #eee;">
+    <div class="col-md-6" style="border-right: 1px solid #eee;">
         @include('admin.event.form.field-left-side')
     </div>
 
@@ -24,6 +24,22 @@
     </div>
 </div>
 
+
+@push('header-scripts')
+    <link rel="stylesheet" href="{{ asset('assets/summernote/summernote.css') }}">
+@endpush
+
+@push('footer-scripts')
+    <script src="{{ asset('assets/summernote/summernote.min.js') }}"></script>
+
+    <script>
+        $(function () {
+            $('#description').summernote({
+                height: 200
+            });
+        });
+    </script>
+@endpush
 
 @push('header-scripts')
     <link rel="stylesheet" href="{{ asset('assets/adminlte/bower_components/select2/dist/css/select2.min.css') }}">
