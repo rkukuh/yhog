@@ -5652,7 +5652,7 @@ body {
 
 form {
   padding-bottom: 8px; }
-  form [type="text"], form [type="email"], form textarea {
+  form [type="text"], form [type="email"], form [type="number"], form textarea {
     font-family: "Open Sans", sans-serif;
     color: #504B4B;
     border: 1px solid #504B4B;
@@ -5667,6 +5667,8 @@ form {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     color: #504B4B; }
+    form label small {
+      font-size: 12px; }
   form fieldset {
     zoom: 1; }
     form fieldset:before, form fieldset:after {
@@ -6862,6 +6864,13 @@ footer {
       margin-right: 5px; }
   #contact-page form .input-group select {
     margin-right: 5px; }
+  #contact-page form .input-group #donation-amount {
+    text-align: right; }
+  #contact-page form p#converted {
+    color: #FF9900;
+    height: 39px;
+    margin-bottom: 0;
+    padding-top: 7px; }
 
 #contact-page blockquote {
   font-family: "American Typewriter", serif;
