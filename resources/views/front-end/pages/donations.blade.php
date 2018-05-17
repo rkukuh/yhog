@@ -134,8 +134,10 @@
 					var amount = Math.round($('#donation-amount').val() * rate);
 					
 					$('#donation-amount').val(amount);
+
+					var initial_amount = Math.round(50000);
 					
-					$('#converted').html("&asymp;" + " " + "50000 IDR");
+					$('#converted').html("&asymp; " + initial_amount.toLocaleString() + " IDR");
 					
 					is_idle = true;
 				}
