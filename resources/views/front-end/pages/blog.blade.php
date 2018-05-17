@@ -31,7 +31,7 @@
 						
 						<p class="text-right">
 							<a class="cta" href="{{ url('blog/article/' . $latest_post->id) }}">
-								Read more
+								Read More
 							</a>
 						</p>
 					</div>
@@ -77,7 +77,7 @@
 								
 								<div class="text-center">
 									<a class="cta" href="{{ url('blog/article/' . $post->id) }}">
-										Read more
+										Read More
 									</a>
 								</div>
 							</div>

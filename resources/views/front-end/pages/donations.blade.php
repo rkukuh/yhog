@@ -65,18 +65,24 @@
 					</label>
 					
 					<div class="grid-x grid-padding-x">
+						<div class="cell xsmall-12">
+							<label>Amount <small>(required - min. amount: 50000 IDR)</small></label>
+						</div>
+						
 						<div class="cell xsmall-12 large-6">
-							<label>Amount <small>(required - min. amount: 20000)</small></label>
-							
 							<div class="input-group">
 								<select name="currency">
-									<option>IDR</option>
-									<option>USD</option>
+									<option value="idr">IDR</option>
+									<option value="usd">USD</option>
 								</select>
 								
-								<input id="donation-amount" type="number" name="amount" 
-										value="{{ old('amount') ?: 20000 }}" required>
+								<input id="donation-amount" type="number" name="amount"
+										value="{{ old('amount') ?: 50000 }}" required>
 							</div>
+						</div>
+						
+						<div class="cell xsmall-12 large-3">
+							<p id="converted"></p>
 						</div>
 					</div>
 					
@@ -105,5 +111,76 @@
 	// Foundation.Abide.defaults.patterns['money'] = /^\d{1,3}(,\d{3})*(\.\d+)?$/;
 	
 	// $('#donation-amount').mask('000,000,000,000', {reverse: true});
+	var currency;
+	var current_currency = "idr";
+	var rate;
+	var is_idle = true;	
+		
+	$('[name="currency"]').on('change', function(){
+		console.log($(this).find(':selected').val());
+		currency = $(this).find(':selected').val();
+		
+		is_success = false;
+		
+		if (currency == "usd") {
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+			    url: 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=IDR&to_currency=USD&apikey=USKB2UL65EUP8BLP',
+			    success: function(response){
+					console.log(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					rate = Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					console.log(rate);
+					var amount = Math.round($('#donation-amount').val() * rate);
+					
+					$('#donation-amount').val(amount);
+					
+					$('#converted').html("&asymp;" + " " + "50000 IDR");
+					
+					is_idle = true;
+				}
+			});
+			
+		} else if (currency == "idr") {
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+			    url: 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=IDR&apikey=USKB2UL65EUP8BLP',
+			    success: function(response){
+					console.log(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					rate = Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					console.log(rate);
+					var amount = Math.round($('#donation-amount').val() * rate);
+					
+					$('#donation-amount').val(amount);
+					
+					$('#converted').empty();
+					
+					is_idle = true;
+				}
+			});
+			
+		}
+	});
+	
+	$('[name="amount"]').on('change', function(){
+		console.log($(this).val());
+		
+		if ($('[name="currency"]').val() == "usd" && is_idle) {
+			$.ajax({
+				type: 'GET',
+				dataType: 'json',
+			    url: 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=IDR&apikey=USKB2UL65EUP8BLP',
+			    success: function(response){
+					console.log(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					rate = Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]);
+					console.log(rate);
+					var amount = Math.round($('#donation-amount').val() * rate);
+					
+					$('#converted').html("&asymp;" + " " + amount + " IDR");
+				}
+			});
+		}
+	});
 </script>
 @endpush

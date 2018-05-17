@@ -31,7 +31,7 @@
 						
 						<p class="text-right">
 							<a class="cta" href="{{ url('gallery/detail/' . $latest_gallery->id) }}">
-								View gallery
+								View Gallery
 							</a>
 						</p>
 					</div>
@@ -62,7 +62,7 @@
 								
 								<div class="text-center">
 									<a class="cta" href="{{ url('gallery/detail/' . $gallery->id) }}">
-										View gallery
+										View Gallery
 									</a>
 								</div>
 							</div>
