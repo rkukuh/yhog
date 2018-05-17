@@ -21,7 +21,9 @@
                 @foreach ($tags as $tag)
                     <tr>
                         <td>
-                            <a href="{{ route('admin.tag.show', $tag) }}">{{ $tag->name }}</a>
+                            <a href="#">
+                                {{ $tag->name }}
+                            </a>
                         </td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')
