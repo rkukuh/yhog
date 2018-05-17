@@ -177,7 +177,7 @@
 					console.log(rate);
 					var amount = Math.round($('#donation-amount').val() * rate);
 					
-					$('#converted').html("&asymp;" + " " + amount + " IDR");
+					$('#converted').html("&asymp;" + " " + amount.toLocaleString() + " IDR");
 				}
 			});
 		}
