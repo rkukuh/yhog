@@ -47,7 +47,7 @@
                         </td>
                         <td>
                             <h5 style="font-size: 16px;">
-                                <a href="{{ route('admin.event.show', $event) }}">
+                                <a href="#">
                                     {{ $event->name }}
                                 </a>
                             </h5>
