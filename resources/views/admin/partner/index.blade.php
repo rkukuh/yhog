@@ -39,7 +39,7 @@
                         </td>
                         <td>
                             <h5 style="font-size: 16px;">
-                                <a href="{{ route('admin.partner.show', $partner) }}">
+                                <a href="#">
                                     {{ $partner->title }}
                                 </a>
                             </h5>
