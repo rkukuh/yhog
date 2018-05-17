@@ -22,7 +22,9 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>
-                            <a href="{{ route('admin.user.show', $user) }}">{{ $user->name }}</a>
+                            <a href="#">
+                                {{ $user->name }}
+                            </a>
                         </td>
                         <td>
                             {{ $user->email }}
