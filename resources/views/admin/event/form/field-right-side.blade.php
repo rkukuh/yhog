@@ -99,7 +99,7 @@
     @endif
 
     <span class="help-block">
-        Only 'Event Partner'-type Partners listed here. Not found?
+            Can not spot the Partner you're looking for?
 
         @component('common.buttons.create-new')
             @slot('size', 'xs')

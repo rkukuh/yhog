@@ -20,7 +20,7 @@ class EventController extends Controller
     public function __construct()
     {
         $this->tags         = Tag::get();
-        $this->partners     = Partner::ofEvent()->get();
+        $this->partners     = Partner::get();
         $this->galleries    = Gallery::get();
         $this->categories   = Category::ofEvent()->parentCategory()->get();
     }
