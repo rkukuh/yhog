@@ -30,6 +30,7 @@ class MainController extends Controller
 
         return view('front-end.pages.home', [
             'current_page'          => 'home',
+            'sponsor'               => $this->sponsor,
             'latest_donation'       => $donation ?? null,
             'supporting_partners'   => $supporting_partners ?? null,
             'upcoming_events'       => $this->upcoming_events ?? null,
@@ -63,6 +64,7 @@ class MainController extends Controller
     {
         return view('front-end.pages.our-projects', [
             'current_page'      => 'our-projects',
+            'sponsor'           => $this->sponsor,
             'upcoming_events'   => $this->upcoming_events ?? null,
         ]);
     }

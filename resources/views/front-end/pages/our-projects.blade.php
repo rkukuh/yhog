@@ -91,7 +91,13 @@
 				</div>
 				
 				<div class="cell xsmall-12 large-3">
-					<img src="{{ asset('assets/img/ad-unit.png') }}">
+					@if ($sponsor)
+						<a href="{{ $sponsor->url }}" target="_blank">
+							<img src="{{ asset('storage/' . $sponsor->featured_image->path) }}">
+						</a>
+					@else
+						<img src="{{ asset('assets/img/yhog-3200250.jpg') }}">
+					@endif
 				</div>
 			</div>
 		</div>

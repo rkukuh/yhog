@@ -43,6 +43,8 @@
 						<a href="{{ $sponsor->url }}" target="_blank">
 							<img src="{{ asset('storage/' . $sponsor->featured_image->path) }}">
 						</a>
+					@else
+						<img src="{{ asset('assets/img/yhog-3200250.jpg') }}">
 					@endif
 				</aside>
 			</div>
