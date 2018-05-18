@@ -132,7 +132,7 @@
 				</div>
 				
 				<aside class="cell xsmall-12 large-3">
-					@if ($sponsor->featured_image)
+					@if ($sponsor)
 						<a href="{{ $sponsor->url }}" target="_blank">
 							<img src="{{ asset('storage/' . $sponsor->featured_image->path) }}">
 						</a>
