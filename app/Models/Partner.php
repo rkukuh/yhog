@@ -83,7 +83,12 @@ class Partner extends Model
 
         });
 
-        // TODO: Use 'deleted' hooks to delete any related image(s)
+        static::deleted(function ($partner) {
+
+            // Remove respective Ad Unit, if any
+            $partner->advertisements()->delete();
+
+        });
     }
 
     /**
