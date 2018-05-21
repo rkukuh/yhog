@@ -69,8 +69,8 @@
                             {{ $donation->activated_at_formatted }}
                         </td>
                         <td class="text-right">
-                            <form method="post" action="{{ route('admin.donation.update', $donation) }}" 
-                                    style="display: inline;">
+                            <form method="post" style="display: inline;" 
+                                  action="{{ route('admin.donation.toggle-activation', $donation) }}">
                                     
                                 @csrf
                                 @method('PATCH')
