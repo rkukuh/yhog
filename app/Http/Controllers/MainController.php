@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Gallery;
 use App\Models\Category;
+use App\Models\Donation;
 use App\Models\Advertisement;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client as GuzzleHttpClient;
@@ -206,8 +207,9 @@ class MainController extends Controller
     
     public function donations()
     {
-        $current_page = 'donations';
-        
-        return view('front-end.pages.donations', compact('current_page'));
+        return view('front-end.pages.donations', [
+            'current_page'  => 'donations',
+            'donation'      => Donation::whereNotNull('activated_at')->first(),
+        ]);
     }
 }
