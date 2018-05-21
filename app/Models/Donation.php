@@ -32,10 +32,12 @@ class Donation extends Model
         'location',
         'video_url',
         'end_at',
+        'activated_at',
     ];
 
     protected $dates = [
         'end_at',
+        'activated_at',
         'deleted_at',
     ];
 
