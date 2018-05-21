@@ -8,7 +8,7 @@ class InterchangeController extends Controller
 {
     public function donation($view)
     {
-        $donation = Donation::findOrFail(1);
+        $donation = Donation::whereNotNull('activated_at')->first();
 
         $target     = $donation->target;
         $sum_amount = $donation->donates()->sum('amount');
