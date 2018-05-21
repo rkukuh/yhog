@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\Taggable;
 use App\Traits\Blameable;
 use App\Traits\Imageable;
+use App\Traits\Activeable;
 use App\Traits\HasDeadline;
 use App\Traits\Categorizable;
 
@@ -16,6 +17,7 @@ class Donation extends Model
     use Taggable;
     use Blameable;
     use Imageable;
+    use Activeable;
     use HasDeadline;
     use Categorizable;
 
