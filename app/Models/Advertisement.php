@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Traits\Imageable;
+use App\Traits\Activeable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Advertisement extends Model
 {
     use Imageable;
+    use Activeable;
     use SoftDeletes;
 
     protected $fillable = [
