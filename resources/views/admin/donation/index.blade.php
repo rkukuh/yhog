@@ -25,7 +25,8 @@
                     <th class="text-center">Target</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Deadline</th>
-                    <th style="width: 120px;"></th>
+                    <th class="text-center">Activated</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -64,7 +65,33 @@
                         <td class="text-center">
                             {{ $donation->deadline }}
                         </td>
+                        <td class="text-center">
+                            {{ $donation->activated_at_formatted }}
+                        </td>
                         <td class="text-right">
+                            <form method="post" action="{{ route('admin.donation.update', $donation) }}" 
+                                    style="display: inline;">
+                                    
+                                @csrf
+                                @method('PATCH')
+
+                                @if ($donation->activated_at)
+                                    @component('common.buttons.submit')
+                                        @slot('size', 'sm')
+                                        @slot('color', 'warning')
+                                        @slot('value', 'deactivate')
+                                        @slot('text', 'Deactivate')
+                                    @endcomponent
+                                @else
+                                    @component('common.buttons.submit')
+                                        @slot('size', 'sm')
+                                        @slot('color', 'info')
+                                        @slot('value', 'activate')
+                                        @slot('text', 'Activate')
+                                    @endcomponent
+                                @endif
+                            </form>
+
                             @component('common.datalist.button-edit')
                                 @slot('text', '')
                                 @slot('route', route('admin.donation.edit', $donation))
