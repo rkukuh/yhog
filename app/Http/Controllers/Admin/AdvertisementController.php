@@ -74,20 +74,7 @@ class AdvertisementController extends Controller
      */
     public function update(AdvertisementUpdate $request, Advertisement $advertisement)
     {
-        if ($advertisement->activated_at) {
-            
-            $advertisement->update(['activated_at' => null]);
-        }
-        else {
-
-            // Deactivate all Ad Unit first
-            Advertisement::query()->update(['activated_at' => null]);
-
-            // Activate only *this* Ad Unit
-            $advertisement->update(['activated_at' => Carbon::now()]);
-        }
-
-        return redirect()->back()->with('success-message', 'Ad Unit has been activated.');
+        $advertisement->toggleSingleActivation('Ad Unit');
     }
 
     /**
