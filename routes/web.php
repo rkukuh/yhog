@@ -52,6 +52,9 @@ Route::name('admin.')->group(function () {
     
         /** DONATION **/
 
+        Route::patch('/donation/{donation}/toggle-activation', 'DonationController@toggleActivation')
+             ->name('donation.toggle-activation');
+
         Route::resource('donation', 'DonationController');
         Route::resource('donate', 'DonateController');
     
