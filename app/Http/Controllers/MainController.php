@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Gallery;
-use App\Models\Donation;
 use App\Models\Category;
 use App\Models\Advertisement;
 use GuzzleHttp\Exception\GuzzleException;
@@ -26,12 +25,10 @@ class MainController extends Controller
     public function home()
     {
         $supporting_partners = Partner::get();
-        $latest_donation     = Donation::latest()->first();
 
         return view('front-end.pages.home', [
             'current_page'          => 'home',
             'sponsor'               => $this->sponsor,
-            'latest_donation'       => $donation ?? null,
             'supporting_partners'   => $supporting_partners ?? null,
             'upcoming_events'       => $this->upcoming_events ?? null,
         ]);
