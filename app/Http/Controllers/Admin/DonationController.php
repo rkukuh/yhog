@@ -153,4 +153,15 @@ class DonationController extends Controller
 
         return back()->with('success-message', 'Donation has been removed.');
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Models\Donation  $donation
+     * @return \Illuminate\Http\Response
+     */
+    public function toggleActivation(Donation $donation)
+    {
+        $donation->toggleSingleActivation('Donation');
+    }
 }
