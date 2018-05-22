@@ -43,7 +43,7 @@
                         </td>
                         <td>
                             <h5 style="font-size: 16px;">
-                                <a href="#">
+                                <a href="{{ route('admin.donation.show', $donation) }}">
                                     {{ $donation->title }}
                                 </a>
                             </h5>
