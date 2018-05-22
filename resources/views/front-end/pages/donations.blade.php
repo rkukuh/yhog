@@ -73,8 +73,8 @@
 								<div class="cell xsmall-12 large-6">
 									<div class="input-group">
 										<select name="currency">
-											<option value="idr">IDR</option>
-											<option value="usd">USD</option>
+											<option value="IDR">IDR</option>
+											<option value="USD">USD</option>
 										</select>
 										
 										<input id="donation-amount" type="number" name="amount"
