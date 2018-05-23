@@ -180,7 +180,7 @@ class MainController extends Controller
     
     public function gallery()
     {
-        $latest_gallery = Gallery::latest()->first();
+        $latest_gallery = Gallery::published()->latest()->first();
         
         if (isset($latest_gallery)) {
 
