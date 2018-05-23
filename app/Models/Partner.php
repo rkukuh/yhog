@@ -70,7 +70,7 @@ class Partner extends Model
      */
     public function scopePublished($query)
     {
-        $builder->whereNotNull('published_at');
+        return $query->whereNotNull('published_at');
     }
 
     /**
