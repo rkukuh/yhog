@@ -161,7 +161,7 @@ class MainController extends Controller
     
     public function blog_article($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::published()->findOrFail($id);
         
         if (Post::count() <= 4) {
             $posts = Post::get()->random(Post::count());
