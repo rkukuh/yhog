@@ -201,7 +201,7 @@ class MainController extends Controller
     {
         return view('front-end.pages.gallery-detail', [
             'current_page'  => 'gallery',
-            'gallery'       => Gallery::findOrFail($id),
+            'gallery'       => Gallery::published()->findOrFail($id),
         ]);
     }
     
