@@ -62,6 +62,9 @@ class Partner extends Model
         });
     }
 
+
+    /******************************************* SCOPE *******************************************/
+
     /**
      * Scope a query to only include popular users.
      *
