@@ -21,7 +21,7 @@ class Category extends Model
     protected $dates = ['deleted_at'];
 
 
-    /******************************************* SCOPE *******************************************/
+    /******************************************* BOOT ********************************************/
 
     /**
      * The "booting" method of the model.
@@ -39,6 +39,9 @@ class Category extends Model
         });
     }
 
+
+    /******************************************* SCOPE *******************************************/
+    
     /**
      * Scope a query to only include parent categories
      *
