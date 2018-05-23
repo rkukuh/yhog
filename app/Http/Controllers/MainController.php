@@ -130,7 +130,7 @@ class MainController extends Controller
     
     public function blog()
     {
-        $latest_post = Post::latest()->first();
+        $latest_post = Post::published()->latest()->first();
         
         if (isset($latest_post)) {
 
