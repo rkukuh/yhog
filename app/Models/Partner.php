@@ -37,35 +37,6 @@ class Partner extends Model
     ];
 
 
-    /*************************************** RELATIONSHIP ****************************************/
-
-    /**
-     * Many-to-Many: An event may have zero or many partner.
-     *
-     * This function will retrieve the events of a partner.
-     * See: Event's partners() method for the inverse
-     *
-     * @return mixed
-     */
-    public function events()
-    {
-        return $this->belongsToMany(Event::class);
-    }
-
-    /**
-     * One-to-Many: A partner may have zero or many advertisements.
-     *
-     * This function will retrieve the advertisements of a partner.
-     * See: Advertisement's partner() method for the inverse
-     *
-     * @return mixed
-     */
-    public function advertisements()
-    {
-        return $this->hasMany(Advertisement::class);
-    }
-
-
     /******************************************* SCOPE *******************************************/
 
     /**
@@ -119,5 +90,34 @@ class Partner extends Model
             $filter->where('slug', 'yayasan-partner');
 
         });
+    }
+
+
+    /*************************************** RELATIONSHIP ****************************************/
+
+    /**
+     * Many-to-Many: An event may have zero or many partner.
+     *
+     * This function will retrieve the events of a partner.
+     * See: Event's partners() method for the inverse
+     *
+     * @return mixed
+     */
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
+
+    /**
+     * One-to-Many: A partner may have zero or many advertisements.
+     *
+     * This function will retrieve the advertisements of a partner.
+     * See: Advertisement's partner() method for the inverse
+     *
+     * @return mixed
+     */
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class);
     }
 }
