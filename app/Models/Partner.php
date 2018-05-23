@@ -63,6 +63,17 @@ class Partner extends Model
     }
 
     /**
+     * Scope a query to only include popular users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished($query)
+    {
+        $builder->whereNotNull('published_at');
+    }
+
+    /**
      * Scope a query to only include category of event partner.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
