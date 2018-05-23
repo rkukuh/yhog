@@ -25,7 +25,7 @@ class MainController extends Controller
 
     public function home()
     {
-        $supporting_partners = Partner::published()->get();
+        $supporting_partners = Partner::ofYayasan()->published()->get();
 
         return view('front-end.pages.home', [
             'current_page'          => 'home',
