@@ -33,7 +33,7 @@
 						<form action="{{ route('donate.store') }}" method="post" data-abide novalidate="">
 							@csrf
 
-							<input type="hidden" name="donation_id" value="1">
+							<input type="hidden" name="donation_id" value="{{ $donation->id }}">
 
 							<div class="callout">
 								<p>Your donation has been sent.<br>Please allow time for our staff to get back to you.</p>
