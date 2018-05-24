@@ -103,5 +103,5 @@ Route::get('/gallery/detail/{id}', 'MainController@gallery_detail');
 Route::get('/contact-us', 'MainController@contact');
 Route::get('/donations', 'MainController@donations');
 
-Route::resource('/donate', 'DonateController');
-Route::resource('/participant', 'ParticipantController');
+Route::resource('donate', 'DonateController');
+Route::resource('participant', 'ParticipantController');
