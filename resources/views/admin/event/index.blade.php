@@ -24,7 +24,7 @@
                 <tr>
                     <th></th>
                     <th class="text-center">Event Name</th>
-                    <th class="text-center">Venue</th>
+                    <th class="text-center" style="width: 300px;">Venue</th>
                     <th class="text-center">Price</th>
                     <th class="text-center">Gallery</th>
                     <th class="text-center">Start At</th>
