@@ -82,7 +82,17 @@
                             {{ $event->end_at_formatted }}
                         </td>
                         <td class="text-center">
-                            {{ $event->size_formatted }}
+                            {{ $event->size_formatted }} 
+                            
+                            <br><br>
+
+                            @if ($event->participants->count())
+                                <a href="{{ route('admin.event.show', $event) }}">
+                                    {{ $event->participant }}
+                                </a>
+                            @else
+                                {{ $event->participant }}
+                            @endif
                         </td>
                         <td class="text-right">
                             @component('common.datalist.button-edit')
