@@ -87,7 +87,7 @@
 
                                     <br>
 
-                                    {{ number_format($event->price * $participant->quantity) }} 
+                                    {{ number_format($participant->price * $participant->quantity) }} 
 
                                     <small>IDR</small>
                                 </span>
