@@ -25,7 +25,7 @@
                     <h4 class="list-group-item-heading">Description</h4>
 
                     <p class="list-group-item-text">
-                        {{ $event->description }}
+                        {!! $event->description !!}
                     </p>
                 </a>
                 <a href="#" class="list-group-item">
