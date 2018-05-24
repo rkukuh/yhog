@@ -41,46 +41,48 @@ class DonateController extends Controller
     {
         if ($donate = Donate::create($request->all())) {
 
-            $amount        = 0;
-            $exchange_rate = 1; // Set default to 1, safe for IDR
+            dd($donate->donation);
 
-            // Convert to IDR when the amount is in USD
-            if ($request->currency == 'USD') {
+            // $amount        = 0;
+            // $exchange_rate = 1; // Set default to 1, safe for IDR
+
+            // // Convert to IDR when the amount is in USD
+            // if ($request->currency == 'USD') {
                 
-                $client = new GuzzleHttpClient;
+            //     $client = new GuzzleHttpClient;
 
-                $response = $client->get('http://free.currencyconverterapi.com/api/v5/convert', [
-                    'query' => [
-                        'q' => 'USD_IDR',
-                        'compact' => 'ultra',
-                    ]
-                ])
-                ->getBody()
-                ->getContents();
+            //     $response = $client->get('http://free.currencyconverterapi.com/api/v5/convert', [
+            //         'query' => [
+            //             'q' => 'USD_IDR',
+            //             'compact' => 'ultra',
+            //         ]
+            //     ])
+            //     ->getBody()
+            //     ->getContents();
 
-                $decoded_result = json_decode($response, true);
-                $exchange_rate  = $decoded_result['USD_IDR'];
-            }
+            //     $decoded_result = json_decode($response, true);
+            //     $exchange_rate  = $decoded_result['USD_IDR'];
+            // }
 
-            /** Create invoice using Xendit **/
+            // /** Create invoice using Xendit **/
 
-            $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
+            // $options['secret_api_key'] = env('XENDIT_SECRET_KEY'); 
 
-            $xendit = new XenditPHPClient($options); 
+            // $xendit = new XenditPHPClient($options); 
 
-            $external_id = 'donate#' . $donate->id;
-            $payer_email = $donate->email;
-            $description = 'Donation to ' . $donate->donation->title;
-            $amount      = $exchange_rate * $donate->amount;
+            // $external_id = 'donate#' . $donate->id;
+            // $payer_email = $donate->email;
+            // $description = 'Donation to ' . $donate->donation->title;
+            // $amount      = $exchange_rate * $donate->amount;
 
-            if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
+            // if ($response = $xendit->createInvoice($external_id, $amount, $payer_email, $description)) {
 
-                $donate->update([
-                    'response' => $response
-                ]);
+            //     $donate->update([
+            //         'response' => $response
+            //     ]);
 
-                return redirect($donate->response['invoice_url']);
-            }
+            //     return redirect($donate->response['invoice_url']);
+            // }
 
         }
 
