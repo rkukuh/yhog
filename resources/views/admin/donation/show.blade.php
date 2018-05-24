@@ -37,7 +37,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-7">
             <h4>Receive History</h4>
 
             <form action="{{ route('admin.donate.store') }}" method="post" class="form-inline">
@@ -66,15 +66,23 @@
                 @foreach ($donation->donates()->latest()->get() as $donate)
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-3 text-right">
+                            <div class="col-md-4">
+                                {{ $donate->first_name }} {{ $donate->last_name }}
+                                <br>
+                                <i class="fa fa-envelope"></i>
+                                <a href="mailto:{{ $donate->email }}">
+                                    {{ $donate->email }}
+                                </a>
+                            </div>
+                            <div class="col-md-2 text-right">
                                 {{ $donate->amount_formatted }}
                             </div>
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-2 text-center">
                                 <span class="text-muted">
                                     {{ $donate->created_at_formatted }}
                                 </span>
                             </div>
-                            <div class="col-md-3 text-center">
+                            <div class="col-md-2 text-center">
                                 {{ $donate->invoice_url }}
                             </div>
                             <div class="col-md-2 text-right">
