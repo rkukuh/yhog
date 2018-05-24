@@ -99,7 +99,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('admin.event.show', compact('event'));
     }
 
     /**
