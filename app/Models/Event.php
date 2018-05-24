@@ -177,9 +177,10 @@ class Event extends Model
 
             echo '<div class="badge">no limit</div>';
         }
+    }
 
-        echo '<br><br>';
-
+    public function getParticipantAttribute()
+    {
         echo number_format($this->participants()->count()) . 
              ' <small>registered</small> ';
     }
