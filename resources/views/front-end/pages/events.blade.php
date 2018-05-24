@@ -28,7 +28,7 @@
 						<p>
 							<strong>Date:</strong> {{ $latest_event->start_at->format('d-M-Y h:i') }}&nbsp;&nbsp;
 							<strong>Location:</strong> {{ $latest_event->location }}&nbsp;&nbsp;
-							<strong>Cost:</strong> {{ number_format($latest_event->price) }} IDR
+							<strong>Cost:</strong> {{ number_format($latest_event->normal_or_early_bird_price) }} IDR
 							<br>
 							<strong>Details:</strong> 
 
@@ -84,7 +84,7 @@
 									<br>
 									<strong>Location:</strong> {{ $event->location }}
 									<br>
-									<strong>Cost:</strong> {{ number_format($event->price) }} IDR
+									<strong>Cost:</strong> {{ number_format($event->normal_or_early_bird_price) }} IDR
 									<br>
 									<strong>Details:</strong> 
 									
