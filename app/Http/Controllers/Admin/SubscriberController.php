@@ -18,8 +18,8 @@ class SubscriberController extends Controller
     public function index()
     {
         return view('admin.subscriber.index', [
-            'donator'       => Donate::latest()->get(),
-            'contact'       => Contact::latest()->get(),
+            'donators'      => Donate::latest()->get(),
+            'contacts'      => Contact::latest()->get(),
             'participants'  => Participant::latest()->get(),
         ]);
     }
