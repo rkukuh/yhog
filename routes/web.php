@@ -82,11 +82,8 @@ Route::name('admin.')->group(function () {
 
         /** SUBSCRIBER **/
 
-        Route::name('subscriber.index')->get('/subscriber', function () {
-            return view('admin.subscriber.index');
-        });
-
         Route::resource('contact', 'ContactController');
+        Route::resource('subscriber', 'SubscriberController');
     
     });
 
