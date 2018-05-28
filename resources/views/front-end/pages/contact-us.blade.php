@@ -29,7 +29,9 @@
 				<div class="cell xsmall-12 large-6">
 					<h3>Inquiry Form</h3>
 					
-					<form data-abide novalidate="">
+					<form action="{{ route('contact.store') }}" method="post" data-abide novalidate="">
+						@csrf
+
 						<div class="callout">
 							<p>Your inquiry has been sent.<br>Please allow time for our staff to get back to you.</p>
 							
@@ -38,17 +40,17 @@
 						
 						<label>
 							Name <small>(required)</small>
-							<input type="text" name="name" required>
+							<input type="text" name="name" value="{{ old('name') ?: '' }}" required>
 						</label>
 						
 						<label>
 							Email <small>(required)</small>
-							<input type="email" name="email" required>
+							<input type="email" name="email" value="{{ old('email') ?: '' }}" required>
 						</label>
 						
 						<label>
 							Message <small>(required)</small>
-							<textarea name="message" rows="8" required></textarea>
+							<textarea name="message" rows="8" required>{{ old('message') ?: '' }}</textarea>
 						</label>
 						
 						<button class="cta"><i class="fas fa-spinner fa-spin"></i><span>Submit</span></button>
@@ -137,43 +139,43 @@
 			$('.callout').removeClass('show');
 		});
 		
-		$('form').bind('submit', function(e) {
-			e.preventDefault();
+		// $('form').bind('submit', function(e) {
+		// 	e.preventDefault();
 			
-		}).on('invalid.zf.abide', function(ev, elm) {
-			console.log(ev);
+		// }).on('invalid.zf.abide', function(ev, elm) {
+		// 	console.log(ev);
 				
-		}).on('formvalid.zf.abide', function(ev, elm) {
-			thisForm = $(ev.target);
-			formData = thisForm.serialize();
-			console.log(formData);
+		// }).on('formvalid.zf.abide', function(ev, elm) {
+		// 	thisForm = $(ev.target);
+		// 	formData = thisForm.serialize();
+		// 	console.log(formData);
 			
-			thisForm.addClass('sending');
-			thisForm.find('input').attr('disabled', true);
-			thisForm.find('textarea').attr('disabled', true);
-			thisForm.find('button').attr('disabled', true);
-			thisForm.find('span').text('Sending');
+		// 	thisForm.addClass('sending');
+		// 	thisForm.find('input').attr('disabled', true);
+		// 	thisForm.find('textarea').attr('disabled', true);
+		// 	thisForm.find('button').attr('disabled', true);
+		// 	thisForm.find('span').text('Sending');
 			
-			$.ajax({
-				type: 'POST',
-				url: '', //
-				data: formData,
-				success: function(response){
-					response=JSON.parse(response);
-					console.log(response);
+		// 	$.ajax({
+		// 		type: 'POST',
+		// 		url: '', //
+		// 		data: formData,
+		// 		success: function(response){
+		// 			response=JSON.parse(response);
+		// 			console.log(response);
 					
-					if (response) {
-						if (response.success == 1) {
-							thisForm.removeClass('sending');
-							thisForm.find('input').attr('disabled', false).val('');
-							thisForm.find('textarea').attr('disabled', false).val('');
-							thisForm.find('button').attr('disabled', false);
-							thisForm.find('span').text('Submit');
-							thisForm.find('.callout').css('display', "block");
-						}
-					}
-				}
-			});
-		});
+		// 			if (response) {
+		// 				if (response.success == 1) {
+		// 					thisForm.removeClass('sending');
+		// 					thisForm.find('input').attr('disabled', false).val('');
+		// 					thisForm.find('textarea').attr('disabled', false).val('');
+		// 					thisForm.find('button').attr('disabled', false);
+		// 					thisForm.find('span').text('Submit');
+		// 					thisForm.find('.callout').css('display', "block");
+		// 				}
+		// 			}
+		// 		}
+		// 	});
+		// });
 	</script>
 @endpush
