@@ -5,7 +5,7 @@
 @section('content-header', 'Subscriber List')
 
 @section('content-body')
-    <div>
+    <div class="nav-tabs-custom">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
