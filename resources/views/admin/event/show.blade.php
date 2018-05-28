@@ -59,49 +59,55 @@
         <div class="col-md-4">
             <h4>Participant</h4>
 
-            <ul class="list-group">
-                @foreach ($event->participants()->latest()->get() as $participant)
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-6">
-                                {{ $participant->first_name }} {{ $participant->last_name }} 
-                                
-                                <br><br>
-                                
-                                <i class="fa fa-phone"></i> {{ $participant->phone }} 
-                                
-                                <br>
-                                
-                                <i class="fa fa-envelope"></i> 
-                                <a href="mailto: {{ $participant->email }}">
-                                    {{ $participant->email }}
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-right">
-                                <span class="text-muted">
-                                    {{ $participant->quantity }} 
-
-                                    <small>
-                                        {{ str_plural('ticket', $participant->quantity) }}
-                                    </small> 
-
+            @if ($event->participants->isEmpty())
+                @component('common.datalist.no-data')
+                    @slot('text', 'No participant yet.')
+                @endcomponent
+            @else
+                <ul class="list-group">
+                    @foreach ($event->participants()->latest()->get() as $participant)
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ $participant->first_name }} {{ $participant->last_name }} 
+                                    
+                                    <br><br>
+                                    
+                                    <i class="fa fa-phone"></i> {{ $participant->phone }} 
+                                    
                                     <br>
+                                    
+                                    <i class="fa fa-envelope"></i> 
+                                    <a href="mailto: {{ $participant->email }}">
+                                        {{ $participant->email }}
+                                    </a>
+                                </div>
+                                <div class="col-md-3 text-right">
+                                    <span class="text-muted">
+                                        {{ $participant->quantity }} 
 
-                                    {{ number_format($participant->price * $participant->quantity) }} 
+                                        <small>
+                                            {{ str_plural('ticket', $participant->quantity) }}
+                                        </small> 
 
-                                    <small>IDR</small>
-                                </span>
+                                        <br>
+
+                                        {{ number_format($participant->price * $participant->quantity) }} 
+
+                                        <small>IDR</small>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 text-right">
+                                    @component('common.datalist.button-remove')
+                                        @slot('text', '')
+                                        @slot('route', route('participant.destroy', $participant))
+                                    @endcomponent
+                                </div>
                             </div>
-                            <div class="col-md-3 text-right">
-                                @component('common.datalist.button-remove')
-                                    @slot('text', '')
-                                    @slot('route', route('participant.destroy', $participant))
-                                @endcomponent
-                            </div>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
 @endsection
