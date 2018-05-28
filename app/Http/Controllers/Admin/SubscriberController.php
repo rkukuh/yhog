@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Participant;
+use App\Models\Donate;
+use App\Models\Contact;
 
 class SubscriberController extends Controller
 {
@@ -15,9 +18,9 @@ class SubscriberController extends Controller
     public function index()
     {
         return view('admin.subscriber.index', [
-            'participants' => null,
-            'donator' => null,
-            'contact' => null,
+            'donator'       => Donate::latest()->get(),
+            'contact'       => Contact::latest()->get(),
+            'participants'  => Participant::latest()->get(),
         ]);
     }
 
