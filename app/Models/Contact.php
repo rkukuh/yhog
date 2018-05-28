@@ -9,5 +9,11 @@ class Contact extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'message',
+    ];
+
     protected $dates = ['deleted_at'];
 }
