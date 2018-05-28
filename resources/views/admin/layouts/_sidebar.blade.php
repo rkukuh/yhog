@@ -93,6 +93,12 @@
                     <i class="fa fa-bullseye"></i> Advertisement
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route('admin.subscriber.index') }}">
+                    <i class="fa fa-users"></i> Subscribers
+                </a>
+            </li>
             
             <li class="treeview">
                 <a href="#setting"><i class="fa fa-cog"></i> <span>Setting</span>
