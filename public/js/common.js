@@ -117,6 +117,10 @@ $(function() {
         $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/advertisement"]').parent().addClass('active');
     }
 
+    if (full_url.indexOf('admin/subscriber') > -1) {
+        $('ul.sidebar-menu > li > a[href="' + base_url + '/admin/subscriber"]').parent().addClass('active');
+    }
+
 
     if (full_url.indexOf('admin/tag') > -1) {
         $('ul.sidebar-menu > li.treeview > a[href="#setting"]').parent().addClass('active');
