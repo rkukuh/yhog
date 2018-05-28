@@ -13,7 +13,7 @@ class ContactStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
