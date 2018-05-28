@@ -104,4 +104,5 @@ Route::get('/contact-us', 'MainController@contact');
 Route::get('/donations', 'MainController@donations');
 
 Route::resource('donate', 'DonateController');
+Route::resource('contact', 'ContactController');
 Route::resource('participant', 'ParticipantController');

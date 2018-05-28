@@ -46,5 +46,9 @@ class ExampleDataSeeder extends Seeder
         /** ADVERTISEMENT **/
 
         $this->call(Advertisements::class);
+
+        /** CONTACT **/
+
+        $this->call(Contacts::class);
     }
 }

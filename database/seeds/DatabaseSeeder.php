@@ -47,5 +47,9 @@ class DatabaseSeeder extends Seeder
         /** ADVERTISEMENT **/
 
         $this->call(AdvertisementsTableSeeder::class);
+        
+        /** CONTACT **/
+
+        $this->call(ContactsTableSeeder::class);
     }
 }
