@@ -79,6 +79,10 @@ Route::name('admin.')->group(function () {
         Route::resource('tag', 'TagController');
         Route::resource('user', 'UserController');
         Route::resource('image', 'ImageController');
+
+        /** SUBSCRIBER **/
+
+        Route::resource('contact', 'ContactController');
     
     });
 
