@@ -28,13 +28,13 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="participant">
-                Event Participant...
+                {{ $participants }}
             </div>
             <div role="tabpanel" class="tab-pane" id="donator">
-                Donator...
+                {{ $donators }}
             </div>
             <div role="tabpanel" class="tab-pane" id="contact">
-                Contact...
+                {{ $contacts }}
             </div>
         </div>
     </div>
