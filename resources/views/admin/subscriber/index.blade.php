@@ -9,17 +9,17 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a href="#participant" aria-controls="Event Participant" role="tab" data-toggle="tab">
+                <a href="#participant" aria-controls="participant" role="tab" data-toggle="tab">
                     Event Participant
                 </a>
             </li>
             <li role="presentation">
-                <a href="#donator" aria-controls="Donator" role="tab" data-toggle="tab">
+                <a href="#donator" aria-controls="donator" role="tab" data-toggle="tab">
                     Donator
                 </a>
             </li>
             <li role="presentation">
-                <a href="#contact" aria-controls="Contact" role="tab" data-toggle="tab">
+                <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">
                     Contact
                 </a>
             </li>
