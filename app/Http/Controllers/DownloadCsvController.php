@@ -14,12 +14,12 @@ class DownloadCsvController extends Controller
         $csvExporter = new \Laracsv\Export();
         
         $csvExporter->build(
-                        Participant::get(), 
+                        Participant::with('event')->get(), 
                         [
                             'first_name', 
                             'last_name',
                             'email',
-                            'phone'
+                            'phone',
                         ])
                         ->download($filename);
     }
