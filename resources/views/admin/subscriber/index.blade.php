@@ -50,7 +50,9 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h4 class="list-group-item-heading">
-                                Event Participant
+                                Event Participant <br>
+
+                                <small>first name, last name, email, phone</small>
                             </h4>
                         </div>
                         <div class="col-md-4 text-right">
