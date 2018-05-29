@@ -82,11 +82,11 @@
                                         {{ $participant->email }}
                                     </a>
                                 </div>
-                                <div class="col-md-3 text-right">
-                                    <span class="text-muted">
+                                <div class="col-md-4 text-right">
+                                    <span>
                                         {{ $participant->quantity }} 
 
-                                        <small>
+                                        <small class="text-muted">
                                             {{ str_plural('ticket', $participant->quantity) }}
                                         </small> 
 
@@ -94,10 +94,10 @@
 
                                         {{ number_format($participant->price * $participant->quantity) }} 
 
-                                        <small>IDR</small>
+                                        <small class="text-muted">IDR</small>
                                     </span>
                                 </div>
-                                <div class="col-md-3 text-right">
+                                <div class="col-md-2 text-right">
                                     @component('common.datalist.button-remove')
                                         @slot('text', '')
                                         @slot('route', route('participant.destroy', $participant))
