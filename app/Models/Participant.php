@@ -45,4 +45,12 @@ class Participant extends Model
     {
         return $this->belongsTo(Event::class);
     }
+
+
+    /***************************************** ACCESSOR ******************************************/
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
