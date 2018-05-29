@@ -10,7 +10,7 @@ $factory->define(Contact::class, function (Faker $faker) {
     return [
         'name' => $name,
         'email' => str_slug($name) . '@yhog.example',
-        'message' => $faker->sentence,
+        'message' => $faker->paragraph,
     ];
     
 });
