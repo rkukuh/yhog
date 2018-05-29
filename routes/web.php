@@ -111,3 +111,6 @@ Route::get('/donations', 'MainController@donations');
 Route::resource('donate', 'DonateController');
 Route::resource('contact', 'ContactController');
 Route::resource('participant', 'ParticipantController');
+
+Route::name('csv.participant')
+     ->get('download/csv/participant', 'DownloadCsvController@participant');
