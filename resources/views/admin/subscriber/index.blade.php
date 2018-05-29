@@ -28,13 +28,13 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="participant">
-                {{ $participants }}
+                @include('admin.subscriber.datalist.participants')
             </div>
             <div role="tabpanel" class="tab-pane" id="donator">
-                {{ $donators }}
+                @include('admin.subscriber.datalist.donators')
             </div>
             <div role="tabpanel" class="tab-pane" id="contact">
-                {{ $contacts }}
+                @include('admin.subscriber.datalist.contacts')
             </div>
         </div>
     </div>
