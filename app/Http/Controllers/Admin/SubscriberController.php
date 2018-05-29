@@ -20,7 +20,7 @@ class SubscriberController extends Controller
         return view('admin.subscriber.index', [
             'donators'      => Donate::latest()->get(),
             'contacts'      => Contact::latest()->get(),
-            'participants'  => Participant::latest()->get(),
+            'participants'  => Participant::latest()->paginate(env('PAGINATE', 10)),
         ]);
     }
 
