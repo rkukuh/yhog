@@ -66,11 +66,13 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h4 class="list-group-item-heading">
-                                Donator
+                                Donator <br>
+
+                                <small>first name, last name, email</small>
                             </h4>
                         </div>
                         <div class="col-md-4 text-right">
-                            <a href="#" class="btn btn-info btn-sm">
+                            <a href="{{ route('csv.donator') }}" class="btn btn-info btn-sm">
                                 Download CSV
                             </a>
                         </div>
