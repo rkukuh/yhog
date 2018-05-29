@@ -117,3 +117,6 @@ Route::name('csv.participant')
 
 Route::name('csv.donator')
      ->get('download/csv/donator', 'DownloadCsvController@donator');
+
+Route::name('csv.contact')
+     ->get('download/csv/contact', 'DownloadCsvController@contact');
