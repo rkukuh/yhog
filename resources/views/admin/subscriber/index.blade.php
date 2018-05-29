@@ -82,11 +82,13 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h4 class="list-group-item-heading">
-                                Contact
+                                Contact <br>
+
+                                <small>name, email</small>
                             </h4>
                         </div>
                         <div class="col-md-4 text-right">
-                            <a href="#" class="btn btn-info btn-sm">
+                            <a href="{{ route('csv.contact') }}" class="btn btn-info btn-sm">
                                 Download CSV
                             </a>
                         </div>
