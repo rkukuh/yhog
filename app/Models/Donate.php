@@ -48,6 +48,11 @@ class Donate extends Model
 
     /***************************************** ACCESSOR ******************************************/
 
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
     public function getAmountFormattedAttribute()
     {
         echo number_format($this->amount) . 
