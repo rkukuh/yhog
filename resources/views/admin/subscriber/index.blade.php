@@ -54,7 +54,7 @@
                             </h4>
                         </div>
                         <div class="col-md-4 text-right">
-                            <a href="#" class="btn btn-info btn-sm">
+                            <a href="{{ route('csv.participant') }}" class="btn btn-info btn-sm">
                                 Download CSV
                             </a>
                         </div>
