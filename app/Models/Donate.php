@@ -42,7 +42,8 @@ class Donate extends Model
      */
     public function donation()
     {
-        return $this->belongsTo(Donation::class);
+        return $this->belongsTo(Donation::class)
+                    ->withTrashed();
     }
 
 
