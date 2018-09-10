@@ -65,7 +65,7 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Galleriestore  $request
+     * @param  \GallerieStore  $request
      * @return \Illuminate\Http\Response
      */
     public function store(GalleryStore $request)
